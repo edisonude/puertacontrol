@@ -11,6 +11,14 @@ Begin VB.Form frmTest
    ScaleHeight     =   7695
    ScaleWidth      =   13695
    StartUpPosition =   3  'Windows Default
+   Begin VB.CommandButton Command3 
+      Caption         =   "Command3"
+      Height          =   1575
+      Left            =   7320
+      TabIndex        =   13
+      Top             =   840
+      Width           =   2655
+   End
    Begin VB.Frame Frame1 
       Caption         =   "Frame1"
       Height          =   2775
@@ -185,7 +193,50 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-Private Sub Form_Load()
-ModSkin.applyDefaultSkin Me, Me.skinObject
+Dim m_Left As Single
+Dim m_Top As Single
+Dim m_Width As Single
+Dim m_Height As Single
+
+Dim Path_Archivo_Ini As String
+
+Private Sub Command3_Click()
+Dim rs As New ADODB.Recordset
+SQL = "select description from rol"
+rs.Open SQL, mysqlCon, adOpenDynamic, adLockBatchOptimistic
+MsgBox rs(0)
 End Sub
 
+Private Sub Form_Load()
+
+ModSkin.applyDefaultSkin Me, Me.skinObject
+    
+    'Path del fichero Ini
+    Path_Archivo_Ini = App.Path & "\config.ini"
+    
+    ' Lee las Key y  Les envia el valor por defecto por si no existe
+    m_Left = readPropertyFile(Path_Archivo_Ini, "Left", 0)
+    m_Top = readPropertyFile(Path_Archivo_Ini, "Top", 0)
+    m_Width = readPropertyFile(Path_Archivo_Ini, "Width", 5000)
+    m_Height = readPropertyFile(Path_Archivo_Ini, "Height", 5000)
+    
+    MsgBox readPropertyFile(Path_Archivo_Ini, "user", "nohay")
+    
+    'Posiciona el formulario con los valores del archivo Ini
+    Move m_Left, m_Top, m_Width, m_Height
+    
+End Sub
+
+Private Sub Form_Unload(Cancel As Integer)
+    
+    'Escribe en el archivo Ini
+    
+    'Posición del Form
+    Call savePropertyFile(Path_Archivo_Ini, "Left", Me.Left)
+    Call savePropertyFile(Path_Archivo_Ini, "Top", Me.Top)
+    
+    'Tamaño del formulario
+    Call savePropertyFile(Path_Archivo_Ini, "Width", Me.Width)
+    Call savePropertyFile(Path_Archivo_Ini, "Height", Me.Height)
+    
+End Sub
