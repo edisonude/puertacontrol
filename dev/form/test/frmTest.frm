@@ -201,9 +201,13 @@ Dim m_Height As Single
 Dim Path_Archivo_Ini As String
 
 Private Sub Command3_Click()
+
+Dim con As ADODB.Connection
+con = ModConexion.getNewConection
+
 Dim rs As New ADODB.Recordset
 SQL = "select description from rol"
-rs.Open SQL, mysqlCon, adOpenDynamic, adLockBatchOptimistic
+rs.Open SQL, con, adOpenDynamic, adLockBatchOptimistic
 MsgBox rs(0)
 End Sub
 

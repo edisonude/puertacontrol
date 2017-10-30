@@ -10,11 +10,42 @@ Public keyBD As String
 Dim fileConfigPath As String
 
 'Conexion ADOB
-Public mysqlCon As New ADODB.Connection
+'Public mysqlCon As New ADODB.Connection
 'Public properties As New CProperty
 
 Sub Main()
 
+
+''Se lee la configuracion de conexion a la base de datos
+'fileConfigPath = App.Path & "\config.ini"
+'
+'Dim user As String
+'Dim pass As String
+'Dim server As String
+'Dim bd As String
+'user = ModFiles.readPropertyFile(fileConfigPath, "user", "")
+'pass = ModFiles.readPropertyFile(fileConfigPath, "pass", "")
+'server = ModFiles.readPropertyFile(fileConfigPath, "server", "localhost")
+'bd = ModFiles.readPropertyFile(fileConfigPath, "bd", "puertacontrol")
+
+''CONEXION CON ADOB
+'With mysqlCon
+'    .ConnectionString = "DRIVER={MySQL ODBC 3.51 Driver};" _
+'                        & "SERVER=" & server & ";" _
+'                        & "DATABASE=" & bd & ";" _
+'                        & "User=" & user & ";" _
+'                        & "Password=" & pass & ";" _
+'                        & "PORT=3306;" _
+'                        & "OPTION=3;"
+'    .CursorLocation = adUseClient
+'    .Open
+'End With
+
+frmMenu.Show
+'frmTest.Show
+End Sub
+
+Public Function getNewConection() As ADODB.Connection
 'Se lee la configuracion de conexion a la base de datos
 fileConfigPath = App.Path & "\config.ini"
 
@@ -27,8 +58,9 @@ pass = ModFiles.readPropertyFile(fileConfigPath, "pass", "")
 server = ModFiles.readPropertyFile(fileConfigPath, "server", "localhost")
 bd = ModFiles.readPropertyFile(fileConfigPath, "bd", "puertacontrol")
 
-'CONEXION CON ADOB
-With mysqlCon
+Dim newMysqlCon As New ADODB.Connection
+
+With newMysqlCon
     .ConnectionString = "DRIVER={MySQL ODBC 3.51 Driver};" _
                         & "SERVER=" & server & ";" _
                         & "DATABASE=" & bd & ";" _
@@ -40,7 +72,7 @@ With mysqlCon
     .Open
 End With
 
-frmTest.Show
-End Sub
+Set getNewConection = newMysqlCon
+End Function
 
 
