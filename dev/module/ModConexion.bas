@@ -6,6 +6,8 @@ Public SQL As String
 Public pathBD As String
 Public keyBD As String
 
+Public Const MAX_NO_ROOMS = 27
+
 'Almacena la ruta del archivo de configuraciones
 Dim fileConfigPath As String
 

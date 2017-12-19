@@ -3,10 +3,6 @@ Option Explicit
 
 Const APPLICATION As String = "MiPrograma"
 
-
-
-
-
 'Función api que recupera un valor-dato de un archivo Ini
 Private Declare Function GetPrivateProfileString Lib "kernel32" Alias "GetPrivateProfileStringA" ( _
     ByVal lpApplicationName As String, _
@@ -22,7 +18,6 @@ Private Declare Function WritePrivateProfileString Lib "kernel32" Alias "WritePr
     ByVal lpKeyName As String, _
     ByVal lpString As String, _
     ByVal lpFileName As String) As Long
-
 
 'Lee un dato _
 -----------------------------
@@ -56,8 +51,3 @@ Public Function savePropertyFile(Path_INI As String, Key As String, Valor As Var
                                          Path_INI
 
 End Function
-
-
-
-
-

@@ -11,19 +11,142 @@ Begin VB.Form frmMenu
    ScaleWidth      =   10755
    StartUpPosition =   3  'Windows Default
    WindowState     =   2  'Maximized
+   Begin VB.Frame Frame1 
+      Caption         =   "Resumen"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   12
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   3135
+      Left            =   120
+      TabIndex        =   1
+      Top             =   2040
+      Width           =   3135
+      Begin VB.Label label 
+         Alignment       =   2  'Center
+         Caption         =   "Próxima disponibilidad"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   12
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Index           =   2
+         Left            =   240
+         TabIndex        =   7
+         Top             =   2160
+         Width           =   2775
+      End
+      Begin VB.Label tNextAvailable 
+         Alignment       =   2  'Center
+         Caption         =   "Tipo de Habitación"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   15.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H009F4320&
+         Height          =   375
+         Left            =   240
+         TabIndex        =   6
+         Top             =   2520
+         Width           =   2775
+      End
+      Begin VB.Label label 
+         Alignment       =   2  'Center
+         Caption         =   "Habitaciones disponibles"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   12
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Index           =   0
+         Left            =   240
+         TabIndex        =   5
+         Top             =   1320
+         Width           =   2775
+      End
+      Begin VB.Label tRoomsFree 
+         Alignment       =   2  'Center
+         Caption         =   "Tipo de Habitación"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   15.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H009F4320&
+         Height          =   375
+         Left            =   240
+         TabIndex        =   4
+         Top             =   1680
+         Width           =   2775
+      End
+      Begin VB.Label label 
+         Alignment       =   2  'Center
+         Caption         =   "Habitaciones en servicio"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   12
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Index           =   1
+         Left            =   240
+         TabIndex        =   3
+         Top             =   480
+         Width           =   2775
+      End
+      Begin VB.Label tRoomsInService 
+         Alignment       =   2  'Center
+         Caption         =   "Tipo de Habitación"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   15.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H009F4320&
+         Height          =   375
+         Left            =   240
+         TabIndex        =   2
+         Top             =   840
+         Width           =   2775
+      End
+   End
    Begin VB.Timer Timer1 
       Enabled         =   0   'False
       Interval        =   1
-      Left            =   3240
-      Top             =   4440
-   End
-   Begin VB.CommandButton Command1 
-      Caption         =   "Command1"
-      Height          =   1215
-      Left            =   4920
-      TabIndex        =   1
-      Top             =   2400
-      Width           =   2295
+      Left            =   2400
+      Top             =   -120
    End
    Begin VB.Label lReferencia 
       BackColor       =   &H00404040&
@@ -32,6 +155,7 @@ Begin VB.Form frmMenu
       Left            =   4440
       TabIndex        =   0
       Top             =   1320
+      Visible         =   0   'False
       Width           =   615
    End
    Begin VB.Line Line1 
@@ -83,12 +207,17 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-Private Sub Command1_Click()
-reloadSkin
-End Sub
+'Conexión activa de BD  para asignar un servicio
+Dim conBd As ADODB.Connection
+Dim rec As New ADODB.Recordset
+
+
 
 Private Sub Form_Load()
 ModSkin.applyDefaultSkin Me, Me.skinObject
+Call loadBd
+Call openManager
+Call loadResumen
 End Sub
 
 Private Sub Image2_Click()
@@ -107,4 +236,42 @@ End Function
 Private Sub Timer1_Timer()
 ModSkin.applyDefaultSkin Me, Me.skinObject
 Timer1.Enabled = False
+End Sub
+
+Private Sub openManager()
+frmManagerRoom.Left = Me.lReferencia.Left - 1000
+frmManagerRoom.Top = Me.lReferencia.Top - 500
+Set frmManagerRoom.parent = Me
+
+frmManagerRoom.Show , Me
+End Sub
+
+Private Function loadBd()
+'Se solicita una conexion a la bd
+Set conBd = ModConexion.getNewConection
+rec.CursorLocation = adUseClient
+End Function
+
+Private Sub loadResumen()
+Call loadNextAvailable
+Call loadNumbersAvailable
+End Sub
+
+Private Sub loadNextAvailable()
+rec.Open "SELECT * from service where status='ACT' order by datetime_end_clean asc limit 1", conBd, adOpenStatic, adLockOptimistic
+If (rec.RecordCount >= 1) Then
+    Me.tNextAvailable = ModFormater.getHourAndMinuteFromDate(rec("datetime_end_clean"))
+Else
+    Me.tNextAvailable = "No aplica"
+End If
+rec.Close
+End Sub
+
+Private Sub loadNumbersAvailable()
+rec.Open "select count(id) as count from service where status='ACT';", conBd, adOpenStatic, adLockOptimistic
+If (rec.RecordCount >= 1) Then
+    Me.tRoomsInService = rec("count")
+    Me.tRoomsFree = MAX_NO_ROOMS - Val(tRoomsInService)
+End If
+rec.Close
 End Sub

@@ -1,0 +1,362 @@
+VERSION 5.00
+Object = "{BD0C1912-66C3-49CC-8B12-7B347BF6C846}#13.2#0"; "CODEJO~1.OCX"
+Begin VB.Form frmAsignServiceRoom 
+   BorderStyle     =   1  'Fixed Single
+   Caption         =   "Asignar servicio para habitación"
+   ClientHeight    =   5025
+   ClientLeft      =   45
+   ClientTop       =   390
+   ClientWidth     =   11055
+   LinkTopic       =   "Form1"
+   MaxButton       =   0   'False
+   MinButton       =   0   'False
+   ScaleHeight     =   5025
+   ScaleWidth      =   11055
+   StartUpPosition =   2  'CenterScreen
+   Begin VB.Frame Frame2 
+      Caption         =   "Paquetes disponibles"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   11.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   1095
+      Left            =   240
+      TabIndex        =   9
+      Top             =   2760
+      Width           =   5535
+      Begin VB.ComboBox cmbTypePackage 
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   12
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   405
+         Left            =   2280
+         TabIndex        =   10
+         Top             =   360
+         Width           =   3015
+      End
+      Begin VB.Label Label2 
+         Caption         =   "Paquete"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   12
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Left            =   240
+         TabIndex        =   11
+         Top             =   360
+         Width           =   1935
+      End
+   End
+   Begin VB.PictureBox Picture1 
+      Height          =   4215
+      Left            =   5880
+      ScaleHeight     =   4155
+      ScaleWidth      =   4755
+      TabIndex        =   6
+      Top             =   360
+      Width           =   4815
+      Begin VB.Image Image1 
+         Height          =   4170
+         Left            =   0
+         Picture         =   "frmAsignServiceRoom.frx":0000
+         Stretch         =   -1  'True
+         Top             =   0
+         Width           =   4800
+      End
+   End
+   Begin VB.CommandButton cmdAsignService 
+      Caption         =   "Asignar servicio"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   12
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   495
+      Left            =   1560
+      TabIndex        =   3
+      Top             =   4080
+      Width           =   3375
+   End
+   Begin VB.Frame Frame1 
+      Caption         =   "Información de la habitación"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   11.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   2415
+      Left            =   240
+      TabIndex        =   0
+      Top             =   240
+      Width           =   5535
+      Begin VB.Label tIdRoom 
+         BackColor       =   &H000000FF&
+         Height          =   255
+         Left            =   4920
+         TabIndex        =   12
+         Top             =   240
+         Visible         =   0   'False
+         Width           =   375
+      End
+      Begin VB.Label tTypeRoom 
+         Caption         =   "Tipo de Habitación"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   12
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Left            =   2280
+         TabIndex        =   8
+         Top             =   1680
+         Width           =   3015
+      End
+      Begin VB.Label label 
+         Caption         =   "Tipo de habitación"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   12
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Index           =   2
+         Left            =   240
+         TabIndex        =   7
+         Top             =   1680
+         Width           =   1935
+      End
+      Begin VB.Label tFloor 
+         Caption         =   "Tipo de Habitación"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   12
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Left            =   2280
+         TabIndex        =   5
+         Top             =   1080
+         Width           =   3015
+      End
+      Begin VB.Label label 
+         Caption         =   "Piso"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   12
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Index           =   0
+         Left            =   240
+         TabIndex        =   4
+         Top             =   1080
+         Width           =   1935
+      End
+      Begin VB.Label tNoRoom 
+         Caption         =   "Tipo de Habitación"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   12
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Left            =   2280
+         TabIndex        =   2
+         Top             =   480
+         Width           =   3015
+      End
+      Begin VB.Label label 
+         Caption         =   "Número habitación"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   12
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Index           =   1
+         Left            =   240
+         TabIndex        =   1
+         Top             =   480
+         Width           =   1935
+      End
+   End
+   Begin XtremeSkinFramework.SkinFramework skinObject 
+      Left            =   0
+      Top             =   0
+      _Version        =   851970
+      _ExtentX        =   635
+      _ExtentY        =   635
+      _StockProps     =   0
+   End
+End
+Attribute VB_Name = "frmAsignServiceRoom"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+'Conexión activa de BD  para asignar un servicio
+Dim conBd As ADODB.Connection
+Dim rec As New ADODB.Recordset
+
+'Informacion del paquete seleccionado
+Dim idPackage As Integer
+Dim timeService As Integer
+Dim timeClean As Integer
+Dim dateTimeStartService As Date
+Dim dateTimeEndService As Date
+Dim dateTimeStartClean As Date
+Dim dateTimeEndClean As Date
+Dim dateTimeStartServiceFormated As String
+Dim dateTimeEndServiceFormated As String
+Dim dateTimeStartCleanFormated As String
+Dim dateTimeEndCleanFormated As String
+
+'Administrador que abrio la ventana
+Public manager As frmManagerRoom
+
+
+Private Sub Label3_Click()
+
+End Sub
+
+Private Sub cmbTypePackage_LostFocus()
+rec.Open "SELECT * from package where description='" & Me.cmbTypePackage.Text & "'", conBd, adOpenStatic, adLockOptimistic
+Do Until rec.EOF
+    idPackage = rec("id")
+    timeService = rec("time_service")
+    timeClean = rec("time_clean")
+    rec.MoveNext
+Loop
+rec.Close
+End Sub
+
+Private Sub cmdAsignService_Click()
+If (Me.cmbTypePackage = "") Then
+    MsgBox "Debe seleccionar el tipo de paquete con el que quiere realizar el servicio", vbCritical, "Error"
+    Exit Sub
+End If
+
+dateTimeStartService = Now()
+dateTimeEndService = DateAdd("n", timeService, dateTimeStartService)
+dateTimeStartClean = DateAdd("n", 1, dateTimeEndService)
+dateTimeEndClean = DateAdd("n", timeClean, dateTimeStartClean)
+
+dateTimeStartServiceFormated = Format(dateTimeStartService, "yyyy-MM-dd HH:mm:ss")
+dateTimeEndServiceFormated = Format(dateTimeEndService, "yyyy-MM-dd HH:mm:ss")
+dateTimeStartCleanFormated = Format(dateTimeStartClean, "yyyy-MM-dd HH:mm:ss")
+dateTimeEndCleanFormated = Format(dateTimeEndClean, "yyyy-MM-dd HH:mm:ss")
+
+Dim con As ADODB.Connection
+Set con = ModConexion.getNewConection
+
+SQL = "INSERT INTO service " & _
+    "(id_user, id_room, id_package, time_service, time_clean, datetime_start_service, datetime_end_service, datetime_start_clean, datetime_end_clean,status) VALUES " & _
+    "(1," & Me.tIdRoom & "," & idPackage & "," & timeService & "," & timeClean & _
+    ",'" & dateTimeStartServiceFormated & "','" & dateTimeEndServiceFormated & _
+    "','" & dateTimeStartCleanFormated & "','" & dateTimeEndCleanFormated & "','ACT');"
+con.Execute (SQL)
+MsgBox "Se asignó el servicio correctamente"
+Call manager.compleReserveRoom(Me.tIdRoom, dateTimeStartService, dateTimeEndClean)
+Unload Me
+End Sub
+
+Private Sub Form_Load()
+ModSkin.applyDefaultSkin Me, Me.skinObject
+Call loadBd
+End Sub
+
+Private Sub tIdPackage_Click()
+
+End Sub
+
+Private Sub tNoRoom_Change()
+'Call Form_Load
+Call loadInfoRoom(tNoRoom)
+'Call loadPackages("ab")
+End Sub
+
+Private Sub loadInfoRoom(noRoom)
+rec.Open "SELECT r.*,rt.description as type from room r inner join room_type rt on r.id_type=rt.id " & _
+    "where number=" & noRoom & "", conBd, adOpenStatic, adLockOptimistic
+Do Until rec.EOF
+    Me.tIdRoom = rec("id")
+    Me.tFloor = rec("floor")
+    Me.tTypeRoom = rec("type")
+    rec.MoveNext
+Loop
+rec.Close
+
+Call loadPackages(Me.tTypeRoom)
+End Sub
+
+'Carga los paquetes según el tipo de habitación
+Private Sub loadPackages(typeRoom As String)
+Dim typePackage As String
+rec.Open "Select p.description from package p inner join package_x_type_room ptr on p.id = ptr.id_package " & _
+"inner join room_type rt on rt.id=ptr.id_room_type where rt.description='" & typeRoom & "'", conBd, adOpenStatic, adLockOptimistic
+Me.cmbTypePackage.Clear
+Do Until rec.EOF
+    typePackage = rec("description").Value
+    If Not IsNull(typePackage) Then
+        Me.cmbTypePackage.AddItem typePackage
+    End If
+    rec.MoveNext
+Loop
+rec.Close
+End Sub
+
+Private Function loadBd()
+'Se solicita una conexion a la bd
+Set conBd = ModConexion.getNewConection
+rec.CursorLocation = adUseClient
+End Function
+
+
