@@ -15,6 +15,24 @@ Option Explicit
 
 'Mapea directamente con la tabla status_room, para la gestión de los estados de las habitaciones
 
+'Posibles estados de las habitaciones
+
+'Habitación disponible
+Public AVAILABLE As CStatusRoom
+
+'Habitación ocupada
+Public BUSY As CStatusRoom
+
+'Habitación reservada
+Public RESERVED As CStatusRoom
+
+'Habitación en limpieza
+Public CLEAN As CStatusRoom
+
+'Attributes
+Public code As String
+Public description As String
+
 'Definition
 Const F_TABLE As String = "status_room"
 
@@ -23,7 +41,30 @@ Const F_DESCRIPTION As String = "description"
 
 Const L_DESCRIPTION As String = "Estado"
 
-'Attributes
+'Carga las instancias base para los estados de las habitaciones
+Public Function loadBaseInstances()
+
+'Instancia para estado: Habitación disponible
+Set Me.AVAILABLE = New CStatusRoom
+Me.AVAILABLE.code = "DIS"
+Me.AVAILABLE.description = "Disponible"
+
+'Instancia para estado: Habitación ocupada
+Set Me.BUSY = New CStatusRoom
+Me.BUSY.code = "OCU"
+Me.BUSY.description = "Ocupada"
+
+'Instancia para estado: Habitación reservada
+Set Me.RESERVED = New CStatusRoom
+Me.RESERVED.code = "RES"
+Me.RESERVED.description = "Reservada"
+
+'Instancia para estado: Habitación reservada
+Set Me.CLEAN = New CStatusRoom
+Me.CLEAN.code = "CLN"
+Me.CLEAN.description = "En limpieza"
+
+End Function
 
 
 'Funciones con la definición de campos de la entidad

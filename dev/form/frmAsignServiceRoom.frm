@@ -271,8 +271,8 @@ Private Sub cmbTypePackage_LostFocus()
 rec.Open "SELECT * from package where description='" & Me.cmbTypePackage.Text & "'", conBd, adOpenStatic, adLockOptimistic
 Do Until rec.EOF
     idPackage = rec("id")
-    timeService = rec("time_service")
-    timeClean = rec("time_clean")
+    timeService = 30 'rec("time_service")
+    timeClean = 30 'rec("time_clean")
     rec.MoveNext
 Loop
 rec.Close

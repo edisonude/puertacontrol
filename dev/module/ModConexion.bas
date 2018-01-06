@@ -43,7 +43,11 @@ Sub Main()
 '    .Open
 'End With
 
+'Carga las instancias base para los estados de la habitación
+cStatusRoomStatic.loadBaseInstances
+
 frmMenu.Show
+'frmLogin.Show
 'frmTest.Show
 End Sub
 

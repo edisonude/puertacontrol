@@ -5,9 +5,13 @@ Dim hourExtracted As String
 Dim minuteExtracted As String
 Dim result As String
 
-hourExtracted = Format(hour(dateToFormat), "00")
-minuteExtracted = Format(minute(dateToFormat), "00")
+hourExtracted = Format(Hour(dateToFormat), "00")
+minuteExtracted = Format(Minute(dateToFormat), "00")
 result = hourExtracted & ":" & minuteExtracted
 
 getHourAndMinuteFromDate = result
+End Function
+
+Public Function getValue(value, default)
+getValue = IIf(IsNull(value), default, value)
 End Function

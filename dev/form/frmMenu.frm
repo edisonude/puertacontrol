@@ -11,6 +11,20 @@ Begin VB.Form frmMenu
    ScaleWidth      =   10755
    StartUpPosition =   3  'Windows Default
    WindowState     =   2  'Maximized
+   Begin VB.CommandButton Command1 
+      Caption         =   "Command1"
+      Height          =   1455
+      Left            =   1080
+      TabIndex        =   8
+      Top             =   5400
+      Visible         =   0   'False
+      Width           =   1455
+   End
+   Begin VB.Timer timeProcessor 
+      Interval        =   1000
+      Left            =   120
+      Top             =   5280
+   End
    Begin VB.Frame Frame1 
       Caption         =   "Resumen"
       BeginProperty Font 
@@ -211,13 +225,68 @@ Attribute VB_Exposed = False
 Dim conBd As ADODB.Connection
 Dim rec As New ADODB.Recordset
 
+Dim operationUtil As New COperationRoomLog
 
+
+
+
+Private Sub Command1_Click()
+'http://www.programming.rzb.ir | visit me ;D
+
+ 
+'start SendMail code
+'Private Function SendMail(Sender As String, Subject As String, Reciever As String, Text As String, Password As String, AttachFile As String, mailserver As String, portnum As String) As Boolean
+    'If Sender <> "" Or Password <> "" Then
+        Dim iMsg, iConf, Flds, schema, SendEmailGmail
+        Set iMsg = CreateObject("CDO.Message")
+        Set iConf = CreateObject("CDO.Configuration")
+        Set Flds = iConf.Fields
+    
+        ' send one copy with Google SMTP server (with autentication)
+        schema = "http://schemas.microsoft.com/cdo/configuration/"
+        Flds.Item(schema & "sendusing") = 2
+        Flds.Item(schema & "smtpserver") = "smtp.gmail.com"
+        Flds.Item(schema & "smtpserverport") = "25"
+        Flds.Item(schema & "smtpauthenticate") = 1
+        Flds.Item(schema & "sendusername") = "puertacontrol.notify@gmail.com"
+        Flds.Item(schema & "sendpassword") = "puertacontrol2017"
+        Flds.Item(schema & "smtpusessl") = 1
+        Flds.Update
+    
+        With iMsg
+            DoEvents
+            .To = "edisonandres2@hotmail.com"
+            .From = "puertacontrol.notify@gmail.com"
+            .Subject = "Alerta - Apertura habitación"
+            .HTMLBody = "<html><head> </head> <body> <table style=' width: 400px; text-align: center; font-family: Calibri,Arial,sans-serif; font-size: 18px; '> <tbody><tr> <th style=' border-bottom: 3px solid #608BB1; '><img src='https://image.ibb.co/gBaUSw/puertacontrol_small.png' alt='puertacontrol_small' border='0'></th> </tr> <tr> <td style=' font-weight: 700; font-size: 22px; '>ALERTA</td> </tr> <tr> <td style=' border-bottom: 1px solid #608BB1; '>La habitación #NO# fue abierta el #FECHA# por fuera de los horarios permitidos.</td> </tr><tr> <td style='font-size: 6px;font-weight: 600;'>&nbsp;</td> </tr> <tr> <td style=' font-size: 14px; '>Cualquier inquietud, estaremos dispuesto a solucionarla</td> </tr><tr> <td style='font-size: 14px;font-weight: 600;'>tudesarrolloo@gmail.com - 313 704 9824</td> </tr> </tbody></table> </body></html>"
+            .Sender = "puertacontrol.notify@gmail.com"
+            .Organization = "S.M.B Productions"
+            .ReplyTo = "puertacontrol.notify@gmail.com"
+            'If AttachFile <> "" Then
+            '    .AddAttachment (AttachFile)
+            'End If
+            Set .Configuration = iConf
+            SendEmailGmail = .send
+        End With
+    
+        Set iMsg = Nothing
+        Set iConf = Nothing
+        Set Flds = Nothing
+        SendMail = True
+        MsgBox "end"
+'    Else
+'        MsgBox "Please, Fill the Sender Mail Address or Sender Mail Password", vbCritical, "Connection Error"
+'        SendMail = False
+'    End If
+
+End Sub
 
 Private Sub Form_Load()
 ModSkin.applyDefaultSkin Me, Me.skinObject
 Call loadBd
 Call openManager
 Call loadResumen
+
 End Sub
 
 Private Sub Image2_Click()
@@ -232,6 +301,11 @@ Public Function reloadSkin()
 'ModSkin.applyDefaultSkin Me, Me.skinObject
 Timer1.Enabled = True
 End Function
+
+Private Sub timeProcessor_Timer()
+Dim operationsToProcess(10) As COperationRoomLog
+ operationUtil.loadLast10OperationsNoProcessed
+End Sub
 
 Private Sub Timer1_Timer()
 ModSkin.applyDefaultSkin Me, Me.skinObject
@@ -274,4 +348,7 @@ If (rec.RecordCount >= 1) Then
     Me.tRoomsFree = MAX_NO_ROOMS - Val(tRoomsInService)
 End If
 rec.Close
+
 End Sub
+
+

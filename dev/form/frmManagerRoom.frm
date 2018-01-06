@@ -28,6 +28,14 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   208
       Top             =   105
       Width           =   6045
+      Begin VB.Image iStartClean 
+         Height          =   390
+         Index           =   27
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":209612
+         Top             =   1710
+         Width           =   1965
+      End
       Begin VB.Label lType 
          Alignment       =   2  'Center
          BackStyle       =   0  'Transparent
@@ -95,7 +103,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   27
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":209612
+         Picture         =   "frmManagerRoom.frx":20BE8C
          Top             =   1710
          Width           =   405
       End
@@ -103,7 +111,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   27
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":209F30
+         Picture         =   "frmManagerRoom.frx":20C7AA
          Top             =   1710
          Width           =   1950
       End
@@ -212,7 +220,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   27
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":20C8CA
+         Picture         =   "frmManagerRoom.frx":20F144
          Top             =   1035
          Width           =   1950
       End
@@ -220,14 +228,14 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   27
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":20F264
+         Picture         =   "frmManagerRoom.frx":211ADE
          Top             =   90
          Width           =   900
       End
    End
    Begin VB.PictureBox picRoom 
       Appearance      =   0  'Flat
-      BackColor       =   &H002BB509&
+      BackColor       =   &H00CD7C10&
       BorderStyle     =   0  'None
       ForeColor       =   &H80000008&
       Height          =   2190
@@ -238,6 +246,14 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   200
       Top             =   105
       Width           =   4020
+      Begin VB.Image iStartClean 
+         Height          =   390
+         Index           =   26
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":2135D8
+         Top             =   1710
+         Width           =   1965
+      End
       Begin VB.Label lType 
          Alignment       =   2  'Center
          BackStyle       =   0  'Transparent
@@ -305,7 +321,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   26
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":210D5E
+         Picture         =   "frmManagerRoom.frx":215E52
          Top             =   1710
          Width           =   405
       End
@@ -313,7 +329,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   26
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":21167C
+         Picture         =   "frmManagerRoom.frx":216770
          Top             =   1710
          Width           =   1950
       End
@@ -422,7 +438,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   26
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":214016
+         Picture         =   "frmManagerRoom.frx":21910A
          Top             =   1035
          Width           =   1950
       End
@@ -430,7 +446,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   26
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":2169B0
+         Picture         =   "frmManagerRoom.frx":21BAA4
          Top             =   90
          Width           =   900
       End
@@ -442,12 +458,25 @@ Begin VB.Form frmManagerRoom
       ForeColor       =   &H80000008&
       Height          =   2190
       Index           =   25
-      Left            =   285
+      Left            =   270
       ScaleHeight     =   2190
       ScaleWidth      =   6045
       TabIndex        =   192
       Top             =   105
       Width           =   6045
+      Begin VB.Timer timeReload 
+         Interval        =   5000
+         Left            =   2400
+         Top             =   120
+      End
+      Begin VB.Image iStartClean 
+         Height          =   390
+         Index           =   25
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":21D59E
+         Top             =   1710
+         Width           =   1965
+      End
       Begin VB.Label lType 
          Alignment       =   2  'Center
          BackStyle       =   0  'Transparent
@@ -574,7 +603,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   25
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":2184AA
+         Picture         =   "frmManagerRoom.frx":21FE18
          Top             =   1710
          Width           =   405
       End
@@ -582,7 +611,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   25
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":218DC8
+         Picture         =   "frmManagerRoom.frx":220736
          Top             =   1035
          Width           =   1950
       End
@@ -611,7 +640,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   25
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":21B762
+         Picture         =   "frmManagerRoom.frx":2230D0
          Top             =   90
          Width           =   900
       End
@@ -640,7 +669,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   25
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":21D25C
+         Picture         =   "frmManagerRoom.frx":224BCA
          Top             =   1710
          Width           =   1950
       End
@@ -658,6 +687,14 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   184
       Top             =   2325
       Width           =   1995
+      Begin VB.Image iStartClean 
+         Height          =   390
+         Index           =   24
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":227564
+         Top             =   1710
+         Width           =   1965
+      End
       Begin VB.Label lType 
          Alignment       =   2  'Center
          BackStyle       =   0  'Transparent
@@ -784,7 +821,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   24
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":21FBF6
+         Picture         =   "frmManagerRoom.frx":229DDE
          Top             =   1710
          Width           =   405
       End
@@ -792,7 +829,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   24
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":220514
+         Picture         =   "frmManagerRoom.frx":22A6FC
          Top             =   1035
          Width           =   1950
       End
@@ -821,7 +858,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   24
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":222EAE
+         Picture         =   "frmManagerRoom.frx":22D096
          Top             =   90
          Width           =   900
       End
@@ -850,7 +887,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   24
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2249A8
+         Picture         =   "frmManagerRoom.frx":22EB90
          Top             =   1710
          Width           =   1950
       End
@@ -868,6 +905,14 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   176
       Top             =   2325
       Width           =   1995
+      Begin VB.Image iStartClean 
+         Height          =   390
+         Index           =   23
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":23152A
+         Top             =   1710
+         Width           =   1965
+      End
       Begin VB.Label lType 
          Alignment       =   2  'Center
          BackStyle       =   0  'Transparent
@@ -994,7 +1039,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   23
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":227342
+         Picture         =   "frmManagerRoom.frx":233DA4
          Top             =   1710
          Width           =   405
       End
@@ -1002,7 +1047,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   23
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":227C60
+         Picture         =   "frmManagerRoom.frx":2346C2
          Top             =   1035
          Width           =   1950
       End
@@ -1031,7 +1076,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   23
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":22A5FA
+         Picture         =   "frmManagerRoom.frx":23705C
          Top             =   90
          Width           =   900
       End
@@ -1060,7 +1105,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   23
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":22C0F4
+         Picture         =   "frmManagerRoom.frx":238B56
          Top             =   1710
          Width           =   1950
       End
@@ -1078,6 +1123,14 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   168
       Top             =   2325
       Width           =   1995
+      Begin VB.Image iStartClean 
+         Height          =   390
+         Index           =   22
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":23B4F0
+         Top             =   1710
+         Width           =   1965
+      End
       Begin VB.Label lType 
          Alignment       =   2  'Center
          BackStyle       =   0  'Transparent
@@ -1204,7 +1257,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   22
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":22EA8E
+         Picture         =   "frmManagerRoom.frx":23DD6A
          Top             =   1710
          Width           =   405
       End
@@ -1212,7 +1265,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   22
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":22F3AC
+         Picture         =   "frmManagerRoom.frx":23E688
          Top             =   1035
          Width           =   1950
       End
@@ -1241,7 +1294,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   22
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":231D46
+         Picture         =   "frmManagerRoom.frx":241022
          Top             =   90
          Width           =   900
       End
@@ -1270,7 +1323,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   22
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":233840
+         Picture         =   "frmManagerRoom.frx":242B1C
          Top             =   1710
          Width           =   1950
       End
@@ -1288,6 +1341,14 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   160
       Top             =   2325
       Width           =   1995
+      Begin VB.Image iStartClean 
+         Height          =   390
+         Index           =   21
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":2454B6
+         Top             =   1710
+         Width           =   1965
+      End
       Begin VB.Label lType 
          Alignment       =   2  'Center
          BackStyle       =   0  'Transparent
@@ -1414,7 +1475,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   21
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":2361DA
+         Picture         =   "frmManagerRoom.frx":247D30
          Top             =   1710
          Width           =   405
       End
@@ -1422,7 +1483,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   21
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":236AF8
+         Picture         =   "frmManagerRoom.frx":24864E
          Top             =   1035
          Width           =   1950
       End
@@ -1451,7 +1512,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   21
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":239492
+         Picture         =   "frmManagerRoom.frx":24AFE8
          Top             =   90
          Width           =   900
       End
@@ -1480,7 +1541,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   21
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":23AF8C
+         Picture         =   "frmManagerRoom.frx":24CAE2
          Top             =   1710
          Width           =   1950
       End
@@ -1498,6 +1559,14 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   152
       Top             =   2325
       Width           =   1995
+      Begin VB.Image iStartClean 
+         Height          =   390
+         Index           =   20
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":24F47C
+         Top             =   1710
+         Width           =   1965
+      End
       Begin VB.Label lType 
          Alignment       =   2  'Center
          BackStyle       =   0  'Transparent
@@ -1624,7 +1693,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   20
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":23D926
+         Picture         =   "frmManagerRoom.frx":251CF6
          Top             =   1710
          Width           =   405
       End
@@ -1632,7 +1701,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   20
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":23E244
+         Picture         =   "frmManagerRoom.frx":252614
          Top             =   1035
          Width           =   1950
       End
@@ -1661,7 +1730,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   20
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":240BDE
+         Picture         =   "frmManagerRoom.frx":254FAE
          Top             =   90
          Width           =   900
       End
@@ -1690,7 +1759,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   20
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2426D8
+         Picture         =   "frmManagerRoom.frx":256AA8
          Top             =   1710
          Width           =   1950
       End
@@ -1708,6 +1777,14 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   144
       Top             =   2325
       Width           =   1995
+      Begin VB.Image iStartClean 
+         Height          =   390
+         Index           =   19
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":259442
+         Top             =   1710
+         Width           =   1965
+      End
       Begin VB.Label lType 
          Alignment       =   2  'Center
          BackStyle       =   0  'Transparent
@@ -1834,7 +1911,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   19
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":245072
+         Picture         =   "frmManagerRoom.frx":25BCBC
          Top             =   1710
          Width           =   405
       End
@@ -1842,7 +1919,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   19
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":245990
+         Picture         =   "frmManagerRoom.frx":25C5DA
          Top             =   1035
          Width           =   1950
       End
@@ -1871,7 +1948,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   19
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":24832A
+         Picture         =   "frmManagerRoom.frx":25EF74
          Top             =   90
          Width           =   900
       End
@@ -1900,7 +1977,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   19
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":249E24
+         Picture         =   "frmManagerRoom.frx":260A6E
          Top             =   1710
          Width           =   1950
       End
@@ -1918,6 +1995,14 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   136
       Top             =   2325
       Width           =   1995
+      Begin VB.Image iStartClean 
+         Height          =   390
+         Index           =   18
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":263408
+         Top             =   1710
+         Width           =   1965
+      End
       Begin VB.Label lType 
          Alignment       =   2  'Center
          BackStyle       =   0  'Transparent
@@ -2044,7 +2129,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   18
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":24C7BE
+         Picture         =   "frmManagerRoom.frx":265C82
          Top             =   1710
          Width           =   405
       End
@@ -2052,7 +2137,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   18
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":24D0DC
+         Picture         =   "frmManagerRoom.frx":2665A0
          Top             =   1035
          Width           =   1950
       End
@@ -2081,7 +2166,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   18
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":24FA76
+         Picture         =   "frmManagerRoom.frx":268F3A
          Top             =   90
          Width           =   900
       End
@@ -2110,7 +2195,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   18
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":251570
+         Picture         =   "frmManagerRoom.frx":26AA34
          Top             =   1710
          Width           =   1950
       End
@@ -2128,6 +2213,14 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   128
       Top             =   2325
       Width           =   1995
+      Begin VB.Image iStartClean 
+         Height          =   390
+         Index           =   17
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":26D3CE
+         Top             =   1710
+         Width           =   1965
+      End
       Begin VB.Label lType 
          Alignment       =   2  'Center
          BackStyle       =   0  'Transparent
@@ -2195,7 +2288,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   17
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":253F0A
+         Picture         =   "frmManagerRoom.frx":26FC48
          Top             =   1710
          Width           =   405
       End
@@ -2203,7 +2296,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   17
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":254828
+         Picture         =   "frmManagerRoom.frx":270566
          Top             =   1710
          Width           =   1950
       End
@@ -2312,7 +2405,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   17
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2571C2
+         Picture         =   "frmManagerRoom.frx":272F00
          Top             =   1035
          Width           =   1950
       End
@@ -2320,7 +2413,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   17
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":259B5C
+         Picture         =   "frmManagerRoom.frx":27589A
          Top             =   90
          Width           =   900
       End
@@ -2338,6 +2431,14 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   120
       Top             =   4545
       Width           =   1995
+      Begin VB.Image iStartClean 
+         Height          =   390
+         Index           =   16
+         Left            =   1560
+         Picture         =   "frmManagerRoom.frx":277394
+         Top             =   1710
+         Width           =   1965
+      End
       Begin VB.Label lType 
          Alignment       =   2  'Center
          BackStyle       =   0  'Transparent
@@ -2464,7 +2565,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   16
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":25B656
+         Picture         =   "frmManagerRoom.frx":279C0E
          Top             =   1710
          Width           =   405
       End
@@ -2472,7 +2573,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   16
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":25BF74
+         Picture         =   "frmManagerRoom.frx":27A52C
          Top             =   1035
          Width           =   1950
       End
@@ -2501,7 +2602,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   16
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":25E90E
+         Picture         =   "frmManagerRoom.frx":27CEC6
          Top             =   90
          Width           =   900
       End
@@ -2530,7 +2631,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   16
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":260408
+         Picture         =   "frmManagerRoom.frx":27E9C0
          Top             =   1710
          Width           =   1950
       End
@@ -2548,6 +2649,14 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   112
       Top             =   4545
       Width           =   1995
+      Begin VB.Image iStartClean 
+         Height          =   390
+         Index           =   15
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":28135A
+         Top             =   1710
+         Width           =   1965
+      End
       Begin VB.Label lType 
          Alignment       =   2  'Center
          BackStyle       =   0  'Transparent
@@ -2674,7 +2783,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   15
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":262DA2
+         Picture         =   "frmManagerRoom.frx":283BD4
          Top             =   1710
          Width           =   405
       End
@@ -2682,7 +2791,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   15
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2636C0
+         Picture         =   "frmManagerRoom.frx":2844F2
          Top             =   1035
          Width           =   1950
       End
@@ -2711,7 +2820,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   15
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":26605A
+         Picture         =   "frmManagerRoom.frx":286E8C
          Top             =   90
          Width           =   900
       End
@@ -2740,7 +2849,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   15
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":267B54
+         Picture         =   "frmManagerRoom.frx":288986
          Top             =   1710
          Width           =   1950
       End
@@ -2758,6 +2867,14 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   104
       Top             =   4545
       Width           =   1995
+      Begin VB.Image iStartClean 
+         Height          =   390
+         Index           =   14
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":28B320
+         Top             =   1710
+         Width           =   1965
+      End
       Begin VB.Label lType 
          Alignment       =   2  'Center
          BackStyle       =   0  'Transparent
@@ -2884,7 +3001,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   14
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":26A4EE
+         Picture         =   "frmManagerRoom.frx":28DB9A
          Top             =   1710
          Width           =   405
       End
@@ -2892,7 +3009,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   14
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":26AE0C
+         Picture         =   "frmManagerRoom.frx":28E4B8
          Top             =   1035
          Width           =   1950
       End
@@ -2921,7 +3038,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   14
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":26D7A6
+         Picture         =   "frmManagerRoom.frx":290E52
          Top             =   90
          Width           =   900
       End
@@ -2950,7 +3067,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   14
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":26F2A0
+         Picture         =   "frmManagerRoom.frx":29294C
          Top             =   1710
          Width           =   1950
       End
@@ -2968,6 +3085,14 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   96
       Top             =   4545
       Width           =   1995
+      Begin VB.Image iStartClean 
+         Height          =   390
+         Index           =   13
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":2952E6
+         Top             =   1710
+         Width           =   1965
+      End
       Begin VB.Label lType 
          Alignment       =   2  'Center
          BackStyle       =   0  'Transparent
@@ -3094,7 +3219,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   13
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":271C3A
+         Picture         =   "frmManagerRoom.frx":297B60
          Top             =   1710
          Width           =   405
       End
@@ -3102,7 +3227,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   13
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":272558
+         Picture         =   "frmManagerRoom.frx":29847E
          Top             =   1035
          Width           =   1950
       End
@@ -3131,7 +3256,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   13
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":274EF2
+         Picture         =   "frmManagerRoom.frx":29AE18
          Top             =   90
          Width           =   900
       End
@@ -3160,7 +3285,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   13
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2769EC
+         Picture         =   "frmManagerRoom.frx":29C912
          Top             =   1710
          Width           =   1950
       End
@@ -3178,6 +3303,14 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   88
       Top             =   4545
       Width           =   1995
+      Begin VB.Image iStartClean 
+         Height          =   390
+         Index           =   12
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":29F2AC
+         Top             =   1710
+         Width           =   1965
+      End
       Begin VB.Label lType 
          Alignment       =   2  'Center
          BackStyle       =   0  'Transparent
@@ -3304,7 +3437,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   12
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":279386
+         Picture         =   "frmManagerRoom.frx":2A1B26
          Top             =   1710
          Width           =   405
       End
@@ -3312,7 +3445,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   12
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":279CA4
+         Picture         =   "frmManagerRoom.frx":2A2444
          Top             =   1035
          Width           =   1950
       End
@@ -3341,7 +3474,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   12
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":27C63E
+         Picture         =   "frmManagerRoom.frx":2A4DDE
          Top             =   90
          Width           =   900
       End
@@ -3370,7 +3503,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   12
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":27E138
+         Picture         =   "frmManagerRoom.frx":2A68D8
          Top             =   1710
          Width           =   1950
       End
@@ -3388,6 +3521,14 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   80
       Top             =   4545
       Width           =   1995
+      Begin VB.Image iStartClean 
+         Height          =   390
+         Index           =   11
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":2A9272
+         Top             =   1710
+         Width           =   1965
+      End
       Begin VB.Label lType 
          Alignment       =   2  'Center
          BackStyle       =   0  'Transparent
@@ -3514,7 +3655,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   11
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":280AD2
+         Picture         =   "frmManagerRoom.frx":2ABAEC
          Top             =   1710
          Width           =   405
       End
@@ -3522,7 +3663,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   11
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2813F0
+         Picture         =   "frmManagerRoom.frx":2AC40A
          Top             =   1035
          Width           =   1950
       End
@@ -3551,7 +3692,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   11
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":283D8A
+         Picture         =   "frmManagerRoom.frx":2AEDA4
          Top             =   90
          Width           =   900
       End
@@ -3580,7 +3721,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   11
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":285884
+         Picture         =   "frmManagerRoom.frx":2B089E
          Top             =   1710
          Width           =   1950
       End
@@ -3598,6 +3739,14 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   72
       Top             =   4545
       Width           =   1995
+      Begin VB.Image iStartClean 
+         Height          =   390
+         Index           =   10
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":2B3238
+         Top             =   1710
+         Width           =   1965
+      End
       Begin VB.Label lType 
          Alignment       =   2  'Center
          BackStyle       =   0  'Transparent
@@ -3724,7 +3873,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   10
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":28821E
+         Picture         =   "frmManagerRoom.frx":2B5AB2
          Top             =   1710
          Width           =   405
       End
@@ -3732,7 +3881,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   10
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":288B3C
+         Picture         =   "frmManagerRoom.frx":2B63D0
          Top             =   1035
          Width           =   1950
       End
@@ -3761,7 +3910,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   10
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":28B4D6
+         Picture         =   "frmManagerRoom.frx":2B8D6A
          Top             =   90
          Width           =   900
       End
@@ -3790,7 +3939,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   10
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":28CFD0
+         Picture         =   "frmManagerRoom.frx":2BA864
          Top             =   1710
          Width           =   1950
       End
@@ -3808,6 +3957,14 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   64
       Top             =   4545
       Width           =   1995
+      Begin VB.Image iStartClean 
+         Height          =   390
+         Index           =   9
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":2BD1FE
+         Top             =   1710
+         Width           =   1965
+      End
       Begin VB.Label lType 
          Alignment       =   2  'Center
          BackStyle       =   0  'Transparent
@@ -3875,7 +4032,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   9
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":28F96A
+         Picture         =   "frmManagerRoom.frx":2BFA78
          Top             =   1710
          Width           =   405
       End
@@ -3883,7 +4040,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   9
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":290288
+         Picture         =   "frmManagerRoom.frx":2C0396
          Top             =   1710
          Width           =   1950
       End
@@ -3992,7 +4149,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   9
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":292C22
+         Picture         =   "frmManagerRoom.frx":2C2D30
          Top             =   1035
          Width           =   1950
       End
@@ -4000,7 +4157,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   9
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":2955BC
+         Picture         =   "frmManagerRoom.frx":2C56CA
          Top             =   90
          Width           =   900
       End
@@ -4018,6 +4175,14 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   56
       Top             =   6765
       Width           =   1995
+      Begin VB.Image iStartClean 
+         Height          =   390
+         Index           =   8
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":2C71C4
+         Top             =   1710
+         Width           =   1965
+      End
       Begin VB.Label lType 
          Alignment       =   2  'Center
          BackStyle       =   0  'Transparent
@@ -4085,7 +4250,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   8
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":2970B6
+         Picture         =   "frmManagerRoom.frx":2C9A3E
          Top             =   1710
          Width           =   405
       End
@@ -4093,7 +4258,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   8
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2979D4
+         Picture         =   "frmManagerRoom.frx":2CA35C
          Top             =   1710
          Width           =   1950
       End
@@ -4202,7 +4367,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   8
          Left            =   45
-         Picture         =   "frmManagerRoom.frx":29A36E
+         Picture         =   "frmManagerRoom.frx":2CCCF6
          Top             =   1035
          Width           =   1950
       End
@@ -4210,7 +4375,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   8
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":29CD08
+         Picture         =   "frmManagerRoom.frx":2CF690
          Top             =   90
          Width           =   900
       End
@@ -4228,6 +4393,14 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   48
       Top             =   6765
       Width           =   1995
+      Begin VB.Image iStartClean 
+         Height          =   390
+         Index           =   7
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":2D118A
+         Top             =   1710
+         Width           =   1965
+      End
       Begin VB.Label lType 
          Alignment       =   2  'Center
          BackStyle       =   0  'Transparent
@@ -4295,7 +4468,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   7
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":29E802
+         Picture         =   "frmManagerRoom.frx":2D3A04
          Top             =   1710
          Width           =   405
       End
@@ -4303,7 +4476,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   7
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":29F120
+         Picture         =   "frmManagerRoom.frx":2D4322
          Top             =   1710
          Width           =   1950
       End
@@ -4412,7 +4585,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   7
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2A1ABA
+         Picture         =   "frmManagerRoom.frx":2D6CBC
          Top             =   1035
          Width           =   1950
       End
@@ -4420,7 +4593,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   7
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":2A4454
+         Picture         =   "frmManagerRoom.frx":2D9656
          Top             =   90
          Width           =   900
       End
@@ -4438,6 +4611,14 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   40
       Top             =   6765
       Width           =   1995
+      Begin VB.Image iStartClean 
+         Height          =   390
+         Index           =   6
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":2DB150
+         Top             =   1710
+         Width           =   1965
+      End
       Begin VB.Label lType 
          Alignment       =   2  'Center
          BackStyle       =   0  'Transparent
@@ -4505,7 +4686,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   6
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":2A5F4E
+         Picture         =   "frmManagerRoom.frx":2DD9CA
          Top             =   1710
          Width           =   405
       End
@@ -4513,7 +4694,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   6
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2A686C
+         Picture         =   "frmManagerRoom.frx":2DE2E8
          Top             =   1710
          Width           =   1950
       End
@@ -4622,7 +4803,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   6
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2A9206
+         Picture         =   "frmManagerRoom.frx":2E0C82
          Top             =   1035
          Width           =   1950
       End
@@ -4630,7 +4811,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   6
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":2ABBA0
+         Picture         =   "frmManagerRoom.frx":2E361C
          Top             =   90
          Width           =   900
       End
@@ -4648,6 +4829,14 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   32
       Top             =   6765
       Width           =   1995
+      Begin VB.Image iStartClean 
+         Height          =   390
+         Index           =   5
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":2E5116
+         Top             =   1710
+         Width           =   1965
+      End
       Begin VB.Label lType 
          Alignment       =   2  'Center
          BackStyle       =   0  'Transparent
@@ -4715,7 +4904,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   5
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":2AD69A
+         Picture         =   "frmManagerRoom.frx":2E7990
          Top             =   1710
          Width           =   405
       End
@@ -4723,7 +4912,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   5
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2ADFB8
+         Picture         =   "frmManagerRoom.frx":2E82AE
          Top             =   1710
          Width           =   1950
       End
@@ -4832,7 +5021,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   5
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2B0952
+         Picture         =   "frmManagerRoom.frx":2EAC48
          Top             =   1035
          Width           =   1950
       End
@@ -4840,7 +5029,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   5
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":2B32EC
+         Picture         =   "frmManagerRoom.frx":2ED5E2
          Top             =   90
          Width           =   900
       End
@@ -4858,6 +5047,14 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   24
       Top             =   6765
       Width           =   1995
+      Begin VB.Image iStartClean 
+         Height          =   390
+         Index           =   4
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":2EF0DC
+         Top             =   1725
+         Width           =   1965
+      End
       Begin VB.Label lType 
          Alignment       =   2  'Center
          BackStyle       =   0  'Transparent
@@ -4925,7 +5122,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   4
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":2B4DE6
+         Picture         =   "frmManagerRoom.frx":2F1956
          Top             =   1710
          Width           =   405
       End
@@ -4933,7 +5130,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   4
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2B5704
+         Picture         =   "frmManagerRoom.frx":2F2274
          Top             =   1710
          Width           =   1950
       End
@@ -5042,7 +5239,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   4
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2B809E
+         Picture         =   "frmManagerRoom.frx":2F4C0E
          Top             =   1035
          Width           =   1950
       End
@@ -5050,7 +5247,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   4
          Left            =   1065
-         Picture         =   "frmManagerRoom.frx":2BAA38
+         Picture         =   "frmManagerRoom.frx":2F75A8
          Top             =   90
          Width           =   900
       End
@@ -5068,6 +5265,14 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   16
       Top             =   6765
       Width           =   1995
+      Begin VB.Image iStartClean 
+         Height          =   390
+         Index           =   3
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":2F90A2
+         Top             =   1710
+         Width           =   1965
+      End
       Begin VB.Label lType 
          Alignment       =   2  'Center
          BackStyle       =   0  'Transparent
@@ -5135,7 +5340,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   3
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":2BC532
+         Picture         =   "frmManagerRoom.frx":2FB91C
          Top             =   1710
          Width           =   405
       End
@@ -5143,7 +5348,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   3
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2BCE50
+         Picture         =   "frmManagerRoom.frx":2FC23A
          Top             =   1710
          Width           =   1950
       End
@@ -5252,7 +5457,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   3
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2BF7EA
+         Picture         =   "frmManagerRoom.frx":2FEBD4
          Top             =   1035
          Width           =   1950
       End
@@ -5260,7 +5465,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   3
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":2C2184
+         Picture         =   "frmManagerRoom.frx":30156E
          Top             =   120
          Width           =   900
       End
@@ -5278,6 +5483,14 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   8
       Top             =   6765
       Width           =   1995
+      Begin VB.Image iStartClean 
+         Height          =   390
+         Index           =   2
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":303068
+         Top             =   1710
+         Width           =   1965
+      End
       Begin VB.Label lType 
          Alignment       =   2  'Center
          BackStyle       =   0  'Transparent
@@ -5345,7 +5558,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   2
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":2C3C7E
+         Picture         =   "frmManagerRoom.frx":3058E2
          Top             =   1710
          Width           =   405
       End
@@ -5353,7 +5566,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   2
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2C459C
+         Picture         =   "frmManagerRoom.frx":306200
          Top             =   1710
          Width           =   1950
       End
@@ -5462,7 +5675,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   2
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2C6F36
+         Picture         =   "frmManagerRoom.frx":308B9A
          Top             =   1035
          Width           =   1950
       End
@@ -5470,7 +5683,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   2
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":2C98D0
+         Picture         =   "frmManagerRoom.frx":30B534
          Top             =   90
          Width           =   900
       End
@@ -5488,6 +5701,14 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   0
       Top             =   6765
       Width           =   1995
+      Begin VB.Image iStartClean 
+         Height          =   390
+         Index           =   1
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":30D02E
+         Top             =   1710
+         Width           =   1965
+      End
       Begin VB.Label lType 
          Alignment       =   2  'Center
          BackStyle       =   0  'Transparent
@@ -5555,7 +5776,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   1
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":2CB3CA
+         Picture         =   "frmManagerRoom.frx":30F8A8
          Top             =   1710
          Width           =   405
       End
@@ -5563,7 +5784,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   1
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2CBCE8
+         Picture         =   "frmManagerRoom.frx":3101C6
          Top             =   1710
          Width           =   1950
       End
@@ -5672,7 +5893,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   1
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2CE682
+         Picture         =   "frmManagerRoom.frx":312B60
          Top             =   1035
          Width           =   1950
       End
@@ -5680,7 +5901,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   1
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":2D101C
+         Picture         =   "frmManagerRoom.frx":3154FA
          Top             =   90
          Width           =   900
       End
@@ -5698,8 +5919,12 @@ Dim rec As New ADODB.Recordset
 Public parent As frmMenu
 Private Const COLOR_FREE_ROOM = &H2BB509
 Private Const COLOR_RESERVED_ROOM = &HC0&
-Private Const LABEL_RESERVED_ROOM = "Ocupada"
-Private Const LABEL_FREE_ROOM = "Disponible"
+Private Const COLOR_CLEAN_ROOM = &HCD7C10
+
+'Posiciones para los elementos de la pantalla
+Private Const START_CLEAN_TOP = 1035
+Private Const START_CLEAN_LEFT = 20
+
 
 
 Private Sub Label5_Click()
@@ -5721,12 +5946,9 @@ End Sub
 Private Sub Form_Load()
 Call loadBd
 
-Dim i As Integer
-For i = 1 To 27
-    Call loadInfoRoom(i)
-    Call checkStatusRoom(i)
-    Me.iShowInfo(i).Visible = False
-Next
+Call reloadRooms
+
+Call setPositionElements
 End Sub
 
 Private Sub initFreeRoom(idRoom As Integer)
@@ -5749,27 +5971,45 @@ End Sub
 
 Private Sub freeRoom(idRoom As Integer)
 Me.picRoom(idRoom).BackColor = COLOR_FREE_ROOM
-Me.lStatus(idRoom).Caption = LABEL_FREE_ROOM
 Me.cmdAsign(idRoom).Visible = True
 Me.labelHoraInicio(idRoom).Visible = False
 Me.labelHoraFin(idRoom).Visible = False
 Me.lHourStart(idRoom).Visible = False
 Me.lHourEnd(idRoom).Visible = False
+Me.iStartClean(idRoom).Visible = True
 Me.cmdFree(idRoom).Visible = False
+Me.iStartClean(idRoom).Visible = False
 End Sub
 
 Private Sub reserveRoom(noRoom As Integer, hourStart As Date, hourEnd As Date)
 Me.picRoom(noRoom).BackColor = COLOR_RESERVED_ROOM
-Me.lStatus(noRoom).Caption = LABEL_RESERVED_ROOM
 Me.cmdAsign(noRoom).Visible = False
 Me.labelHoraInicio(noRoom).Visible = True
 Me.labelHoraFin(noRoom).Visible = True
 Me.lHourStart(noRoom).Visible = True
 Me.lHourEnd(noRoom).Visible = True
 Me.cmdFree(noRoom).Visible = True
+Me.iStartClean(noRoom).Visible = False
 Me.lHourStart(noRoom).Caption = ModFormater.getHourAndMinuteFromDate(hourStart)
 Me.lHourEnd(noRoom).Caption = ModFormater.getHourAndMinuteFromDate(hourEnd)
 End Sub
+
+Private Sub cleanRoom(noRoom As Integer, hourStart As Date, hourEnd As Date)
+Me.picRoom(noRoom).BackColor = COLOR_CLEAN_ROOM
+
+Me.iStartClean(noRoom).Visible = True
+Me.lHourStart(noRoom).Visible = True
+Me.lHourEnd(noRoom).Visible = True
+Me.labelHoraInicio(noRoom).Visible = True
+Me.labelHoraFin(noRoom).Visible = True
+
+Me.cmdAsign(noRoom).Visible = False
+Me.cmdFree(noRoom).Visible = True
+
+Me.lHourStart(noRoom).Caption = ModFormater.getHourAndMinuteFromDate(hourStart)
+Me.lHourEnd(noRoom).Caption = ModFormater.getHourAndMinuteFromDate(hourEnd)
+End Sub
+
 
 Public Sub compleReserveRoom(idRoom As Integer, hourStart As Date, hourEnd As Date)
 Call reserveRoom(idRoom, hourStart, hourEnd)
@@ -5785,7 +6025,48 @@ End If
 rec.Close
 End Sub
 
+Public Sub loadInfoRooms()
+rec.Open "SELECT * from room_details", conBd, adOpenStatic, adLockOptimistic
+Dim idRoom As Integer
+Do Until rec.EOF
+    idRoom = rec("id").value
+    Me.lType(idRoom).Caption = rec("type").value
+    Me.lStatus(idRoom).Caption = rec("status").value
+    Me.lWarnings(idRoom).Caption = ModFormater.getValue(rec("alerts").value, 0)
+    
+    If (Ap.cStatusRoomStatic.BUSY.description = Me.lStatus(idRoom).Caption) Then
+        Call reserveRoom(idRoom, rec("datetime_start_service"), rec("datetime_end_service"))
+    Else
+        If (Ap.cStatusRoomStatic.clean.description = Me.lStatus(idRoom).Caption) Then
+            Call cleanRoom(idRoom, rec("datetime_start_service"), rec("datetime_end_service"))
+        Else
+            Call freeRoom(idRoom)
+        End If
+    End If
+    
+    rec.MoveNext
+Loop
+rec.Close
+End Sub
+
+
+
 Public Sub loadInfoRoom(idRoom As Integer)
+rec.Open "SELECT r.*,rt.description as type from room r inner join room_type rt on r.id_type=rt.id " & _
+    "where r.id=" & idRoom & "", conBd, adOpenStatic, adLockOptimistic
+If (rec.RecordCount = 1) Then
+    Me.lType(idRoom).Caption = rec("type")
+End If
+rec.Close
+End Sub
+
+Public Sub loadAlertRoom(idRoom As Integer)
+rec.Open "select count(id) as count from alert where id_room=" & idRoom & " and code_type='IDO'", conBd, adOpenStatic, adLockOptimistic
+Me.lWarnings(idRoom).Caption = rec("count")
+rec.Close
+End Sub
+
+Public Sub loadCleanRoom(idRoom As Integer)
 rec.Open "SELECT r.*,rt.description as type from room r inner join room_type rt on r.id_type=rt.id " & _
     "where r.id=" & idRoom & "", conBd, adOpenStatic, adLockOptimistic
 If (rec.RecordCount = 1) Then
@@ -5799,3 +6080,29 @@ Private Function loadBd()
 Set conBd = ModConexion.getNewConection
 rec.CursorLocation = adUseClient
 End Function
+
+Private Sub timeReload_Timer()
+Call reloadRooms
+End Sub
+
+Public Sub reloadRooms()
+Dim i As Integer
+'For i = 1 To 27
+'    'Call loadInfoRoom(i)
+'    'Call checkStatusRoom(i)
+'    'Call loadAlertRoom(i)
+'    'Call loadCleanRoom(i)
+'    Call loadInfoRooms(i)
+'    Me.iShowInfo(i).Visible = False
+'Next
+Call Me.loadInfoRooms
+End Sub
+
+'Establece la posicion de los elementos de la pantalla
+Public Sub setPositionElements()
+Dim i As Integer
+For i = 1 To 27
+    Me.iStartClean(i).Top = START_CLEAN_TOP
+    Me.iStartClean(i).Left = START_CLEAN_LEFT
+Next
+End Sub

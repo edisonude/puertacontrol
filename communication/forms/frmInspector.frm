@@ -131,20 +131,20 @@ Private Sub Command1_Click()
         Flds.Item(schema & "smtpserver") = "smtp.gmail.com"
         Flds.Item(schema & "smtpserverport") = "25"
         Flds.Item(schema & "smtpauthenticate") = 1
-        Flds.Item(schema & "sendusername") = "edisonude@gmail.com"
-        Flds.Item(schema & "sendpassword") = "udea2015"
+        Flds.Item(schema & "sendusername") = "puertacontrol.notify@gmail.com"
+        Flds.Item(schema & "sendpassword") = "puertacontrol2017"
         Flds.Item(schema & "smtpusessl") = 1
         Flds.Update
     
         With iMsg
             DoEvents
             .To = "edisonandres2@hotmail.com"
-            .From = "edisonude@gmail.com"
+            .From = "puertacontrol.notify@gmail.com"
             .Subject = "Alerta - Apertura habitación"
             .HTMLBody = "<html><head> </head> <body> <table style=' width: 400px; text-align: center; font-family: Calibri,Arial,sans-serif; font-size: 18px; '> <tbody><tr> <th style=' border-bottom: 3px solid #608BB1; '><img src='https://image.ibb.co/gBaUSw/puertacontrol_small.png' alt='puertacontrol_small' border='0'></th> </tr> <tr> <td style=' font-weight: 700; font-size: 22px; '>ALERTA</td> </tr> <tr> <td style=' border-bottom: 1px solid #608BB1; '>La habitación #NO# fue abierta el #FECHA# por fuera de los horarios permitidos.</td> </tr><tr> <td style='font-size: 6px;font-weight: 600;'>&nbsp;</td> </tr> <tr> <td style=' font-size: 14px; '>Cualquier inquietud, estaremos dispuesto a solucionarla</td> </tr><tr> <td style='font-size: 14px;font-weight: 600;'>tudesarrolloo@gmail.com - 313 704 9824</td> </tr> </tbody></table> </body></html>"
-            .Sender = "edisonude@gmail.com"
+            .Sender = "puertacontrol.notify@gmail.com"
             .Organization = "S.M.B Productions"
-            .ReplyTo = "edisonude@gmail.com"
+            .ReplyTo = "puertacontrol.notify@gmail.com"
             'If AttachFile <> "" Then
             '    .AddAttachment (AttachFile)
             'End If
@@ -216,10 +216,6 @@ Me.WindowState = vbMinimized
 Cancel = True
 End Sub
 
-Private Sub Label1_Click()
-
-End Sub
-
 Private Sub lPausa_Click()
 Me.timeToMin.Enabled = False
 End Sub
@@ -230,20 +226,17 @@ processMessage (textin)
 End Sub
 
 Private Sub processMessage(message As String)
-
+Dim noRoom As String
 If (message <> "" And Left$(message, 1) = "R") Then
     Me.lConsole.Caption = message
-    
+    noRoom = Right(message, 2)
     fecha = Format(Now(), "yyyy-MM-dd HH:mm:ss")
     SQL = "Insert into operation_room_log (date_action,number_room,message) " & _
-            "values('" & fecha & "',10,'" & message & "')"
+            "values('" & fecha & "','" & noRoom & "','" & message & "')"
     con.Execute (SQL)
 End If
 
 End Sub
-
-
-
 
 Private Sub Form_MouseMove( _
     Button As Integer, _
