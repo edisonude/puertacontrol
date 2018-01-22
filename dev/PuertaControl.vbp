@@ -17,7 +17,6 @@ Class=CRoomType; class\CRoomType.cls
 Class=CStatusRoom; class\CStatusRoom.cls
 Module=Ap; module\Application.bas
 Form=form\frmManagerRoom.frm
-Form=form\frmAsignService.frm
 Form=form\frmAsignServiceRoom.frm
 Module=ModFormater; module\ModFormater.bas
 Form=form\frmLogin.frm

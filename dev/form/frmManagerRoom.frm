@@ -434,21 +434,21 @@ Begin VB.Form frmManagerRoom
          Top             =   120
          Width           =   495
       End
-      Begin VB.Image cmdAsign 
-         Height          =   405
-         Index           =   26
-         Left            =   30
-         Picture         =   "frmManagerRoom.frx":21910A
-         Top             =   1035
-         Width           =   1950
-      End
       Begin VB.Image Image1 
          Height          =   570
          Index           =   26
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":21BAA4
+         Picture         =   "frmManagerRoom.frx":21910A
          Top             =   90
          Width           =   900
+      End
+      Begin VB.Image cmdAsign 
+         Height          =   405
+         Index           =   26
+         Left            =   30
+         Picture         =   "frmManagerRoom.frx":21AC04
+         Top             =   1035
+         Width           =   1950
       End
    End
    Begin VB.PictureBox picRoom 
@@ -5925,15 +5925,7 @@ Private Const COLOR_CLEAN_ROOM = &HCD7C10
 Private Const START_CLEAN_TOP = 1035
 Private Const START_CLEAN_LEFT = 20
 
-
-
-Private Sub Label5_Click()
-
-End Sub
-
 Private Sub cmdAsign_Click(Index As Integer)
-'Call reserveRoom(Index, "12:00", "14:00")
-'frmAsignService.Show vbModal
 frmAsignServiceRoom.tNoRoom = Me.lNoRoom(Index)
 Set frmAsignServiceRoom.manager = Me
 frmAsignServiceRoom.Show vbModal
@@ -5952,21 +5944,25 @@ Call setPositionElements
 End Sub
 
 Private Sub initFreeRoom(idRoom As Integer)
-If (MsgBox("¿Está seguro de desocupar la habitación " & Me.lNoRoom(idRoom) & "?", vbQuestion + vbYesNo) = vbNo) Then
-    Exit Sub
-End If
+frmFreeRoom.tNoRoom = Me.lNoRoom(idRoom)
+Set frmFreeRoom.manager = Me
+frmFreeRoom.Show vbModal
 
-Dim datetimeEndReal As Date
-Dim dateTimeEndRealFormated As String
-
-datetimeEndReal = Now()
-dateTimeEndRealFormated = Format(datetimeEndReal, "yyyy-MM-dd HH:mm:ss")
-
-SQL = "UPDATE service SET datetime_end_real = '" & dateTimeEndRealFormated & "', " & _
-    "status='FIN' where id_room=" & idRoom & " and status='ACT'"
-conBd.Execute (SQL)
-Call freeRoom(idRoom)
-MsgBox "Se desocupó la habitación correctamente", vbInformation
+'If (MsgBox("¿Está seguro de desocupar la habitación " & Me.lNoRoom(idRoom) & "?", vbQuestion + vbYesNo) = vbNo) Then
+'    Exit Sub
+'End If
+'
+'Dim datetimeEndReal As Date
+'Dim dateTimeEndRealFormated As String
+'
+'datetimeEndReal = Now()
+'dateTimeEndRealFormated = Format(datetimeEndReal, "yyyy-MM-dd HH:mm:ss")
+'
+'SQL = "UPDATE service SET datetime_end_real = '" & dateTimeEndRealFormated & "', " & _
+'    "status='FIN' where id_room=" & idRoom & " and status='ACT'"
+'conBd.Execute (SQL)
+'Call freeRoom(idRoom)
+'MsgBox "Se desocupó la habitación correctamente", vbInformation
 End Sub
 
 Private Sub freeRoom(idRoom As Integer)
@@ -6004,7 +6000,7 @@ Me.labelHoraInicio(noRoom).Visible = True
 Me.labelHoraFin(noRoom).Visible = True
 
 Me.cmdAsign(noRoom).Visible = False
-Me.cmdFree(noRoom).Visible = True
+Me.cmdFree(noRoom).Visible = False
 
 Me.lHourStart(noRoom).Caption = ModFormater.getHourAndMinuteFromDate(hourStart)
 Me.lHourEnd(noRoom).Caption = ModFormater.getHourAndMinuteFromDate(hourEnd)
@@ -6037,7 +6033,7 @@ Do Until rec.EOF
     If (Ap.cStatusRoomStatic.BUSY.description = Me.lStatus(idRoom).Caption) Then
         Call reserveRoom(idRoom, rec("datetime_start_service"), rec("datetime_end_service"))
     Else
-        If (Ap.cStatusRoomStatic.clean.description = Me.lStatus(idRoom).Caption) Then
+        If (Ap.cStatusRoomStatic.CLEAN.description = Me.lStatus(idRoom).Caption) Then
             Call cleanRoom(idRoom, rec("datetime_start_service"), rec("datetime_end_service"))
         Else
             Call freeRoom(idRoom)

@@ -252,10 +252,10 @@ Dim timeService As Integer
 Dim timeClean As Integer
 Dim dateTimeStartService As Date
 Dim dateTimeEndService As Date
-Dim dateTimeStartClean As Date
-Dim dateTimeEndClean As Date
 Dim dateTimeStartServiceFormated As String
 Dim dateTimeEndServiceFormated As String
+Dim dateTimeStartClean As Date
+Dim dateTimeEndClean As Date
 Dim dateTimeStartCleanFormated As String
 Dim dateTimeEndCleanFormated As String
 
@@ -267,22 +267,19 @@ Private Sub Label3_Click()
 
 End Sub
 
-Private Sub cmbTypePackage_LostFocus()
-rec.Open "SELECT * from package where description='" & Me.cmbTypePackage.Text & "'", conBd, adOpenStatic, adLockOptimistic
-Do Until rec.EOF
-    idPackage = rec("id")
-    timeService = 30 'rec("time_service")
-    timeClean = 30 'rec("time_clean")
-    rec.MoveNext
-Loop
-rec.Close
-End Sub
-
 Private Sub cmdAsignService_Click()
 If (Me.cmbTypePackage = "") Then
     MsgBox "Debe seleccionar el tipo de paquete con el que quiere realizar el servicio", vbCritical, "Error"
     Exit Sub
 End If
+
+'Se busca el tipo de paquete seleccionado.
+rec.Open "SELECT pr.id from package p inner join package_x_type_room pr on p.id = pr.id_package inner join room_type rt on pr.id_room_type = rt.id where p.description='" & Me.cmbTypePackage & "' and rt.description='" & Me.tTypeRoom & "'; ", conBd, adOpenStatic, adLockOptimistic
+Do Until rec.EOF
+    idPackage = rec("id")
+    rec.MoveNext
+Loop
+rec.Close
 
 dateTimeStartService = Now()
 dateTimeEndService = DateAdd("n", timeService, dateTimeStartService)
@@ -303,8 +300,13 @@ SQL = "INSERT INTO service " & _
     ",'" & dateTimeStartServiceFormated & "','" & dateTimeEndServiceFormated & _
     "','" & dateTimeStartCleanFormated & "','" & dateTimeEndCleanFormated & "','ACT');"
 con.Execute (SQL)
+
+SQL = "UPDATE room SET code_status = '" & Ap.cStatusRoomStatic.BUSY.code & "' WHERE id=" & Me.tIdRoom & ""
+con.Execute (SQL)
+
+
 MsgBox "Se asignó el servicio correctamente"
-Call manager.compleReserveRoom(Me.tIdRoom, dateTimeStartService, dateTimeEndClean)
+Call manager.compleReserveRoom(Me.tIdRoom, dateTimeStartService, dateTimeEndService)
 Unload Me
 End Sub
 
@@ -313,14 +315,8 @@ ModSkin.applyDefaultSkin Me, Me.skinObject
 Call loadBd
 End Sub
 
-Private Sub tIdPackage_Click()
-
-End Sub
-
 Private Sub tNoRoom_Change()
-'Call Form_Load
 Call loadInfoRoom(tNoRoom)
-'Call loadPackages("ab")
 End Sub
 
 Private Sub loadInfoRoom(noRoom)
@@ -344,7 +340,7 @@ rec.Open "Select p.description from package p inner join package_x_type_room ptr
 "inner join room_type rt on rt.id=ptr.id_room_type where rt.description='" & typeRoom & "'", conBd, adOpenStatic, adLockOptimistic
 Me.cmbTypePackage.Clear
 Do Until rec.EOF
-    typePackage = rec("description").Value
+    typePackage = rec("description").value
     If Not IsNull(typePackage) Then
         Me.cmbTypePackage.AddItem typePackage
     End If

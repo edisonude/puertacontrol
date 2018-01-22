@@ -15,3 +15,22 @@ End Function
 Public Function getValue(value, default)
 getValue = IIf(IsNull(value), default, value)
 End Function
+
+
+'Convierte un valor numerico a un formato de moneda
+Public Function convertValueToCurrency(value, decimalDigits As Integer) As String
+Dim valueCurrency As String
+valueCurrency = "0"
+If IsNumeric(value) Then
+    valueCurrency = FormatCurrency(value, decimalDigits)
+End If
+convertValueToCurrency = valueCurrency
+End Function
+
+'Convierte un valor moneda a su valor numérico
+Public Function convertCurrencyToValue(valueCurrency As String) As Double
+valueCurrency = IIf(valueCurrency = "", 0, valueCurrency)
+Dim value As Double
+value = CDbl(valueCurrency)
+convertCurrencyToValue = value
+End Function
