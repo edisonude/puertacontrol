@@ -24,7 +24,7 @@ valueCurrency = "0"
 If IsNumeric(value) Then
     valueCurrency = FormatCurrency(value, decimalDigits)
 End If
-convertValueToCurrency = valueCurrency
+convertValueToCurrency = FormatCurrency(valueCurrency, decimalDigits)
 End Function
 
 'Convierte un valor moneda a su valor numérico

@@ -287,6 +287,14 @@ Public Function reloadSkin()
 Timer1.Enabled = True
 End Function
 
+Private Sub Label1_Click()
+frmReportProducts.Left = Me.lReferencia.Left - 1000
+frmReportProducts.Top = Me.lReferencia.Top - 500
+Set frmReportProducts.parent = Me
+
+frmReportProducts.Show , Me
+End Sub
+
 Private Sub timeProcessor_Timer()
 Dim operationsToProcess(10) As COperationRoomLog
  operationUtil.loadLast10OperationsNoProcessed
