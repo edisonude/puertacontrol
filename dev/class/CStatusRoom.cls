@@ -29,6 +29,9 @@ Public RESERVED As CStatusRoom
 'Habitación en limpieza
 Public CLEAN As CStatusRoom
 
+'Habitación en limpieza
+Public CLEAN_PROGRESS As CStatusRoom
+
 'Attributes
 Public code As String
 Public description As String
@@ -59,10 +62,15 @@ Set Me.RESERVED = New CStatusRoom
 Me.RESERVED.code = "RES"
 Me.RESERVED.description = "Reservada"
 
-'Instancia para estado: Habitación reservada
+'Instancia para estado: Habitación que requiere limpieza
 Set Me.CLEAN = New CStatusRoom
 Me.CLEAN.code = "CLN"
-Me.CLEAN.description = "En limpieza"
+Me.CLEAN.description = "A limpieza"
+
+'Instancia para estado: Habitación en limpieza
+Set Me.CLEAN_PROGRESS = New CStatusRoom
+Me.CLEAN_PROGRESS.code = "CLP"
+Me.CLEAN_PROGRESS.description = "En limpieza"
 
 End Function
 

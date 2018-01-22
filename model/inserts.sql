@@ -367,5 +367,7 @@ INSERT INTO `puertacontrol`.`products_x_type_room` (`id_room_type`, `id_product`
 INSERT INTO `puertacontrol`.`products_x_type_room` (`id_room_type`, `id_product`, `quantity`, `quantity_min`) VALUES ('7','27','0','8');
 INSERT INTO `puertacontrol`.`products_x_type_room` (`id_room_type`, `id_product`, `quantity`, `quantity_min`) VALUES ('7','28','0','3');
 
+--
 
-
+INSERT INTO `puertacontrol`.`status_room` (`code`, `description`) VALUES ('CLP', 'En limpieza');
+UPDATE `puertacontrol`.`status_room` SET `description`='A limpieza' WHERE `code`='CLN';

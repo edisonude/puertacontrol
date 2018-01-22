@@ -28,11 +28,29 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   208
       Top             =   105
       Width           =   6045
+      Begin VB.Label tIdService 
+         BackColor       =   &H000000FF&
+         Height          =   255
+         Index           =   27
+         Left            =   0
+         TabIndex        =   269
+         Top             =   0
+         Visible         =   0   'False
+         Width           =   255
+      End
+      Begin VB.Image iEndClean 
+         Height          =   405
+         Index           =   27
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":209612
+         Top             =   1920
+         Width           =   1950
+      End
       Begin VB.Image iStartClean 
          Height          =   390
          Index           =   27
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":209612
+         Picture         =   "frmManagerRoom.frx":20BFAC
          Top             =   1710
          Width           =   1965
       End
@@ -103,7 +121,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   27
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":20BE8C
+         Picture         =   "frmManagerRoom.frx":20E826
          Top             =   1710
          Width           =   405
       End
@@ -111,7 +129,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   27
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":20C7AA
+         Picture         =   "frmManagerRoom.frx":20F144
          Top             =   1710
          Width           =   1950
       End
@@ -220,7 +238,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   27
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":20F144
+         Picture         =   "frmManagerRoom.frx":211ADE
          Top             =   1035
          Width           =   1950
       End
@@ -228,7 +246,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   27
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":211ADE
+         Picture         =   "frmManagerRoom.frx":214478
          Top             =   90
          Width           =   900
       End
@@ -246,11 +264,29 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   200
       Top             =   105
       Width           =   4020
+      Begin VB.Label tIdService 
+         BackColor       =   &H000000FF&
+         Height          =   255
+         Index           =   26
+         Left            =   0
+         TabIndex        =   268
+         Top             =   0
+         Visible         =   0   'False
+         Width           =   255
+      End
+      Begin VB.Image iEndClean 
+         Height          =   405
+         Index           =   26
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":215F72
+         Top             =   1920
+         Width           =   1950
+      End
       Begin VB.Image iStartClean 
          Height          =   390
          Index           =   26
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":2135D8
+         Picture         =   "frmManagerRoom.frx":21890C
          Top             =   1710
          Width           =   1965
       End
@@ -321,7 +357,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   26
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":215E52
+         Picture         =   "frmManagerRoom.frx":21B186
          Top             =   1710
          Width           =   405
       End
@@ -329,7 +365,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   26
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":216770
+         Picture         =   "frmManagerRoom.frx":21BAA4
          Top             =   1710
          Width           =   1950
       End
@@ -438,7 +474,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   26
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":21910A
+         Picture         =   "frmManagerRoom.frx":21E43E
          Top             =   90
          Width           =   900
       End
@@ -446,7 +482,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   26
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":21AC04
+         Picture         =   "frmManagerRoom.frx":21FF38
          Top             =   1035
          Width           =   1950
       End
@@ -469,11 +505,29 @@ Begin VB.Form frmManagerRoom
          Left            =   2400
          Top             =   120
       End
+      Begin VB.Label tIdService 
+         BackColor       =   &H000000FF&
+         Height          =   255
+         Index           =   25
+         Left            =   0
+         TabIndex        =   267
+         Top             =   0
+         Visible         =   0   'False
+         Width           =   255
+      End
+      Begin VB.Image iEndClean 
+         Height          =   405
+         Index           =   25
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":2228D2
+         Top             =   1920
+         Width           =   1950
+      End
       Begin VB.Image iStartClean 
          Height          =   390
          Index           =   25
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":21D59E
+         Picture         =   "frmManagerRoom.frx":22526C
          Top             =   1710
          Width           =   1965
       End
@@ -603,7 +657,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   25
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":21FE18
+         Picture         =   "frmManagerRoom.frx":227AE6
          Top             =   1710
          Width           =   405
       End
@@ -611,7 +665,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   25
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":220736
+         Picture         =   "frmManagerRoom.frx":228404
          Top             =   1035
          Width           =   1950
       End
@@ -640,7 +694,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   25
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":2230D0
+         Picture         =   "frmManagerRoom.frx":22AD9E
          Top             =   90
          Width           =   900
       End
@@ -669,7 +723,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   25
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":224BCA
+         Picture         =   "frmManagerRoom.frx":22C898
          Top             =   1710
          Width           =   1950
       End
@@ -687,11 +741,29 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   184
       Top             =   2325
       Width           =   1995
+      Begin VB.Label tIdService 
+         BackColor       =   &H000000FF&
+         Height          =   255
+         Index           =   24
+         Left            =   0
+         TabIndex        =   266
+         Top             =   0
+         Visible         =   0   'False
+         Width           =   255
+      End
+      Begin VB.Image iEndClean 
+         Height          =   405
+         Index           =   24
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":22F232
+         Top             =   1920
+         Width           =   1950
+      End
       Begin VB.Image iStartClean 
          Height          =   390
          Index           =   24
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":227564
+         Picture         =   "frmManagerRoom.frx":231BCC
          Top             =   1710
          Width           =   1965
       End
@@ -821,7 +893,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   24
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":229DDE
+         Picture         =   "frmManagerRoom.frx":234446
          Top             =   1710
          Width           =   405
       End
@@ -829,7 +901,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   24
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":22A6FC
+         Picture         =   "frmManagerRoom.frx":234D64
          Top             =   1035
          Width           =   1950
       End
@@ -858,7 +930,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   24
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":22D096
+         Picture         =   "frmManagerRoom.frx":2376FE
          Top             =   90
          Width           =   900
       End
@@ -887,7 +959,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   24
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":22EB90
+         Picture         =   "frmManagerRoom.frx":2391F8
          Top             =   1710
          Width           =   1950
       End
@@ -905,11 +977,29 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   176
       Top             =   2325
       Width           =   1995
+      Begin VB.Label tIdService 
+         BackColor       =   &H000000FF&
+         Height          =   255
+         Index           =   23
+         Left            =   0
+         TabIndex        =   265
+         Top             =   0
+         Visible         =   0   'False
+         Width           =   255
+      End
+      Begin VB.Image iEndClean 
+         Height          =   405
+         Index           =   23
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":23BB92
+         Top             =   1920
+         Width           =   1950
+      End
       Begin VB.Image iStartClean 
          Height          =   390
          Index           =   23
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":23152A
+         Picture         =   "frmManagerRoom.frx":23E52C
          Top             =   1710
          Width           =   1965
       End
@@ -1039,7 +1129,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   23
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":233DA4
+         Picture         =   "frmManagerRoom.frx":240DA6
          Top             =   1710
          Width           =   405
       End
@@ -1047,7 +1137,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   23
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2346C2
+         Picture         =   "frmManagerRoom.frx":2416C4
          Top             =   1035
          Width           =   1950
       End
@@ -1076,7 +1166,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   23
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":23705C
+         Picture         =   "frmManagerRoom.frx":24405E
          Top             =   90
          Width           =   900
       End
@@ -1105,7 +1195,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   23
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":238B56
+         Picture         =   "frmManagerRoom.frx":245B58
          Top             =   1710
          Width           =   1950
       End
@@ -1123,11 +1213,29 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   168
       Top             =   2325
       Width           =   1995
+      Begin VB.Label tIdService 
+         BackColor       =   &H000000FF&
+         Height          =   255
+         Index           =   22
+         Left            =   0
+         TabIndex        =   264
+         Top             =   0
+         Visible         =   0   'False
+         Width           =   255
+      End
+      Begin VB.Image iEndClean 
+         Height          =   405
+         Index           =   22
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":2484F2
+         Top             =   1920
+         Width           =   1950
+      End
       Begin VB.Image iStartClean 
          Height          =   390
          Index           =   22
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":23B4F0
+         Picture         =   "frmManagerRoom.frx":24AE8C
          Top             =   1710
          Width           =   1965
       End
@@ -1257,7 +1365,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   22
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":23DD6A
+         Picture         =   "frmManagerRoom.frx":24D706
          Top             =   1710
          Width           =   405
       End
@@ -1265,7 +1373,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   22
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":23E688
+         Picture         =   "frmManagerRoom.frx":24E024
          Top             =   1035
          Width           =   1950
       End
@@ -1294,7 +1402,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   22
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":241022
+         Picture         =   "frmManagerRoom.frx":2509BE
          Top             =   90
          Width           =   900
       End
@@ -1323,7 +1431,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   22
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":242B1C
+         Picture         =   "frmManagerRoom.frx":2524B8
          Top             =   1710
          Width           =   1950
       End
@@ -1341,11 +1449,29 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   160
       Top             =   2325
       Width           =   1995
+      Begin VB.Label tIdService 
+         BackColor       =   &H000000FF&
+         Height          =   255
+         Index           =   21
+         Left            =   0
+         TabIndex        =   263
+         Top             =   0
+         Visible         =   0   'False
+         Width           =   255
+      End
+      Begin VB.Image iEndClean 
+         Height          =   405
+         Index           =   21
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":254E52
+         Top             =   1920
+         Width           =   1950
+      End
       Begin VB.Image iStartClean 
          Height          =   390
          Index           =   21
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":2454B6
+         Picture         =   "frmManagerRoom.frx":2577EC
          Top             =   1710
          Width           =   1965
       End
@@ -1475,7 +1601,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   21
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":247D30
+         Picture         =   "frmManagerRoom.frx":25A066
          Top             =   1710
          Width           =   405
       End
@@ -1483,7 +1609,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   21
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":24864E
+         Picture         =   "frmManagerRoom.frx":25A984
          Top             =   1035
          Width           =   1950
       End
@@ -1512,7 +1638,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   21
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":24AFE8
+         Picture         =   "frmManagerRoom.frx":25D31E
          Top             =   90
          Width           =   900
       End
@@ -1540,8 +1666,8 @@ Begin VB.Form frmManagerRoom
       Begin VB.Image cmdFree 
          Height          =   405
          Index           =   21
-         Left            =   30
-         Picture         =   "frmManagerRoom.frx":24CAE2
+         Left            =   0
+         Picture         =   "frmManagerRoom.frx":25EE18
          Top             =   1710
          Width           =   1950
       End
@@ -1559,11 +1685,29 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   152
       Top             =   2325
       Width           =   1995
+      Begin VB.Label tIdService 
+         BackColor       =   &H000000FF&
+         Height          =   255
+         Index           =   20
+         Left            =   0
+         TabIndex        =   262
+         Top             =   0
+         Visible         =   0   'False
+         Width           =   255
+      End
+      Begin VB.Image iEndClean 
+         Height          =   405
+         Index           =   20
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":2617B2
+         Top             =   1920
+         Width           =   1950
+      End
       Begin VB.Image iStartClean 
          Height          =   390
          Index           =   20
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":24F47C
+         Picture         =   "frmManagerRoom.frx":26414C
          Top             =   1710
          Width           =   1965
       End
@@ -1693,7 +1837,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   20
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":251CF6
+         Picture         =   "frmManagerRoom.frx":2669C6
          Top             =   1710
          Width           =   405
       End
@@ -1701,7 +1845,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   20
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":252614
+         Picture         =   "frmManagerRoom.frx":2672E4
          Top             =   1035
          Width           =   1950
       End
@@ -1730,7 +1874,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   20
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":254FAE
+         Picture         =   "frmManagerRoom.frx":269C7E
          Top             =   90
          Width           =   900
       End
@@ -1759,7 +1903,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   20
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":256AA8
+         Picture         =   "frmManagerRoom.frx":26B778
          Top             =   1710
          Width           =   1950
       End
@@ -1777,11 +1921,29 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   144
       Top             =   2325
       Width           =   1995
+      Begin VB.Label tIdService 
+         BackColor       =   &H000000FF&
+         Height          =   255
+         Index           =   19
+         Left            =   0
+         TabIndex        =   261
+         Top             =   0
+         Visible         =   0   'False
+         Width           =   255
+      End
+      Begin VB.Image iEndClean 
+         Height          =   405
+         Index           =   19
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":26E112
+         Top             =   1920
+         Width           =   1950
+      End
       Begin VB.Image iStartClean 
          Height          =   390
          Index           =   19
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":259442
+         Picture         =   "frmManagerRoom.frx":270AAC
          Top             =   1710
          Width           =   1965
       End
@@ -1911,7 +2073,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   19
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":25BCBC
+         Picture         =   "frmManagerRoom.frx":273326
          Top             =   1710
          Width           =   405
       End
@@ -1919,7 +2081,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   19
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":25C5DA
+         Picture         =   "frmManagerRoom.frx":273C44
          Top             =   1035
          Width           =   1950
       End
@@ -1948,7 +2110,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   19
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":25EF74
+         Picture         =   "frmManagerRoom.frx":2765DE
          Top             =   90
          Width           =   900
       End
@@ -1977,7 +2139,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   19
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":260A6E
+         Picture         =   "frmManagerRoom.frx":2780D8
          Top             =   1710
          Width           =   1950
       End
@@ -1995,11 +2157,29 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   136
       Top             =   2325
       Width           =   1995
+      Begin VB.Label tIdService 
+         BackColor       =   &H000000FF&
+         Height          =   255
+         Index           =   18
+         Left            =   0
+         TabIndex        =   260
+         Top             =   0
+         Visible         =   0   'False
+         Width           =   255
+      End
+      Begin VB.Image iEndClean 
+         Height          =   405
+         Index           =   18
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":27AA72
+         Top             =   1920
+         Width           =   1950
+      End
       Begin VB.Image iStartClean 
          Height          =   390
          Index           =   18
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":263408
+         Picture         =   "frmManagerRoom.frx":27D40C
          Top             =   1710
          Width           =   1965
       End
@@ -2129,7 +2309,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   18
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":265C82
+         Picture         =   "frmManagerRoom.frx":27FC86
          Top             =   1710
          Width           =   405
       End
@@ -2137,7 +2317,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   18
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2665A0
+         Picture         =   "frmManagerRoom.frx":2805A4
          Top             =   1035
          Width           =   1950
       End
@@ -2166,7 +2346,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   18
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":268F3A
+         Picture         =   "frmManagerRoom.frx":282F3E
          Top             =   90
          Width           =   900
       End
@@ -2195,7 +2375,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   18
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":26AA34
+         Picture         =   "frmManagerRoom.frx":284A38
          Top             =   1710
          Width           =   1950
       End
@@ -2213,11 +2393,29 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   128
       Top             =   2325
       Width           =   1995
+      Begin VB.Label tIdService 
+         BackColor       =   &H000000FF&
+         Height          =   255
+         Index           =   17
+         Left            =   0
+         TabIndex        =   259
+         Top             =   0
+         Visible         =   0   'False
+         Width           =   255
+      End
+      Begin VB.Image iEndClean 
+         Height          =   405
+         Index           =   17
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":2873D2
+         Top             =   1920
+         Width           =   1950
+      End
       Begin VB.Image iStartClean 
          Height          =   390
          Index           =   17
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":26D3CE
+         Picture         =   "frmManagerRoom.frx":289D6C
          Top             =   1710
          Width           =   1965
       End
@@ -2288,7 +2486,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   17
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":26FC48
+         Picture         =   "frmManagerRoom.frx":28C5E6
          Top             =   1710
          Width           =   405
       End
@@ -2296,7 +2494,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   17
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":270566
+         Picture         =   "frmManagerRoom.frx":28CF04
          Top             =   1710
          Width           =   1950
       End
@@ -2405,7 +2603,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   17
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":272F00
+         Picture         =   "frmManagerRoom.frx":28F89E
          Top             =   1035
          Width           =   1950
       End
@@ -2413,7 +2611,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   17
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":27589A
+         Picture         =   "frmManagerRoom.frx":292238
          Top             =   90
          Width           =   900
       End
@@ -2431,11 +2629,29 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   120
       Top             =   4545
       Width           =   1995
+      Begin VB.Label tIdService 
+         BackColor       =   &H000000FF&
+         Height          =   255
+         Index           =   16
+         Left            =   0
+         TabIndex        =   258
+         Top             =   0
+         Visible         =   0   'False
+         Width           =   255
+      End
+      Begin VB.Image iEndClean 
+         Height          =   405
+         Index           =   16
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":293D32
+         Top             =   1920
+         Width           =   1950
+      End
       Begin VB.Image iStartClean 
          Height          =   390
          Index           =   16
          Left            =   1560
-         Picture         =   "frmManagerRoom.frx":277394
+         Picture         =   "frmManagerRoom.frx":2966CC
          Top             =   1710
          Width           =   1965
       End
@@ -2565,7 +2781,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   16
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":279C0E
+         Picture         =   "frmManagerRoom.frx":298F46
          Top             =   1710
          Width           =   405
       End
@@ -2573,7 +2789,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   16
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":27A52C
+         Picture         =   "frmManagerRoom.frx":299864
          Top             =   1035
          Width           =   1950
       End
@@ -2602,7 +2818,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   16
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":27CEC6
+         Picture         =   "frmManagerRoom.frx":29C1FE
          Top             =   90
          Width           =   900
       End
@@ -2631,7 +2847,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   16
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":27E9C0
+         Picture         =   "frmManagerRoom.frx":29DCF8
          Top             =   1710
          Width           =   1950
       End
@@ -2649,11 +2865,29 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   112
       Top             =   4545
       Width           =   1995
+      Begin VB.Label tIdService 
+         BackColor       =   &H000000FF&
+         Height          =   255
+         Index           =   15
+         Left            =   0
+         TabIndex        =   257
+         Top             =   0
+         Visible         =   0   'False
+         Width           =   255
+      End
+      Begin VB.Image iEndClean 
+         Height          =   405
+         Index           =   15
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":2A0692
+         Top             =   1920
+         Width           =   1950
+      End
       Begin VB.Image iStartClean 
          Height          =   390
          Index           =   15
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":28135A
+         Picture         =   "frmManagerRoom.frx":2A302C
          Top             =   1710
          Width           =   1965
       End
@@ -2783,7 +3017,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   15
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":283BD4
+         Picture         =   "frmManagerRoom.frx":2A58A6
          Top             =   1710
          Width           =   405
       End
@@ -2791,7 +3025,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   15
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2844F2
+         Picture         =   "frmManagerRoom.frx":2A61C4
          Top             =   1035
          Width           =   1950
       End
@@ -2820,7 +3054,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   15
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":286E8C
+         Picture         =   "frmManagerRoom.frx":2A8B5E
          Top             =   90
          Width           =   900
       End
@@ -2849,7 +3083,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   15
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":288986
+         Picture         =   "frmManagerRoom.frx":2AA658
          Top             =   1710
          Width           =   1950
       End
@@ -2867,11 +3101,29 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   104
       Top             =   4545
       Width           =   1995
+      Begin VB.Label tIdService 
+         BackColor       =   &H000000FF&
+         Height          =   255
+         Index           =   14
+         Left            =   0
+         TabIndex        =   256
+         Top             =   0
+         Visible         =   0   'False
+         Width           =   255
+      End
+      Begin VB.Image iEndClean 
+         Height          =   405
+         Index           =   14
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":2ACFF2
+         Top             =   1920
+         Width           =   1950
+      End
       Begin VB.Image iStartClean 
          Height          =   390
          Index           =   14
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":28B320
+         Picture         =   "frmManagerRoom.frx":2AF98C
          Top             =   1710
          Width           =   1965
       End
@@ -3001,7 +3253,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   14
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":28DB9A
+         Picture         =   "frmManagerRoom.frx":2B2206
          Top             =   1710
          Width           =   405
       End
@@ -3009,7 +3261,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   14
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":28E4B8
+         Picture         =   "frmManagerRoom.frx":2B2B24
          Top             =   1035
          Width           =   1950
       End
@@ -3038,7 +3290,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   14
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":290E52
+         Picture         =   "frmManagerRoom.frx":2B54BE
          Top             =   90
          Width           =   900
       End
@@ -3067,7 +3319,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   14
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":29294C
+         Picture         =   "frmManagerRoom.frx":2B6FB8
          Top             =   1710
          Width           =   1950
       End
@@ -3085,11 +3337,29 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   96
       Top             =   4545
       Width           =   1995
+      Begin VB.Label tIdService 
+         BackColor       =   &H000000FF&
+         Height          =   255
+         Index           =   13
+         Left            =   0
+         TabIndex        =   255
+         Top             =   0
+         Visible         =   0   'False
+         Width           =   255
+      End
+      Begin VB.Image iEndClean 
+         Height          =   405
+         Index           =   13
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":2B9952
+         Top             =   1920
+         Width           =   1950
+      End
       Begin VB.Image iStartClean 
          Height          =   390
          Index           =   13
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":2952E6
+         Picture         =   "frmManagerRoom.frx":2BC2EC
          Top             =   1710
          Width           =   1965
       End
@@ -3219,7 +3489,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   13
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":297B60
+         Picture         =   "frmManagerRoom.frx":2BEB66
          Top             =   1710
          Width           =   405
       End
@@ -3227,7 +3497,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   13
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":29847E
+         Picture         =   "frmManagerRoom.frx":2BF484
          Top             =   1035
          Width           =   1950
       End
@@ -3256,7 +3526,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   13
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":29AE18
+         Picture         =   "frmManagerRoom.frx":2C1E1E
          Top             =   90
          Width           =   900
       End
@@ -3285,7 +3555,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   13
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":29C912
+         Picture         =   "frmManagerRoom.frx":2C3918
          Top             =   1710
          Width           =   1950
       End
@@ -3303,11 +3573,29 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   88
       Top             =   4545
       Width           =   1995
+      Begin VB.Label tIdService 
+         BackColor       =   &H000000FF&
+         Height          =   255
+         Index           =   12
+         Left            =   0
+         TabIndex        =   254
+         Top             =   0
+         Visible         =   0   'False
+         Width           =   255
+      End
+      Begin VB.Image iEndClean 
+         Height          =   405
+         Index           =   12
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":2C62B2
+         Top             =   1920
+         Width           =   1950
+      End
       Begin VB.Image iStartClean 
          Height          =   390
          Index           =   12
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":29F2AC
+         Picture         =   "frmManagerRoom.frx":2C8C4C
          Top             =   1710
          Width           =   1965
       End
@@ -3437,7 +3725,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   12
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":2A1B26
+         Picture         =   "frmManagerRoom.frx":2CB4C6
          Top             =   1710
          Width           =   405
       End
@@ -3445,7 +3733,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   12
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2A2444
+         Picture         =   "frmManagerRoom.frx":2CBDE4
          Top             =   1035
          Width           =   1950
       End
@@ -3474,7 +3762,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   12
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":2A4DDE
+         Picture         =   "frmManagerRoom.frx":2CE77E
          Top             =   90
          Width           =   900
       End
@@ -3503,7 +3791,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   12
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2A68D8
+         Picture         =   "frmManagerRoom.frx":2D0278
          Top             =   1710
          Width           =   1950
       End
@@ -3521,11 +3809,29 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   80
       Top             =   4545
       Width           =   1995
+      Begin VB.Label tIdService 
+         BackColor       =   &H000000FF&
+         Height          =   255
+         Index           =   11
+         Left            =   0
+         TabIndex        =   253
+         Top             =   0
+         Visible         =   0   'False
+         Width           =   255
+      End
+      Begin VB.Image iEndClean 
+         Height          =   405
+         Index           =   11
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":2D2C12
+         Top             =   1920
+         Width           =   1950
+      End
       Begin VB.Image iStartClean 
          Height          =   390
          Index           =   11
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":2A9272
+         Picture         =   "frmManagerRoom.frx":2D55AC
          Top             =   1710
          Width           =   1965
       End
@@ -3655,7 +3961,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   11
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":2ABAEC
+         Picture         =   "frmManagerRoom.frx":2D7E26
          Top             =   1710
          Width           =   405
       End
@@ -3663,7 +3969,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   11
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2AC40A
+         Picture         =   "frmManagerRoom.frx":2D8744
          Top             =   1035
          Width           =   1950
       End
@@ -3692,7 +3998,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   11
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":2AEDA4
+         Picture         =   "frmManagerRoom.frx":2DB0DE
          Top             =   90
          Width           =   900
       End
@@ -3721,7 +4027,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   11
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2B089E
+         Picture         =   "frmManagerRoom.frx":2DCBD8
          Top             =   1710
          Width           =   1950
       End
@@ -3739,11 +4045,29 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   72
       Top             =   4545
       Width           =   1995
+      Begin VB.Label tIdService 
+         BackColor       =   &H000000FF&
+         Height          =   255
+         Index           =   10
+         Left            =   0
+         TabIndex        =   252
+         Top             =   0
+         Visible         =   0   'False
+         Width           =   255
+      End
+      Begin VB.Image iEndClean 
+         Height          =   405
+         Index           =   10
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":2DF572
+         Top             =   1920
+         Width           =   1950
+      End
       Begin VB.Image iStartClean 
          Height          =   390
          Index           =   10
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":2B3238
+         Picture         =   "frmManagerRoom.frx":2E1F0C
          Top             =   1710
          Width           =   1965
       End
@@ -3873,7 +4197,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   10
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":2B5AB2
+         Picture         =   "frmManagerRoom.frx":2E4786
          Top             =   1710
          Width           =   405
       End
@@ -3881,7 +4205,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   10
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2B63D0
+         Picture         =   "frmManagerRoom.frx":2E50A4
          Top             =   1035
          Width           =   1950
       End
@@ -3910,7 +4234,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   10
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":2B8D6A
+         Picture         =   "frmManagerRoom.frx":2E7A3E
          Top             =   90
          Width           =   900
       End
@@ -3939,7 +4263,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   10
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2BA864
+         Picture         =   "frmManagerRoom.frx":2E9538
          Top             =   1710
          Width           =   1950
       End
@@ -3957,11 +4281,29 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   64
       Top             =   4545
       Width           =   1995
+      Begin VB.Label tIdService 
+         BackColor       =   &H000000FF&
+         Height          =   255
+         Index           =   9
+         Left            =   0
+         TabIndex        =   251
+         Top             =   0
+         Visible         =   0   'False
+         Width           =   255
+      End
+      Begin VB.Image iEndClean 
+         Height          =   405
+         Index           =   9
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":2EBED2
+         Top             =   1920
+         Width           =   1950
+      End
       Begin VB.Image iStartClean 
          Height          =   390
          Index           =   9
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":2BD1FE
+         Picture         =   "frmManagerRoom.frx":2EE86C
          Top             =   1710
          Width           =   1965
       End
@@ -4032,7 +4374,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   9
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":2BFA78
+         Picture         =   "frmManagerRoom.frx":2F10E6
          Top             =   1710
          Width           =   405
       End
@@ -4040,7 +4382,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   9
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2C0396
+         Picture         =   "frmManagerRoom.frx":2F1A04
          Top             =   1710
          Width           =   1950
       End
@@ -4149,7 +4491,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   9
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2C2D30
+         Picture         =   "frmManagerRoom.frx":2F439E
          Top             =   1035
          Width           =   1950
       End
@@ -4157,7 +4499,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   9
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":2C56CA
+         Picture         =   "frmManagerRoom.frx":2F6D38
          Top             =   90
          Width           =   900
       End
@@ -4175,11 +4517,29 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   56
       Top             =   6765
       Width           =   1995
+      Begin VB.Label tIdService 
+         BackColor       =   &H000000FF&
+         Height          =   255
+         Index           =   8
+         Left            =   0
+         TabIndex        =   250
+         Top             =   0
+         Visible         =   0   'False
+         Width           =   255
+      End
+      Begin VB.Image iEndClean 
+         Height          =   405
+         Index           =   8
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":2F8832
+         Top             =   1920
+         Width           =   1950
+      End
       Begin VB.Image iStartClean 
          Height          =   390
          Index           =   8
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":2C71C4
+         Picture         =   "frmManagerRoom.frx":2FB1CC
          Top             =   1710
          Width           =   1965
       End
@@ -4250,7 +4610,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   8
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":2C9A3E
+         Picture         =   "frmManagerRoom.frx":2FDA46
          Top             =   1710
          Width           =   405
       End
@@ -4258,7 +4618,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   8
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2CA35C
+         Picture         =   "frmManagerRoom.frx":2FE364
          Top             =   1710
          Width           =   1950
       End
@@ -4367,7 +4727,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   8
          Left            =   45
-         Picture         =   "frmManagerRoom.frx":2CCCF6
+         Picture         =   "frmManagerRoom.frx":300CFE
          Top             =   1035
          Width           =   1950
       End
@@ -4375,7 +4735,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   8
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":2CF690
+         Picture         =   "frmManagerRoom.frx":303698
          Top             =   90
          Width           =   900
       End
@@ -4393,11 +4753,29 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   48
       Top             =   6765
       Width           =   1995
+      Begin VB.Label tIdService 
+         BackColor       =   &H000000FF&
+         Height          =   255
+         Index           =   7
+         Left            =   0
+         TabIndex        =   249
+         Top             =   0
+         Visible         =   0   'False
+         Width           =   255
+      End
+      Begin VB.Image iEndClean 
+         Height          =   405
+         Index           =   7
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":305192
+         Top             =   1920
+         Width           =   1950
+      End
       Begin VB.Image iStartClean 
          Height          =   390
          Index           =   7
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":2D118A
+         Picture         =   "frmManagerRoom.frx":307B2C
          Top             =   1710
          Width           =   1965
       End
@@ -4468,7 +4846,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   7
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":2D3A04
+         Picture         =   "frmManagerRoom.frx":30A3A6
          Top             =   1710
          Width           =   405
       End
@@ -4476,7 +4854,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   7
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2D4322
+         Picture         =   "frmManagerRoom.frx":30ACC4
          Top             =   1710
          Width           =   1950
       End
@@ -4585,7 +4963,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   7
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2D6CBC
+         Picture         =   "frmManagerRoom.frx":30D65E
          Top             =   1035
          Width           =   1950
       End
@@ -4593,7 +4971,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   7
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":2D9656
+         Picture         =   "frmManagerRoom.frx":30FFF8
          Top             =   90
          Width           =   900
       End
@@ -4611,11 +4989,29 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   40
       Top             =   6765
       Width           =   1995
+      Begin VB.Label tIdService 
+         BackColor       =   &H000000FF&
+         Height          =   255
+         Index           =   6
+         Left            =   0
+         TabIndex        =   248
+         Top             =   0
+         Visible         =   0   'False
+         Width           =   255
+      End
+      Begin VB.Image iEndClean 
+         Height          =   405
+         Index           =   6
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":311AF2
+         Top             =   1920
+         Width           =   1950
+      End
       Begin VB.Image iStartClean 
          Height          =   390
          Index           =   6
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":2DB150
+         Picture         =   "frmManagerRoom.frx":31448C
          Top             =   1710
          Width           =   1965
       End
@@ -4686,7 +5082,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   6
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":2DD9CA
+         Picture         =   "frmManagerRoom.frx":316D06
          Top             =   1710
          Width           =   405
       End
@@ -4694,7 +5090,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   6
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2DE2E8
+         Picture         =   "frmManagerRoom.frx":317624
          Top             =   1710
          Width           =   1950
       End
@@ -4803,7 +5199,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   6
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2E0C82
+         Picture         =   "frmManagerRoom.frx":319FBE
          Top             =   1035
          Width           =   1950
       End
@@ -4811,7 +5207,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   6
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":2E361C
+         Picture         =   "frmManagerRoom.frx":31C958
          Top             =   90
          Width           =   900
       End
@@ -4829,11 +5225,29 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   32
       Top             =   6765
       Width           =   1995
+      Begin VB.Label tIdService 
+         BackColor       =   &H000000FF&
+         Height          =   255
+         Index           =   5
+         Left            =   0
+         TabIndex        =   247
+         Top             =   0
+         Visible         =   0   'False
+         Width           =   255
+      End
+      Begin VB.Image iEndClean 
+         Height          =   405
+         Index           =   5
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":31E452
+         Top             =   1920
+         Width           =   1950
+      End
       Begin VB.Image iStartClean 
          Height          =   390
          Index           =   5
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":2E5116
+         Picture         =   "frmManagerRoom.frx":320DEC
          Top             =   1710
          Width           =   1965
       End
@@ -4904,7 +5318,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   5
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":2E7990
+         Picture         =   "frmManagerRoom.frx":323666
          Top             =   1710
          Width           =   405
       End
@@ -4912,7 +5326,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   5
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2E82AE
+         Picture         =   "frmManagerRoom.frx":323F84
          Top             =   1710
          Width           =   1950
       End
@@ -5021,7 +5435,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   5
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2EAC48
+         Picture         =   "frmManagerRoom.frx":32691E
          Top             =   1035
          Width           =   1950
       End
@@ -5029,7 +5443,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   5
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":2ED5E2
+         Picture         =   "frmManagerRoom.frx":3292B8
          Top             =   90
          Width           =   900
       End
@@ -5047,11 +5461,29 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   24
       Top             =   6765
       Width           =   1995
+      Begin VB.Label tIdService 
+         BackColor       =   &H000000FF&
+         Height          =   255
+         Index           =   4
+         Left            =   0
+         TabIndex        =   246
+         Top             =   0
+         Visible         =   0   'False
+         Width           =   255
+      End
+      Begin VB.Image iEndClean 
+         Height          =   405
+         Index           =   4
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":32ADB2
+         Top             =   1920
+         Width           =   1950
+      End
       Begin VB.Image iStartClean 
          Height          =   390
          Index           =   4
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":2EF0DC
+         Picture         =   "frmManagerRoom.frx":32D74C
          Top             =   1725
          Width           =   1965
       End
@@ -5122,7 +5554,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   4
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":2F1956
+         Picture         =   "frmManagerRoom.frx":32FFC6
          Top             =   1710
          Width           =   405
       End
@@ -5130,7 +5562,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   4
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2F2274
+         Picture         =   "frmManagerRoom.frx":3308E4
          Top             =   1710
          Width           =   1950
       End
@@ -5239,7 +5671,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   4
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2F4C0E
+         Picture         =   "frmManagerRoom.frx":33327E
          Top             =   1035
          Width           =   1950
       End
@@ -5247,7 +5679,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   4
          Left            =   1065
-         Picture         =   "frmManagerRoom.frx":2F75A8
+         Picture         =   "frmManagerRoom.frx":335C18
          Top             =   90
          Width           =   900
       End
@@ -5265,11 +5697,29 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   16
       Top             =   6765
       Width           =   1995
+      Begin VB.Label tIdService 
+         BackColor       =   &H000000FF&
+         Height          =   255
+         Index           =   3
+         Left            =   0
+         TabIndex        =   245
+         Top             =   0
+         Visible         =   0   'False
+         Width           =   255
+      End
+      Begin VB.Image iEndClean 
+         Height          =   405
+         Index           =   3
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":337712
+         Top             =   1920
+         Width           =   1950
+      End
       Begin VB.Image iStartClean 
          Height          =   390
          Index           =   3
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":2F90A2
+         Picture         =   "frmManagerRoom.frx":33A0AC
          Top             =   1710
          Width           =   1965
       End
@@ -5340,7 +5790,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   3
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":2FB91C
+         Picture         =   "frmManagerRoom.frx":33C926
          Top             =   1710
          Width           =   405
       End
@@ -5348,7 +5798,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   3
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2FC23A
+         Picture         =   "frmManagerRoom.frx":33D244
          Top             =   1710
          Width           =   1950
       End
@@ -5457,7 +5907,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   3
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2FEBD4
+         Picture         =   "frmManagerRoom.frx":33FBDE
          Top             =   1035
          Width           =   1950
       End
@@ -5465,7 +5915,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   3
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":30156E
+         Picture         =   "frmManagerRoom.frx":342578
          Top             =   120
          Width           =   900
       End
@@ -5483,11 +5933,29 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   8
       Top             =   6765
       Width           =   1995
+      Begin VB.Label tIdService 
+         BackColor       =   &H000000FF&
+         Height          =   255
+         Index           =   2
+         Left            =   0
+         TabIndex        =   244
+         Top             =   0
+         Visible         =   0   'False
+         Width           =   255
+      End
+      Begin VB.Image iEndClean 
+         Height          =   405
+         Index           =   2
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":344072
+         Top             =   1920
+         Width           =   1950
+      End
       Begin VB.Image iStartClean 
          Height          =   390
          Index           =   2
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":303068
+         Picture         =   "frmManagerRoom.frx":346A0C
          Top             =   1710
          Width           =   1965
       End
@@ -5558,7 +6026,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   2
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":3058E2
+         Picture         =   "frmManagerRoom.frx":349286
          Top             =   1710
          Width           =   405
       End
@@ -5566,7 +6034,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   2
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":306200
+         Picture         =   "frmManagerRoom.frx":349BA4
          Top             =   1710
          Width           =   1950
       End
@@ -5675,7 +6143,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   2
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":308B9A
+         Picture         =   "frmManagerRoom.frx":34C53E
          Top             =   1035
          Width           =   1950
       End
@@ -5683,7 +6151,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   2
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":30B534
+         Picture         =   "frmManagerRoom.frx":34EED8
          Top             =   90
          Width           =   900
       End
@@ -5701,11 +6169,29 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   0
       Top             =   6765
       Width           =   1995
+      Begin VB.Label tIdService 
+         BackColor       =   &H000000FF&
+         Height          =   255
+         Index           =   1
+         Left            =   0
+         TabIndex        =   243
+         Top             =   0
+         Visible         =   0   'False
+         Width           =   255
+      End
+      Begin VB.Image iEndClean 
+         Height          =   405
+         Index           =   1
+         Left            =   1575
+         Picture         =   "frmManagerRoom.frx":3509D2
+         Top             =   1920
+         Width           =   1950
+      End
       Begin VB.Image iStartClean 
          Height          =   390
          Index           =   1
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":30D02E
+         Picture         =   "frmManagerRoom.frx":35336C
          Top             =   1710
          Width           =   1965
       End
@@ -5776,7 +6262,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   1
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":30F8A8
+         Picture         =   "frmManagerRoom.frx":355BE6
          Top             =   1710
          Width           =   405
       End
@@ -5784,7 +6270,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   1
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":3101C6
+         Picture         =   "frmManagerRoom.frx":356504
          Top             =   1710
          Width           =   1950
       End
@@ -5893,7 +6379,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   1
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":312B60
+         Picture         =   "frmManagerRoom.frx":358E9E
          Top             =   1035
          Width           =   1950
       End
@@ -5901,7 +6387,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   1
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":3154FA
+         Picture         =   "frmManagerRoom.frx":35B838
          Top             =   90
          Width           =   900
       End
@@ -5925,6 +6411,9 @@ Private Const COLOR_CLEAN_ROOM = &HCD7C10
 Private Const START_CLEAN_TOP = 1035
 Private Const START_CLEAN_LEFT = 20
 
+Private Const END_CLEAN_TOP = 1710
+Private Const END_CLEAN_LEFT = 30
+
 Private Sub cmdAsign_Click(Index As Integer)
 frmAsignServiceRoom.tNoRoom = Me.lNoRoom(Index)
 Set frmAsignServiceRoom.manager = Me
@@ -5938,7 +6427,7 @@ End Sub
 Private Sub Form_Load()
 Call loadBd
 
-Call reloadRooms
+Call Me.loadInfoRooms
 
 Call setPositionElements
 End Sub
@@ -5947,61 +6436,60 @@ Private Sub initFreeRoom(idRoom As Integer)
 frmFreeRoom.tNoRoom = Me.lNoRoom(idRoom)
 Set frmFreeRoom.manager = Me
 frmFreeRoom.Show vbModal
-
-'If (MsgBox("¿Está seguro de desocupar la habitación " & Me.lNoRoom(idRoom) & "?", vbQuestion + vbYesNo) = vbNo) Then
-'    Exit Sub
-'End If
-'
-'Dim datetimeEndReal As Date
-'Dim dateTimeEndRealFormated As String
-'
-'datetimeEndReal = Now()
-'dateTimeEndRealFormated = Format(datetimeEndReal, "yyyy-MM-dd HH:mm:ss")
-'
-'SQL = "UPDATE service SET datetime_end_real = '" & dateTimeEndRealFormated & "', " & _
-'    "status='FIN' where id_room=" & idRoom & " and status='ACT'"
-'conBd.Execute (SQL)
-'Call freeRoom(idRoom)
-'MsgBox "Se desocupó la habitación correctamente", vbInformation
 End Sub
 
-Private Sub freeRoom(idRoom As Integer)
-Me.picRoom(idRoom).BackColor = COLOR_FREE_ROOM
-Me.cmdAsign(idRoom).Visible = True
+Private Sub hideAll(idRoom As Integer)
+Me.cmdAsign(idRoom).Visible = False
 Me.labelHoraInicio(idRoom).Visible = False
 Me.labelHoraFin(idRoom).Visible = False
 Me.lHourStart(idRoom).Visible = False
 Me.lHourEnd(idRoom).Visible = False
-Me.iStartClean(idRoom).Visible = True
-Me.cmdFree(idRoom).Visible = False
 Me.iStartClean(idRoom).Visible = False
+Me.cmdFree(idRoom).Visible = False
+Me.iEndClean(idRoom).Visible = False
 End Sub
 
+'Muestra la habitación como libre
+Private Sub freeRoom(idRoom As Integer)
+Call hideAll(idRoom)
+
+Me.picRoom(idRoom).BackColor = COLOR_FREE_ROOM
+Me.cmdAsign(idRoom).Visible = True
+End Sub
+
+'Muestra la habitación como reservada
 Private Sub reserveRoom(noRoom As Integer, hourStart As Date, hourEnd As Date)
+Call hideAll(noRoom)
+
 Me.picRoom(noRoom).BackColor = COLOR_RESERVED_ROOM
-Me.cmdAsign(noRoom).Visible = False
 Me.labelHoraInicio(noRoom).Visible = True
 Me.labelHoraFin(noRoom).Visible = True
 Me.lHourStart(noRoom).Visible = True
 Me.lHourEnd(noRoom).Visible = True
 Me.cmdFree(noRoom).Visible = True
-Me.iStartClean(noRoom).Visible = False
 Me.lHourStart(noRoom).Caption = ModFormater.getHourAndMinuteFromDate(hourStart)
 Me.lHourEnd(noRoom).Caption = ModFormater.getHourAndMinuteFromDate(hourEnd)
 End Sub
 
-Private Sub cleanRoom(noRoom As Integer, hourStart As Date, hourEnd As Date)
-Me.picRoom(noRoom).BackColor = COLOR_CLEAN_ROOM
+'Muestra la habitación como que requiere limpieza
+Private Sub cleanRoom(noRoom As Integer)
+Call hideAll(noRoom)
 
+Me.picRoom(noRoom).BackColor = COLOR_CLEAN_ROOM
 Me.iStartClean(noRoom).Visible = True
-Me.lHourStart(noRoom).Visible = True
-Me.lHourEnd(noRoom).Visible = True
+End Sub
+
+'Muestra la habitación como que se encuentra en limpieza
+Private Sub cleanRoomInProgress(noRoom As Integer, hourStart As Date, hourEnd As Date)
+Call hideAll(noRoom)
+
+Me.picRoom(noRoom).BackColor = COLOR_CLEAN_ROOM
+Me.iEndClean(noRoom).Visible = True
+
 Me.labelHoraInicio(noRoom).Visible = True
 Me.labelHoraFin(noRoom).Visible = True
-
-Me.cmdAsign(noRoom).Visible = False
-Me.cmdFree(noRoom).Visible = False
-
+Me.lHourStart(noRoom).Visible = True
+Me.lHourEnd(noRoom).Visible = True
 Me.lHourStart(noRoom).Caption = ModFormater.getHourAndMinuteFromDate(hourStart)
 Me.lHourEnd(noRoom).Caption = ModFormater.getHourAndMinuteFromDate(hourEnd)
 End Sub
@@ -6029,14 +6517,19 @@ Do Until rec.EOF
     Me.lType(idRoom).Caption = rec("type").value
     Me.lStatus(idRoom).Caption = rec("status").value
     Me.lWarnings(idRoom).Caption = ModFormater.getValue(rec("alerts").value, 0)
+    Me.tIdService(idRoom) = ModFormater.getValue(rec("service_id"), 0)
     
     If (Ap.cStatusRoomStatic.BUSY.description = Me.lStatus(idRoom).Caption) Then
         Call reserveRoom(idRoom, rec("datetime_start_service"), rec("datetime_end_service"))
     Else
         If (Ap.cStatusRoomStatic.CLEAN.description = Me.lStatus(idRoom).Caption) Then
-            Call cleanRoom(idRoom, rec("datetime_start_service"), rec("datetime_end_service"))
+            Call cleanRoom(idRoom)
         Else
-            Call freeRoom(idRoom)
+            If (Ap.cStatusRoomStatic.CLEAN_PROGRESS.description = Me.lStatus(idRoom).Caption) Then
+                Call cleanRoomInProgress(idRoom, rec("datetime_start_clean"), rec("datetime_end_clean"))
+            Else
+                Call freeRoom(idRoom)
+            End If
         End If
     End If
     
@@ -6077,20 +6570,54 @@ Set conBd = ModConexion.getNewConection
 rec.CursorLocation = adUseClient
 End Function
 
-Private Sub timeReload_Timer()
-Call reloadRooms
+Private Sub iEndClean_Click(Index As Integer)
+If MsgBox("¿Está seguro de terminar la limpieza de esta habitación?", vbQuestion + vbYesNo) = vbNo Then
+    Exit Sub
+End If
+
+Dim dateTimeEndCleanReal As Date
+dateTimeEndCleanReal = Now()
+dateTimeEndCleanRealFormated = Format(dateTimeEndCleanReal, "yyyy-MM-dd HH:mm:ss")
+
+SQL = "UPDATE service SET datetime_end_real_clean= '" & dateTimeEndCleanRealFormated & "',status='FIN' WHERE id=" & Me.tIdService(Index) & ""
+conBd.Execute (SQL)
+
+SQL = "UPDATE room SET code_status = '" & Ap.cStatusRoomStatic.AVAILABLE.code & "' WHERE id=" & Index & ""
+conBd.Execute (SQL)
+
+Call freeRoom(Index)
 End Sub
 
-Public Sub reloadRooms()
-Dim i As Integer
-'For i = 1 To 27
-'    'Call loadInfoRoom(i)
-'    'Call checkStatusRoom(i)
-'    'Call loadAlertRoom(i)
-'    'Call loadCleanRoom(i)
-'    Call loadInfoRooms(i)
-'    Me.iShowInfo(i).Visible = False
-'Next
+Private Sub iStartClean_Click(Index As Integer)
+If MsgBox("¿Está seguro de iniciar la limpieza de esta habitación?", vbQuestion + vbYesNo) = vbNo Then
+    Exit Sub
+End If
+
+Dim timeClean As Integer
+rec.Open "SELECT time_clean FROM service where id=" & Me.tIdService(Index) & "", conBd, adOpenStatic, adLockOptimistic
+If (rec.RecordCount = 1) Then
+    timeClean = rec("time_clean")
+End If
+rec.Close
+
+Dim dateTimeStartClean As Date
+Dim dateTimeEndClean As Date
+dateTimeStartClean = Now()
+dateTimeEndClean = DateAdd("n", timeClean, dateTimeStartClean)
+
+dateTimeStartCleanFormated = Format(dateTimeStartClean, "yyyy-MM-dd HH:mm:ss")
+dateTimeEndCleanFormated = Format(dateTimeEndClean, "yyyy-MM-dd HH:mm:ss")
+
+SQL = "UPDATE service SET datetime_start_clean= '" & dateTimeStartCleanFormated & "', datetime_end_clean= '" & dateTimeEndCleanFormated & "' WHERE id=" & Me.tIdService(Index) & ""
+conBd.Execute (SQL)
+
+SQL = "UPDATE room SET code_status = '" & Ap.cStatusRoomStatic.CLEAN_PROGRESS.code & "' WHERE id=" & Index & ""
+conBd.Execute (SQL)
+
+Call cleanRoomInProgress(Index, dateTimeStartClean, dateTimeEndClean)
+End Sub
+
+Private Sub timeReload_Timer()
 Call Me.loadInfoRooms
 End Sub
 
@@ -6100,5 +6627,8 @@ Dim i As Integer
 For i = 1 To 27
     Me.iStartClean(i).Top = START_CLEAN_TOP
     Me.iStartClean(i).Left = START_CLEAN_LEFT
+    
+    Me.iEndClean(i).Top = END_CLEAN_TOP
+    Me.iEndClean(i).Left = END_CLEAN_LEFT
 Next
 End Sub

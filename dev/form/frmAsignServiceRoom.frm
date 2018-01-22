@@ -274,9 +274,10 @@ If (Me.cmbTypePackage = "") Then
 End If
 
 'Se busca el tipo de paquete seleccionado.
-rec.Open "SELECT pr.id from package p inner join package_x_type_room pr on p.id = pr.id_package inner join room_type rt on pr.id_room_type = rt.id where p.description='" & Me.cmbTypePackage & "' and rt.description='" & Me.tTypeRoom & "'; ", conBd, adOpenStatic, adLockOptimistic
+rec.Open "SELECT pr.id,pr.time_clean from package p inner join package_x_type_room pr on p.id = pr.id_package inner join room_type rt on pr.id_room_type = rt.id where p.description='" & Me.cmbTypePackage & "' and rt.description='" & Me.tTypeRoom & "'; ", conBd, adOpenStatic, adLockOptimistic
 Do Until rec.EOF
     idPackage = rec("id")
+    timeClean = rec("time_clean")
     rec.MoveNext
 Loop
 rec.Close
