@@ -225,8 +225,26 @@ Begin VB.Form frmMenu
    Begin VB.Timer Timer1 
       Enabled         =   0   'False
       Interval        =   1
-      Left            =   2400
-      Top             =   -120
+      Left            =   3360
+      Top             =   0
+   End
+   Begin VB.Label lVersion 
+      Caption         =   "1.1"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00CD7C10&
+      Height          =   255
+      Left            =   2745
+      TabIndex        =   14
+      Top             =   1095
+      Width           =   375
    End
    Begin VB.Label cmdChangePwd 
       Caption         =   "Cambiar contraseña"
@@ -324,7 +342,7 @@ Begin VB.Form frmMenu
       Height          =   990
       Left            =   240
       Picture         =   "frmMenu.frx":FC2E
-      Top             =   240
+      Top             =   120
       Width           =   2820
    End
    Begin XtremeSkinFramework.SkinFramework skinObject 
