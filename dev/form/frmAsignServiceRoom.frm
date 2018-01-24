@@ -274,10 +274,11 @@ If (Me.cmbTypePackage = "") Then
 End If
 
 'Se busca el tipo de paquete seleccionado.
-rec.Open "SELECT pr.id,pr.time_clean from package p inner join package_x_type_room pr on p.id = pr.id_package inner join room_type rt on pr.id_room_type = rt.id where p.description='" & Me.cmbTypePackage & "' and rt.description='" & Me.tTypeRoom & "'; ", conBd, adOpenStatic, adLockOptimistic
+rec.Open "SELECT pr.id,pr.time_clean,pr.time_service from package p inner join package_x_type_room pr on p.id = pr.id_package inner join room_type rt on pr.id_room_type = rt.id where p.description='" & Me.cmbTypePackage & "' and rt.description='" & Me.tTypeRoom & "'; ", conBd, adOpenStatic, adLockOptimistic
 Do Until rec.EOF
     idPackage = rec("id")
     timeClean = rec("time_clean")
+    timeService = rec("time_service")
     rec.MoveNext
 Loop
 rec.Close
@@ -297,7 +298,7 @@ Set con = ModConexion.getNewConection
 
 SQL = "INSERT INTO service " & _
     "(id_user, id_room, id_package, time_service, time_clean, datetime_start_service, datetime_end_service, datetime_start_clean, datetime_end_clean,status) VALUES " & _
-    "(1," & Me.tIdRoom & "," & idPackage & "," & timeService & "," & timeClean & _
+    "(" & Ap.cUserLogued.id & "," & Me.tIdRoom & "," & idPackage & "," & timeService & "," & timeClean & _
     ",'" & dateTimeStartServiceFormated & "','" & dateTimeEndServiceFormated & _
     "','" & dateTimeStartCleanFormated & "','" & dateTimeEndCleanFormated & "','ACT');"
 con.Execute (SQL)
