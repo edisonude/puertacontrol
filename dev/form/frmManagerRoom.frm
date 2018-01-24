@@ -6626,9 +6626,12 @@ Public Sub setPositionElements()
 Dim i As Integer
 For i = 1 To 27
     Me.iStartClean(i).Top = START_CLEAN_TOP
-    Me.iStartClean(i).Left = START_CLEAN_LEFT
+    Me.iStartClean(i).left = START_CLEAN_LEFT
     
     Me.iEndClean(i).Top = END_CLEAN_TOP
-    Me.iEndClean(i).Left = END_CLEAN_LEFT
+    Me.iEndClean(i).left = END_CLEAN_LEFT
+    
+    'Se oculta la lupa temporalmente
+    Me.iShowInfo(i).Visible = False
 Next
 End Sub

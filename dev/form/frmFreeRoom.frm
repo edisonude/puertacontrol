@@ -663,10 +663,6 @@ Me.tQuantity.Enabled = False
 Me.cmdAddProduct.Enabled = False
 End Sub
 
-Private Sub Command1_Click()
-
-End Sub
-
 Private Sub Form_Load()
 ModSkin.applyDefaultSkin Me, Me.skinObject
 Call loadBd

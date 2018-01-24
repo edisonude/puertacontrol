@@ -17,36 +17,11 @@ Dim fileConfigPath As String
 
 Sub Main()
 
-
-''Se lee la configuracion de conexion a la base de datos
-'fileConfigPath = App.Path & "\config.ini"
-'
-'Dim user As String
-'Dim pass As String
-'Dim server As String
-'Dim bd As String
-'user = ModFiles.readPropertyFile(fileConfigPath, "user", "")
-'pass = ModFiles.readPropertyFile(fileConfigPath, "pass", "")
-'server = ModFiles.readPropertyFile(fileConfigPath, "server", "localhost")
-'bd = ModFiles.readPropertyFile(fileConfigPath, "bd", "puertacontrol")
-
-''CONEXION CON ADOB
-'With mysqlCon
-'    .ConnectionString = "DRIVER={MySQL ODBC 3.51 Driver};" _
-'                        & "SERVER=" & server & ";" _
-'                        & "DATABASE=" & bd & ";" _
-'                        & "User=" & user & ";" _
-'                        & "Password=" & pass & ";" _
-'                        & "PORT=3306;" _
-'                        & "OPTION=3;"
-'    .CursorLocation = adUseClient
-'    .Open
-'End With
+Ap.test = False
 
 'Carga las instancias base para los estados de la habitación
 cStatusRoomStatic.loadBaseInstances
 
-'Ap.rol = "ADM"
 'frmMenu.Show
 frmLogin.Show
 End Sub

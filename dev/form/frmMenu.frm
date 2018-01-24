@@ -354,10 +354,37 @@ End Sub
 Private Sub Form_Load()
 ModSkin.applyDefaultSkin Me, Me.skinObject
 Call loadBd
+Call loadInformationApp
 Call openManager
 Call loadResumen
 Call loadInformationUserLogued
 End Sub
+
+Private Function loadInformationApp()
+'Carga la información del usuario administrador
+rec.Open "Select * from user where id=1", conBd, adOpenStatic, adLockOptimistic
+Call Ap.admon.loadUser(rec("id"), rec("username"), rec("password"), rec("code_rol"), rec("email"))
+rec.Close
+
+'Carga la información de los usuarios a notificar por correo electrónico
+Dim emailsToNotify As String
+Dim email As String
+If Ap.test = False Then
+    rec.Open "Select u.email from user_x_alert_type uat inner join user u on u.id = uat.id_user where code_alert_type='IDO';", conBd, adOpenStatic, adLockOptimistic
+    Do Until rec.EOF
+        email = ModFormater.getValue(rec("email"), "")
+        If email <> "" Then
+            emailsToNotify = rec("email") & ";" & emailsToNotify
+        End If
+        rec.MoveNext
+    Loop
+    rec.Close
+    emailsToNotify = left(emailsToNotify, Len(emailsToNotify) - 1)
+Else
+    emailsToNotify = Ap.admon.email
+End If
+Ap.emailsToNotify = emailsToNotify
+End Function
 
 Private Function loadInformationUserLogued()
 Me.tUser = Ap.cUserLogued.username

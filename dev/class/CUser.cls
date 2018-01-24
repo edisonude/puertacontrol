@@ -20,12 +20,14 @@ Public id As Integer
 Public username As String
 Public pwd As String
 Public codeRol As String
+Public email As String
 
-Public Sub loadUser(id As Integer, username As String, pwd As String, codeRol As String)
+Public Sub loadUser(id As Integer, username As String, pwd As String, codeRol As String, email As String)
     Me.id = id
     Me.username = username
     Me.pwd = pwd
     Me.codeRol = codeRol
+    Me.email = email
 End Sub
 
 
