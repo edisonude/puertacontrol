@@ -12,8 +12,8 @@ Dim fileConfigPath As String
 'Conexion ADOB
 Sub Main()
 
-frmInspector.Show
-'frmTest.Show
+'frmInspector.Show
+frmInspectorTest.Show
 End Sub
 
 Public Function getNewConection() As ADODB.Connection

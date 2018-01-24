@@ -8,6 +8,7 @@ Module=ModFiles; modules\ModFiles.bas
 Form=forms\frmInspector.frm
 Module=Systray; modules\Systray.bas
 Form=forms\frmAbout.frm
+Form=forms\frmInspectorTest.frm
 IconForm="frmInspector"
 Startup="Sub Main"
 HelpFile=""
