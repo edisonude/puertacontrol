@@ -13,8 +13,8 @@ Begin VB.Form frmMenu
    WindowState     =   2  'Maximized
    Begin VB.Timer timeReload 
       Interval        =   5000
-      Left            =   840
-      Top             =   1560
+      Left            =   2760
+      Top             =   2160
    End
    Begin VB.Frame frmOptionsAdmin 
       Caption         =   "Adiministración"
@@ -30,7 +30,7 @@ Begin VB.Form frmMenu
       Height          =   3135
       Left            =   120
       TabIndex        =   8
-      Top             =   5325
+      Top             =   5685
       Visible         =   0   'False
       Width           =   3135
       Begin VB.Image Image5 
@@ -88,8 +88,8 @@ Begin VB.Form frmMenu
    End
    Begin VB.Timer timeProcessor 
       Interval        =   1000
-      Left            =   225
-      Top             =   1530
+      Left            =   2280
+      Top             =   2160
    End
    Begin VB.Frame Frame1 
       Caption         =   "Resumen"
@@ -105,7 +105,7 @@ Begin VB.Form frmMenu
       Height          =   3135
       Left            =   120
       TabIndex        =   1
-      Top             =   2040
+      Top             =   2400
       Width           =   3135
       Begin VB.Label label 
          Alignment       =   2  'Center
@@ -228,6 +228,60 @@ Begin VB.Form frmMenu
       Left            =   2400
       Top             =   -120
    End
+   Begin VB.Label cmdChangePwd 
+      Caption         =   "Cambiar contraseña"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   12
+         Charset         =   0
+         Weight          =   400
+         Underline       =   -1  'True
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00CD7C10&
+      Height          =   375
+      Left            =   1200
+      TabIndex        =   13
+      Top             =   1800
+      Width           =   2055
+   End
+   Begin VB.Label tUser 
+      Caption         =   "Usuario:"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   12
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   375
+      Left            =   1200
+      TabIndex        =   12
+      Top             =   1440
+      Width           =   2055
+   End
+   Begin VB.Label label 
+      Alignment       =   2  'Center
+      Caption         =   "Usuario:"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   12
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   375
+      Index           =   3
+      Left            =   240
+      TabIndex        =   11
+      Top             =   1440
+      Width           =   855
+   End
    Begin VB.Label lReferencia 
       BackColor       =   &H00404040&
       Caption         =   "Label1"
@@ -240,8 +294,8 @@ Begin VB.Form frmMenu
    End
    Begin VB.Line Line1 
       BorderColor     =   &H00B18B60&
-      X1              =   0
-      X2              =   2880
+      X1              =   240
+      X2              =   3120
       Y1              =   1320
       Y2              =   1320
    End
@@ -263,12 +317,12 @@ Begin VB.Form frmMenu
       Height          =   615
       Left            =   240
       Picture         =   "frmMenu.frx":AA90
-      Top             =   2160
+      Top             =   2400
       Width           =   2535
    End
    Begin VB.Image Image1 
       Height          =   990
-      Left            =   0
+      Left            =   240
       Picture         =   "frmMenu.frx":FC2E
       Top             =   240
       Width           =   2820
@@ -293,16 +347,25 @@ Dim rec As New ADODB.Recordset
 
 Dim operationUtil As New COperationRoomLog
 
+Private Sub cmdChangePwd_Click()
+frmChangePwd.Show vbModal
+End Sub
+
 Private Sub Form_Load()
 ModSkin.applyDefaultSkin Me, Me.skinObject
 Call loadBd
 Call openManager
 Call loadResumen
+Call loadInformationUserLogued
+End Sub
 
-If (Ap.rol = "ADM") Then
+Private Function loadInformationUserLogued()
+Me.tUser = Ap.cUserLogued.username
+
+If (Ap.cUserLogued.codeRol = "ADM") Then
     frmOptionsAdmin.Visible = True
 End If
-End Sub
+End Function
 
 Private Sub Image2_Click()
 frmRoom.left = Me.lReferencia.left

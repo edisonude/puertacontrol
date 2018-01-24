@@ -777,7 +777,7 @@ Me.tTotal = ModFormater.convertValueToCurrency(netValueService, 0)
 End Function
 
 Private Sub tQuantity_KeyPress(KeyAscii As Integer)
-KeyAscii = Ap.SoloNumeros(KeyAscii)
+KeyAscii = ModComponents.SoloNumeros(KeyAscii)
 End Sub
 
 Private Sub tQuantity_LostFocus()

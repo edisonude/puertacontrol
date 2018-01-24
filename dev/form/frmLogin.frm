@@ -123,7 +123,7 @@ Dim typePackage As String
 rec.Open "Select * from user where username='" & LCase(Me.tUser) & "' and password='" & Me.tPass & "'", conBd, adOpenStatic, adLockOptimistic
 
 If rec.RecordCount > 0 Then
-    rol = rec("code_rol")
+    Call Ap.cUserLogued.loadUser(rec("id"), rec("username"), rec("password"), rec("code_rol"))
     rec.Close
     frmMenu.Show
     Unload Me
