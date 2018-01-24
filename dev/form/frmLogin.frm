@@ -114,17 +114,32 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+'Conexión activa de BD  para asignar un servicio
+Dim conBd As ADODB.Connection
+Dim rec As New ADODB.Recordset
+
 Private Sub cmdLogin_Click()
-If (Me.tUser = "admin" And Me.tPass = "hotMotel") Then
+Dim typePackage As String
+rec.Open "Select * from user where username='" & LCase(Me.tUser) & "' and password='" & Me.tPass & "'", conBd, adOpenStatic, adLockOptimistic
+
+If rec.RecordCount > 0 Then
+    rol = rec("code_rol")
+    rec.Close
     frmMenu.Show
     Unload Me
 Else
+    rec.Close
     MsgBox "Los datos de ingreso son incorrectos", vbCritical, "Error ingreso"
 End If
+
 End Sub
 
 Private Sub Form_Load()
 ModSkin.applyDefaultSkin Me, Me.skinObject
+
+'Se solicita una conexion a la bd
+Set conBd = ModConexion.getNewConection
+rec.CursorLocation = adUseClient
 End Sub
 
 Private Sub timeFoco_Timer()

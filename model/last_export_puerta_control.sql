@@ -219,7 +219,7 @@ CREATE TABLE `package_x_type_room` (
 
 LOCK TABLES `package_x_type_room` WRITE;
 /*!40000 ALTER TABLE `package_x_type_room` DISABLE KEYS */;
-INSERT INTO `package_x_type_room` VALUES (1,1,1,240,30,0,1000),(2,1,2,240,30,0,1000),(3,1,3,240,30,0,1000),(4,1,4,240,30,0,1000),(5,1,5,240,30,0,1000),(6,1,6,240,30,0,1000),(7,1,7,240,30,0,1000),(8,2,1,480,40,0,4000),(9,2,2,480,30,0,4000),(10,2,3,480,40,0,4000),(11,2,4,480,40,0,4000),(12,2,5,480,40,0,4000),(13,2,6,480,40,0,4000),(14,2,7,480,40,0,4000);
+INSERT INTO `package_x_type_room` VALUES (1,1,1,240,30,0,30000),(2,1,2,240,30,0,45000),(3,1,3,240,40,0,80000),(4,1,4,240,40,0,65000),(5,1,5,240,40,0,70000),(6,1,6,240,40,0,100000),(7,1,7,240,40,0,160000),(8,2,1,480,30,0,60000),(9,2,2,480,30,0,90000),(10,2,3,480,40,0,160000),(11,2,4,480,40,0,130000),(12,2,5,480,40,0,140000),(13,2,6,480,40,0,200000),(14,2,7,480,40,0,320000);
 /*!40000 ALTER TABLE `package_x_type_room` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -239,7 +239,7 @@ CREATE TABLE `product` (
   `last_price_buy` double DEFAULT NULL COMMENT 'Último precio de compra',
   `price_sale` double NOT NULL COMMENT 'Precio al cual se debe vender el producto',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -248,7 +248,7 @@ CREATE TABLE `product` (
 
 LOCK TABLES `product` WRITE;
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
-INSERT INTO `product` VALUES (1,'Agua',2,0,NULL,NULL,3000),(2,'H2O',2,5,NULL,NULL,3000),(3,'Salchichas Lata',2,0,NULL,NULL,3000),(4,'Jugo Hit Caja',2,0,NULL,NULL,3000),(5,'CocaCola',2,3,NULL,NULL,3000),(6,'Club colombia',2,0,NULL,NULL,3000),(7,'Soda',2,0,NULL,NULL,3000),(8,'Chocolatina Jet',2,0,NULL,NULL,3000),(9,'Snickers',2,0,NULL,NULL,3000),(10,'MilkyWay',2,0,NULL,NULL,3000),(11,'Gatorade',2,0,NULL,NULL,3000),(12,'Halls',2,0,NULL,NULL,3000),(13,'Bayleys',2,0,NULL,NULL,3000),(14,'Vino Gato Negro',2,0,NULL,NULL,3000),(15,'Tequila Jose Cuervo',2,0,NULL,NULL,3000),(16,'Whisky Old Parr',2,0,NULL,NULL,3000),(17,'Ron en Caja',2,0,NULL,NULL,3000),(18,'Aguardiente en Caja',2,0,NULL,NULL,3000),(19,'Vive 100',2,0,NULL,NULL,3000),(20,'Nutella',2,0,NULL,NULL,3000),(21,'Lecherita',2,0,NULL,NULL,3000),(22,'JP Chenet',2,0,NULL,NULL,3000),(23,'Mani La Especial',2,0,NULL,NULL,3000),(24,'Pringles',2,0,NULL,NULL,3000),(25,'Tic Tac',2,0,NULL,NULL,3000),(26,'Alka Seltzer Extrem',2,0,NULL,NULL,3000),(27,'Trident pequeño',2,0,NULL,NULL,3000),(28,'Condones',2,0,NULL,NULL,3000);
+INSERT INTO `product` VALUES (1,'Agua sin gas',20,10,NULL,NULL,2000),(2,'H2O',20,10,NULL,NULL,4000),(3,'Salchichas Lata',20,10,NULL,NULL,5000),(4,'Jugo Hit Caja',20,10,NULL,NULL,2000),(5,'CocaCola',20,10,NULL,NULL,4000),(6,'Club colombia',20,10,NULL,NULL,4500),(7,'Soda',20,10,NULL,NULL,3000),(8,'Chocolatina Jet',20,10,NULL,NULL,1000),(9,'Snickers',20,10,NULL,NULL,5000),(10,'MilkyWay',20,10,NULL,NULL,5000),(11,'Gatorade',20,10,NULL,NULL,6000),(12,'Halls',20,10,NULL,NULL,2500),(13,'Bayleys',20,10,NULL,NULL,35000),(14,'Vino Gato Negro',20,10,NULL,NULL,30000),(15,'Tequila Jose Cuervo',20,10,NULL,NULL,65000),(16,'Whisky Old Parr',20,10,NULL,NULL,85000),(17,'Ron Medellín 3 años (Tetrapack)',20,10,NULL,NULL,25000),(18,'Aguardiente Antioqueño(Tetrapack)',20,10,NULL,NULL,20000),(19,'Vive 100',20,10,NULL,NULL,3000),(20,'Nutella',20,10,NULL,NULL,11000),(21,'Lecherita',20,10,NULL,NULL,3500),(22,'JP Chenet',20,10,NULL,NULL,28000),(23,'Mani La Especial',20,10,NULL,NULL,3500),(24,'Pringles',20,10,NULL,NULL,5000),(25,'Tic Tac',20,10,NULL,NULL,2500),(26,'Alka Seltzer Extrem',20,10,NULL,NULL,3000),(27,'Trident pequeño',20,10,NULL,NULL,500),(28,'Condones',20,10,NULL,NULL,3500);
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -386,7 +386,7 @@ CREATE TABLE `rol` (
 
 LOCK TABLES `rol` WRITE;
 /*!40000 ALTER TABLE `rol` DISABLE KEYS */;
-INSERT INTO `rol` VALUES ('ADM','Administrador');
+INSERT INTO `rol` VALUES ('ADM','Administrador'),('EMP','Empleado');
 /*!40000 ALTER TABLE `rol` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -543,7 +543,6 @@ CREATE TABLE `service_details` (
 
 LOCK TABLES `service_details` WRITE;
 /*!40000 ALTER TABLE `service_details` DISABLE KEYS */;
-INSERT INTO `service_details` VALUES (3,3,NULL,1,1,1000),(4,3,5,NULL,1,3000),(5,3,6,NULL,1,3000),(6,6,NULL,2,1,4000),(7,6,6,NULL,1,3000),(8,7,NULL,1,1,1000),(9,7,10,NULL,1,3000);
 /*!40000 ALTER TABLE `service_details` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -586,7 +585,7 @@ CREATE TABLE `user` (
   PRIMARY KEY (`id`),
   KEY `fk_user_rol_idx` (`code_rol`),
   CONSTRAINT `fk_user_rol` FOREIGN KEY (`code_rol`) REFERENCES `rol` (`code`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Representa todos los usuarios que pueden acceder al sistema';
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='Representa todos los usuarios que pueden acceder al sistema';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -595,7 +594,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'admin','admin','ADM');
+INSERT INTO `user` VALUES (1,'admin','admin','ADM'),(2,'user','user','EMP'),(3,'santiagojmg','123456','ADM'),(4,'administrador2','123456','ADM'),(5,'isabelcristi','123456','ADM');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -678,6 +677,32 @@ SET character_set_client = utf8;
 SET character_set_client = @saved_cs_client;
 
 --
+-- Temporary view structure for view `vw_services`
+--
+
+DROP TABLE IF EXISTS `vw_services`;
+/*!50001 DROP VIEW IF EXISTS `vw_services`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `vw_services` AS SELECT 
+ 1 AS `id`,
+ 1 AS `user`,
+ 1 AS `number`,
+ 1 AS `type_room`,
+ 1 AS `package`,
+ 1 AS `net_value`,
+ 1 AS `time_service`,
+ 1 AS `time_clean`,
+ 1 AS `status`,
+ 1 AS `datetime_start_service`,
+ 1 AS `datetime_end_service`,
+ 1 AS `datetime_end_real_service`,
+ 1 AS `datetime_start_clean`,
+ 1 AS `datetime_end_clean`,
+ 1 AS `datetime_end_real_clean`*/;
+SET character_set_client = @saved_cs_client;
+
+--
 -- Final view structure for view `room_details`
 --
 
@@ -712,6 +737,24 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `vw_services`
+--
+
+/*!50001 DROP VIEW IF EXISTS `vw_services`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `vw_services` AS select `s`.`id` AS `id`,`u`.`username` AS `user`,`r`.`number` AS `number`,`rt`.`description` AS `type_room`,`pk`.`description` AS `package`,`s`.`net_value` AS `net_value`,`s`.`time_service` AS `time_service`,`s`.`time_clean` AS `time_clean`,`s`.`status` AS `status`,`s`.`datetime_start_service` AS `datetime_start_service`,`s`.`datetime_end_service` AS `datetime_end_service`,`s`.`datetime_end_real_service` AS `datetime_end_real_service`,`s`.`datetime_start_clean` AS `datetime_start_clean`,`s`.`datetime_end_clean` AS `datetime_end_clean`,`s`.`datetime_end_real_clean` AS `datetime_end_real_clean` from (((((`service` `s` join `user` `u` on((`s`.`id_user` = `u`.`id`))) join `room` `r` on((`r`.`id` = `s`.`id_room`))) join `room_type` `rt` on((`rt`.`id` = `r`.`id_type`))) join `package_x_type_room` `ptr` on((`ptr`.`id` = `s`.`id_package`))) join `package` `pk` on((`pk`.`id` = `ptr`.`id_package`))) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -722,4 +765,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-01-22  3:38:51
+-- Dump completed on 2018-01-22 15:57:28

@@ -16,7 +16,6 @@ Begin VB.Form frmReportProducts
    ShowInTaskbar   =   0   'False
    StartUpPosition =   3  'Windows Default
    Begin VB.Frame frmEmpleados 
-      BackColor       =   &H00C0C0C0&
       BeginProperty Font 
          Name            =   "Times New Roman"
          Size            =   11.25
@@ -31,6 +30,40 @@ Begin VB.Form frmReportProducts
       TabIndex        =   1
       Top             =   600
       Width           =   16575
+      Begin VB.CommandButton cmdCrearProducto 
+         Caption         =   "Crear producto"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   11.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Left            =   240
+         TabIndex        =   13
+         Top             =   240
+         Width           =   1815
+      End
+      Begin VB.CommandButton cmdSalir 
+         Caption         =   "Salir"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   11.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Left            =   15120
+         TabIndex        =   12
+         Top             =   240
+         Width           =   1215
+      End
       Begin VB.CommandButton cmdProductsNoStock 
          Caption         =   "Productos por debajo del stock"
          BeginProperty Font 
@@ -43,7 +76,7 @@ Begin VB.Form frmReportProducts
             Strikethrough   =   0   'False
          EndProperty
          Height          =   375
-         Left            =   11160
+         Left            =   9840
          TabIndex        =   11
          Top             =   240
          Width           =   3255
@@ -180,7 +213,7 @@ Begin VB.Form frmReportProducts
             Strikethrough   =   0   'False
          EndProperty
          Height          =   375
-         Left            =   14520
+         Left            =   13200
          TabIndex        =   2
          Top             =   240
          Width           =   1815
@@ -287,9 +320,17 @@ Dim rec As New ADODB.Recordset
 Public parent As frmMenu
 Dim seleccion As Integer
 
+Private Sub cmdCrearProducto_Click()
+frmProduct.Show vbModal
+End Sub
+
 Private Sub cmdProductsNoStock_Click()
 SQL = "Select * from product WHERE quantity<quantity_min order by quantity_min ASC"
 Call loadList(SQL)
+End Sub
+
+Private Sub cmdSalir_Click()
+Unload Me
 End Sub
 
 Private Sub cmdSinFiltros_Click()
@@ -346,6 +387,12 @@ End Sub
 
 Public Sub reloadForm()
 Call loadList("Select * from product order by description ASC")
+End Sub
+
+
+Private Sub listProducts_DblClick()
+frmProduct.tIdProduct = Me.listProducts.SelectedItem
+frmProduct.Show vbModal
 End Sub
 
 Private Sub tFiltro_Change(Index As Integer)

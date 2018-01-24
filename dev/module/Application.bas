@@ -3,6 +3,8 @@ Public cRoomStatic As New CRoom
 Public cRoomTypeStatic As New CRoomType
 Public cStatusRoomStatic As New CStatusRoom
 
+Public rol As String
+
 
 Public Function SoloNumeros(ByVal KeyAscii As Integer) As Integer
     'Permite que solo sean ingresados los numeros, el ENTER y el RETROCESO

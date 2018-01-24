@@ -46,9 +46,9 @@ Sub Main()
 'Carga las instancias base para los estados de la habitación
 cStatusRoomStatic.loadBaseInstances
 
-frmMenu.Show
-'frmLogin.Show
-'frmTest.Show
+'Ap.rol = "ADM"
+'frmMenu.Show
+frmLogin.Show
 End Sub
 
 Public Function getNewConection() As ADODB.Connection

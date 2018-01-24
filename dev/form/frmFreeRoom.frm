@@ -26,7 +26,7 @@ Begin VB.Form frmFreeRoom
          Strikethrough   =   0   'False
       EndProperty
       Height          =   495
-      Left            =   1800
+      Left            =   1920
       TabIndex        =   27
       Top             =   8160
       Width           =   2895
@@ -625,12 +625,17 @@ If Me.listInvoice.ListItems(item).SubItems(4) = "0" Then
     SQL = "INSERT INTO service_details " & _
         "(id_service, id_package, quantity, price) VALUES " & _
         "(" & Me.tIdService & "," & Me.listInvoice.ListItems(item) & "," & Me.listInvoice.ListItems(item).SubItems(2) & "," & Me.listInvoice.ListItems(item).SubItems(3) & ");"
+        
+    conBd.Execute (SQL)
 Else
     SQL = "INSERT INTO service_details " & _
         "(id_service, id_product, quantity, price) VALUES " & _
         "(" & Me.tIdService & "," & Me.listInvoice.ListItems(item) & "," & Me.listInvoice.ListItems(item).SubItems(2) & "," & Me.listInvoice.ListItems(item).SubItems(3) & ");"
+    conBd.Execute (SQL)
+    
+    SQL = "UPDATE product SET quantity=quantity-" & Me.listInvoice.ListItems(item).SubItems(2) & " where id= '" & Me.listInvoice.ListItems(item) & "'"
+    conBd.Execute (SQL)
 End If
-conBd.Execute (SQL)
 Next
 
 Dim dateTimeEndRealService  As Date
@@ -643,6 +648,9 @@ conBd.Execute (SQL)
 
 SQL = "UPDATE room SET code_status = '" & Ap.cStatusRoomStatic.CLEAN.code & "' WHERE id=" & Me.tIdRoom & ""
 conBd.Execute (SQL)
+
+MsgBox "El servicio finalizó correctamente", vbInformation
+Unload Me
 End Sub
 
 Private Sub cmdQuitProduct_Click()

@@ -16,8 +16,7 @@ Begin VB.Form frmMenu
       Left            =   840
       Top             =   1560
    End
-   Begin VB.Frame Frame2 
-      BackColor       =   &H00E0E0E0&
+   Begin VB.Frame frmOptionsAdmin 
       Caption         =   "Adiministración"
       BeginProperty Font 
          Name            =   "Calibri"
@@ -29,19 +28,47 @@ Begin VB.Form frmMenu
          Strikethrough   =   0   'False
       EndProperty
       Height          =   3135
-      Left            =   135
+      Left            =   120
       TabIndex        =   8
       Top             =   5325
+      Visible         =   0   'False
       Width           =   3135
       Begin VB.Image Image5 
          Height          =   210
+         Index           =   1
          Left            =   120
          Picture         =   "frmMenu.frx":0000
+         Top             =   1080
+         Width           =   150
+      End
+      Begin VB.Label lReportServices 
+         Caption         =   "Reporte de servicios"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   14.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   -1  'True
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H009F4320&
+         Height          =   375
+         Left            =   360
+         TabIndex        =   10
+         Top             =   960
+         Width           =   2610
+      End
+      Begin VB.Image Image5 
+         Height          =   210
+         Index           =   0
+         Left            =   120
+         Picture         =   "frmMenu.frx":0202
          Top             =   525
          Width           =   150
       End
       Begin VB.Label Label1 
-         Caption         =   "Gestión de productos"
+         Caption         =   "Reporte de productos"
          BeginProperty Font 
             Name            =   "Calibri"
             Size            =   14.25
@@ -221,28 +248,28 @@ Begin VB.Form frmMenu
    Begin VB.Image Image4 
       Height          =   630
       Left            =   240
-      Picture         =   "frmMenu.frx":0202
+      Picture         =   "frmMenu.frx":0404
       Top             =   4080
       Width           =   2520
    End
    Begin VB.Image Image3 
       Height          =   630
       Left            =   240
-      Picture         =   "frmMenu.frx":54F4
+      Picture         =   "frmMenu.frx":56F6
       Top             =   3120
       Width           =   2535
    End
    Begin VB.Image Image2 
       Height          =   615
       Left            =   240
-      Picture         =   "frmMenu.frx":A88E
+      Picture         =   "frmMenu.frx":AA90
       Top             =   2160
       Width           =   2535
    End
    Begin VB.Image Image1 
       Height          =   990
       Left            =   0
-      Picture         =   "frmMenu.frx":FA2C
+      Picture         =   "frmMenu.frx":FC2E
       Top             =   240
       Width           =   2820
    End
@@ -272,10 +299,13 @@ Call loadBd
 Call openManager
 Call loadResumen
 
+If (Ap.rol = "ADM") Then
+    frmOptionsAdmin.Visible = True
+End If
 End Sub
 
 Private Sub Image2_Click()
-frmRoom.Left = Me.lReferencia.Left
+frmRoom.left = Me.lReferencia.left
 frmRoom.Top = Me.lReferencia.Top
 Set frmRoom.parent = Me
 
@@ -288,11 +318,19 @@ Timer1.Enabled = True
 End Function
 
 Private Sub Label1_Click()
-frmReportProducts.Left = Me.lReferencia.Left - 1000
+frmReportProducts.left = Me.lReferencia.left - 1000
 frmReportProducts.Top = Me.lReferencia.Top - 500
 Set frmReportProducts.parent = Me
 
 frmReportProducts.Show , Me
+End Sub
+
+Private Sub lReportServices_Click()
+frmReportServices.left = Me.lReferencia.left - 1000
+frmReportServices.Top = Me.lReferencia.Top - 500
+Set frmReportServices.parent = Me
+
+frmReportServices.Show , Me
 End Sub
 
 Private Sub timeProcessor_Timer()
@@ -306,7 +344,7 @@ Timer1.Enabled = False
 End Sub
 
 Private Sub openManager()
-frmManagerRoom.Left = Me.lReferencia.Left - 1000
+frmManagerRoom.left = Me.lReferencia.left - 1000
 frmManagerRoom.Top = Me.lReferencia.Top - 500
 Set frmManagerRoom.parent = Me
 

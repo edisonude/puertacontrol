@@ -1,6 +1,5 @@
 VERSION 5.00
 Object = "{BD0C1912-66C3-49CC-8B12-7B347BF6C846}#13.2#0"; "CODEJO~1.OCX"
-Object = "{0ECD9B60-23AA-11D0-B351-00A0C9055D8E}#6.0#0"; "mshflxgd.ocx"
 Begin VB.Form frmRoom 
    BorderStyle     =   0  'None
    Caption         =   "Form1"
@@ -19,21 +18,9 @@ Begin VB.Form frmRoom
       Caption         =   "Command5"
       Height          =   615
       Left            =   7440
-      TabIndex        =   17
+      TabIndex        =   16
       Top             =   360
       Width           =   2655
-   End
-   Begin MSHierarchicalFlexGridLib.MSHFlexGrid MSHFlexGrid1 
-      Height          =   2535
-      Left            =   600
-      TabIndex        =   16
-      Top             =   1080
-      Width           =   9375
-      _ExtentX        =   16536
-      _ExtentY        =   4471
-      _Version        =   393216
-      _NumberOfBands  =   1
-      _Band(0).Cols   =   2
    End
    Begin VB.CommandButton Command4 
       Caption         =   "Command4"
@@ -314,19 +301,19 @@ rec.MoveNext
 End Sub
 
 Private Sub Command5_Click()
-SQL = "SELECT r." & cRoomStatic.FIELD_NUMBER & " as '" & cRoomStatic.LABEL_NUMBER & "'," & _
-    "r." & cRoomStatic.FIELD_FLOOR & " as '" & cRoomStatic.LABEL_FLOOR & "'," & _
-    "rt." & Ap.cRoomTypeStatic.FIELD_DESCRIPTION & " as '" & Ap.cRoomTypeStatic.LABEL_DESCRIPTION & "'," & _
-    "st." & Ap.cStatusRoomStatic.FIELD_DESCRIPTION & " as '" & Ap.cStatusRoomStatic.LABEL_DESCRIPTION & _
-    "' FROM " & Ap.cRoomStatic.TABLE & " r INNER JOIN " & Ap.cRoomTypeStatic.TABLE & " rt ON " & _
-    "r." & Ap.cRoomStatic.FIELD_ID_TYPE & " = rt." & Ap.cRoomTypeStatic.FIELD_ID & _
-    " INNER JOIN " & Ap.cStatusRoomStatic.TABLE & " st ON st." & Ap.cStatusRoomStatic.FIELD_CODE & " = r." & _
-    Ap.cRoomStatic.FIELD_CODE_STATUS
-
-Call ModFlexGrid.pv_Flexgrid_Initialize(MSHFlexGrid1)
-Call Cargar_MsFlexGrid(conBd, SQL, MSHFlexGrid1, Me)
-    
-Call ModFlexGrid.paintByRows(MSHFlexGrid1, 15329769, 16637649)
+'SQL = "SELECT r." & cRoomStatic.FIELD_NUMBER & " as '" & cRoomStatic.LABEL_NUMBER & "'," & _
+'    "r." & cRoomStatic.FIELD_FLOOR & " as '" & cRoomStatic.LABEL_FLOOR & "'," & _
+'    "rt." & Ap.cRoomTypeStatic.FIELD_DESCRIPTION & " as '" & Ap.cRoomTypeStatic.LABEL_DESCRIPTION & "'," & _
+'    "st." & Ap.cStatusRoomStatic.FIELD_DESCRIPTION & " as '" & Ap.cStatusRoomStatic.LABEL_DESCRIPTION & _
+'    "' FROM " & Ap.cRoomStatic.TABLE & " r INNER JOIN " & Ap.cRoomTypeStatic.TABLE & " rt ON " & _
+'    "r." & Ap.cRoomStatic.FIELD_ID_TYPE & " = rt." & Ap.cRoomTypeStatic.FIELD_ID & _
+'    " INNER JOIN " & Ap.cStatusRoomStatic.TABLE & " st ON st." & Ap.cStatusRoomStatic.FIELD_CODE & " = r." & _
+'    Ap.cRoomStatic.FIELD_CODE_STATUS
+'
+'Call ModFlexGrid.pv_Flexgrid_Initialize(MSHFlexGrid1)
+'Call Cargar_MsFlexGrid(conBd, SQL, MSHFlexGrid1, Me)
+'
+'Call ModFlexGrid.paintByRows(MSHFlexGrid1, 15329769, 16637649)
 End Sub
 
 Private Sub Form_Load()
@@ -341,7 +328,7 @@ Private Sub Form_Load()
     ' -- Errores -----------------------------------------------
     Exit Sub
 Error_Handler:
-MsgBox Err.Number & " " & " Error " & Err.Description, vbCritical
+MsgBox Err.Number & " " & " Error " & Err.description, vbCritical
 
 
 'rec.AddNew
