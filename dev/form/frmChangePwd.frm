@@ -243,6 +243,7 @@ SQL = "UPDATE user SET password= '" & Me.tNewPwd & "' where id=" & Ap.cUserLogue
 conBd.Execute (SQL)
 
 MsgBox "Su contraseña fue actualizaa correctamente y podrá usarse en el próximo inicio de sesión.", vbInformation
+Unload Me
 End Sub
 
 Private Sub cmdExit_Click()
