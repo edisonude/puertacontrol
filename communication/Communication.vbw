@@ -1,7 +1,7 @@
 Form1 = 130, 130, 902, 546, C, 26, 26, 798, 442, C
-Modconexion = 78, 78, 850, 494, C
-ModFiles = 104, 104, 876, 520, 
+Modconexion = 78, 78, 850, 494, Z
+ModFiles = 104, 104, 876, 520, C
 frmInspector = 156, 156, 928, 572, , 130, 130, 902, 546, C
-Systray = 208, 208, 980, 624, 
+Systray = 208, 208, 980, 624, C
 frmAbout = 52, 52, 824, 468, C, 26, 26, 798, 442, C
-frmInspectorTest = 26, 26, 795, 442, Z, 0, 0, 769, 416, C
+frmInspectorTest = 26, 26, 795, 442, , 0, 0, 769, 416, C

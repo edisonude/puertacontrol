@@ -31,7 +31,7 @@ Begin VB.Form frmInspector
    End
    Begin VB.Timer Timer1 
       Enabled         =   0   'False
-      Interval        =   100
+      Interval        =   1000
       Left            =   2880
       Top             =   120
    End
@@ -43,6 +43,25 @@ Begin VB.Form frmInspector
       _Version        =   393216
       DTREnable       =   -1  'True
       BaudRate        =   19200
+   End
+   Begin VB.Label Label1 
+      BackStyle       =   0  'Transparent
+      Caption         =   "v1.1"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   12
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00FF8080&
+      Height          =   375
+      Left            =   6225
+      TabIndex        =   4
+      Top             =   1125
+      Width           =   480
    End
    Begin VB.Label lPausa 
       BackStyle       =   0  'Transparent
@@ -226,6 +245,8 @@ processMessage (textin)
 End Sub
 
 Private Sub processMessage(message As String)
+On Error GoTo controlError
+On Error GoTo controlError
 Dim noRoom As String
 If (message <> "" And Left$(message, 1) = "R") Then
     Me.lConsole.Caption = message
@@ -235,7 +256,16 @@ If (message <> "" And Left$(message, 1) = "R") Then
             "values('" & fecha & "','" & noRoom & "','" & message & "')"
     con.Execute (SQL)
 End If
+Exit Sub
 
+controlError:
+
+Open fileLogPath For Append As #1
+Print #1, Now()
+Print #1, "SQL = " & SQL
+Print #1, "ERROR = Number: " & Err.Number & " - Source: " & Err.Source & " - Description: " & Err.Description
+Print #1, "-------------------------------------------------------------------------------------------"
+Close #1
 End Sub
 
 Private Sub Form_MouseMove( _

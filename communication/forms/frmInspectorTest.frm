@@ -13,6 +13,12 @@ Begin VB.Form frmInspectorTest
    Picture         =   "frmInspectorTest.frx":08CA
    ScaleHeight     =   3165
    ScaleWidth      =   6855
+   Begin VB.Timer Timer1 
+      Enabled         =   0   'False
+      Interval        =   10
+      Left            =   3570
+      Top             =   390
+   End
    Begin VB.CommandButton cmdSend 
       Caption         =   "Send"
       BeginProperty Font 
@@ -202,15 +208,26 @@ End Sub
 
 
 Private Sub processMessage(message As String)
+On Error GoTo controlError
 Dim noRoom As String
 If (message <> "" And Left$(message, 1) = "R") Then
     Me.lConsole.Caption = message
-    noRoom = Mid$(message, 4, Len(message))
+    noRoom = Right(message, 2)
     fecha = Format(Now(), "yyyy-MM-dd HH:mm:ss")
     SQL = "Insert into operation_room_log (date_action,number_room,message) " & _
             "values('" & fecha & "','" & noRoom & "','" & message & "')"
     con.Execute (SQL)
 End If
+Exit Sub
+
+controlError:
+
+Open fileLogPath For Append As #1
+Print #1, Now()
+Print #1, "SQL = " & SQL
+Print #1, "ERROR = Number: " & Err.Number & " - Source: " & Err.Source & " - Description: " & Err.Description
+Print #1, "-------------------------------------------------------------------------------------------"
+Close #1
 End Sub
 
 Private Sub Form_MouseMove( _
@@ -263,6 +280,10 @@ Private Sub mnuMostrar_Click()
     Me.WindowState = vbNormal
     Call SetForegroundWindow(Me.hwnd)
     Me.Show
+End Sub
+
+Private Sub Timer1_Timer()
+ Call processMessage("RO-1")
 End Sub
 
 Private Sub timeToMin_Timer()

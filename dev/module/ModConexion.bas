@@ -17,6 +17,9 @@ Dim fileConfigPath As String
 
 Sub Main()
 
+On Local Error GoTo control
+
+
 Ap.test = False
 
 'Carga las instancias base para los estados de la habitación
@@ -24,6 +27,9 @@ cStatusRoomStatic.loadBaseInstances
 
 'frmMenu.Show
 frmLogin.Show
+Exit Sub
+control:
+MsgBox "error inesperado"
 End Sub
 
 Public Function getNewConection() As ADODB.Connection

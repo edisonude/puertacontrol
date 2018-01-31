@@ -3,17 +3,20 @@ Option Explicit
 
 'Variables de configuracion
 Public SQL As String
-Public pathBD As String
 Public keyBD As String
 
 'Almacena la ruta del archivo de configuraciones
 Dim fileConfigPath As String
 
+'Almacena la ruta del archivo de log
+Public fileLogPath As String
+
 'Conexion ADOB
 Sub Main()
+fileLogPath = App.Path & "\log.txt"
 
-'frmInspector.Show
-frmInspectorTest.Show
+frmInspector.Show
+'frmInspectorTest.Show
 End Sub
 
 Public Function getNewConection() As ADODB.Connection

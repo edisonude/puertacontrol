@@ -68,13 +68,13 @@ void verifyRoom(int pinRoom, int noRoom) {
     roomOpened[noRoom]=1;
     Serial.print("RO-");
     Serial.println(noRoom);
-    delay(100);
+    delay(1000);
   }else{
     if (statusRoom == HIGH && isRoomOpen(noRoom)){
       roomOpened[noRoom]=0;
       Serial.print("RC-");
       Serial.println(noRoom);
-      delay(100);
+      delay(1000);
     }
   }
 }
