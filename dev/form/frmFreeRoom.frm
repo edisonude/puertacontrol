@@ -32,7 +32,6 @@ Begin VB.Form frmFreeRoom
       Width           =   2895
    End
    Begin VB.Frame Frame1 
-      BackColor       =   &H00C0C0C0&
       Caption         =   "Información de la habitación"
       BeginProperty Font 
          Name            =   "Calibri"
@@ -246,7 +245,6 @@ Begin VB.Form frmFreeRoom
       End
    End
    Begin VB.Frame Frame3 
-      BackColor       =   &H00C0C0C0&
       Caption         =   "Agregar producto a la cuenta"
       BeginProperty Font 
          Name            =   "Calibri"
@@ -316,6 +314,7 @@ Begin VB.Form frmFreeRoom
          Width           =   735
       End
       Begin VB.Label tProduct 
+         Caption         =   "Seleccione producto"
          BeginProperty Font 
             Name            =   "Calibri"
             Size            =   12
@@ -394,6 +393,7 @@ Begin VB.Form frmFreeRoom
          Width           =   255
       End
       Begin VB.Label tPrice 
+         Caption         =   "$ 0"
          BeginProperty Font 
             Name            =   "Calibri"
             Size            =   12
@@ -643,7 +643,7 @@ Dim dateTimeEndRealServiceFormated As String
 dateTimeEndRealService = Now()
 dateTimeEndRealServiceFormated = Format(dateTimeEndRealService, "yyyy-MM-dd HH:mm:ss")
 
-SQL = "UPDATE service SET datetime_end_real_service= '" & dateTimeEndRealServiceFormated & "', net_value=" & netValueService & ";"
+SQL = "UPDATE service SET datetime_end_real_service= '" & dateTimeEndRealServiceFormated & "', net_value=" & netValueService & " WHERE id='" & Me.tIdService & "'"
 conBd.Execute (SQL)
 
 SQL = "UPDATE room SET code_status = '" & Ap.cStatusRoomStatic.CLEAN.code & "' WHERE id=" & Me.tIdRoom & ""

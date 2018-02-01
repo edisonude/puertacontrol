@@ -229,7 +229,7 @@ Begin VB.Form frmMenu
       Top             =   0
    End
    Begin VB.Label lVersion 
-      Caption         =   "1.1"
+      Caption         =   "1.2"
       BeginProperty Font 
          Name            =   "Calibri"
          Size            =   9.75

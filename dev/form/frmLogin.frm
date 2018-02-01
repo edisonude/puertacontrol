@@ -50,7 +50,6 @@ Begin VB.Form frmLogin
       Height          =   375
       Left            =   3240
       TabIndex        =   0
-      Text            =   "admin"
       Top             =   480
       Width           =   2415
    End
@@ -143,7 +142,7 @@ rec.CursorLocation = adUseClient
 End Sub
 
 Private Sub timeFoco_Timer()
-Me.tPass.SetFocus
+Me.tUser.SetFocus
 Me.timeFoco.Enabled = False
 End Sub
 
