@@ -20,15 +20,6 @@ Begin VB.Form frmInspector
       Left            =   4695
       Top             =   120
    End
-   Begin VB.CommandButton Command1 
-      Caption         =   "Command1"
-      Height          =   1095
-      Left            =   4080
-      TabIndex        =   2
-      Top             =   1080
-      Visible         =   0   'False
-      Width           =   735
-   End
    Begin VB.Timer Timer1 
       Enabled         =   0   'False
       Interval        =   1000
@@ -46,7 +37,7 @@ Begin VB.Form frmInspector
    End
    Begin VB.Label Label1 
       BackStyle       =   0  'Transparent
-      Caption         =   "v1.1"
+      Caption         =   "v1.2"
       BeginProperty Font 
          Name            =   "Calibri"
          Size            =   12
@@ -59,7 +50,7 @@ Begin VB.Form frmInspector
       ForeColor       =   &H00FF8080&
       Height          =   375
       Left            =   6225
-      TabIndex        =   4
+      TabIndex        =   3
       Top             =   1125
       Width           =   480
    End
@@ -67,7 +58,7 @@ Begin VB.Form frmInspector
       BackStyle       =   0  'Transparent
       Height          =   960
       Left            =   5265
-      TabIndex        =   3
+      TabIndex        =   2
       Top             =   30
       Width           =   1350
    End
@@ -132,57 +123,6 @@ Dim forceExit As Boolean
 Dim con As ADODB.Connection
 Dim fecha As String
 
-Private Sub Command1_Click()
-'http://www.programming.rzb.ir | visit me ;D
-
- 
-'start SendMail code
-'Private Function SendMail(Sender As String, Subject As String, Reciever As String, Text As String, Password As String, AttachFile As String, mailserver As String, portnum As String) As Boolean
-    'If Sender <> "" Or Password <> "" Then
-        Dim iMsg, iConf, Flds, schema, SendEmailGmail
-        Set iMsg = CreateObject("CDO.Message")
-        Set iConf = CreateObject("CDO.Configuration")
-        Set Flds = iConf.Fields
-    
-        ' send one copy with Google SMTP server (with autentication)
-        schema = "http://schemas.microsoft.com/cdo/configuration/"
-        Flds.Item(schema & "sendusing") = 2
-        Flds.Item(schema & "smtpserver") = "smtp.gmail.com"
-        Flds.Item(schema & "smtpserverport") = "25"
-        Flds.Item(schema & "smtpauthenticate") = 1
-        Flds.Item(schema & "sendusername") = "puertacontrol.notify@gmail.com"
-        Flds.Item(schema & "sendpassword") = "puertacontrol2017"
-        Flds.Item(schema & "smtpusessl") = 1
-        Flds.Update
-    
-        With iMsg
-            DoEvents
-            .To = "edisonandres2@hotmail.com"
-            .From = "puertacontrol.notify@gmail.com"
-            .Subject = "Alerta - Apertura habitación"
-            .HTMLBody = "<html><head> </head> <body> <table style=' width: 400px; text-align: center; font-family: Calibri,Arial,sans-serif; font-size: 18px; '> <tbody><tr> <th style=' border-bottom: 3px solid #608BB1; '><img src='https://image.ibb.co/gBaUSw/puertacontrol_small.png' alt='puertacontrol_small' border='0'></th> </tr> <tr> <td style=' font-weight: 700; font-size: 22px; '>ALERTA</td> </tr> <tr> <td style=' border-bottom: 1px solid #608BB1; '>La habitación #NO# fue abierta el #FECHA# por fuera de los horarios permitidos.</td> </tr><tr> <td style='font-size: 6px;font-weight: 600;'>&nbsp;</td> </tr> <tr> <td style=' font-size: 14px; '>Cualquier inquietud, estaremos dispuesto a solucionarla</td> </tr><tr> <td style='font-size: 14px;font-weight: 600;'>tudesarrolloo@gmail.com - 313 704 9824</td> </tr> </tbody></table> </body></html>"
-            .Sender = "puertacontrol.notify@gmail.com"
-            .Organization = "S.M.B Productions"
-            .ReplyTo = "puertacontrol.notify@gmail.com"
-            'If AttachFile <> "" Then
-            '    .AddAttachment (AttachFile)
-            'End If
-            Set .Configuration = iConf
-            SendEmailGmail = .send
-        End With
-    
-        Set iMsg = Nothing
-        Set iConf = Nothing
-        Set Flds = Nothing
-        SendMail = True
-        MsgBox "end"
-'    Else
-'        MsgBox "Please, Fill the Sender Mail Address or Sender Mail Password", vbCritical, "Connection Error"
-'        SendMail = False
-'    End If
-
-End Sub
-
 Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)
 If (KeyCode = 81) Then
     forceExit = True
@@ -245,17 +185,21 @@ processMessage (textin)
 End Sub
 
 Private Sub processMessage(message As String)
-On Error GoTo controlError
+'Limpiado del mensaje
+message = Trim$((Replace(message, vbCrLf, "")))
+
+If Not validMessage(message) Then
+    Exit Sub
+End If
+
 On Error GoTo controlError
 Dim noRoom As String
-If (message <> "" And Left$(message, 1) = "R") Then
-    Me.lConsole.Caption = message
-    noRoom = Right(message, 2)
-    fecha = Format(Now(), "yyyy-MM-dd HH:mm:ss")
-    SQL = "Insert into operation_room_log (date_action,number_room,message) " & _
-            "values('" & fecha & "','" & noRoom & "','" & message & "')"
-    con.Execute (SQL)
-End If
+Me.lConsole.Caption = message
+noRoom = Mid(message, 4, Len(message))
+fecha = Format(Now(), "yyyy-MM-dd HH:mm:ss")
+SQL = "Insert into operation_room_log (date_action,number_room,message) " & _
+        "values('" & fecha & "','" & noRoom & "','" & message & "')"
+con.Execute (SQL)
 Exit Sub
 
 controlError:
@@ -267,6 +211,39 @@ Print #1, "ERROR = Number: " & Err.Number & " - Source: " & Err.Source & " - Des
 Print #1, "-------------------------------------------------------------------------------------------"
 Close #1
 End Sub
+
+Private Function validMessage(message As String) As Boolean
+Dim lenMessage As Integer
+Dim isValid As Boolean
+lenMessage = Len(message)
+isValid = True
+
+If (lenMessage < 4 And lenMessage > 5) Then
+    isValid = False
+End If
+
+If (isValid And Left(message, 1) <> "R") Then
+    isValid = False
+End If
+
+If (isValid And Mid(message, 3, 1) <> "-") Then
+    isValid = False
+End If
+
+If (isValid And Not IsNumeric(Right(message, 1))) Then
+    isValid = False
+End If
+
+If Not isValid Then
+    Open fileLogFailMessages For Append As #1
+    Print #1, Now()
+    Print #1, "FailMessage = " & message
+    Print #1, "-------------------------------------------------------------------------------------------"
+    Close #1
+End If
+
+validMessage = isValid
+End Function
 
 Private Sub Form_MouseMove( _
     Button As Integer, _

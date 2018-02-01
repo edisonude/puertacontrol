@@ -10,13 +10,15 @@ Dim fileConfigPath As String
 
 'Almacena la ruta del archivo de log
 Public fileLogPath As String
+Public fileLogFailMessages As String
 
 'Conexion ADOB
 Sub Main()
 fileLogPath = App.Path & "\log.txt"
+fileLogFailMessages = App.Path & "\logFailMessages.txt"
 
-frmInspector.Show
-'frmInspectorTest.Show
+'frmInspector.Show
+frmInspectorTest.Show
 End Sub
 
 Public Function getNewConection() As ADODB.Connection

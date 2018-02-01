@@ -208,16 +208,21 @@ End Sub
 
 
 Private Sub processMessage(message As String)
+'Limpiado del mensaje
+message = Trim$((Replace(message, vbCrLf, "")))
+
+If Not validMessage(message) Then
+    Exit Sub
+End If
+
 On Error GoTo controlError
 Dim noRoom As String
-If (message <> "" And Left$(message, 1) = "R") Then
-    Me.lConsole.Caption = message
-    noRoom = Right(message, 2)
-    fecha = Format(Now(), "yyyy-MM-dd HH:mm:ss")
-    SQL = "Insert into operation_room_log (date_action,number_room,message) " & _
-            "values('" & fecha & "','" & noRoom & "','" & message & "')"
-    con.Execute (SQL)
-End If
+Me.lConsole.Caption = message
+noRoom = Mid(message, 4, Len(message))
+fecha = Format(Now(), "yyyy-MM-dd HH:mm:ss")
+SQL = "Insert into operation_room_log (date_action,number_room,message) " & _
+        "values('" & fecha & "','" & noRoom & "','" & message & "')"
+con.Execute (SQL)
 Exit Sub
 
 controlError:
@@ -229,6 +234,39 @@ Print #1, "ERROR = Number: " & Err.Number & " - Source: " & Err.Source & " - Des
 Print #1, "-------------------------------------------------------------------------------------------"
 Close #1
 End Sub
+
+Private Function validMessage(message As String) As Boolean
+Dim lenMessage As Integer
+Dim isValid As Boolean
+lenMessage = Len(message)
+isValid = True
+
+If (lenMessage < 4 And lenMessage > 5) Then
+    isValid = False
+End If
+
+If (isValid And Left(message, 1) <> "R") Then
+    isValid = False
+End If
+
+If (isValid And Mid(message, 3, 1) <> "-") Then
+    isValid = False
+End If
+
+If (isValid And Not IsNumeric(Right(message, 1))) Then
+    isValid = False
+End If
+
+If Not isValid Then
+    Open fileLogFailMessages For Append As #1
+    Print #1, Now()
+    Print #1, "FailMessage = " & message
+    Print #1, "-------------------------------------------------------------------------------------------"
+    Close #1
+End If
+
+validMessage = isValid
+End Function
 
 Private Sub Form_MouseMove( _
     Button As Integer, _
