@@ -6433,6 +6433,7 @@ Call setPositionElements
 End Sub
 
 Private Sub initFreeRoom(idRoom As Integer)
+frmFreeRoom.tIdService = Me.tIdService(idRoom)
 frmFreeRoom.tNoRoom = Me.lNoRoom(idRoom)
 Set frmFreeRoom.manager = Me
 frmFreeRoom.Show vbModal
