@@ -8,7 +8,7 @@ UPDATE `puertacontrol`.`user` SET `email`='administrador2@itacaadministraciones.
 UPDATE `puertacontrol`.`user` SET `email`='isabelacristi@hotmail.com' WHERE `id`='5';
 UPDATE `puertacontrol`.`user` SET `email`='edisonandres2@hotmail.com' WHERE `id`='1';
 
---Se muestran las alarmas del día actual y del último día
+-- Se muestran las alarmas del día actual y del último día
 USE `puertacontrol`;
 CREATE 
      OR REPLACE ALGORITHM = UNDEFINED 
@@ -41,3 +41,43 @@ VIEW `room_details` AS
         JOIN `puertacontrol`.`room_type` `rt` ON ((`r`.`id_type` = `rt`.`id`)))
         LEFT JOIN `puertacontrol`.`service` `s` ON (((`s`.`id_room` = `r`.`id`)
             AND (`s`.`status` = 'ACT'))));
+            
+-- Se crea el tipo de producto
+ALTER TABLE `puertacontrol`.`product` 
+ADD COLUMN `code_product_type` VARCHAR(5) NULL COMMENT 'Código del tipo de producto' AFTER `price_sale`;
+
+CREATE TABLE `puertacontrol`.`product_type` (
+  `code` VARCHAR(5) NOT NULL,
+  `description` VARCHAR(50) NOT NULL,
+  PRIMARY KEY (`code`),
+  UNIQUE INDEX `code_UNIQUE` (`code` ASC))
+COMMENT = 'Almacena todos los tipos de producto de la habitación';
+
+ALTER TABLE `puertacontrol`.`product` 
+ADD INDEX `fk_product_type_idx` (`code_product_type` ASC);
+ALTER TABLE `puertacontrol`.`product` 
+ADD CONSTRAINT `fk_product_type`
+  FOREIGN KEY (`code_product_type`)
+  REFERENCES `puertacontrol`.`product_type` (`code`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+  
+  
+INSERT INTO `puertacontrol`.`product_type` (`code`, `description`) VALUES ('CON', 'Consumo');
+INSERT INTO `puertacontrol`.`product_type` (`code`, `description`) VALUES ('ERO', 'Erótico');
+INSERT INTO `puertacontrol`.`product_type` (`code`, `description`) VALUES ('INS', 'Insumo');
+
+-- Se corrigen los tipos de las habitaciones 501 y 503
+UPDATE `puertacontrol`.`room` SET `id_type`='7' WHERE `id`='25';
+UPDATE `puertacontrol`.`room` SET `id_type`='5' WHERE `id`='27';
+
+-- Se clasifican los productos x tipo
+update product set code_product_type='CON' where id<38;
+update product set code_product_type='ERO' where id>=38;
+
+-- Columna para almacenar el descuento de un servicio
+ALTER TABLE `puertacontrol`.`service_details` 
+ADD COLUMN `discount` DOUBLE NOT NULL DEFAULT 0 COMMENT 'Valor del descuento unicamente sobre el item del servicio en porcentaje (0.1 a 1)' AFTER `price`;
+
+
+
