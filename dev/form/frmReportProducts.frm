@@ -30,6 +30,23 @@ Begin VB.Form frmReportProducts
       TabIndex        =   1
       Top             =   600
       Width           =   16575
+      Begin VB.TextBox tFiltro 
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   330
+         Index           =   7
+         Left            =   2760
+         TabIndex        =   14
+         Top             =   720
+         Width           =   375
+      End
       Begin VB.CommandButton cmdCrearProducto 
          Caption         =   "Crear producto"
          BeginProperty Font 
@@ -228,7 +245,6 @@ Begin VB.Form frmReportProducts
          _ExtentY        =   13150
          View            =   3
          LabelEdit       =   1
-         Sorted          =   -1  'True
          LabelWrap       =   -1  'True
          HideSelection   =   0   'False
          FullRowSelect   =   -1  'True
@@ -247,7 +263,7 @@ Begin VB.Form frmReportProducts
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         NumItems        =   6
+         NumItems        =   7
          BeginProperty ColumnHeader(1) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
             Text            =   "Id"
             Object.Width           =   0
@@ -259,21 +275,26 @@ Begin VB.Form frmReportProducts
          EndProperty
          BeginProperty ColumnHeader(3) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
             SubItemIndex    =   2
-            Text            =   "Cantidad"
+            Text            =   "Tipo"
             Object.Width           =   2540
          EndProperty
          BeginProperty ColumnHeader(4) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
             SubItemIndex    =   3
-            Text            =   "Cant. Min"
+            Text            =   "Cantidad"
             Object.Width           =   2540
          EndProperty
          BeginProperty ColumnHeader(5) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
             SubItemIndex    =   4
-            Text            =   "Precio Compra"
+            Text            =   "Cant. Min"
             Object.Width           =   2540
          EndProperty
          BeginProperty ColumnHeader(6) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
             SubItemIndex    =   5
+            Text            =   "Precio Compra"
+            Object.Width           =   2540
+         EndProperty
+         BeginProperty ColumnHeader(7) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+            SubItemIndex    =   6
             Text            =   "Precio Venta"
             Object.Width           =   2540
          EndProperty
@@ -321,6 +342,7 @@ Public parent As frmMenu
 Dim seleccion As Integer
 
 Private Sub cmdCrearProducto_Click()
+Set frmProduct.report = Me
 frmProduct.Show vbModal
 End Sub
 
@@ -345,15 +367,16 @@ Call loadBd
 
 'width for the columns
 Dim widthTotal As Double
-Dim widthCols(6) As Double
+Dim widthCols(7) As Double
 
 widthTotal = Me.listProducts.Width
 widthCols(1) = widthTotal * 0 'id
-widthCols(2) = widthTotal * 0.6 'producto
-widthCols(3) = widthTotal * 0.09 'cantidad
-widthCols(4) = widthTotal * 0.09 'cantidad min
-widthCols(5) = widthTotal * 0.1 'precio compra
-widthCols(6) = widthTotal * 0.1 'precio venta
+widthCols(2) = widthTotal * 0.5 'producto
+widthCols(3) = widthTotal * 0.1 'tipo
+widthCols(4) = widthTotal * 0.09 'cantidad
+widthCols(5) = widthTotal * 0.09 'cantidad min
+widthCols(6) = widthTotal * 0.1 'precio compra
+widthCols(7) = widthTotal * 0.1 'precio venta
 
 ModComponents.setWidthForColumnsAndFilters tFiltro, listProducts, widthCols
 
@@ -376,40 +399,49 @@ Me.listProducts.ListItems.Clear
 Do Until rec.EOF
     Set li = Me.listProducts.ListItems.Add(, , rec("id"))
         li.SubItems(1) = rec("description")
-        li.SubItems(2) = rec("quantity")
-        li.SubItems(3) = rec("quantity_min")
-        li.SubItems(4) = ModFormater.convertValueToCurrency(rec("last_price_buy"), 0)
-        li.SubItems(5) = ModFormater.convertValueToCurrency(rec("price_sale"), 0)
+        li.SubItems(2) = rec("type")
+        li.SubItems(3) = rec("quantity")
+        li.SubItems(4) = rec("quantity_min")
+        li.SubItems(5) = ModFormater.convertValueToCurrency(rec("last_price_buy"), 0)
+        li.SubItems(6) = ModFormater.convertValueToCurrency(rec("price_sale"), 0)
     rec.MoveNext
 Loop
 rec.Close
 End Sub
 
 Public Sub reloadForm()
-Call loadList("Select * from product order by description ASC")
+Call loadList("Select p.*,pt.description as type from product p inner join product_type pt on p.code_product_type = pt.code order by p.description ASC")
 End Sub
 
 
 Private Sub listProducts_DblClick()
+Set frmProduct.report = Me
 frmProduct.tIdProduct = Me.listProducts.SelectedItem
 frmProduct.Show vbModal
 End Sub
 
-Private Sub tFiltro_Change(Index As Integer)
+Private Sub tFiltro_Change(index As Integer)
 If ModComponents.cleaningFilters Then Exit Sub
 
-ModComponents.cleanFilters tFiltro, Index
+ModComponents.cleanFilters tFiltro, index
 
-Select Case Index
+Select Case index
     Case 2
-        SQL = "Select * from product WHERE description like '%" & tFiltro(Index) & "%'"
+        SQL = "Select p.*,pt.description as type from product p inner join product_type pt on p.code_product_type = pt.code WHERE p.description like '%" & tFiltro(index) & "%'"
     Case 3
-        SQL = "Select * from product WHERE quantity like '%" & tFiltro(Index) & "%'"
+        SQL = "Select p.*,pt.description as type from product p inner join product_type pt on p.code_product_type = pt.code WHERE pt.description like '%" & tFiltro(index) & "%'"
     Case 4
-        SQL = "Select * from product WHERE quantity_min like '%" & tFiltro(Index) & "%'"
+        SQL = "Select p.*,pt.description as type from product p inner join product_type pt on p.code_product_type = pt.code WHERE p.quantity like '%" & tFiltro(index) & "%'"
     Case 5
-        SQL = "Select * from product WHERE last_price_buy like '%" & tFiltro(Index) & "%'"
+        SQL = "Select p.*,pt.description as type from product p inner join product_type pt on p.code_product_type = pt.code WHERE p.quantity_min like '%" & tFiltro(index) & "%'"
     Case 6
+        SQL = "Select p.*,pt.description as type from product p inner join product_type pt on p.code_product_type = pt.code WHERE p.last_price_buy like '%" & tFiltro(index) & "%'"
 End Select
-Call loadList(SQL & " order by description ASC")
+Call loadList(SQL & " order by p.description ASC")
 End Sub
+
+Public Sub refreshExternal()
+ModComponents.cleanFilters tFiltro, -1
+Me.reloadForm
+End Sub
+
