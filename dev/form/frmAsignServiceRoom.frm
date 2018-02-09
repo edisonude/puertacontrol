@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{BD0C1912-66C3-49CC-8B12-7B347BF6C846}#13.2#0"; "CODEJO~1.OCX"
+Object = "{BD0C1912-66C3-49CC-8B12-7B347BF6C846}#13.2#0"; "Codejock.SkinFramework.v13.2.1.ocx"
 Begin VB.Form frmAsignServiceRoom 
    BorderStyle     =   1  'Fixed Single
    Caption         =   "Asignar servicio para habitación"
@@ -368,6 +368,7 @@ Dim rec As New ADODB.Recordset
 
 'Informacion del paquete seleccionado
 Dim idPackage As Integer
+Dim idPackageReal As Integer
 Dim timeService As Integer
 Dim timeClean As Integer
 Dim price As Double
@@ -392,6 +393,7 @@ Private Sub cmbTypePackage_Click()
 rec.Open "SELECT pr.* from package p inner join package_x_type_room pr on p.id = pr.id_package inner join room_type rt on pr.id_room_type = rt.id where p.description='" & Me.cmbTypePackage & "' and rt.description='" & Me.tTypeRoom & "'; ", conBd, adOpenStatic, adLockOptimistic
 Do Until rec.EOF
     idPackage = rec("id")
+    idPackageReal = rec("id_package")
     timeClean = rec("time_clean")
     timeService = rec("time_service")
     price = rec("price")
@@ -414,16 +416,6 @@ If (Me.cmbTypePackage = "") Then
     MsgBox "Debe seleccionar el tipo de paquete con el que quiere realizar el servicio", vbCritical, "Error"
     Exit Sub
 End If
-
-'Se busca el tipo de paquete seleccionado.
-rec.Open "SELECT pr.id,pr.time_clean,pr.time_service from package p inner join package_x_type_room pr on p.id = pr.id_package inner join room_type rt on pr.id_room_type = rt.id where p.description='" & Me.cmbTypePackage & "' and rt.description='" & Me.tTypeRoom & "'; ", conBd, adOpenStatic, adLockOptimistic
-Do Until rec.EOF
-    idPackage = rec("id")
-    timeClean = rec("time_clean")
-    timeService = rec("time_service")
-    rec.MoveNext
-Loop
-rec.Close
 
 dateTimeStartService = Now()
 dateTimeEndService = DateAdd("n", timeService, dateTimeStartService)
@@ -452,7 +444,7 @@ rec.Close
 
 SQL = "INSERT INTO service_details " & _
     "(id_service, id_package, quantity, price, discount, total) VALUES " & _
-    "(" & idService & "," & idPackage & ",1," & price & ",'" & discount & "'," & total & ");"
+    "(" & idService & "," & idPackageReal & ",1," & price & ",'" & discount & "'," & total & ");"
 con.Execute (SQL)
 
 SQL = "UPDATE room SET code_status = '" & Ap.cStatusRoomStatic.BUSY.code & "' WHERE id=" & Me.tIdRoom & ""
