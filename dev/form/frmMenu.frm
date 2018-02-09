@@ -29,8 +29,8 @@ Begin VB.Form frmMenu
       EndProperty
       Height          =   3135
       Left            =   120
-      TabIndex        =   8
-      Top             =   5685
+      TabIndex        =   6
+      Top             =   4965
       Visible         =   0   'False
       Width           =   3135
       Begin VB.Image Image5 
@@ -55,7 +55,7 @@ Begin VB.Form frmMenu
          ForeColor       =   &H009F4320&
          Height          =   375
          Left            =   360
-         TabIndex        =   10
+         TabIndex        =   8
          Top             =   960
          Width           =   2610
       End
@@ -81,7 +81,7 @@ Begin VB.Form frmMenu
          ForeColor       =   &H009F4320&
          Height          =   375
          Left            =   330
-         TabIndex        =   9
+         TabIndex        =   7
          Top             =   450
          Width           =   2610
       End
@@ -102,49 +102,11 @@ Begin VB.Form frmMenu
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   3135
+      Height          =   2415
       Left            =   120
       TabIndex        =   1
       Top             =   2400
       Width           =   3135
-      Begin VB.Label label 
-         Alignment       =   2  'Center
-         Caption         =   "Próxima disponibilidad"
-         BeginProperty Font 
-            Name            =   "Calibri"
-            Size            =   12
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   375
-         Index           =   2
-         Left            =   240
-         TabIndex        =   7
-         Top             =   2160
-         Width           =   2775
-      End
-      Begin VB.Label tNextAvailable 
-         Alignment       =   2  'Center
-         Caption         =   "Tipo de Habitación"
-         BeginProperty Font 
-            Name            =   "Calibri"
-            Size            =   15.75
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H009F4320&
-         Height          =   375
-         Left            =   240
-         TabIndex        =   6
-         Top             =   2520
-         Width           =   2775
-      End
       Begin VB.Label label 
          Alignment       =   2  'Center
          Caption         =   "Habitaciones disponibles"
@@ -229,7 +191,7 @@ Begin VB.Form frmMenu
       Top             =   0
    End
    Begin VB.Label lVersion 
-      Caption         =   "1.2"
+      Caption         =   "1.4"
       BeginProperty Font 
          Name            =   "Calibri"
          Size            =   9.75
@@ -242,7 +204,7 @@ Begin VB.Form frmMenu
       ForeColor       =   &H00CD7C10&
       Height          =   255
       Left            =   2745
-      TabIndex        =   14
+      TabIndex        =   12
       Top             =   1095
       Width           =   375
    End
@@ -260,7 +222,7 @@ Begin VB.Form frmMenu
       ForeColor       =   &H00CD7C10&
       Height          =   375
       Left            =   1200
-      TabIndex        =   13
+      TabIndex        =   11
       Top             =   1800
       Width           =   2055
    End
@@ -277,7 +239,7 @@ Begin VB.Form frmMenu
       EndProperty
       Height          =   375
       Left            =   1200
-      TabIndex        =   12
+      TabIndex        =   10
       Top             =   1440
       Width           =   2055
    End
@@ -296,7 +258,7 @@ Begin VB.Form frmMenu
       Height          =   375
       Index           =   3
       Left            =   240
-      TabIndex        =   11
+      TabIndex        =   9
       Top             =   1440
       Width           =   855
    End
@@ -466,22 +428,21 @@ rec.CursorLocation = adUseClient
 End Function
 
 Private Sub loadResumen()
-Call loadNextAvailable
 Call loadNumbersAvailable
 End Sub
 
 Private Sub loadNextAvailable()
-rec.Open "SELECT * from service where status='ACT' order by datetime_end_clean asc limit 1", conBd, adOpenStatic, adLockOptimistic
-If (rec.RecordCount >= 1) Then
-    If IsNull(rec("datetime_end_clean")) Then
-        Me.tNextAvailable = "00:00"
-    Else
-        Me.tNextAvailable = ModFormater.getHourAndMinuteFromDate(rec("datetime_end_clean"))
-    End If
-Else
-    Me.tNextAvailable = "No aplica"
-End If
-rec.Close
+'rec.Open "SELECT * from service where status='ACT' order by datetime_end_clean asc limit 1", conBd, adOpenStatic, adLockOptimistic
+'If (rec.RecordCount >= 1) Then
+'    If IsNull(rec("datetime_end_clean")) Then
+'        Me.tNextAvailable = "00:00"
+'    Else
+'        Me.tNextAvailable = ModFormater.getHourAndMinuteFromDate(rec("datetime_end_clean"))
+'    End If
+'Else
+'    Me.tNextAvailable = "No aplica"
+'End If
+'rec.Close
 End Sub
 
 Private Sub loadNumbersAvailable()
