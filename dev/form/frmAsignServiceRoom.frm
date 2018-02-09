@@ -3,14 +3,14 @@ Object = "{BD0C1912-66C3-49CC-8B12-7B347BF6C846}#13.2#0"; "CODEJO~1.OCX"
 Begin VB.Form frmAsignServiceRoom 
    BorderStyle     =   1  'Fixed Single
    Caption         =   "Asignar servicio para habitación"
-   ClientHeight    =   5025
+   ClientHeight    =   6180
    ClientLeft      =   45
    ClientTop       =   390
    ClientWidth     =   11055
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   5025
+   ScaleHeight     =   6180
    ScaleWidth      =   11055
    StartUpPosition =   2  'CenterScreen
    Begin VB.Frame Frame2 
@@ -24,11 +24,29 @@ Begin VB.Form frmAsignServiceRoom
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   1095
+      Height          =   2415
       Left            =   240
       TabIndex        =   9
       Top             =   2760
       Width           =   5535
+      Begin VB.TextBox tDiscount 
+         Alignment       =   1  'Right Justify
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   11.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   390
+         Left            =   2280
+         MaxLength       =   2
+         TabIndex        =   15
+         Top             =   1320
+         Width           =   615
+      End
       Begin VB.ComboBox cmbTypePackage 
          BeginProperty Font 
             Name            =   "Calibri"
@@ -44,6 +62,108 @@ Begin VB.Form frmAsignServiceRoom
          TabIndex        =   10
          Top             =   360
          Width           =   3015
+      End
+      Begin VB.Label Label4 
+         Caption         =   "%"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   12
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   330
+         Left            =   2925
+         TabIndex        =   19
+         Top             =   1365
+         Width           =   255
+      End
+      Begin VB.Label tTotal 
+         Caption         =   "$0"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   12
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Left            =   2280
+         TabIndex        =   18
+         Top             =   1800
+         Width           =   3015
+      End
+      Begin VB.Label Label5 
+         Caption         =   "Valor total parcial"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   12
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Left            =   240
+         TabIndex        =   17
+         Top             =   1800
+         Width           =   1935
+      End
+      Begin VB.Label tPrice 
+         Caption         =   "$0"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   12
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Left            =   2280
+         TabIndex        =   16
+         Top             =   840
+         Width           =   3015
+      End
+      Begin VB.Label Label3 
+         Caption         =   "% de descuento"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   12
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Left            =   240
+         TabIndex        =   14
+         Top             =   1320
+         Width           =   1935
+      End
+      Begin VB.Label Label1 
+         Caption         =   "Valor del paquete"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   12
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Left            =   240
+         TabIndex        =   13
+         Top             =   840
+         Width           =   1935
       End
       Begin VB.Label Label2 
          Caption         =   "Paquete"
@@ -94,7 +214,7 @@ Begin VB.Form frmAsignServiceRoom
       Height          =   495
       Left            =   1560
       TabIndex        =   3
-      Top             =   4080
+      Top             =   5280
       Width           =   3375
    End
    Begin VB.Frame Frame1 
@@ -250,6 +370,9 @@ Dim rec As New ADODB.Recordset
 Dim idPackage As Integer
 Dim timeService As Integer
 Dim timeClean As Integer
+Dim price As Double
+Dim discount As Double
+Dim total As Double
 Dim dateTimeStartService As Date
 Dim dateTimeEndService As Date
 Dim dateTimeStartServiceFormated As String
@@ -263,9 +386,28 @@ Dim dateTimeEndCleanFormated As String
 Public manager As frmManagerRoom
 
 
-Private Sub Label3_Click()
+Private Sub cmbTypePackage_Click()
 
+'Se busca el tipo de paquete seleccionado.
+rec.Open "SELECT pr.* from package p inner join package_x_type_room pr on p.id = pr.id_package inner join room_type rt on pr.id_room_type = rt.id where p.description='" & Me.cmbTypePackage & "' and rt.description='" & Me.tTypeRoom & "'; ", conBd, adOpenStatic, adLockOptimistic
+Do Until rec.EOF
+    idPackage = rec("id")
+    timeClean = rec("time_clean")
+    timeService = rec("time_service")
+    price = rec("price")
+    rec.MoveNext
+Loop
+rec.Close
+
+Call calculateTotals
 End Sub
+
+Private Function calculateTotals()
+Me.tPrice = ModFormater.convertValueToCurrency(price, 0)
+discount = Val(Me.tDiscount)
+total = price * (1 - discount / 100)
+Me.tTotal = ModFormater.convertValueToCurrency(total, 0)
+End Function
 
 Private Sub cmdAsignService_Click()
 If (Me.cmbTypePackage = "") Then
@@ -303,6 +445,16 @@ SQL = "INSERT INTO service " & _
     "','" & dateTimeStartCleanFormated & "','" & dateTimeEndCleanFormated & "','ACT');"
 con.Execute (SQL)
 
+Dim idService As Integer
+rec.Open "select id from service order by id desc limit 1;", conBd, adOpenStatic, adLockOptimistic
+idService = rec("id")
+rec.Close
+
+SQL = "INSERT INTO service_details " & _
+    "(id_service, id_package, quantity, price, discount, total) VALUES " & _
+    "(" & idService & "," & idPackage & ",1," & price & ",'" & discount & "'," & total & ");"
+con.Execute (SQL)
+
 SQL = "UPDATE room SET code_status = '" & Ap.cStatusRoomStatic.BUSY.code & "' WHERE id=" & Me.tIdRoom & ""
 con.Execute (SQL)
 
@@ -315,6 +467,14 @@ End Sub
 Private Sub Form_Load()
 ModSkin.applyDefaultSkin Me, Me.skinObject
 Call loadBd
+End Sub
+
+Private Sub tDiscount_Change()
+Call calculateTotals
+End Sub
+
+Private Sub tDiscount_KeyPress(KeyAscii As Integer)
+KeyAscii = ModComponents.SoloNumeros(KeyAscii)
 End Sub
 
 Private Sub tNoRoom_Change()
