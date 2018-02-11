@@ -142,6 +142,11 @@ rec.CursorLocation = adUseClient
 End Sub
 
 Private Sub timeFoco_Timer()
+If Ap.test = True Then
+    Me.tUser = "admin"
+    Me.tPass = "admin"
+End If
+
 Me.tUser.SetFocus
 Me.timeFoco.Enabled = False
 End Sub
