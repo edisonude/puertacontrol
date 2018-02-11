@@ -192,7 +192,8 @@ continueFor:
         
 Control:
     If Err.Number = 340 Then
-        GoTo continueFor
+        'GoTo continueFor
+        Resume Next
     End If
     
     End Sub

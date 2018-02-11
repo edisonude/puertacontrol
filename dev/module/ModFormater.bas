@@ -34,3 +34,8 @@ Dim value As Double
 value = CDbl(valueCurrency)
 convertCurrencyToValue = value
 End Function
+
+'Convierte una fecha
+Public Function convertDateTime(value) As String
+convertDateTime = IIf(IsNull(value), "", Format(value, "dd-MM-yyyy hh:MM:ss"))
+End Function

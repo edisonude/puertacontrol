@@ -289,11 +289,13 @@ Begin VB.Form frmReportProducts
             Object.Width           =   2540
          EndProperty
          BeginProperty ColumnHeader(6) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+            Alignment       =   1
             SubItemIndex    =   5
             Text            =   "Precio Compra"
             Object.Width           =   2540
          EndProperty
          BeginProperty ColumnHeader(7) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+            Alignment       =   1
             SubItemIndex    =   6
             Text            =   "Precio Venta"
             Object.Width           =   2540
@@ -381,6 +383,8 @@ widthCols(7) = widthTotal * 0.1 'precio venta
 ModComponents.setWidthForColumnsAndFilters tFiltro, listProducts, widthCols
 
 Me.tFiltro(1).Visible = False
+Me.tFiltro(6).Visible = False
+Me.tFiltro(7).Visible = False
 
 'Iniciar
 Me.reloadForm
@@ -420,22 +424,22 @@ frmProduct.tIdProduct = Me.listProducts.SelectedItem
 frmProduct.Show vbModal
 End Sub
 
-Private Sub tFiltro_Change(index As Integer)
+Private Sub tFiltro_Change(Index As Integer)
 If ModComponents.cleaningFilters Then Exit Sub
 
-ModComponents.cleanFilters tFiltro, index
+ModComponents.cleanFilters tFiltro, Index
 
-Select Case index
+Select Case Index
     Case 2
-        SQL = "Select p.*,pt.description as type from product p inner join product_type pt on p.code_product_type = pt.code WHERE p.description like '%" & tFiltro(index) & "%'"
+        SQL = "Select p.*,pt.description as type from product p inner join product_type pt on p.code_product_type = pt.code WHERE p.description like '%" & tFiltro(Index) & "%'"
     Case 3
-        SQL = "Select p.*,pt.description as type from product p inner join product_type pt on p.code_product_type = pt.code WHERE pt.description like '%" & tFiltro(index) & "%'"
+        SQL = "Select p.*,pt.description as type from product p inner join product_type pt on p.code_product_type = pt.code WHERE pt.description like '%" & tFiltro(Index) & "%'"
     Case 4
-        SQL = "Select p.*,pt.description as type from product p inner join product_type pt on p.code_product_type = pt.code WHERE p.quantity like '%" & tFiltro(index) & "%'"
+        SQL = "Select p.*,pt.description as type from product p inner join product_type pt on p.code_product_type = pt.code WHERE p.quantity like '%" & tFiltro(Index) & "%'"
     Case 5
-        SQL = "Select p.*,pt.description as type from product p inner join product_type pt on p.code_product_type = pt.code WHERE p.quantity_min like '%" & tFiltro(index) & "%'"
+        SQL = "Select p.*,pt.description as type from product p inner join product_type pt on p.code_product_type = pt.code WHERE p.quantity_min like '%" & tFiltro(Index) & "%'"
     Case 6
-        SQL = "Select p.*,pt.description as type from product p inner join product_type pt on p.code_product_type = pt.code WHERE p.last_price_buy like '%" & tFiltro(index) & "%'"
+        SQL = "Select p.*,pt.description as type from product p inner join product_type pt on p.code_product_type = pt.code WHERE p.last_price_buy like '%" & tFiltro(Index) & "%'"
 End Select
 Call loadList(SQL & " order by p.description ASC")
 End Sub
