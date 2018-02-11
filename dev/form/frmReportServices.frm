@@ -107,7 +107,7 @@ Begin VB.Form frmReportServices
             _ExtentX        =   2355
             _ExtentY        =   661
             _Version        =   393216
-            Format          =   162136065
+            Format          =   97320961
             CurrentDate     =   43142
          End
          Begin MSComCtl2.DTPicker tTimeStart 
@@ -129,7 +129,7 @@ Begin VB.Form frmReportServices
             _ExtentY        =   661
             _Version        =   393216
             CustomFormat    =   "HH:mm:ss"
-            Format          =   162136066
+            Format          =   97320962
             CurrentDate     =   43142
          End
          Begin MSComCtl2.DTPicker tDateEnd 
@@ -141,7 +141,7 @@ Begin VB.Form frmReportServices
             _ExtentX        =   2355
             _ExtentY        =   661
             _Version        =   393216
-            Format          =   162136065
+            Format          =   97320961
             CurrentDate     =   43142
          End
          Begin MSComCtl2.DTPicker tTimeEnd 
@@ -153,7 +153,7 @@ Begin VB.Form frmReportServices
             _ExtentX        =   2566
             _ExtentY        =   661
             _Version        =   393216
-            Format          =   162136066
+            Format          =   97320962
             CurrentDate     =   43142
          End
          Begin VB.Label label 
@@ -586,7 +586,7 @@ Public parent As frmMenu
 Dim seleccion As Integer
 
 'SQL actual para los reportes
-Dim baseSql As String
+Dim baseSQL As String
 Dim filterDates As Boolean
 Dim filtersApplied As Integer
 
@@ -759,6 +759,12 @@ End Function
 
 Public Sub reloadForm()
 Call loadList("Select * from vw_services")
+End Sub
+
+Private Sub listProducts_DblClick()
+Set frmDetailsService.report = Me
+frmDetailsService.tIdService = Me.listProducts.SelectedItem
+frmDetailsService.Show vbModal
 End Sub
 
 Private Sub tFiltro_Change(Index As Integer)
