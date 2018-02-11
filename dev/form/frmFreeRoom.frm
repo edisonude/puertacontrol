@@ -27,11 +27,12 @@ Begin VB.Form frmFreeRoom
       EndProperty
       Height          =   495
       Left            =   1920
-      TabIndex        =   26
+      TabIndex        =   23
       Top             =   8160
       Width           =   2895
    End
    Begin VB.Frame Frame1 
+      BackColor       =   &H00C0C0C0&
       Caption         =   "Información de la habitación"
       BeginProperty Font 
          Name            =   "Calibri"
@@ -42,16 +43,16 @@ Begin VB.Form frmFreeRoom
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   2055
+      Height          =   1695
       Left            =   240
-      TabIndex        =   16
+      TabIndex        =   13
       Top             =   120
       Width           =   5895
       Begin VB.Label tIdService 
          BackColor       =   &H000000FF&
          Height          =   255
          Left            =   5400
-         TabIndex        =   27
+         TabIndex        =   24
          Top             =   240
          Visible         =   0   'False
          Width           =   375
@@ -60,7 +61,7 @@ Begin VB.Form frmFreeRoom
          BackColor       =   &H000000FF&
          Height          =   255
          Left            =   4920
-         TabIndex        =   23
+         TabIndex        =   20
          Top             =   240
          Visible         =   0   'False
          Width           =   390
@@ -78,8 +79,8 @@ Begin VB.Form frmFreeRoom
          EndProperty
          Height          =   375
          Left            =   2280
-         TabIndex        =   22
-         Top             =   1440
+         TabIndex        =   19
+         Top             =   1200
          Width           =   3015
       End
       Begin VB.Label label 
@@ -96,8 +97,8 @@ Begin VB.Form frmFreeRoom
          Height          =   375
          Index           =   2
          Left            =   240
-         TabIndex        =   21
-         Top             =   1440
+         TabIndex        =   18
+         Top             =   1200
          Width           =   1935
       End
       Begin VB.Label tFloor 
@@ -113,8 +114,8 @@ Begin VB.Form frmFreeRoom
          EndProperty
          Height          =   375
          Left            =   2280
-         TabIndex        =   20
-         Top             =   960
+         TabIndex        =   17
+         Top             =   840
          Width           =   3015
       End
       Begin VB.Label label 
@@ -131,8 +132,8 @@ Begin VB.Form frmFreeRoom
          Height          =   375
          Index           =   0
          Left            =   240
-         TabIndex        =   19
-         Top             =   960
+         TabIndex        =   16
+         Top             =   840
          Width           =   1935
       End
       Begin VB.Label tNoRoom 
@@ -148,7 +149,7 @@ Begin VB.Form frmFreeRoom
          EndProperty
          Height          =   375
          Left            =   2280
-         TabIndex        =   18
+         TabIndex        =   15
          Top             =   480
          Width           =   3015
       End
@@ -166,7 +167,7 @@ Begin VB.Form frmFreeRoom
          Height          =   375
          Index           =   1
          Left            =   240
-         TabIndex        =   17
+         TabIndex        =   14
          Top             =   480
          Width           =   1935
       End
@@ -182,13 +183,13 @@ Begin VB.Form frmFreeRoom
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   4695
+      Height          =   6135
       Left            =   6360
       TabIndex        =   3
-      Top             =   2760
+      Top             =   1920
       Width           =   5895
       Begin VB.CommandButton cmdQuitProduct 
-         Caption         =   "Quitar producto"
+         Caption         =   "Quitar producto de la cuenta"
          BeginProperty Font 
             Name            =   "Calibri"
             Size            =   11.25
@@ -199,19 +200,19 @@ Begin VB.Form frmFreeRoom
             Strikethrough   =   0   'False
          EndProperty
          Height          =   390
-         Left            =   3960
-         TabIndex        =   28
-         Top             =   4200
-         Width           =   1815
+         Left            =   2880
+         TabIndex        =   25
+         Top             =   5640
+         Width           =   2895
       End
       Begin MSComctlLib.ListView listInvoice 
-         Height          =   3750
+         Height          =   5190
          Left            =   120
          TabIndex        =   4
          Top             =   345
          Width           =   5655
          _ExtentX        =   9975
-         _ExtentY        =   6615
+         _ExtentY        =   9155
          View            =   3
          LabelEdit       =   1
          Sorted          =   -1  'True
@@ -249,6 +250,7 @@ Begin VB.Form frmFreeRoom
             Object.Width           =   2540
          EndProperty
          BeginProperty ColumnHeader(4) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+            Alignment       =   1
             SubItemIndex    =   3
             Text            =   "Precio"
             Object.Width           =   2540
@@ -266,6 +268,7 @@ Begin VB.Form frmFreeRoom
       End
    End
    Begin VB.Frame Frame3 
+      BackColor       =   &H00C0C0C0&
       Caption         =   "Agregar producto a la cuenta"
       BeginProperty Font 
          Name            =   "Calibri"
@@ -276,10 +279,10 @@ Begin VB.Form frmFreeRoom
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   2415
+      Height          =   1695
       Left            =   6360
       TabIndex        =   2
-      Top             =   240
+      Top             =   120
       Width           =   5895
       Begin VB.CommandButton cmdAddProduct 
          Caption         =   "Agregar producto"
@@ -294,9 +297,9 @@ Begin VB.Form frmFreeRoom
             Strikethrough   =   0   'False
          EndProperty
          Height          =   375
-         Left            =   2040
-         TabIndex        =   13
-         Top             =   1920
+         Left            =   3720
+         TabIndex        =   10
+         Top             =   1200
          Width           =   2055
       End
       Begin VB.TextBox tQuantity 
@@ -311,10 +314,10 @@ Begin VB.Form frmFreeRoom
             Strikethrough   =   0   'False
          EndProperty
          Height          =   390
-         Left            =   2400
+         Left            =   2280
          MaxLength       =   2
          TabIndex        =   9
-         Top             =   1440
+         Top             =   1200
          Width           =   735
       End
       Begin VB.Label tProduct 
@@ -330,7 +333,7 @@ Begin VB.Form frmFreeRoom
          EndProperty
          Height          =   375
          Left            =   1320
-         TabIndex        =   15
+         TabIndex        =   12
          Top             =   480
          Width           =   4335
       End
@@ -338,63 +341,10 @@ Begin VB.Form frmFreeRoom
          BackColor       =   &H000000FF&
          Height          =   255
          Left            =   4800
-         TabIndex        =   14
+         TabIndex        =   11
          Top             =   240
          Visible         =   0   'False
          Width           =   375
-      End
-      Begin VB.Label label 
-         Caption         =   "disponibles"
-         BeginProperty Font 
-            Name            =   "Calibri"
-            Size            =   12
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   375
-         Index           =   7
-         Left            =   3960
-         TabIndex        =   12
-         Top             =   1440
-         Width           =   1215
-      End
-      Begin VB.Label tQuantityInRoom 
-         Caption         =   "0"
-         BeginProperty Font 
-            Name            =   "Calibri"
-            Size            =   12
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   375
-         Left            =   3600
-         TabIndex        =   11
-         Top             =   1440
-         Width           =   375
-      End
-      Begin VB.Label label 
-         Caption         =   "de"
-         BeginProperty Font 
-            Name            =   "Calibri"
-            Size            =   12
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   375
-         Index           =   6
-         Left            =   3240
-         TabIndex        =   10
-         Top             =   1440
-         Width           =   255
       End
       Begin VB.Label tPrice 
          Caption         =   "$ 0"
@@ -410,7 +360,7 @@ Begin VB.Form frmFreeRoom
          Height          =   375
          Left            =   1320
          TabIndex        =   8
-         Top             =   960
+         Top             =   840
          Width           =   2295
       End
       Begin VB.Label label 
@@ -428,7 +378,7 @@ Begin VB.Form frmFreeRoom
          Index           =   5
          Left            =   240
          TabIndex        =   7
-         Top             =   1440
+         Top             =   1200
          Width           =   2055
       End
       Begin VB.Label label 
@@ -446,7 +396,7 @@ Begin VB.Form frmFreeRoom
          Index           =   4
          Left            =   240
          TabIndex        =   6
-         Top             =   960
+         Top             =   840
          Width           =   975
       End
       Begin VB.Label label 
@@ -479,16 +429,85 @@ Begin VB.Form frmFreeRoom
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   5655
+      Height          =   6135
       Left            =   240
       TabIndex        =   0
-      Top             =   2280
+      Top             =   1920
       Width           =   5895
+      Begin VB.TextBox tFiltro 
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   330
+         Index           =   0
+         Left            =   120
+         TabIndex        =   29
+         Top             =   360
+         Visible         =   0   'False
+         Width           =   210
+      End
+      Begin VB.TextBox tFiltro 
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   330
+         Index           =   3
+         Left            =   1200
+         TabIndex        =   28
+         Top             =   360
+         Width           =   375
+      End
+      Begin VB.TextBox tFiltro 
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   330
+         Index           =   2
+         Left            =   840
+         TabIndex        =   27
+         Top             =   360
+         Width           =   375
+      End
+      Begin VB.TextBox tFiltro 
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   330
+         Index           =   1
+         Left            =   480
+         TabIndex        =   26
+         Top             =   360
+         Width           =   375
+      End
       Begin MSComctlLib.ListView listProducts 
          Height          =   5175
          Left            =   120
          TabIndex        =   1
-         Top             =   360
+         Top             =   720
          Width           =   5655
          _ExtentX        =   9975
          _ExtentY        =   9128
@@ -526,14 +545,22 @@ Begin VB.Form frmFreeRoom
          EndProperty
          BeginProperty ColumnHeader(3) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
             SubItemIndex    =   2
-            Text            =   "Cantidad"
+            Text            =   "Tipo"
             Object.Width           =   2540
          EndProperty
          BeginProperty ColumnHeader(4) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+            Alignment       =   1
             SubItemIndex    =   3
             Text            =   "Precio"
             Object.Width           =   2540
          EndProperty
+      End
+      Begin VB.Image iReload 
+         Height          =   330
+         Left            =   5400
+         Picture         =   "frmFreeRoom.frx":0000
+         Top             =   360
+         Width           =   330
       End
    End
    Begin VB.Label label 
@@ -541,26 +568,27 @@ Begin VB.Form frmFreeRoom
       Caption         =   "Total"
       BeginProperty Font 
          Name            =   "Calibri"
-         Size            =   14.25
+         Size            =   18
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
+      ForeColor       =   &H009F4320&
       Height          =   375
       Index           =   9
-      Left            =   8160
-      TabIndex        =   25
-      Top             =   7560
-      Width           =   2055
+      Left            =   9240
+      TabIndex        =   22
+      Top             =   8160
+      Width           =   975
    End
    Begin VB.Label tTotal 
       Alignment       =   1  'Right Justify
       Caption         =   "$ 100.000"
       BeginProperty Font 
          Name            =   "Calibri"
-         Size            =   14.25
+         Size            =   18
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -569,8 +597,8 @@ Begin VB.Form frmFreeRoom
       EndProperty
       Height          =   375
       Left            =   10440
-      TabIndex        =   24
-      Top             =   7560
+      TabIndex        =   21
+      Top             =   8160
       Width           =   1695
    End
    Begin XtremeSkinFramework.SkinFramework skinObject 
@@ -597,6 +625,9 @@ Public manager As frmManagerRoom
 'Valor total del servicio
 Dim netValueService As Double
 
+'Valor base para el filtro de productos
+Dim baseSQL As String
+
 Private Sub cmdAddProduct_Click()
 If Me.tQuantity = "" Or Val(Me.tQuantity) = 0 Then
     MsgBox "La cantidad del producto no puede ser cero o estar vacía", vbInformation
@@ -604,20 +635,13 @@ If Me.tQuantity = "" Or Val(Me.tQuantity) = 0 Then
     Exit Sub
 End If
 
-If Val(Me.tQuantity) > Val(Me.tQuantityInRoom) Then
-    MsgBox "La cantidad del producto supera la cantidad disponible en la habitación", vbInformation
-    Me.tQuantity = ""
-    Me.tQuantity.SetFocus
-    Exit Sub
-End If
+Dim valueProduct As Double
+valueProduct = ModFormater.convertCurrencyToValue(Me.tPrice) * Me.tQuantity
 
 Set li = Me.listInvoice.ListItems.Add(, , Me.tIdProduct)
         li.SubItems(1) = Me.tProduct
         li.SubItems(2) = Me.tQuantity
-        li.SubItems(3) = Val(Me.tPrice) * Me.tQuantity
-        
-        
-        
+        li.SubItems(3) = ModFormater.convertValueToCurrency(valueProduct, 0)
 
 Call cleanProduct
 Call calculateTotal
@@ -626,7 +650,6 @@ End Sub
 Private Function cleanProduct()
 Me.tIdProduct = ""
 Me.tProduct = ""
-Me.tQuantityInRoom = "0"
 Me.tPrice = ""
 Me.tQuantity = ""
 Me.tQuantity.Enabled = False
@@ -683,20 +706,36 @@ ModSkin.applyDefaultSkin Me, Me.skinObject
 Call loadBd
 
 'Anchos de la lista
+Dim widthCols(4) As Double
+
+widthTotal = Me.listProducts.Width
+widthCols(1) = widthTotal * 0 'id
+widthCols(2) = widthTotal * 0.5 'producto
+widthCols(3) = widthTotal * 0.2 'tipo
+widthCols(4) = widthTotal * 0.24 'precio
+
+ModComponents.setWidthForColumnsAndFilters tFiltro, listProducts, widthCols
+Me.tFiltro(1).Visible = False
+
 Dim ancho As Double
-
-ancho = Me.listProducts.Width
-Me.listProducts.ColumnHeaders(1).Width = ancho * 0
-Me.listProducts.ColumnHeaders(2).Width = ancho * 0.5
-Me.listProducts.ColumnHeaders(3).Width = ancho * 0.2
-Me.listProducts.ColumnHeaders(4).Width = ancho * 0.24
-
 ancho = Me.listInvoice.Width
 Me.listInvoice.ColumnHeaders(1).Width = ancho * 0
 Me.listInvoice.ColumnHeaders(2).Width = ancho * 0.5
 Me.listInvoice.ColumnHeaders(3).Width = ancho * 0.21
 Me.listInvoice.ColumnHeaders(4).Width = ancho * 0.28
 Me.listInvoice.ColumnHeaders(5).Width = ancho * 0
+
+baseSQL = "SELECT p.*,pt.description as type FROM product p inner join product_type pt on p.code_product_type = pt.code"
+baseSQL = "SELECT p.*,pt.description as type FROM product p inner join product_type pt on p.code_product_type = pt.code where p.description like '%P1%' and pt.description like '%P2%'"
+End Sub
+
+Private Sub Image2_Click()
+
+End Sub
+
+Private Sub iReload_Click()
+ModComponents.cleanFilters tFiltro, -1
+Call reloadProducts
 End Sub
 
 Private Sub listInvoice_KeyDown(KeyCode As Integer, Shift As Integer)
@@ -718,9 +757,10 @@ End Function
 Private Sub listProducts_DblClick()
 Me.tIdProduct = Me.listProducts.SelectedItem
 Me.tProduct = Me.listProducts.SelectedItem.SubItems(1)
-Me.tQuantityInRoom = Me.listProducts.SelectedItem.SubItems(2)
 Me.tPrice = Me.listProducts.SelectedItem.SubItems(3)
+Me.tQuantity = 1
 Me.tQuantity.Enabled = True
+Me.tQuantity.SelStart = 2
 Me.cmdAddProduct.Enabled = True
 Me.tQuantity.SetFocus
 End Sub
@@ -744,23 +784,9 @@ Do Until rec.EOF
 Loop
 rec.Close
 
-Call loadProducts(Me.tTypeRoom)
+Call reloadProducts
 Call loadInfoService(tIdRoom)
 Call calculateTotal
-End Sub
-
-'Carga los productos para el tipo de habitación
-Private Sub loadProducts(typeRoom As String)
-rec.Open "Select * from vw_products_x_room WHERE type_room ='" & typeRoom & "'", conBd, adOpenStatic, adLockOptimistic
-Me.listProducts.ListItems.Clear
-Do Until rec.EOF
-    Set li = listProducts.ListItems.Add(, , rec("id_product"))
-        li.SubItems(1) = rec("product")
-        li.SubItems(2) = rec("quantity")
-        li.SubItems(3) = rec("price_sale")
-    rec.MoveNext
-Loop
-rec.Close
 End Sub
 
 'Carga la información dele servicio activo
@@ -789,20 +815,44 @@ Private Function calculateTotal()
 Dim item As Integer
 netValueService = 0
 For item = 1 To Me.listInvoice.ListItems.Count
-    netValueService = netValueService + Me.listInvoice.ListItems(item).SubItems(3)
+    netValueService = netValueService + ModFormater.convertCurrencyToValue(listInvoice.ListItems(item).SubItems(3))
 Next
 Me.tTotal = ModFormater.convertValueToCurrency(netValueService, 0)
 End Function
 
 Private Sub tQuantity_KeyPress(KeyAscii As Integer)
+If KeyAscii = 13 Then
+    Call cmdAddProduct_Click
+    Exit Sub
+End If
+
 KeyAscii = ModComponents.SoloNumeros(KeyAscii)
 End Sub
 
-Private Sub tQuantity_LostFocus()
-If Val(Me.tQuantity) > Val(Me.tQuantityInRoom) Then
-    MsgBox "La cantidad del producto supera la cantidad disponible en la habitación", vbInformation
-    Me.tQuantity = ""
-    Me.tQuantity.SetFocus
-End If
+Private Sub tFiltro_Change(Index As Integer)
+If ModComponents.cleaningFilters Then Exit Sub
+
+SQL = Replace(baseSQL, "P1", tFiltro(2))
+SQL = Replace(SQL, "P2", tFiltro(3))
+
+Call loadProducts(SQL)
 End Sub
 
+Private Sub loadProducts(SQL As String)
+rec.Open SQL, conBd, adOpenStatic, adLockOptimistic
+Me.listProducts.ListItems.Clear
+Do Until rec.EOF
+    Set li = listProducts.ListItems.Add(, , rec("id"))
+        li.SubItems(1) = rec("description")
+        li.SubItems(2) = rec("type")
+        li.SubItems(3) = ModFormater.convertValueToCurrency(rec("price_sale"), 0)
+    rec.MoveNext
+Loop
+rec.Close
+End Sub
+
+Public Sub reloadProducts()
+SQL = Replace(baseSQL, "P1", "")
+SQL = Replace(SQL, "P2", "")
+Call loadProducts(SQL)
+End Sub
