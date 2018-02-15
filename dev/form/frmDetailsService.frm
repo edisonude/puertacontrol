@@ -569,7 +569,7 @@ If rec.RecordCount > 0 Then
     Me.tTypeRoom = rec("type_room")
     Me.tPackage = rec("package")
     Me.tStatus = rec("status")
-    Me.tDateStartService = ModFormater.convertDateTime(("datetime_start_service"))
+    Me.tDateStartService = ModFormater.convertDateTime(rec("datetime_start_service"))
     Me.tDateEndService = ModFormater.convertDateTime(rec("datetime_end_service"))
     Me.tDateEndRealService = ModFormater.convertDateTime(rec("datetime_end_real_service"))
     Me.tDateStartClean = ModFormater.convertDateTime(rec("datetime_start_clean"))

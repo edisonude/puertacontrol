@@ -68,35 +68,47 @@ Public Sub process()
 Dim con As ADODB.Connection
 Dim rec As New ADODB.Recordset
 Dim operationsToProcess(10) As New COperationRoomLog
+Dim status As String
+Dim processedStatus As Integer
+Dim dateLastOperation As Date
+Dim secondsDiff As Double
+Dim roomEnabled As Integer
 
 'Se solicita una conexion a la bd
 Set con = ModConexion.getNewConection
 rec.CursorLocation = adUseClient
 
-rec.Open "select code_status,number from room where id=" & Me.idRoom & "", con, adOpenStatic, adLockOptimistic
+rec.Open "select code_status,number,alerts_enabled from room where id=" & Me.idRoom & "", con, adOpenStatic, adLockOptimistic
 
-If (rec.RecordCount >= 1) Then
-    Dim status As String
+If rec.RecordCount >= 1 Then
+    Me.noRoom = rec("number")
     status = rec("code_status")
+    roomEnabled = rec("alerts_enabled")
+    rec.Close
     
-    Dim processedStatus As Integer
-    If (Me.idRoom = 1 Or Me.idRoom = 27) Then
-        processedStatus = 2
+    If roomEnabled = 0 Then
+        processedStatus = cStatusRoomOperationStatic.ROOM_DISABLED.code
     Else
-        processedStatus = 1
+        'Busca la operación para la última habitación
+        rec.Open "SELECT date_action FROM operation_room_log where number_room=" & Me.idRoom & " ORDER BY id DESC LIMIT 1", con, adOpenStatic, adLockOptimistic
+        dateLastOperation = rec("date_action")
+        rec.Close
         
-        If (Ap.cStatusRoomStatic.AVAILABLE.code = status Or Ap.cStatusRoomStatic.CLEAN_PROGRESS.code = status) Then
-            Me.noRoom = rec("number")
-            
-            If notify Then
-                processedStatus = 1
-            Else
-                processedStatus = 3
+        secondsDiff = DateDiff("s", dateLastOperation, Now())
+        
+        If secondsDiff <= 30 Then
+            processedStatus = cStatusRoomOperationStatic.ERROR_NOISE.code
+        Else
+            If (Ap.cStatusRoomStatic.AVAILABLE.code = status Or Ap.cStatusRoomStatic.CLEAN_PROGRESS.code = status) Then
+                If notify Then
+                    processedStatus = cStatusRoomOperationStatic.SUCCESS.code
+                Else
+                    processedStatus = cStatusRoomOperationStatic.ERROR_NO_SYSTEM_EMAIL.code
+                End If
             End If
         End If
     End If
-    
-    
+
     'Marcar la operacion como procesada
     Dim dateTimeProcessedFormated As String
     dateTimeProcessedFormated = Format(Now(), "yyyy-MM-dd HH:mm:ss")
@@ -105,7 +117,6 @@ If (rec.RecordCount >= 1) Then
     "where id=" & Me.id & ""
     con.Execute (SQL)
 End If
-rec.Close
 End Sub
 
 Public Function notify()

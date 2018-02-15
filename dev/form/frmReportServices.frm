@@ -107,7 +107,7 @@ Begin VB.Form frmReportServices
             _ExtentX        =   2355
             _ExtentY        =   661
             _Version        =   393216
-            Format          =   97320961
+            Format          =   159055873
             CurrentDate     =   43142
          End
          Begin MSComCtl2.DTPicker tTimeStart 
@@ -129,7 +129,7 @@ Begin VB.Form frmReportServices
             _ExtentY        =   661
             _Version        =   393216
             CustomFormat    =   "HH:mm:ss"
-            Format          =   97320962
+            Format          =   159055874
             CurrentDate     =   43142
          End
          Begin MSComCtl2.DTPicker tDateEnd 
@@ -141,7 +141,7 @@ Begin VB.Form frmReportServices
             _ExtentX        =   2355
             _ExtentY        =   661
             _Version        =   393216
-            Format          =   97320961
+            Format          =   159055873
             CurrentDate     =   43142
          End
          Begin MSComCtl2.DTPicker tTimeEnd 
@@ -153,7 +153,7 @@ Begin VB.Form frmReportServices
             _ExtentX        =   2566
             _ExtentY        =   661
             _Version        =   393216
-            Format          =   97320962
+            Format          =   159055874
             CurrentDate     =   43142
          End
          Begin VB.Label label 
@@ -412,7 +412,6 @@ Begin VB.Form frmReportServices
          _ExtentY        =   13150
          View            =   3
          LabelEdit       =   1
-         Sorted          =   -1  'True
          LabelWrap       =   -1  'True
          HideSelection   =   0   'False
          FullRowSelect   =   -1  'True
@@ -623,6 +622,7 @@ Private Sub cmdSinFiltros_Click()
 ModComponents.cleanFilters tFiltro, -1
 filterDates = 0
 filtersApplied = 0
+Me.listProducts.Sorted = False
 Me.reloadForm
 End Sub
 
@@ -679,7 +679,7 @@ End Function
 Private Sub loadList(SQL As String)
 Dim totalValueServices As Double
 
-SQL = SQL & " order by number ASC"
+SQL = SQL & " order by id DESC"
 rec.Open SQL, conBd, adOpenStatic, adLockOptimistic
 Me.listProducts.ListItems.Clear
 Do Until rec.EOF
@@ -759,6 +759,10 @@ End Function
 
 Public Sub reloadForm()
 Call loadList("Select * from vw_services")
+End Sub
+
+Private Sub listProducts_ColumnClick(ByVal ColumnHeader As MSComctlLib.ColumnHeader)
+ModComponents.orderByColumn listProducts, ColumnHeader, Me
 End Sub
 
 Private Sub listProducts_DblClick()

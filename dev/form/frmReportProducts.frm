@@ -349,7 +349,9 @@ frmProduct.Show vbModal
 End Sub
 
 Private Sub cmdProductsNoStock_Click()
-SQL = "Select * from product WHERE quantity<quantity_min order by quantity_min ASC"
+SQL = "Select p.*,pt.description as type from product p inner join product_type pt on p.code_product_type = pt.code " & _
+    "WHERE quantity<quantity_min order by p.description ASC"
+
 Call loadList(SQL)
 End Sub
 

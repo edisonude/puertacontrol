@@ -79,5 +79,25 @@ update product set code_product_type='ERO' where id>=38;
 ALTER TABLE `puertacontrol`.`service_details` 
 ADD COLUMN `discount` DOUBLE NOT NULL DEFAULT 0 COMMENT 'Valor del descuento unicamente sobre el item del servicio en porcentaje (0.1 a 1)' AFTER `price`;
 
+-- 14/02/2018
 
+-- Campo para determinar si la habitación tiene habilitadas las alarmas
+ALTER TABLE `puertacontrol`.`room` 
+ADD COLUMN `alerts_enabled` TINYINT(1) NOT NULL DEFAULT 0 COMMENT 'Establece si las alarmas se encuentran habilitadas para la habitación' AFTER `date_last_clean`;
+
+update room set alerts_enabled=1;
+
+-- Entidad con los estados posibles que puede tomar una operación de habitación
+CREATE TABLE `puertacontrol`.`operation_room_status` (
+  `id` TINYINT(1) NOT NULL,
+  `description` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id_operation`))
+COMMENT = 'Estado de la operación ocurrida para una habitación';
+
+INSERT INTO `puertacontrol`.`operation_room_status` (`id`, `description`) VALUES ('0', 'PENDING');
+INSERT INTO `puertacontrol`.`operation_room_status` (`id`, `description`) VALUES ('1', 'SUCCESS');
+INSERT INTO `puertacontrol`.`operation_room_status` (`id`, `description`) VALUES ('2', 'ERROR_NOISE');
+INSERT INTO `puertacontrol`.`operation_room_status` (`id`, `description`) VALUES ('3', 'ERROR_NO_SYSTEM_EMAIL');
+INSERT INTO `puertacontrol`.`operation_room_status` (`id`, `description`) VALUES ('4', 'AVOIDED_BY_ADMIN');
+INSERT INTO `puertacontrol`.`operation_room_status` (`id`, `description`) VALUES ('5', 'ROOM_DISABLED');
 

@@ -17,18 +17,19 @@ Dim fileConfigPath As String
 
 Sub Main()
 
-On Local Error GoTo Control
+On Local Error GoTo control
 
 
-Ap.test = True
+Ap.test = False
 
 'Carga las instancias base para los estados de la habitación
 cStatusRoomStatic.loadBaseInstances
+cStatusRoomOperationStatic.loadBaseInstances
 
 'frmMenu.Show
 frmLogin.Show
 Exit Sub
-Control:
+control:
 MsgBox "error inesperado"
 End Sub
 

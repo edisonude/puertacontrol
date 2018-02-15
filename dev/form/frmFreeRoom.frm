@@ -32,7 +32,6 @@ Begin VB.Form frmFreeRoom
       Width           =   2895
    End
    Begin VB.Frame Frame1 
-      BackColor       =   &H00C0C0C0&
       Caption         =   "Información de la habitación"
       BeginProperty Font 
          Name            =   "Calibri"
@@ -268,7 +267,6 @@ Begin VB.Form frmFreeRoom
       End
    End
    Begin VB.Frame Frame3 
-      BackColor       =   &H00C0C0C0&
       Caption         =   "Agregar producto a la cuenta"
       BeginProperty Font 
          Name            =   "Calibri"
@@ -667,13 +665,13 @@ End If
 If Me.listInvoice.ListItems(item).SubItems(4) = "0" Then
     SQL = "INSERT INTO service_details " & _
         "(id_service, id_package, quantity, price) VALUES " & _
-        "(" & Me.tIdService & "," & Me.listInvoice.ListItems(item) & "," & Me.listInvoice.ListItems(item).SubItems(2) & "," & Me.listInvoice.ListItems(item).SubItems(3) & ");"
+        "(" & Me.tIdService & "," & Me.listInvoice.ListItems(item) & "," & Me.listInvoice.ListItems(item).SubItems(2) & "," & ModFormater.convertCurrencyToValue(Me.listInvoice.ListItems(item).SubItems(3)) & ");"
         
     conBd.Execute (SQL)
 Else
     SQL = "INSERT INTO service_details " & _
         "(id_service, id_product, quantity, price) VALUES " & _
-        "(" & Me.tIdService & "," & Me.listInvoice.ListItems(item) & "," & Me.listInvoice.ListItems(item).SubItems(2) & "," & Me.listInvoice.ListItems(item).SubItems(3) & ");"
+        "(" & Me.tIdService & "," & Me.listInvoice.ListItems(item) & "," & Me.listInvoice.ListItems(item).SubItems(2) & "," & ModFormater.convertCurrencyToValue(listInvoice.ListItems(item).SubItems(3)) & ");"
     conBd.Execute (SQL)
     
     SQL = "UPDATE product SET quantity=quantity-" & Me.listInvoice.ListItems(item).SubItems(2) & " where id= '" & Me.listInvoice.ListItems(item) & "'"
@@ -797,7 +795,7 @@ Do Until rec.EOF
     Set li = Me.listInvoice.ListItems.Add(, , rec("id_package"))
         li.SubItems(1) = rec("description")
         li.SubItems(2) = rec("quantity")
-        li.SubItems(3) = rec("total")
+        li.SubItems(3) = ModFormater.convertValueToCurrency(rec("total"), 0)
         li.SubItems(4) = "0"
         li.SubItems(5) = rec("id")
     rec.MoveNext
