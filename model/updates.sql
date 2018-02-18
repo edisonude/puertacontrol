@@ -101,3 +101,13 @@ INSERT INTO `puertacontrol`.`operation_room_status` (`id`, `description`) VALUES
 INSERT INTO `puertacontrol`.`operation_room_status` (`id`, `description`) VALUES ('4', 'AVOIDED_BY_ADMIN');
 INSERT INTO `puertacontrol`.`operation_room_status` (`id`, `description`) VALUES ('5', 'ROOM_DISABLED');
 
+-- 17/02/2018
+
+-- Estado de mantenimiento
+INSERT INTO `puertacontrol`.`status_room` (`code`, `description`) VALUES ('MAN', 'Mantenimiento');
+
+ALTER TABLE `puertacontrol`.`room` 
+ADD COLUMN `time_maintenance` INT NULL COMMENT 'Tiempo de mantenimiento de una habitación en minutos' AFTER `alerts_enabled`;
+
+update room set time_maintenance='15' where id<=24;
+update room set time_maintenance='20' where id>24;

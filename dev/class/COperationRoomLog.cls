@@ -90,7 +90,7 @@ If rec.RecordCount >= 1 Then
         processedStatus = cStatusRoomOperationStatic.ROOM_DISABLED.code
     Else
         'Busca la operación para la última habitación
-        rec.Open "SELECT date_action FROM operation_room_log where number_room=" & Me.idRoom & " ORDER BY id DESC LIMIT 1", con, adOpenStatic, adLockOptimistic
+        rec.Open "SELECT date_action FROM operation_room_log where number_room=" & Me.idRoom & " and processed<>0 ORDER BY id DESC LIMIT 1", con, adOpenStatic, adLockOptimistic
         dateLastOperation = rec("date_action")
         rec.Close
         

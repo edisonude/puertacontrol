@@ -28,11 +28,19 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   208
       Top             =   105
       Width           =   6045
+      Begin VB.Image iMaintenance 
+         Height          =   405
+         Index           =   27
+         Left            =   720
+         Picture         =   "frmManagerRoom.frx":209612
+         Top             =   0
+         Width           =   405
+      End
       Begin VB.Image iModifyService 
          Height          =   390
          Index           =   27
          Left            =   1020
-         Picture         =   "frmManagerRoom.frx":209612
+         Picture         =   "frmManagerRoom.frx":209F30
          Top             =   1710
          Width           =   405
       End
@@ -50,7 +58,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   27
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":209EDC
+         Picture         =   "frmManagerRoom.frx":20A7FA
          Top             =   1920
          Width           =   1950
       End
@@ -58,7 +66,7 @@ Begin VB.Form frmManagerRoom
          Height          =   390
          Index           =   27
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":20C876
+         Picture         =   "frmManagerRoom.frx":20D194
          Top             =   1710
          Width           =   1965
       End
@@ -129,7 +137,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   27
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":20F0F0
+         Picture         =   "frmManagerRoom.frx":20FA0E
          Top             =   1710
          Width           =   405
       End
@@ -137,7 +145,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   27
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":20FA0E
+         Picture         =   "frmManagerRoom.frx":21032C
          Top             =   1710
          Width           =   1395
       End
@@ -246,7 +254,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   27
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2117D8
+         Picture         =   "frmManagerRoom.frx":2120F6
          Top             =   1035
          Width           =   1950
       End
@@ -254,7 +262,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   27
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":214172
+         Picture         =   "frmManagerRoom.frx":214A90
          Top             =   90
          Width           =   900
       End
@@ -272,11 +280,19 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   200
       Top             =   105
       Width           =   4020
+      Begin VB.Image iMaintenance 
+         Height          =   405
+         Index           =   26
+         Left            =   720
+         Picture         =   "frmManagerRoom.frx":21658A
+         Top             =   0
+         Width           =   405
+      End
       Begin VB.Image iModifyService 
          Height          =   390
          Index           =   26
          Left            =   1020
-         Picture         =   "frmManagerRoom.frx":215C6C
+         Picture         =   "frmManagerRoom.frx":216EA8
          Top             =   1710
          Width           =   405
       End
@@ -294,7 +310,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   26
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":216536
+         Picture         =   "frmManagerRoom.frx":217772
          Top             =   1920
          Width           =   1950
       End
@@ -302,7 +318,7 @@ Begin VB.Form frmManagerRoom
          Height          =   390
          Index           =   26
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":218ED0
+         Picture         =   "frmManagerRoom.frx":21A10C
          Top             =   1710
          Width           =   1965
       End
@@ -373,7 +389,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   26
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":21B74A
+         Picture         =   "frmManagerRoom.frx":21C986
          Top             =   1710
          Width           =   405
       End
@@ -381,7 +397,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   26
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":21C068
+         Picture         =   "frmManagerRoom.frx":21D2A4
          Top             =   1710
          Width           =   1395
       End
@@ -490,7 +506,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   26
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":21DE32
+         Picture         =   "frmManagerRoom.frx":21F06E
          Top             =   90
          Width           =   900
       End
@@ -498,7 +514,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   26
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":21F92C
+         Picture         =   "frmManagerRoom.frx":220B68
          Top             =   1035
          Width           =   1950
       End
@@ -521,11 +537,19 @@ Begin VB.Form frmManagerRoom
          Left            =   2400
          Top             =   120
       End
+      Begin VB.Image iMaintenance 
+         Height          =   405
+         Index           =   25
+         Left            =   720
+         Picture         =   "frmManagerRoom.frx":223502
+         Top             =   0
+         Width           =   405
+      End
       Begin VB.Image iModifyService 
          Height          =   390
          Index           =   25
          Left            =   1020
-         Picture         =   "frmManagerRoom.frx":2222C6
+         Picture         =   "frmManagerRoom.frx":223E20
          Top             =   1710
          Width           =   405
       End
@@ -543,7 +567,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   25
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":222B90
+         Picture         =   "frmManagerRoom.frx":2246EA
          Top             =   1920
          Width           =   1950
       End
@@ -551,7 +575,7 @@ Begin VB.Form frmManagerRoom
          Height          =   390
          Index           =   25
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":22552A
+         Picture         =   "frmManagerRoom.frx":227084
          Top             =   1710
          Width           =   1965
       End
@@ -681,7 +705,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   25
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":227DA4
+         Picture         =   "frmManagerRoom.frx":2298FE
          Top             =   1710
          Width           =   405
       End
@@ -689,7 +713,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   25
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2286C2
+         Picture         =   "frmManagerRoom.frx":22A21C
          Top             =   1035
          Width           =   1950
       End
@@ -718,7 +742,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   25
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":22B05C
+         Picture         =   "frmManagerRoom.frx":22CBB6
          Top             =   90
          Width           =   900
       End
@@ -747,7 +771,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   25
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":22CB56
+         Picture         =   "frmManagerRoom.frx":22E6B0
          Top             =   1710
          Width           =   1395
       End
@@ -765,11 +789,19 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   184
       Top             =   2325
       Width           =   1995
+      Begin VB.Image iMaintenance 
+         Height          =   405
+         Index           =   24
+         Left            =   720
+         Picture         =   "frmManagerRoom.frx":23047A
+         Top             =   0
+         Width           =   405
+      End
       Begin VB.Image iModifyService 
          Height          =   390
          Index           =   24
          Left            =   1020
-         Picture         =   "frmManagerRoom.frx":22E920
+         Picture         =   "frmManagerRoom.frx":230D98
          Top             =   1710
          Width           =   405
       End
@@ -787,7 +819,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   24
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":22F1EA
+         Picture         =   "frmManagerRoom.frx":231662
          Top             =   1920
          Width           =   1950
       End
@@ -795,7 +827,7 @@ Begin VB.Form frmManagerRoom
          Height          =   390
          Index           =   24
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":231B84
+         Picture         =   "frmManagerRoom.frx":233FFC
          Top             =   1710
          Width           =   1965
       End
@@ -925,7 +957,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   24
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":2343FE
+         Picture         =   "frmManagerRoom.frx":236876
          Top             =   1710
          Width           =   405
       End
@@ -933,7 +965,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   24
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":234D1C
+         Picture         =   "frmManagerRoom.frx":237194
          Top             =   1035
          Width           =   1950
       End
@@ -962,7 +994,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   24
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":2376B6
+         Picture         =   "frmManagerRoom.frx":239B2E
          Top             =   90
          Width           =   900
       End
@@ -991,7 +1023,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   24
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2391B0
+         Picture         =   "frmManagerRoom.frx":23B628
          Top             =   1710
          Width           =   1395
       End
@@ -1009,11 +1041,19 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   176
       Top             =   2325
       Width           =   1995
+      Begin VB.Image iMaintenance 
+         Height          =   405
+         Index           =   23
+         Left            =   720
+         Picture         =   "frmManagerRoom.frx":23D3F2
+         Top             =   0
+         Width           =   405
+      End
       Begin VB.Image iModifyService 
          Height          =   390
          Index           =   23
          Left            =   1020
-         Picture         =   "frmManagerRoom.frx":23AF7A
+         Picture         =   "frmManagerRoom.frx":23DD10
          Top             =   1710
          Width           =   405
       End
@@ -1031,7 +1071,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   23
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":23B844
+         Picture         =   "frmManagerRoom.frx":23E5DA
          Top             =   1920
          Width           =   1950
       End
@@ -1039,7 +1079,7 @@ Begin VB.Form frmManagerRoom
          Height          =   390
          Index           =   23
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":23E1DE
+         Picture         =   "frmManagerRoom.frx":240F74
          Top             =   1710
          Width           =   1965
       End
@@ -1169,7 +1209,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   23
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":240A58
+         Picture         =   "frmManagerRoom.frx":2437EE
          Top             =   1710
          Width           =   405
       End
@@ -1177,7 +1217,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   23
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":241376
+         Picture         =   "frmManagerRoom.frx":24410C
          Top             =   1035
          Width           =   1950
       End
@@ -1206,7 +1246,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   23
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":243D10
+         Picture         =   "frmManagerRoom.frx":246AA6
          Top             =   90
          Width           =   900
       End
@@ -1235,7 +1275,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   23
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":24580A
+         Picture         =   "frmManagerRoom.frx":2485A0
          Top             =   1710
          Width           =   1395
       End
@@ -1253,11 +1293,19 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   168
       Top             =   2325
       Width           =   1995
+      Begin VB.Image iMaintenance 
+         Height          =   405
+         Index           =   22
+         Left            =   720
+         Picture         =   "frmManagerRoom.frx":24A36A
+         Top             =   0
+         Width           =   405
+      End
       Begin VB.Image iModifyService 
          Height          =   390
          Index           =   22
          Left            =   1020
-         Picture         =   "frmManagerRoom.frx":2475D4
+         Picture         =   "frmManagerRoom.frx":24AC88
          Top             =   1710
          Width           =   405
       End
@@ -1275,7 +1323,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   22
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":247E9E
+         Picture         =   "frmManagerRoom.frx":24B552
          Top             =   1920
          Width           =   1950
       End
@@ -1283,7 +1331,7 @@ Begin VB.Form frmManagerRoom
          Height          =   390
          Index           =   22
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":24A838
+         Picture         =   "frmManagerRoom.frx":24DEEC
          Top             =   1710
          Width           =   1965
       End
@@ -1413,7 +1461,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   22
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":24D0B2
+         Picture         =   "frmManagerRoom.frx":250766
          Top             =   1710
          Width           =   405
       End
@@ -1421,7 +1469,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   22
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":24D9D0
+         Picture         =   "frmManagerRoom.frx":251084
          Top             =   1035
          Width           =   1950
       End
@@ -1450,7 +1498,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   22
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":25036A
+         Picture         =   "frmManagerRoom.frx":253A1E
          Top             =   90
          Width           =   900
       End
@@ -1479,7 +1527,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   22
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":251E64
+         Picture         =   "frmManagerRoom.frx":255518
          Top             =   1710
          Width           =   1395
       End
@@ -1497,11 +1545,19 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   160
       Top             =   2325
       Width           =   1995
+      Begin VB.Image iMaintenance 
+         Height          =   405
+         Index           =   21
+         Left            =   720
+         Picture         =   "frmManagerRoom.frx":2572E2
+         Top             =   0
+         Width           =   405
+      End
       Begin VB.Image iModifyService 
          Height          =   390
          Index           =   21
          Left            =   1020
-         Picture         =   "frmManagerRoom.frx":253C2E
+         Picture         =   "frmManagerRoom.frx":257C00
          Top             =   1710
          Width           =   405
       End
@@ -1519,7 +1575,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   21
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":2544F8
+         Picture         =   "frmManagerRoom.frx":2584CA
          Top             =   1920
          Width           =   1950
       End
@@ -1527,7 +1583,7 @@ Begin VB.Form frmManagerRoom
          Height          =   390
          Index           =   21
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":256E92
+         Picture         =   "frmManagerRoom.frx":25AE64
          Top             =   1710
          Width           =   1965
       End
@@ -1657,7 +1713,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   21
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":25970C
+         Picture         =   "frmManagerRoom.frx":25D6DE
          Top             =   1710
          Width           =   405
       End
@@ -1665,7 +1721,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   21
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":25A02A
+         Picture         =   "frmManagerRoom.frx":25DFFC
          Top             =   1035
          Width           =   1950
       End
@@ -1694,7 +1750,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   21
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":25C9C4
+         Picture         =   "frmManagerRoom.frx":260996
          Top             =   90
          Width           =   900
       End
@@ -1723,7 +1779,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   21
          Left            =   0
-         Picture         =   "frmManagerRoom.frx":25E4BE
+         Picture         =   "frmManagerRoom.frx":262490
          Top             =   1710
          Width           =   1395
       End
@@ -1741,11 +1797,19 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   152
       Top             =   2325
       Width           =   1995
+      Begin VB.Image iMaintenance 
+         Height          =   405
+         Index           =   20
+         Left            =   720
+         Picture         =   "frmManagerRoom.frx":26425A
+         Top             =   0
+         Width           =   405
+      End
       Begin VB.Image iModifyService 
          Height          =   390
          Index           =   20
          Left            =   1020
-         Picture         =   "frmManagerRoom.frx":260288
+         Picture         =   "frmManagerRoom.frx":264B78
          Top             =   1710
          Width           =   405
       End
@@ -1763,7 +1827,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   20
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":260B52
+         Picture         =   "frmManagerRoom.frx":265442
          Top             =   1920
          Width           =   1950
       End
@@ -1771,7 +1835,7 @@ Begin VB.Form frmManagerRoom
          Height          =   390
          Index           =   20
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":2634EC
+         Picture         =   "frmManagerRoom.frx":267DDC
          Top             =   1710
          Width           =   1965
       End
@@ -1901,7 +1965,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   20
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":265D66
+         Picture         =   "frmManagerRoom.frx":26A656
          Top             =   1710
          Width           =   405
       End
@@ -1909,7 +1973,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   20
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":266684
+         Picture         =   "frmManagerRoom.frx":26AF74
          Top             =   1035
          Width           =   1950
       End
@@ -1938,7 +2002,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   20
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":26901E
+         Picture         =   "frmManagerRoom.frx":26D90E
          Top             =   90
          Width           =   900
       End
@@ -1967,7 +2031,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   20
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":26AB18
+         Picture         =   "frmManagerRoom.frx":26F408
          Top             =   1710
          Width           =   1395
       End
@@ -1985,11 +2049,19 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   144
       Top             =   2325
       Width           =   1995
+      Begin VB.Image iMaintenance 
+         Height          =   405
+         Index           =   19
+         Left            =   720
+         Picture         =   "frmManagerRoom.frx":2711D2
+         Top             =   0
+         Width           =   405
+      End
       Begin VB.Image iModifyService 
          Height          =   390
          Index           =   19
          Left            =   1020
-         Picture         =   "frmManagerRoom.frx":26C8E2
+         Picture         =   "frmManagerRoom.frx":271AF0
          Top             =   1710
          Width           =   405
       End
@@ -2007,7 +2079,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   19
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":26D1AC
+         Picture         =   "frmManagerRoom.frx":2723BA
          Top             =   1920
          Width           =   1950
       End
@@ -2015,7 +2087,7 @@ Begin VB.Form frmManagerRoom
          Height          =   390
          Index           =   19
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":26FB46
+         Picture         =   "frmManagerRoom.frx":274D54
          Top             =   1710
          Width           =   1965
       End
@@ -2145,7 +2217,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   19
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":2723C0
+         Picture         =   "frmManagerRoom.frx":2775CE
          Top             =   1710
          Width           =   405
       End
@@ -2153,7 +2225,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   19
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":272CDE
+         Picture         =   "frmManagerRoom.frx":277EEC
          Top             =   1035
          Width           =   1950
       End
@@ -2182,7 +2254,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   19
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":275678
+         Picture         =   "frmManagerRoom.frx":27A886
          Top             =   90
          Width           =   900
       End
@@ -2211,7 +2283,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   19
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":277172
+         Picture         =   "frmManagerRoom.frx":27C380
          Top             =   1710
          Width           =   1395
       End
@@ -2229,11 +2301,19 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   136
       Top             =   2325
       Width           =   1995
+      Begin VB.Image iMaintenance 
+         Height          =   405
+         Index           =   18
+         Left            =   720
+         Picture         =   "frmManagerRoom.frx":27E14A
+         Top             =   0
+         Width           =   405
+      End
       Begin VB.Image iModifyService 
          Height          =   390
          Index           =   18
          Left            =   1020
-         Picture         =   "frmManagerRoom.frx":278F3C
+         Picture         =   "frmManagerRoom.frx":27EA68
          Top             =   1710
          Width           =   405
       End
@@ -2251,7 +2331,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   18
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":279806
+         Picture         =   "frmManagerRoom.frx":27F332
          Top             =   1920
          Width           =   1950
       End
@@ -2259,7 +2339,7 @@ Begin VB.Form frmManagerRoom
          Height          =   390
          Index           =   18
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":27C1A0
+         Picture         =   "frmManagerRoom.frx":281CCC
          Top             =   1710
          Width           =   1965
       End
@@ -2389,7 +2469,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   18
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":27EA1A
+         Picture         =   "frmManagerRoom.frx":284546
          Top             =   1710
          Width           =   405
       End
@@ -2397,7 +2477,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   18
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":27F338
+         Picture         =   "frmManagerRoom.frx":284E64
          Top             =   1035
          Width           =   1950
       End
@@ -2426,7 +2506,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   18
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":281CD2
+         Picture         =   "frmManagerRoom.frx":2877FE
          Top             =   90
          Width           =   900
       End
@@ -2455,7 +2535,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   18
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2837CC
+         Picture         =   "frmManagerRoom.frx":2892F8
          Top             =   1710
          Width           =   1395
       End
@@ -2473,11 +2553,19 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   128
       Top             =   2325
       Width           =   1995
+      Begin VB.Image iMaintenance 
+         Height          =   405
+         Index           =   17
+         Left            =   720
+         Picture         =   "frmManagerRoom.frx":28B0C2
+         Top             =   0
+         Width           =   405
+      End
       Begin VB.Image iModifyService 
          Height          =   390
          Index           =   17
          Left            =   1020
-         Picture         =   "frmManagerRoom.frx":285596
+         Picture         =   "frmManagerRoom.frx":28B9E0
          Top             =   1710
          Width           =   405
       End
@@ -2495,7 +2583,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   17
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":285E60
+         Picture         =   "frmManagerRoom.frx":28C2AA
          Top             =   1920
          Width           =   1950
       End
@@ -2503,7 +2591,7 @@ Begin VB.Form frmManagerRoom
          Height          =   390
          Index           =   17
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":2887FA
+         Picture         =   "frmManagerRoom.frx":28EC44
          Top             =   1710
          Width           =   1965
       End
@@ -2574,7 +2662,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   17
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":28B074
+         Picture         =   "frmManagerRoom.frx":2914BE
          Top             =   1710
          Width           =   405
       End
@@ -2582,7 +2670,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   17
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":28B992
+         Picture         =   "frmManagerRoom.frx":291DDC
          Top             =   1710
          Width           =   1395
       End
@@ -2691,7 +2779,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   17
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":28D75C
+         Picture         =   "frmManagerRoom.frx":293BA6
          Top             =   1035
          Width           =   1950
       End
@@ -2699,7 +2787,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   17
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":2900F6
+         Picture         =   "frmManagerRoom.frx":296540
          Top             =   90
          Width           =   900
       End
@@ -2717,11 +2805,19 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   120
       Top             =   4545
       Width           =   1995
+      Begin VB.Image iMaintenance 
+         Height          =   405
+         Index           =   16
+         Left            =   720
+         Picture         =   "frmManagerRoom.frx":29803A
+         Top             =   0
+         Width           =   405
+      End
       Begin VB.Image iModifyService 
          Height          =   390
          Index           =   16
          Left            =   1020
-         Picture         =   "frmManagerRoom.frx":291BF0
+         Picture         =   "frmManagerRoom.frx":298958
          Top             =   1710
          Width           =   405
       End
@@ -2739,7 +2835,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   16
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":2924BA
+         Picture         =   "frmManagerRoom.frx":299222
          Top             =   1920
          Width           =   1950
       End
@@ -2747,7 +2843,7 @@ Begin VB.Form frmManagerRoom
          Height          =   390
          Index           =   16
          Left            =   1560
-         Picture         =   "frmManagerRoom.frx":294E54
+         Picture         =   "frmManagerRoom.frx":29BBBC
          Top             =   1710
          Width           =   1965
       End
@@ -2877,7 +2973,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   16
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":2976CE
+         Picture         =   "frmManagerRoom.frx":29E436
          Top             =   1710
          Width           =   405
       End
@@ -2885,7 +2981,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   16
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":297FEC
+         Picture         =   "frmManagerRoom.frx":29ED54
          Top             =   1035
          Width           =   1950
       End
@@ -2914,7 +3010,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   16
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":29A986
+         Picture         =   "frmManagerRoom.frx":2A16EE
          Top             =   90
          Width           =   900
       End
@@ -2943,7 +3039,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   16
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":29C480
+         Picture         =   "frmManagerRoom.frx":2A31E8
          Top             =   1710
          Width           =   1395
       End
@@ -2961,11 +3057,19 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   112
       Top             =   4545
       Width           =   1995
+      Begin VB.Image iMaintenance 
+         Height          =   405
+         Index           =   15
+         Left            =   720
+         Picture         =   "frmManagerRoom.frx":2A4FB2
+         Top             =   0
+         Width           =   405
+      End
       Begin VB.Image iModifyService 
          Height          =   390
          Index           =   15
          Left            =   1020
-         Picture         =   "frmManagerRoom.frx":29E24A
+         Picture         =   "frmManagerRoom.frx":2A58D0
          Top             =   1710
          Width           =   405
       End
@@ -2983,7 +3087,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   15
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":29EB14
+         Picture         =   "frmManagerRoom.frx":2A619A
          Top             =   1920
          Width           =   1950
       End
@@ -2991,7 +3095,7 @@ Begin VB.Form frmManagerRoom
          Height          =   390
          Index           =   15
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":2A14AE
+         Picture         =   "frmManagerRoom.frx":2A8B34
          Top             =   1710
          Width           =   1965
       End
@@ -3121,7 +3225,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   15
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":2A3D28
+         Picture         =   "frmManagerRoom.frx":2AB3AE
          Top             =   1710
          Width           =   405
       End
@@ -3129,7 +3233,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   15
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2A4646
+         Picture         =   "frmManagerRoom.frx":2ABCCC
          Top             =   1035
          Width           =   1950
       End
@@ -3158,7 +3262,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   15
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":2A6FE0
+         Picture         =   "frmManagerRoom.frx":2AE666
          Top             =   90
          Width           =   900
       End
@@ -3187,7 +3291,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   15
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2A8ADA
+         Picture         =   "frmManagerRoom.frx":2B0160
          Top             =   1710
          Width           =   1395
       End
@@ -3205,11 +3309,19 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   104
       Top             =   4545
       Width           =   1995
+      Begin VB.Image iMaintenance 
+         Height          =   405
+         Index           =   14
+         Left            =   720
+         Picture         =   "frmManagerRoom.frx":2B1F2A
+         Top             =   0
+         Width           =   405
+      End
       Begin VB.Image iModifyService 
          Height          =   390
          Index           =   14
          Left            =   1020
-         Picture         =   "frmManagerRoom.frx":2AA8A4
+         Picture         =   "frmManagerRoom.frx":2B2848
          Top             =   1710
          Width           =   405
       End
@@ -3227,7 +3339,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   14
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":2AB16E
+         Picture         =   "frmManagerRoom.frx":2B3112
          Top             =   1920
          Width           =   1950
       End
@@ -3235,7 +3347,7 @@ Begin VB.Form frmManagerRoom
          Height          =   390
          Index           =   14
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":2ADB08
+         Picture         =   "frmManagerRoom.frx":2B5AAC
          Top             =   1710
          Width           =   1965
       End
@@ -3365,7 +3477,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   14
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":2B0382
+         Picture         =   "frmManagerRoom.frx":2B8326
          Top             =   1710
          Width           =   405
       End
@@ -3373,7 +3485,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   14
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2B0CA0
+         Picture         =   "frmManagerRoom.frx":2B8C44
          Top             =   1035
          Width           =   1950
       End
@@ -3402,7 +3514,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   14
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":2B363A
+         Picture         =   "frmManagerRoom.frx":2BB5DE
          Top             =   90
          Width           =   900
       End
@@ -3431,7 +3543,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   14
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2B5134
+         Picture         =   "frmManagerRoom.frx":2BD0D8
          Top             =   1710
          Width           =   1395
       End
@@ -3449,11 +3561,19 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   96
       Top             =   4545
       Width           =   1995
+      Begin VB.Image iMaintenance 
+         Height          =   405
+         Index           =   13
+         Left            =   720
+         Picture         =   "frmManagerRoom.frx":2BEEA2
+         Top             =   0
+         Width           =   405
+      End
       Begin VB.Image iModifyService 
          Height          =   390
          Index           =   13
          Left            =   1020
-         Picture         =   "frmManagerRoom.frx":2B6EFE
+         Picture         =   "frmManagerRoom.frx":2BF7C0
          Top             =   1710
          Width           =   405
       End
@@ -3471,7 +3591,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   13
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":2B77C8
+         Picture         =   "frmManagerRoom.frx":2C008A
          Top             =   1920
          Width           =   1950
       End
@@ -3479,7 +3599,7 @@ Begin VB.Form frmManagerRoom
          Height          =   390
          Index           =   13
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":2BA162
+         Picture         =   "frmManagerRoom.frx":2C2A24
          Top             =   1710
          Width           =   1965
       End
@@ -3609,7 +3729,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   13
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":2BC9DC
+         Picture         =   "frmManagerRoom.frx":2C529E
          Top             =   1710
          Width           =   405
       End
@@ -3617,7 +3737,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   13
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2BD2FA
+         Picture         =   "frmManagerRoom.frx":2C5BBC
          Top             =   1035
          Width           =   1950
       End
@@ -3646,7 +3766,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   13
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":2BFC94
+         Picture         =   "frmManagerRoom.frx":2C8556
          Top             =   90
          Width           =   900
       End
@@ -3675,7 +3795,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   13
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2C178E
+         Picture         =   "frmManagerRoom.frx":2CA050
          Top             =   1710
          Width           =   1395
       End
@@ -3693,11 +3813,19 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   88
       Top             =   4545
       Width           =   1995
+      Begin VB.Image iMaintenance 
+         Height          =   405
+         Index           =   12
+         Left            =   720
+         Picture         =   "frmManagerRoom.frx":2CBE1A
+         Top             =   0
+         Width           =   405
+      End
       Begin VB.Image iModifyService 
          Height          =   390
          Index           =   12
          Left            =   1020
-         Picture         =   "frmManagerRoom.frx":2C3558
+         Picture         =   "frmManagerRoom.frx":2CC738
          Top             =   1710
          Width           =   405
       End
@@ -3715,7 +3843,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   12
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":2C3E22
+         Picture         =   "frmManagerRoom.frx":2CD002
          Top             =   1920
          Width           =   1950
       End
@@ -3723,7 +3851,7 @@ Begin VB.Form frmManagerRoom
          Height          =   390
          Index           =   12
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":2C67BC
+         Picture         =   "frmManagerRoom.frx":2CF99C
          Top             =   1710
          Width           =   1965
       End
@@ -3853,7 +3981,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   12
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":2C9036
+         Picture         =   "frmManagerRoom.frx":2D2216
          Top             =   1710
          Width           =   405
       End
@@ -3861,7 +3989,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   12
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2C9954
+         Picture         =   "frmManagerRoom.frx":2D2B34
          Top             =   1035
          Width           =   1950
       End
@@ -3890,7 +4018,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   12
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":2CC2EE
+         Picture         =   "frmManagerRoom.frx":2D54CE
          Top             =   90
          Width           =   900
       End
@@ -3919,7 +4047,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   12
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2CDDE8
+         Picture         =   "frmManagerRoom.frx":2D6FC8
          Top             =   1710
          Width           =   1395
       End
@@ -3937,11 +4065,19 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   80
       Top             =   4545
       Width           =   1995
+      Begin VB.Image iMaintenance 
+         Height          =   405
+         Index           =   11
+         Left            =   720
+         Picture         =   "frmManagerRoom.frx":2D8D92
+         Top             =   0
+         Width           =   405
+      End
       Begin VB.Image iModifyService 
          Height          =   390
          Index           =   11
          Left            =   1020
-         Picture         =   "frmManagerRoom.frx":2CFBB2
+         Picture         =   "frmManagerRoom.frx":2D96B0
          Top             =   1710
          Width           =   405
       End
@@ -3959,7 +4095,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   11
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":2D047C
+         Picture         =   "frmManagerRoom.frx":2D9F7A
          Top             =   1920
          Width           =   1950
       End
@@ -3967,7 +4103,7 @@ Begin VB.Form frmManagerRoom
          Height          =   390
          Index           =   11
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":2D2E16
+         Picture         =   "frmManagerRoom.frx":2DC914
          Top             =   1710
          Width           =   1965
       End
@@ -4097,7 +4233,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   11
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":2D5690
+         Picture         =   "frmManagerRoom.frx":2DF18E
          Top             =   1710
          Width           =   405
       End
@@ -4105,7 +4241,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   11
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2D5FAE
+         Picture         =   "frmManagerRoom.frx":2DFAAC
          Top             =   1035
          Width           =   1950
       End
@@ -4134,7 +4270,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   11
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":2D8948
+         Picture         =   "frmManagerRoom.frx":2E2446
          Top             =   90
          Width           =   900
       End
@@ -4163,7 +4299,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   11
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2DA442
+         Picture         =   "frmManagerRoom.frx":2E3F40
          Top             =   1710
          Width           =   1395
       End
@@ -4181,11 +4317,19 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   72
       Top             =   4545
       Width           =   1995
+      Begin VB.Image iMaintenance 
+         Height          =   405
+         Index           =   10
+         Left            =   720
+         Picture         =   "frmManagerRoom.frx":2E5D0A
+         Top             =   0
+         Width           =   405
+      End
       Begin VB.Image iModifyService 
          Height          =   390
          Index           =   10
          Left            =   1020
-         Picture         =   "frmManagerRoom.frx":2DC20C
+         Picture         =   "frmManagerRoom.frx":2E6628
          Top             =   1710
          Width           =   405
       End
@@ -4203,7 +4347,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   10
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":2DCAD6
+         Picture         =   "frmManagerRoom.frx":2E6EF2
          Top             =   1920
          Width           =   1950
       End
@@ -4211,7 +4355,7 @@ Begin VB.Form frmManagerRoom
          Height          =   390
          Index           =   10
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":2DF470
+         Picture         =   "frmManagerRoom.frx":2E988C
          Top             =   1710
          Width           =   1965
       End
@@ -4341,7 +4485,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   10
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":2E1CEA
+         Picture         =   "frmManagerRoom.frx":2EC106
          Top             =   1710
          Width           =   405
       End
@@ -4349,7 +4493,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   10
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2E2608
+         Picture         =   "frmManagerRoom.frx":2ECA24
          Top             =   1035
          Width           =   1950
       End
@@ -4378,7 +4522,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   10
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":2E4FA2
+         Picture         =   "frmManagerRoom.frx":2EF3BE
          Top             =   90
          Width           =   900
       End
@@ -4407,7 +4551,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   10
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2E6A9C
+         Picture         =   "frmManagerRoom.frx":2F0EB8
          Top             =   1710
          Width           =   1395
       End
@@ -4425,11 +4569,19 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   64
       Top             =   4545
       Width           =   1995
+      Begin VB.Image iMaintenance 
+         Height          =   405
+         Index           =   9
+         Left            =   720
+         Picture         =   "frmManagerRoom.frx":2F2C82
+         Top             =   0
+         Width           =   405
+      End
       Begin VB.Image iModifyService 
          Height          =   390
          Index           =   9
          Left            =   1020
-         Picture         =   "frmManagerRoom.frx":2E8866
+         Picture         =   "frmManagerRoom.frx":2F35A0
          Top             =   1710
          Width           =   405
       End
@@ -4447,7 +4599,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   9
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":2E9130
+         Picture         =   "frmManagerRoom.frx":2F3E6A
          Top             =   1920
          Width           =   1950
       End
@@ -4455,7 +4607,7 @@ Begin VB.Form frmManagerRoom
          Height          =   390
          Index           =   9
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":2EBACA
+         Picture         =   "frmManagerRoom.frx":2F6804
          Top             =   1710
          Width           =   1965
       End
@@ -4526,7 +4678,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   9
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":2EE344
+         Picture         =   "frmManagerRoom.frx":2F907E
          Top             =   1710
          Width           =   405
       End
@@ -4534,7 +4686,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   9
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2EEC62
+         Picture         =   "frmManagerRoom.frx":2F999C
          Top             =   1710
          Width           =   1395
       End
@@ -4643,7 +4795,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   9
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2F0A2C
+         Picture         =   "frmManagerRoom.frx":2FB766
          Top             =   1035
          Width           =   1950
       End
@@ -4651,7 +4803,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   9
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":2F33C6
+         Picture         =   "frmManagerRoom.frx":2FE100
          Top             =   90
          Width           =   900
       End
@@ -4669,11 +4821,19 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   56
       Top             =   6765
       Width           =   1995
+      Begin VB.Image iMaintenance 
+         Height          =   405
+         Index           =   8
+         Left            =   720
+         Picture         =   "frmManagerRoom.frx":2FFBFA
+         Top             =   0
+         Width           =   405
+      End
       Begin VB.Image iModifyService 
          Height          =   390
          Index           =   8
          Left            =   1020
-         Picture         =   "frmManagerRoom.frx":2F4EC0
+         Picture         =   "frmManagerRoom.frx":300518
          Top             =   1710
          Width           =   405
       End
@@ -4691,7 +4851,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   8
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":2F578A
+         Picture         =   "frmManagerRoom.frx":300DE2
          Top             =   1920
          Width           =   1950
       End
@@ -4699,7 +4859,7 @@ Begin VB.Form frmManagerRoom
          Height          =   390
          Index           =   8
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":2F8124
+         Picture         =   "frmManagerRoom.frx":30377C
          Top             =   1710
          Width           =   1965
       End
@@ -4770,7 +4930,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   8
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":2FA99E
+         Picture         =   "frmManagerRoom.frx":305FF6
          Top             =   1710
          Width           =   405
       End
@@ -4778,7 +4938,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   8
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":2FB2BC
+         Picture         =   "frmManagerRoom.frx":306914
          Top             =   1710
          Width           =   1395
       End
@@ -4887,7 +5047,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   8
          Left            =   45
-         Picture         =   "frmManagerRoom.frx":2FD086
+         Picture         =   "frmManagerRoom.frx":3086DE
          Top             =   1035
          Width           =   1950
       End
@@ -4895,7 +5055,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   8
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":2FFA20
+         Picture         =   "frmManagerRoom.frx":30B078
          Top             =   90
          Width           =   900
       End
@@ -4913,11 +5073,19 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   48
       Top             =   6765
       Width           =   1995
+      Begin VB.Image iMaintenance 
+         Height          =   405
+         Index           =   7
+         Left            =   720
+         Picture         =   "frmManagerRoom.frx":30CB72
+         Top             =   0
+         Width           =   405
+      End
       Begin VB.Image iModifyService 
          Height          =   390
          Index           =   7
          Left            =   1020
-         Picture         =   "frmManagerRoom.frx":30151A
+         Picture         =   "frmManagerRoom.frx":30D490
          Top             =   1710
          Width           =   405
       End
@@ -4935,7 +5103,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   7
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":301DE4
+         Picture         =   "frmManagerRoom.frx":30DD5A
          Top             =   1920
          Width           =   1950
       End
@@ -4943,7 +5111,7 @@ Begin VB.Form frmManagerRoom
          Height          =   390
          Index           =   7
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":30477E
+         Picture         =   "frmManagerRoom.frx":3106F4
          Top             =   1710
          Width           =   1965
       End
@@ -5014,7 +5182,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   7
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":306FF8
+         Picture         =   "frmManagerRoom.frx":312F6E
          Top             =   1710
          Width           =   405
       End
@@ -5022,7 +5190,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   7
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":307916
+         Picture         =   "frmManagerRoom.frx":31388C
          Top             =   1710
          Width           =   1395
       End
@@ -5131,7 +5299,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   7
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":3096E0
+         Picture         =   "frmManagerRoom.frx":315656
          Top             =   1035
          Width           =   1950
       End
@@ -5139,7 +5307,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   7
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":30C07A
+         Picture         =   "frmManagerRoom.frx":317FF0
          Top             =   90
          Width           =   900
       End
@@ -5157,11 +5325,19 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   40
       Top             =   6765
       Width           =   1995
+      Begin VB.Image iMaintenance 
+         Height          =   405
+         Index           =   6
+         Left            =   720
+         Picture         =   "frmManagerRoom.frx":319AEA
+         Top             =   0
+         Width           =   405
+      End
       Begin VB.Image iModifyService 
          Height          =   390
          Index           =   6
          Left            =   1020
-         Picture         =   "frmManagerRoom.frx":30DB74
+         Picture         =   "frmManagerRoom.frx":31A408
          Top             =   1710
          Width           =   405
       End
@@ -5179,7 +5355,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   6
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":30E43E
+         Picture         =   "frmManagerRoom.frx":31ACD2
          Top             =   1920
          Width           =   1950
       End
@@ -5187,7 +5363,7 @@ Begin VB.Form frmManagerRoom
          Height          =   390
          Index           =   6
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":310DD8
+         Picture         =   "frmManagerRoom.frx":31D66C
          Top             =   1710
          Width           =   1965
       End
@@ -5258,7 +5434,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   6
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":313652
+         Picture         =   "frmManagerRoom.frx":31FEE6
          Top             =   1710
          Width           =   405
       End
@@ -5266,7 +5442,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   6
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":313F70
+         Picture         =   "frmManagerRoom.frx":320804
          Top             =   1710
          Width           =   1395
       End
@@ -5375,7 +5551,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   6
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":315D3A
+         Picture         =   "frmManagerRoom.frx":3225CE
          Top             =   1035
          Width           =   1950
       End
@@ -5383,7 +5559,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   6
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":3186D4
+         Picture         =   "frmManagerRoom.frx":324F68
          Top             =   90
          Width           =   900
       End
@@ -5401,11 +5577,19 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   32
       Top             =   6765
       Width           =   1995
+      Begin VB.Image iMaintenance 
+         Height          =   405
+         Index           =   5
+         Left            =   720
+         Picture         =   "frmManagerRoom.frx":326A62
+         Top             =   0
+         Width           =   405
+      End
       Begin VB.Image iModifyService 
          Height          =   390
          Index           =   5
          Left            =   1020
-         Picture         =   "frmManagerRoom.frx":31A1CE
+         Picture         =   "frmManagerRoom.frx":327380
          Top             =   1710
          Width           =   405
       End
@@ -5423,7 +5607,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   5
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":31AA98
+         Picture         =   "frmManagerRoom.frx":327C4A
          Top             =   1920
          Width           =   1950
       End
@@ -5431,7 +5615,7 @@ Begin VB.Form frmManagerRoom
          Height          =   390
          Index           =   5
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":31D432
+         Picture         =   "frmManagerRoom.frx":32A5E4
          Top             =   1710
          Width           =   1965
       End
@@ -5502,7 +5686,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   5
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":31FCAC
+         Picture         =   "frmManagerRoom.frx":32CE5E
          Top             =   1710
          Width           =   405
       End
@@ -5510,7 +5694,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   5
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":3205CA
+         Picture         =   "frmManagerRoom.frx":32D77C
          Top             =   1710
          Width           =   1395
       End
@@ -5619,7 +5803,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   5
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":322394
+         Picture         =   "frmManagerRoom.frx":32F546
          Top             =   1035
          Width           =   1950
       End
@@ -5627,7 +5811,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   5
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":324D2E
+         Picture         =   "frmManagerRoom.frx":331EE0
          Top             =   90
          Width           =   900
       End
@@ -5645,11 +5829,19 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   24
       Top             =   6765
       Width           =   1995
+      Begin VB.Image iMaintenance 
+         Height          =   405
+         Index           =   4
+         Left            =   720
+         Picture         =   "frmManagerRoom.frx":3339DA
+         Top             =   0
+         Width           =   405
+      End
       Begin VB.Image iModifyService 
          Height          =   390
          Index           =   4
          Left            =   1020
-         Picture         =   "frmManagerRoom.frx":326828
+         Picture         =   "frmManagerRoom.frx":3342F8
          Top             =   1710
          Width           =   405
       End
@@ -5667,7 +5859,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   4
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":3270F2
+         Picture         =   "frmManagerRoom.frx":334BC2
          Top             =   1920
          Width           =   1950
       End
@@ -5675,7 +5867,7 @@ Begin VB.Form frmManagerRoom
          Height          =   390
          Index           =   4
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":329A8C
+         Picture         =   "frmManagerRoom.frx":33755C
          Top             =   1725
          Width           =   1965
       End
@@ -5746,7 +5938,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   4
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":32C306
+         Picture         =   "frmManagerRoom.frx":339DD6
          Top             =   1710
          Width           =   405
       End
@@ -5754,7 +5946,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   4
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":32CC24
+         Picture         =   "frmManagerRoom.frx":33A6F4
          Top             =   1710
          Width           =   1395
       End
@@ -5863,7 +6055,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   4
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":32E9EE
+         Picture         =   "frmManagerRoom.frx":33C4BE
          Top             =   1035
          Width           =   1950
       End
@@ -5871,7 +6063,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   4
          Left            =   1065
-         Picture         =   "frmManagerRoom.frx":331388
+         Picture         =   "frmManagerRoom.frx":33EE58
          Top             =   90
          Width           =   900
       End
@@ -5889,11 +6081,19 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   16
       Top             =   6765
       Width           =   1995
+      Begin VB.Image iMaintenance 
+         Height          =   405
+         Index           =   3
+         Left            =   720
+         Picture         =   "frmManagerRoom.frx":340952
+         Top             =   0
+         Width           =   405
+      End
       Begin VB.Image iModifyService 
          Height          =   390
          Index           =   3
          Left            =   1020
-         Picture         =   "frmManagerRoom.frx":332E82
+         Picture         =   "frmManagerRoom.frx":341270
          Top             =   1710
          Width           =   405
       End
@@ -5911,7 +6111,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   3
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":33374C
+         Picture         =   "frmManagerRoom.frx":341B3A
          Top             =   1920
          Width           =   1950
       End
@@ -5919,7 +6119,7 @@ Begin VB.Form frmManagerRoom
          Height          =   390
          Index           =   3
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":3360E6
+         Picture         =   "frmManagerRoom.frx":3444D4
          Top             =   1710
          Width           =   1965
       End
@@ -5990,7 +6190,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   3
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":338960
+         Picture         =   "frmManagerRoom.frx":346D4E
          Top             =   1710
          Width           =   405
       End
@@ -5998,7 +6198,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   3
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":33927E
+         Picture         =   "frmManagerRoom.frx":34766C
          Top             =   1710
          Width           =   1395
       End
@@ -6107,7 +6307,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   3
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":33B048
+         Picture         =   "frmManagerRoom.frx":349436
          Top             =   1035
          Width           =   1950
       End
@@ -6115,7 +6315,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   3
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":33D9E2
+         Picture         =   "frmManagerRoom.frx":34BDD0
          Top             =   120
          Width           =   900
       End
@@ -6133,11 +6333,19 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   8
       Top             =   6765
       Width           =   1995
+      Begin VB.Image iMaintenance 
+         Height          =   405
+         Index           =   2
+         Left            =   720
+         Picture         =   "frmManagerRoom.frx":34D8CA
+         Top             =   0
+         Width           =   405
+      End
       Begin VB.Image iModifyService 
          Height          =   390
          Index           =   2
          Left            =   1020
-         Picture         =   "frmManagerRoom.frx":33F4DC
+         Picture         =   "frmManagerRoom.frx":34E1E8
          Top             =   1710
          Width           =   405
       End
@@ -6155,7 +6363,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   2
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":33FDA6
+         Picture         =   "frmManagerRoom.frx":34EAB2
          Top             =   1920
          Width           =   1950
       End
@@ -6163,7 +6371,7 @@ Begin VB.Form frmManagerRoom
          Height          =   390
          Index           =   2
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":342740
+         Picture         =   "frmManagerRoom.frx":35144C
          Top             =   1710
          Width           =   1965
       End
@@ -6234,7 +6442,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   2
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":344FBA
+         Picture         =   "frmManagerRoom.frx":353CC6
          Top             =   1710
          Width           =   405
       End
@@ -6242,7 +6450,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   2
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":3458D8
+         Picture         =   "frmManagerRoom.frx":3545E4
          Top             =   1710
          Width           =   1395
       End
@@ -6351,7 +6559,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   2
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":3476A2
+         Picture         =   "frmManagerRoom.frx":3563AE
          Top             =   1035
          Width           =   1950
       End
@@ -6359,7 +6567,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   2
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":34A03C
+         Picture         =   "frmManagerRoom.frx":358D48
          Top             =   90
          Width           =   900
       End
@@ -6377,11 +6585,19 @@ Begin VB.Form frmManagerRoom
       TabIndex        =   0
       Top             =   6765
       Width           =   1995
+      Begin VB.Image iMaintenance 
+         Height          =   405
+         Index           =   1
+         Left            =   720
+         Picture         =   "frmManagerRoom.frx":35A842
+         Top             =   0
+         Width           =   405
+      End
       Begin VB.Image iModifyService 
          Height          =   390
          Index           =   1
          Left            =   1020
-         Picture         =   "frmManagerRoom.frx":34BB36
+         Picture         =   "frmManagerRoom.frx":35B160
          Top             =   1710
          Width           =   405
       End
@@ -6399,7 +6615,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   1
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":34C400
+         Picture         =   "frmManagerRoom.frx":35BA2A
          Top             =   1920
          Width           =   1950
       End
@@ -6407,7 +6623,7 @@ Begin VB.Form frmManagerRoom
          Height          =   390
          Index           =   1
          Left            =   1575
-         Picture         =   "frmManagerRoom.frx":34ED9A
+         Picture         =   "frmManagerRoom.frx":35E3C4
          Top             =   1710
          Width           =   1965
       End
@@ -6478,7 +6694,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   1
          Left            =   60
-         Picture         =   "frmManagerRoom.frx":351614
+         Picture         =   "frmManagerRoom.frx":360C3E
          Top             =   1710
          Width           =   405
       End
@@ -6486,7 +6702,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   1
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":351F32
+         Picture         =   "frmManagerRoom.frx":36155C
          Top             =   1710
          Width           =   1395
       End
@@ -6595,7 +6811,7 @@ Begin VB.Form frmManagerRoom
          Height          =   405
          Index           =   1
          Left            =   30
-         Picture         =   "frmManagerRoom.frx":353CFC
+         Picture         =   "frmManagerRoom.frx":363326
          Top             =   1035
          Width           =   1950
       End
@@ -6603,7 +6819,7 @@ Begin VB.Form frmManagerRoom
          Height          =   570
          Index           =   1
          Left            =   1080
-         Picture         =   "frmManagerRoom.frx":356696
+         Picture         =   "frmManagerRoom.frx":365CC0
          Top             =   90
          Width           =   900
       End
@@ -6632,6 +6848,9 @@ Private Const END_CLEAN_LEFT = 30
 
 Private Const MODIFY_SERVICE_TOP = 1710
 Private Const MODIFY_SERVICE_LEFT = 1560
+
+Private Const MODIFY_MAINTENANCE_TOP = 1710
+Private Const MODIFY_MAINTENANCE_LEFT = 1515
 
 Private Sub cmdAsign_Click(Index As Integer)
 frmAsignServiceRoom.tNoRoom = Me.lNoRoom(Index)
@@ -6668,6 +6887,7 @@ Me.iStartClean(idRoom).Visible = False
 Me.cmdFree(idRoom).Visible = False
 Me.iEndClean(idRoom).Visible = False
 Me.iModifyService(idRoom).Visible = False
+Me.iMaintenance(idRoom).Visible = False
 End Sub
 
 'Muestra la habitación como libre
@@ -6676,6 +6896,7 @@ Call hideAll(idRoom)
 
 Me.picRoom(idRoom).BackColor = COLOR_FREE_ROOM
 Me.cmdAsign(idRoom).Visible = True
+Me.iMaintenance(idRoom).Visible = True
 End Sub
 
 'Muestra la habitación como reservada
@@ -6810,6 +7031,14 @@ conBd.Execute (SQL)
 Call freeRoom(Index)
 End Sub
 
+Private Sub iMaintenance_Click(Index As Integer)
+
+'Set frmModifyService.manager = Me
+frmAssignMaintenance.tIdRoom = Index
+frmAssignMaintenance.Show vbModal
+
+End Sub
+
 Private Sub iModifyService_Click(idRoom As Integer)
 frmModifyService.tIdService = Me.tIdService(idRoom)
 frmModifyService.tNoRoom = Me.lNoRoom(idRoom)
@@ -6862,6 +7091,9 @@ For i = 1 To 27
     
     Me.iModifyService(i).Top = MODIFY_SERVICE_TOP
     Me.iModifyService(i).left = MODIFY_SERVICE_LEFT
+    
+    Me.iMaintenance(i).Top = MODIFY_MAINTENANCE_TOP
+    Me.iMaintenance(i).left = MODIFY_MAINTENANCE_LEFT
 
     'Se oculta la lupa temporalmente
     Me.iShowInfo(i).Visible = False

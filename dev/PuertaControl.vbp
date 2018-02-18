@@ -34,6 +34,7 @@ Reference=*\G{6B263850-900B-11D0-9484-00A0C91110ED}#1.0#0#..\..\..\..\Windows\Sy
 Form=form\frmDetailsService.frm
 Form=form\frmModifyService.frm
 Class=CStatusOperationRoom; class\CStatusOperationRoom.cls
+Form=form\frmAssignMaintenance.frm
 IconForm="frmTest"
 Startup="Sub Main"
 HelpFile=""
