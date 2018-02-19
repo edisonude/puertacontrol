@@ -12,9 +12,8 @@ Begin VB.Form frmAssignMaintenance
    MinButton       =   0   'False
    ScaleHeight     =   2775
    ScaleWidth      =   8370
-   StartUpPosition =   3  'Windows Default
+   StartUpPosition =   2  'CenterScreen
    Begin VB.Frame frmAfter 
-      BackColor       =   &H00C0C0C0&
       BeginProperty Font 
          Name            =   "Calibri"
          Size            =   11.25
@@ -25,7 +24,7 @@ Begin VB.Form frmAssignMaintenance
          Strikethrough   =   0   'False
       EndProperty
       Height          =   2415
-      Left            =   1920
+      Left            =   2640
       TabIndex        =   10
       Top             =   120
       Visible         =   0   'False
@@ -119,7 +118,6 @@ Begin VB.Form frmAssignMaintenance
       Width           =   1455
    End
    Begin VB.Frame Frame1 
-      BackColor       =   &H00C0C0C0&
       BeginProperty Font 
          Name            =   "Calibri"
          Size            =   11.25
@@ -312,15 +310,67 @@ Attribute VB_Exposed = False
 Dim conBd As ADODB.Connection
 Dim rec As New ADODB.Recordset
 
+'Administrador que abrio la ventana
+Public manager As frmManagerRoom
+
+Dim dateTimeStartMaintenance As Date
+Dim dateTimeEndMaintenance As Date
+
+
 Private Function loadBd()
 'Se solicita una conexion a la bd
 Set conBd = ModConexion.getNewConection
 rec.CursorLocation = adUseClient
 End Function
 
-Private Sub cmdAsignMaintenance_Click()
-
+Private Sub cmdAfterNo_Click()
+dateTimeStartMaintenance = Now
+dateTimeEndMaintenance = DateAdd("n", Val(Me.tTimeMaintenance), dateTimeStartMaintenance)
+Call startMaintenance(dateTimeStartMaintenance, dateTimeEndMaintenance)
 End Sub
+
+Private Sub cmdAfterYes_Click()
+dateTimeEndMaintenance = DateAdd("n", Val(Me.tTimeMaintenance), dateTimeStartMaintenance)
+Call startMaintenance(dateTimeStartMaintenance, dateTimeEndMaintenance)
+End Sub
+
+Private Sub cmdAsignMaintenance_Click()
+rec.Open "SELECT * from maintenance where status='ACT' order by id desc limit 1", conBd, adOpenStatic, adLockOptimistic
+If (rec.RecordCount > 0) Then
+    dateTimeStartMaintenance = rec("datetime_end")
+    If (DateDiff("s", Now(), dateTimeStartMaintenance) > 0) Then
+        Me.frmAfter.Visible = True
+        rec.Close
+        Exit Sub
+    End If
+End If
+rec.Close
+
+dateTimeStartMaintenance = Now
+dateTimeEndMaintenance = DateAdd("n", Val(Me.tTimeMaintenance), dateTimeStartMaintenance)
+Call startMaintenance(dateTimeStartMaintenance, dateTimeEndMaintenance)
+End Sub
+
+Private Sub startMaintenance(dateTimeStart As Date, dateTimeEnd As Date)
+Dim dateTimeStartMaintenanceFormated As String
+Dim dateTimeEndMaintenanceFormated As String
+
+dateTimeStartMaintenanceFormated = Format(dateTimeStartMaintenance, "yyyy-MM-dd HH:mm:ss")
+dateTimeEndMaintenanceFormated = Format(dateTimeEnd, "yyyy-MM-dd HH:mm:ss")
+
+SQL = "INSERT INTO maintenance " & _
+    "(id_room, time, datetime_start, datetime_end, id_user) VALUES " & _
+    "(" & Me.tIdRoom & "," & Me.tTimeMaintenance & ",'" & dateTimeStartMaintenanceFormated & _
+    "','" & dateTimeEndMaintenanceFormated & "'," & Ap.cUserLogued.id & ")"
+conBd.Execute (SQL)
+
+SQL = "UPDATE room SET code_status = '" & Ap.cStatusRoomStatic.MAINTENANCE.code & "' WHERE id=" & Me.tIdRoom & ""
+conBd.Execute (SQL)
+
+Call manager.loadInfoRooms
+Unload Me
+End Sub
+
 
 Private Sub cmdExit_Click()
 Unload Me

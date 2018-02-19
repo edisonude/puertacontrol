@@ -16,7 +16,7 @@ Option Explicit
 'Clase COperationRoomLog, mapea directamente con la tabla service para la gestión de operaciones
 
 'Attributes
-Public id As Integer
+Public id As Double
 Public dateAction As Date
 Public dateActionFormated As String
 Public idRoom As Integer
@@ -25,7 +25,7 @@ Public message As String
 Public processed As Boolean
 Public dateProcessed As Date
 
-Public Sub loadOperation(id As Integer, dateAction As Date, idRoom As Integer, message As String, _
+Public Sub loadOperation(id As Double, dateAction As Date, idRoom As Integer, message As String, _
     processed As Boolean, dateProcessed As Date)
     Me.id = id
     Me.dateAction = dateAction
@@ -105,6 +105,8 @@ If rec.RecordCount >= 1 Then
                 Else
                     processedStatus = cStatusRoomOperationStatic.ERROR_NO_SYSTEM_EMAIL.code
                 End If
+            Else
+                processedStatus = cStatusRoomOperationStatic.NO_ALARM.code
             End If
         End If
     End If

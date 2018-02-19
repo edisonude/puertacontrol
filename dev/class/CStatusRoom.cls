@@ -32,6 +32,9 @@ Public CLEAN As CStatusRoom
 'Habitación en limpieza
 Public CLEAN_PROGRESS As CStatusRoom
 
+'Habitación en mantenimiento
+Public MAINTENANCE As CStatusRoom
+
 'Attributes
 Public code As String
 Public description As String
@@ -71,6 +74,11 @@ Me.CLEAN.description = "A limpieza"
 Set Me.CLEAN_PROGRESS = New CStatusRoom
 Me.CLEAN_PROGRESS.code = "CLP"
 Me.CLEAN_PROGRESS.description = "En limpieza"
+
+'Instancia para estado: Habitación en mantenimiento
+Set Me.MAINTENANCE = New CStatusRoom
+Me.MAINTENANCE.code = "MAN"
+Me.MAINTENANCE.description = "Mantenimiento"
 
 End Function
 

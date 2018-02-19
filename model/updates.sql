@@ -103,6 +103,8 @@ INSERT INTO `puertacontrol`.`operation_room_status` (`id`, `description`) VALUES
 
 -- 17/02/2018
 
+INSERT INTO `puertacontrol`.`operation_room_status` (`id`, `description`) VALUES ('6', 'NO_ALARM');
+
 -- Estado de mantenimiento
 INSERT INTO `puertacontrol`.`status_room` (`code`, `description`) VALUES ('MAN', 'Mantenimiento');
 
@@ -111,3 +113,57 @@ ADD COLUMN `time_maintenance` INT NULL COMMENT 'Tiempo de mantenimiento de una h
 
 update room set time_maintenance='15' where id<=24;
 update room set time_maintenance='20' where id>24;
+
+CREATE TABLE `maintenance` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_room` int(11) NOT NULL,
+  `time` int(11) DEFAULT NULL COMMENT 'Tiempo del mantenimiento en minutos',
+  `datetime_start` datetime NOT NULL,
+  `datetime_end` datetime NOT NULL,
+  `datetime_real_end` datetime DEFAULT NULL,
+  `id_user` int(11) DEFAULT NULL COMMENT 'Usuario que inicio la operación de mantenimiento',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Almacena los matenimientos realizados a las habitaciones.';
+      
+ALTER TABLE `puertacontrol`.`maintenance` 
+ADD COLUMN `status` VARCHAR(5) NOT NULL DEFAULT 'ACT' COMMENT 'Determina el estado del mantenimiento ACT(Activo) FIN(Finalizado)' AFTER `id_user`;
+
+USE `puertacontrol`;
+CREATE 
+     OR REPLACE ALGORITHM = UNDEFINED 
+    DEFINER = `root`@`localhost` 
+    SQL SECURITY DEFINER
+VIEW `room_details` AS
+    SELECT 
+        `r`.`id` AS `id`,
+        `r`.`number` AS `number`,
+        `rt`.`description` AS `type`,
+        `a`.`alerts` AS `alerts`,
+        `sr`.`code` AS `status_code`,
+        `sr`.`description` AS `status`,
+        `s`.`id` AS `service_id`,
+        `s`.`datetime_start_service` AS `datetime_start_service`,
+        `s`.`datetime_end_service` AS `datetime_end_service`,
+        `s`.`datetime_start_clean` AS `datetime_start_clean`,
+        `s`.`datetime_end_clean` AS `datetime_end_clean`,
+        `mm`.`id` AS `id_maintenance`,
+        `mm`.`datetime_start` AS `datetime_start_maintenance`,
+        `mm`.`datetime_end` AS `datetime_end_maintenance`
+    FROM
+        (((((`puertacontrol`.`room` `r`
+        LEFT JOIN (SELECT 
+            `puertacontrol`.`alert`.`id_room` AS `id_room`,
+                COUNT(`puertacontrol`.`alert`.`id`) AS `alerts`
+        FROM
+            `puertacontrol`.`alert`
+        WHERE
+            ((`puertacontrol`.`alert`.`code_type` = 'IDO')
+                AND (`puertacontrol`.`alert`.`date` > DATE_FORMAT((NOW() - INTERVAL 0 DAY), '%Y-%m-%d 00:00:00')))
+        GROUP BY `puertacontrol`.`alert`.`id_room`) `a` ON ((`r`.`id` = `a`.`id_room`)))
+        JOIN `puertacontrol`.`status_room` `sr` ON ((`sr`.`code` = `r`.`code_status`)))
+        JOIN `puertacontrol`.`room_type` `rt` ON ((`r`.`id_type` = `rt`.`id`)))
+        LEFT JOIN `puertacontrol`.`service` `s` ON (((`s`.`id_room` = `r`.`id`)
+            AND (`s`.`status` = 'ACT'))))
+        LEFT JOIN `puertacontrol`.`maintenance` `mm` ON (`mm`.`id_room` = `r`.`id`) AND (`mm`.`status` = 'ACT'));
+
+

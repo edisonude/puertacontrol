@@ -36,6 +36,9 @@ Public AVOIDED_BY_ADMIN As CStatusOperationRoom
 'Operación evitada porque las alertas estan desactivadas para la habitacion
 Public ROOM_DISABLED As CStatusOperationRoom
 
+'No genera alarma dado que la habitación se encuentra en un servicio
+Public NO_ALARM As CStatusOperationRoom
+
 'Attributes
 Public code As Integer
 Public description As String
@@ -66,6 +69,10 @@ Me.AVOIDED_BY_ADMIN.description = "AVOIDED_BY_ADMIN"
 Set Me.ROOM_DISABLED = New CStatusOperationRoom
 Me.ROOM_DISABLED.code = 5
 Me.ROOM_DISABLED.description = "ROOM_DISABLED"
+
+Set Me.NO_ALARM = New CStatusOperationRoom
+Me.NO_ALARM.code = 6
+Me.NO_ALARM.description = "NO_ALARM"
 
 End Function
 
