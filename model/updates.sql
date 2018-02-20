@@ -165,5 +165,37 @@ VIEW `room_details` AS
         LEFT JOIN `puertacontrol`.`service` `s` ON (((`s`.`id_room` = `r`.`id`)
             AND (`s`.`status` = 'ACT'))))
         LEFT JOIN `puertacontrol`.`maintenance` `mm` ON (`mm`.`id_room` = `r`.`id`) AND (`mm`.`status` = 'ACT'));
+        
+-- 18/02/2018
 
+CREATE TABLE `puertacontrol`.`cash` (
+  `cash` DOUBLE NULL COMMENT 'Valor de efectivo en la caja',
+  `total_services` INT NULL COMMENT 'Total de servicios que han sumado valor a la caja',
+  `total_collection` INT NULL COMMENT 'Total de recaudos que han restado valor a la caja',
+  `total_expenses` INT NULL COMMENT 'Total gastos que han restado valor a la caja',
+  `total_income` INT NULL COMMENT 'Total de ingresos que aumentan el valor de la caja')
+COMMENT = 'Almacena los valores del control de caja';
+
+CREATE TABLE `cash_operations` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `type` varchar(15) NOT NULL COMMENT 'Tipo de operación de la caja',
+  `date` datetime NOT NULL COMMENT 'Fecha de la operación de caja',
+  `value` double NOT NULL COMMENT 'Valor de la operación',
+  `id_user` int(11) NOT NULL COMMENT 'Usuario que ejecutó la operación',
+  PRIMARY KEY (`id`),
+  KEY `fk_cash_operation_user_idx` (`id_user`),
+  CONSTRAINT `fk_cash_operation_user` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Almacena todas las operaciones relacionadas con la caja';
+
+ALTER TABLE `puertacontrol`.`cash_operations` 
+ADD INDEX `fk_cash_operation_user_idx` (`id_user` ASC);
+ALTER TABLE `puertacontrol`.`cash_operations` 
+ADD CONSTRAINT `fk_cash_operation_user`
+  FOREIGN KEY (`id_user`)
+  REFERENCES `puertacontrol`.`user` (`id`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+-- valores iniciales de la caja
+insert into cash values (0,0,0,0,0);
 

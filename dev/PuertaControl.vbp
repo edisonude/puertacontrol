@@ -35,6 +35,7 @@ Form=form\frmDetailsService.frm
 Form=form\frmModifyService.frm
 Class=CStatusOperationRoom; class\CStatusOperationRoom.cls
 Form=form\frmAssignMaintenance.frm
+Form=form\frmControlCash.frm
 IconForm="frmTest"
 Startup="Sub Main"
 HelpFile=""

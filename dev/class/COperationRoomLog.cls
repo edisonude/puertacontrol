@@ -94,7 +94,7 @@ If rec.RecordCount >= 1 Then
         dateLastOperation = rec("date_action")
         rec.Close
         
-        secondsDiff = DateDiff("s", dateLastOperation, Now())
+        secondsDiff = DateDiff("s", dateLastOperation, Me.dateAction)
         
         If secondsDiff <= 30 Then
             processedStatus = cStatusRoomOperationStatic.ERROR_NOISE.code

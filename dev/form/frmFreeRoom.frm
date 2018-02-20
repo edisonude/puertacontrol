@@ -691,6 +691,15 @@ conBd.Execute (SQL)
 SQL = "UPDATE room SET code_status = '" & Ap.cStatusRoomStatic.CLEAN.code & "' WHERE id=" & Me.tIdRoom & ""
 conBd.Execute (SQL)
 
+'Operaciones para la caja
+SQL = "INSERT INTO cash_operations " & _
+    "(type, date, value, id_user) VALUES " & _
+    "('SERVICIO','" & dateTimeEndRealServiceFormated & "'," & netValueService & "," & Ap.cUserLogued.id & ");"
+conBd.Execute (SQL)
+
+SQL = "UPDATE cash SET cash = cash + " & netValueService & ",total_services=total_services+1"
+conBd.Execute (SQL)
+
 MsgBox "El servicio finalizó correctamente", vbInformation
 Unload Me
 End Sub

@@ -27,10 +27,10 @@ Begin VB.Form frmMenu
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   3135
+      Height          =   1695
       Left            =   120
       TabIndex        =   6
-      Top             =   4965
+      Top             =   5445
       Visible         =   0   'False
       Width           =   3135
       Begin VB.Image Image5 
@@ -102,11 +102,43 @@ Begin VB.Form frmMenu
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   2415
+      Height          =   2895
       Left            =   120
       TabIndex        =   1
       Top             =   2400
       Width           =   3135
+      Begin VB.Label actControlCash 
+         Caption         =   "Control de caja"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   14.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   -1  'True
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H009F4320&
+         Height          =   375
+         Left            =   315
+         TabIndex        =   13
+         Top             =   2280
+         Width           =   2610
+      End
+      Begin VB.Image Image5 
+         Height          =   210
+         Index           =   2
+         Left            =   120
+         Picture         =   "frmMenu.frx":0404
+         Top             =   2355
+         Width           =   150
+      End
+      Begin VB.Line Line2 
+         X1              =   240
+         X2              =   2880
+         Y1              =   2160
+         Y2              =   2160
+      End
       Begin VB.Label label 
          Alignment       =   2  'Center
          Caption         =   "Habitaciones disponibles"
@@ -121,10 +153,10 @@ Begin VB.Form frmMenu
          EndProperty
          Height          =   375
          Index           =   0
-         Left            =   240
+         Left            =   120
          TabIndex        =   5
          Top             =   1320
-         Width           =   2775
+         Width           =   2895
       End
       Begin VB.Label tRoomsFree 
          Alignment       =   2  'Center
@@ -140,10 +172,10 @@ Begin VB.Form frmMenu
          EndProperty
          ForeColor       =   &H009F4320&
          Height          =   375
-         Left            =   240
+         Left            =   120
          TabIndex        =   4
          Top             =   1680
-         Width           =   2775
+         Width           =   2895
       End
       Begin VB.Label label 
          Alignment       =   2  'Center
@@ -159,10 +191,10 @@ Begin VB.Form frmMenu
          EndProperty
          Height          =   375
          Index           =   1
-         Left            =   240
+         Left            =   120
          TabIndex        =   3
          Top             =   480
-         Width           =   2775
+         Width           =   2895
       End
       Begin VB.Label tRoomsInService 
          Alignment       =   2  'Center
@@ -178,10 +210,10 @@ Begin VB.Form frmMenu
          EndProperty
          ForeColor       =   &H009F4320&
          Height          =   375
-         Left            =   240
+         Left            =   120
          TabIndex        =   2
          Top             =   840
-         Width           =   2775
+         Width           =   2895
       End
    End
    Begin VB.Timer Timer1 
@@ -191,7 +223,8 @@ Begin VB.Form frmMenu
       Top             =   0
    End
    Begin VB.Label lVersion 
-      Caption         =   "1.9"
+      Alignment       =   1  'Right Justify
+      Caption         =   "1.10"
       BeginProperty Font 
          Name            =   "Calibri"
          Size            =   9.75
@@ -205,7 +238,7 @@ Begin VB.Form frmMenu
       Height          =   255
       Left            =   2745
       TabIndex        =   12
-      Top             =   1095
+      Top             =   1215
       Width           =   375
    End
    Begin VB.Label cmdChangePwd 
@@ -282,30 +315,32 @@ Begin VB.Form frmMenu
    Begin VB.Image Image4 
       Height          =   630
       Left            =   240
-      Picture         =   "frmMenu.frx":0404
+      Picture         =   "frmMenu.frx":0606
       Top             =   4080
       Width           =   2520
    End
    Begin VB.Image Image3 
       Height          =   630
       Left            =   240
-      Picture         =   "frmMenu.frx":56F6
+      Picture         =   "frmMenu.frx":58F8
       Top             =   3120
       Width           =   2535
    End
    Begin VB.Image Image2 
       Height          =   615
       Left            =   240
-      Picture         =   "frmMenu.frx":AA90
+      Picture         =   "frmMenu.frx":AC92
       Top             =   2400
       Width           =   2535
    End
    Begin VB.Image Image1 
-      Height          =   990
+      Appearance      =   0  'Flat
+      BorderStyle     =   1  'Fixed Single
+      Height          =   1020
       Left            =   240
-      Picture         =   "frmMenu.frx":FC2E
+      Picture         =   "frmMenu.frx":FE30
       Top             =   120
-      Width           =   2820
+      Width           =   2850
    End
    Begin XtremeSkinFramework.SkinFramework skinObject 
       Left            =   120
@@ -326,6 +361,12 @@ Dim conBd As ADODB.Connection
 Dim rec As New ADODB.Recordset
 
 Dim operationUtil As New COperationRoomLog
+
+Private Sub actControlCash_Click()
+frmControlCash.left = Me.lReferencia.left - 1000
+frmControlCash.Top = Me.lReferencia.Top - 500
+frmControlCash.Show , Me
+End Sub
 
 Private Sub cmdChangePwd_Click()
 frmChangePwd.Show vbModal
