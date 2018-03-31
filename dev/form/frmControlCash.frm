@@ -14,6 +14,317 @@ Begin VB.Form frmControlCash
    ScaleWidth      =   16560
    ShowInTaskbar   =   0   'False
    StartUpPosition =   3  'Windows Default
+   Begin VB.Frame picDetails 
+      BackColor       =   &H00926F47&
+      Caption         =   "Detalles de la operación"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   11.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   4335
+      Left            =   4800
+      TabIndex        =   37
+      Top             =   3720
+      Visible         =   0   'False
+      Width           =   6855
+      Begin VB.CommandButton cmdQuitDetails 
+         Caption         =   "Cancelar"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   15.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   390
+         Left            =   2640
+         TabIndex        =   38
+         Top             =   3720
+         Width           =   1815
+      End
+      Begin VB.Label lUser 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Tipo"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   14.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00FFFFFF&
+         Height          =   375
+         Left            =   1560
+         TabIndex        =   48
+         Top             =   1560
+         Width           =   3495
+      End
+      Begin VB.Label lValue 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Tipo"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   14.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00FFFFFF&
+         Height          =   375
+         Left            =   1560
+         TabIndex        =   47
+         Top             =   1200
+         Width           =   3495
+      End
+      Begin VB.Label lDate 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Tipo"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   14.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00FFFFFF&
+         Height          =   375
+         Left            =   1560
+         TabIndex        =   46
+         Top             =   840
+         Width           =   3495
+      End
+      Begin VB.Label lType 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Tipo"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   14.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00FFFFFF&
+         Height          =   375
+         Left            =   1560
+         TabIndex        =   45
+         Top             =   480
+         Width           =   3495
+      End
+      Begin VB.Line Line2 
+         BorderColor     =   &H0058432C&
+         X1              =   360
+         X2              =   6360
+         Y1              =   2280
+         Y2              =   2280
+      End
+      Begin VB.Label lDescription 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Descripción"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   14.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00FFFFFF&
+         Height          =   1335
+         Left            =   360
+         TabIndex        =   44
+         Top             =   2280
+         Width           =   6015
+      End
+      Begin VB.Label label 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Descripción"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   14.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Index           =   8
+         Left            =   360
+         TabIndex        =   43
+         Top             =   1920
+         Width           =   1455
+      End
+      Begin VB.Label label 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Usuario"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   14.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Index           =   7
+         Left            =   360
+         TabIndex        =   42
+         Top             =   1560
+         Width           =   1095
+      End
+      Begin VB.Label label 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Valor"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   14.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Index           =   6
+         Left            =   360
+         TabIndex        =   41
+         Top             =   1200
+         Width           =   1095
+      End
+      Begin VB.Label label 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Fecha"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   14.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Index           =   5
+         Left            =   360
+         TabIndex        =   40
+         Top             =   840
+         Width           =   1095
+      End
+      Begin VB.Label label 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Tipo"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   14.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Index           =   4
+         Left            =   360
+         TabIndex        =   39
+         Top             =   480
+         Width           =   1095
+      End
+   End
+   Begin VB.Frame picSave 
+      BackColor       =   &H00C0C0C0&
+      Height          =   3615
+      Left            =   3600
+      TabIndex        =   32
+      Top             =   2040
+      Visible         =   0   'False
+      Width           =   6855
+      Begin VB.CommandButton actCancel 
+         Caption         =   "Cancelar"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   15.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   495
+         Left            =   3840
+         TabIndex        =   36
+         Top             =   2880
+         Width           =   1815
+      End
+      Begin VB.CommandButton actSave 
+         Caption         =   "Completar operación"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   15.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   495
+         Left            =   840
+         TabIndex        =   35
+         Top             =   2880
+         Width           =   2895
+      End
+      Begin VB.TextBox tJustification 
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   2010
+         Left            =   240
+         MultiLine       =   -1  'True
+         TabIndex        =   33
+         Top             =   720
+         Width           =   6375
+      End
+      Begin VB.Label Label3 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Justificación de la operación"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   14.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Left            =   240
+         TabIndex        =   34
+         Top             =   240
+         Width           =   3735
+      End
+   End
    Begin VB.CommandButton cmdExit 
       Caption         =   "Salir"
       BeginProperty Font 
@@ -108,7 +419,7 @@ Begin VB.Form frmControlCash
             _ExtentX        =   2355
             _ExtentY        =   661
             _Version        =   393216
-            Format          =   96206849
+            Format          =   167575553
             CurrentDate     =   43142
          End
          Begin MSComCtl2.DTPicker tTimeStart 
@@ -130,7 +441,7 @@ Begin VB.Form frmControlCash
             _ExtentY        =   661
             _Version        =   393216
             CustomFormat    =   "HH:mm:ss"
-            Format          =   96206850
+            Format          =   167575554
             CurrentDate     =   43142
          End
          Begin MSComCtl2.DTPicker tDateEnd 
@@ -142,7 +453,7 @@ Begin VB.Form frmControlCash
             _ExtentX        =   2355
             _ExtentY        =   661
             _Version        =   393216
-            Format          =   96206849
+            Format          =   167575553
             CurrentDate     =   43142
          End
          Begin MSComCtl2.DTPicker tTimeEnd 
@@ -154,7 +465,7 @@ Begin VB.Form frmControlCash
             _ExtentX        =   2566
             _ExtentY        =   661
             _Version        =   393216
-            Format          =   96206850
+            Format          =   167575554
             CurrentDate     =   43142
          End
          Begin VB.Label label 
@@ -380,7 +691,7 @@ Begin VB.Form frmControlCash
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         NumItems        =   5
+         NumItems        =   6
          BeginProperty ColumnHeader(1) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
             Text            =   "Id"
             Object.Width           =   0
@@ -405,6 +716,11 @@ Begin VB.Form frmControlCash
             SubItemIndex    =   4
             Text            =   "Usuario"
             Object.Width           =   2540
+         EndProperty
+         BeginProperty ColumnHeader(6) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+            SubItemIndex    =   5
+            Text            =   "Descripción"
+            Object.Width           =   0
          EndProperty
       End
       Begin VB.Label tTotalRows 
@@ -663,6 +979,11 @@ Dim filterDates As Boolean
 Dim filtersApplied As Integer
 
 
+Private Sub actCancel_Click()
+Me.tJustification = ""
+Me.picSave.Visible = False
+End Sub
+
 Private Sub actGasto_Click()
 typeOperation = "GASTO"
 fieldOperation = "total_expenses"
@@ -686,15 +1007,15 @@ Me.tValue = ""
 Me.tValue.SetFocus
 End Sub
 
-Private Sub cmdApply_Click()
+Private Sub actSave_Click()
 Dim valueCash As Double
 Dim dateTimeOperationFormated As String
 dateTimeOperationFormated = Format(Now(), "yyyy-MM-dd HH:mm:ss")
 valueCash = ModFormater.convertCurrencyToValue(Me.tValue)
 
 SQL = "INSERT INTO cash_operations " & _
-    "(type, date, value, id_user) VALUES " & _
-    "('" & typeOperation & "','" & dateTimeOperationFormated & "'," & valueCash & "," & Ap.cUserLogued.id & ");"
+    "(type, date, value, id_user,description) VALUES " & _
+    "('" & typeOperation & "','" & dateTimeOperationFormated & "'," & valueCash & "," & Ap.cUserLogued.id & ",'" & Me.tJustification & "');"
 conBd.Execute (SQL)
 
 If typeOperation = "INGRESO" Then
@@ -705,8 +1026,15 @@ End If
 conBd.Execute (SQL)
 
 Me.tValue = ""
+Me.tJustification = ""
+Me.picSave.Visible = False
 Call queryWithParameters
 Call loadInfoCash
+End Sub
+
+Private Sub cmdApply_Click()
+Me.picSave.Visible = True
+Me.tJustification.SetFocus
 End Sub
 
 Private Sub cmdExit_Click()
@@ -726,6 +1054,10 @@ filterDates = True
 Me.picDates.Visible = False
 End Sub
 
+Private Sub cmdQuitDetails_Click()
+Me.picDetails.Visible = False
+End Sub
+
 Private Sub cmdSinFiltros_Click()
 ModComponents.cleanFilters tFiltro, -1
 filterDates = 0
@@ -736,6 +1068,10 @@ End Sub
 
 Private Sub cmdStartQueryDates_Click()
 picDates.Visible = True
+End Sub
+
+Private Sub Command1_Click()
+
 End Sub
 
 Private Sub Form_Load()
@@ -783,6 +1119,16 @@ Set conBd = ModConexion.getNewConection
 rec.CursorLocation = adUseClient
 End Function
 
+Private Sub list_DblClick()
+If Me.list.ListItems.Count = 0 Then Exit Sub
+Me.lType = Me.list.SelectedItem.SubItems(1)
+Me.lDate = Me.list.SelectedItem.SubItems(2)
+Me.lValue = Me.list.SelectedItem.SubItems(3)
+Me.lUser = Me.list.SelectedItem.SubItems(4)
+Me.lDescription = Me.list.SelectedItem.SubItems(5)
+Me.picDetails.Visible = True
+End Sub
+
 Private Sub tValue_GotFocus()
 Me.tValue = ModFormater.convertCurrencyToValue(Me.tValue)
 Me.tValue.SelStart = Len(Me.tValue)
@@ -813,6 +1159,7 @@ Do Until rec.EOF
         li.SubItems(2) = rec("date")
         li.SubItems(3) = ModFormater.convertValueToCurrency(rec("value"), 0)
         li.SubItems(4) = rec("username")
+        li.SubItems(5) = rec("description")
         totalOperations = totalOperations + ModFormater.getValue(rec("value"), 0)
     rec.MoveNext
 Loop

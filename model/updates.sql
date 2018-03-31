@@ -199,3 +199,9 @@ ADD CONSTRAINT `fk_cash_operation_user`
 -- valores iniciales de la caja
 insert into cash values (0,0,0,0,0);
 
+-- 20/02/2018
+
+ALTER TABLE `puertacontrol`.`cash_operations` 
+ADD COLUMN `description` VARCHAR(500) NULL AFTER `id_user`;
+
+
