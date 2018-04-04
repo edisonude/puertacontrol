@@ -245,7 +245,7 @@ Begin VB.Form frmModifyService
          Height          =   4710
          Left            =   120
          TabIndex        =   4
-         Top             =   345
+         Top             =   360
          Width           =   5655
          _ExtentX        =   9975
          _ExtentY        =   8308
@@ -270,37 +270,54 @@ Begin VB.Form frmModifyService
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         NumItems        =   6
+         NumItems        =   8
          BeginProperty ColumnHeader(1) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
-            Text            =   "Id"
+            Text            =   "id_detail"
             Object.Width           =   2540
          EndProperty
          BeginProperty ColumnHeader(2) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
             SubItemIndex    =   1
-            Text            =   "Concepto"
+            Text            =   "id_packge"
             Object.Width           =   2540
          EndProperty
          BeginProperty ColumnHeader(3) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
             SubItemIndex    =   2
-            Text            =   "Cantidad"
+            Text            =   "id_product"
             Object.Width           =   2540
          EndProperty
          BeginProperty ColumnHeader(4) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
-            Alignment       =   1
             SubItemIndex    =   3
-            Text            =   "Precio"
+            Text            =   "Concepto"
             Object.Width           =   2540
          EndProperty
          BeginProperty ColumnHeader(5) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
             SubItemIndex    =   4
-            Text            =   "Delete"
+            Text            =   "Cantidad"
             Object.Width           =   2540
          EndProperty
          BeginProperty ColumnHeader(6) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+            Alignment       =   1
             SubItemIndex    =   5
-            Text            =   "id_detail"
+            Text            =   "Precio"
             Object.Width           =   2540
          EndProperty
+         BeginProperty ColumnHeader(7) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+            SubItemIndex    =   6
+            Text            =   "Desc"
+            Object.Width           =   2540
+         EndProperty
+         BeginProperty ColumnHeader(8) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+            SubItemIndex    =   7
+            Text            =   "removable"
+            Object.Width           =   2540
+         EndProperty
+      End
+      Begin VB.OLE OLE1 
+         Height          =   30
+         Left            =   3720
+         TabIndex        =   32
+         Top             =   2520
+         Width           =   135
       End
    End
    Begin VB.Frame Frame3 
@@ -674,11 +691,15 @@ End If
 Dim valueProduct As Double
 valueProduct = ModFormater.convertCurrencyToValue(Me.tPrice) * Me.tQuantity
 
-Set li = Me.listInvoice.ListItems.Add(, , Me.tIdProduct)
-        li.SubItems(1) = Me.tProduct
-        li.SubItems(2) = Me.tQuantity
-        li.SubItems(3) = ModFormater.convertValueToCurrency(valueProduct, 0)
-
+Set li = Me.listInvoice.ListItems.Add(, , 0)
+    li.SubItems(1) = 0
+    li.SubItems(2) = Me.tIdProduct
+    li.SubItems(3) = Me.tProduct
+    li.SubItems(4) = Me.tQuantity
+    li.SubItems(5) = ModFormater.convertValueToCurrency(valueProduct, 0)
+    li.SubItems(6) = "0%"
+    li.SubItems(7) = "1"
+    
 Call cleanProduct
 Call calculateTotal
 End Sub
@@ -693,33 +714,29 @@ Me.cmdAddProduct.Enabled = False
 End Function
 
 Private Sub cmdEndService_Click()
+On Error GoTo control:
+
+conBd.BeginTrans
+
 Dim item As Integer
 For item = 1 To Me.listInvoice.ListItems.Count
 
-If Me.listInvoice.ListItems(item).SubItems(5) <> "" Then
-    GoTo continue
-End If
-
-If Me.listInvoice.ListItems(item).SubItems(4) = "0" Then
-    SQL = "INSERT INTO service_details " & _
-        "(id_service, id_package, quantity, price) VALUES " & _
-        "(" & Me.tIdService & "," & Me.listInvoice.ListItems(item) & "," & Me.listInvoice.ListItems(item).SubItems(2) & "," & ModFormater.convertCurrencyToValue(Me.listInvoice.ListItems(item).SubItems(3)) & ");"
-        
-    conBd.Execute (SQL)
-Else
-    SQL = "INSERT INTO service_details " & _
-        "(id_service, id_product, quantity, price) VALUES " & _
-        "(" & Me.tIdService & "," & Me.listInvoice.ListItems(item) & "," & Me.listInvoice.ListItems(item).SubItems(2) & "," & ModFormater.convertCurrencyToValue(Me.listInvoice.ListItems(item).SubItems(3)) & ");"
-    conBd.Execute (SQL)
+    Dim detail As cServiceDetail
+    Set detail = New cServiceDetail
+    detail.loadService Me.listInvoice.ListItems(item), Me.tIdService, ModFormater.getValue(Me.listInvoice.ListItems(item).SubItems(2), 0), _
+    ModFormater.getValue(Me.listInvoice.ListItems(item).SubItems(1), 0), Me.listInvoice.ListItems(item).SubItems(4), 0, _
+    ModFormater.getValue(Val(Me.listInvoice.ListItems(item).SubItems(6)), 0), ModFormater.convertCurrencyToValue(Me.listInvoice.ListItems(item).SubItems(5))
     
-    SQL = "UPDATE product SET quantity=quantity-" & Me.listInvoice.ListItems(item).SubItems(2) & " where id= '" & Me.listInvoice.ListItems(item) & "'"
-    conBd.Execute (SQL)
-End If
-continue:
+    If Not detail.save(conBd) Then
+        GoTo control
+    End If
 Next
-
+conBd.CommitTrans
 MsgBox "El servicio se actualizó correctamente", vbInformation
 Unload Me
+control:
+MsgBox "No se pudo actualizar el servicio", vbCritical
+Call ModConexion.rollBack(conBd)
 End Sub
 
 Private Sub cmdQuitProduct_Click()
@@ -735,8 +752,8 @@ Dim widthCols(4) As Double
 
 widthTotal = Me.listProducts.Width
 widthCols(1) = widthTotal * 0 'id
-widthCols(2) = widthTotal * 0.5 'producto
-widthCols(3) = widthTotal * 0.2 'tipo
+widthCols(2) = widthTotal * 0.5 'concepto
+widthCols(3) = widthTotal * 0.2 'cantidad
 widthCols(4) = widthTotal * 0.24 'precio
 
 ModComponents.setWidthForColumnsAndFilters tFiltro, listProducts, widthCols
@@ -745,17 +762,17 @@ Me.tFiltro(1).Visible = False
 Dim ancho As Double
 ancho = Me.listInvoice.Width
 Me.listInvoice.ColumnHeaders(1).Width = ancho * 0
-Me.listInvoice.ColumnHeaders(2).Width = ancho * 0.5
-Me.listInvoice.ColumnHeaders(3).Width = ancho * 0.21
-Me.listInvoice.ColumnHeaders(4).Width = ancho * 0.28
-Me.listInvoice.ColumnHeaders(5).Width = ancho * 0
+Me.listInvoice.ColumnHeaders(2).Width = ancho * 0
+Me.listInvoice.ColumnHeaders(3).Width = ancho * 0
+Me.listInvoice.ColumnHeaders(4).Width = ancho * 0.4
+Me.listInvoice.ColumnHeaders(5).Width = ancho * 0.15
+Me.listInvoice.ColumnHeaders(6).Width = ancho * 0.25
+Me.listInvoice.ColumnHeaders(7).Width = ancho * 0.17
+Me.listInvoice.ColumnHeaders(8).Width = ancho * 0
+
 
 baseSQL = "SELECT p.*,pt.description as type FROM product p inner join product_type pt on p.code_product_type = pt.code"
 baseSQL = "SELECT p.*,pt.description as type FROM product p inner join product_type pt on p.code_product_type = pt.code where p.description like '%P1%' and pt.description like '%P2%'"
-End Sub
-
-Private Sub Image2_Click()
-
 End Sub
 
 Private Sub iReload_Click()
@@ -770,12 +787,26 @@ End If
 End Sub
 
 Private Function removeItem()
-If (Me.listInvoice.SelectedItem.SubItems(4) = "0") Then
-        MsgBox "El item del servicio de la habitación no puede ser eliminado", vbInformation
+If (Me.listInvoice.SelectedItem.SubItems(7) = "0") Then
+    MsgBox "El item no puede ser eliminado", vbInformation
+    Exit Function
+End If
+
+'Se verifica si el detalle se encuentra persistido
+If Me.listInvoice.SelectedItem > 0 Then
+    Dim detailToRemove As cServiceDetail
+    Set detailToRemove = cServiceDetail.findById(Me.listInvoice.SelectedItem)
+    
+    If detailToRemove Is Nothing Then
+        MsgBox "No se pudo cargar el detalle que se desea borrar", vbCritical, "Error - Administrador"
         Exit Function
     End If
-    Me.listInvoice.ListItems.Remove (Me.listInvoice.SelectedItem.Index)
-    Call calculateTotal
+
+    If Not detailToRemove.remove Then Exit Function
+End If
+
+Me.listInvoice.ListItems.remove (Me.listInvoice.SelectedItem.Index)
+Call calculateTotal
 End Function
 
 
@@ -816,15 +847,27 @@ End Sub
 
 'Carga la información dele servicio activo
 Private Sub loadInfoService(idRoom As String)
-rec.Open "SELECT s.*,p.description from service_details s inner join package p on p.id=s.id_package where s.id_service=" & Me.tIdService & ";", conBd, adOpenStatic, adLockOptimistic
+rec.Open "SELECT s.id as id_detail,p.id as id_package,pr.id as id_product, case when id_product is null then p.description else pr.description end as item," & _
+         "s.quantity,s.price,s.discount, (SELECT case when (p.selectable is null or p.selectable =0) then 1 else 0 end)" & _
+         "as removable from service_details s left join package p on p.id=s.id_package left join product pr " & _
+         "on s.id_product = pr.id where s.id_service='" & Me.tIdService & "'", conBd, adOpenStatic, adLockOptimistic
 Me.listInvoice.ListItems.Clear
+
+Dim valDiscount As Double
+Dim valItem As Double
+
 Do Until rec.EOF
-    Set li = Me.listInvoice.ListItems.Add(, , rec("id_package"))
-        li.SubItems(1) = rec("description")
-        li.SubItems(2) = rec("quantity")
-        li.SubItems(3) = rec("total")
-        li.SubItems(4) = "0"
-        li.SubItems(5) = rec("id")
+    Set li = Me.listInvoice.ListItems.Add(, , rec("id_detail"))
+        li.SubItems(1) = ModFormater.getValue(rec("id_package"), 0)
+        li.SubItems(2) = ModFormater.getValue(rec("id_product"), 0)
+        li.SubItems(3) = rec("item")
+        li.SubItems(4) = rec("quantity")
+        valItem = ModFormater.getValue(rec("price"), 0)
+        valDiscount = ModFormater.getValue(rec("discount"), 0)
+        valItem = valItem * ((100 - valDiscount) / 100)
+        li.SubItems(5) = ModFormater.convertValueToCurrency(valItem, 0)
+        li.SubItems(6) = valDiscount & "%"
+        li.SubItems(7) = rec("removable")
     rec.MoveNext
 Loop
 rec.Close
@@ -840,7 +883,7 @@ Private Function calculateTotal()
 Dim item As Integer
 netValueService = 0
 For item = 1 To Me.listInvoice.ListItems.Count
-    netValueService = netValueService + ModFormater.convertCurrencyToValue(listInvoice.ListItems(item).SubItems(3))
+    netValueService = netValueService + ModFormater.convertCurrencyToValue(listInvoice.ListItems(item).SubItems(5))
 Next
 Me.tTotal = ModFormater.convertValueToCurrency(netValueService, 0)
 End Function

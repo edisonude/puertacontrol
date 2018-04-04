@@ -63,4 +63,11 @@ End With
 Set getNewConection = newMysqlCon
 End Function
 
+Public Sub rollBack(conBd As ADODB.Connection)
+On Error Resume Next
+If Not conBd Is Nothing And conBd.State = adStateOpen Then
+    conBd.RollbackTrans
+End If
+End Sub
+
 
