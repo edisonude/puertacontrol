@@ -25,6 +25,8 @@ Public price As Double
 Public discount As Integer
 Public total As Double
 
+Public service As cService
+
 Public Sub loadService(id As Double, id_service As Double, id_product As Integer, id_package As Integer, _
     quantity As Integer, price As Double, discount As Integer, total As Double)
     Me.id = id
@@ -97,6 +99,15 @@ On Error GoTo control
     If Me.id_product > 0 Then
         Me.quantity = Me.quantity * -1
         Call updateProduct(conBd)
+    Else
+        If Ap.CODE_PCK_EXTRA_HOUR = Me.id_package Then
+            Me.getService().addHour()
+            
+        
+            Dim product As CProduct
+Set product = cProductStatic.findById(Me.id_product)
+Call product.addOrSubstractQuantity(conBd, Me.quantity)
+        End If
     End If
     
     If Ap.conBdOwn Then
@@ -141,4 +152,10 @@ rec.Close
 conBd.Close
 End Function
 
-
+'Obtiene toda la información del servicio relacionado con el detalle
+Public Function getService() As cService
+If service Is Nothing Then
+    Set service = Ap.cService.findById(Me.id_service)
+End If
+Set getService = service
+End Function

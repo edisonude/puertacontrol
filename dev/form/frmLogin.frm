@@ -14,6 +14,14 @@ Begin VB.Form frmLogin
    ScaleHeight     =   2595
    ScaleWidth      =   6150
    StartUpPosition =   2  'CenterScreen
+   Begin VB.CommandButton Command1 
+      Caption         =   "Command1"
+      Height          =   615
+      Left            =   5400
+      TabIndex        =   5
+      Top             =   1920
+      Width           =   735
+   End
    Begin VB.Timer timeFoco 
       Interval        =   100
       Left            =   720
@@ -131,6 +139,10 @@ Else
     MsgBox "Los datos de ingreso son incorrectos", vbCritical, "Error ingreso"
 End If
 
+End Sub
+
+Private Sub Command1_Click()
+Ap.cService.findById (253)
 End Sub
 
 Private Sub Form_Load()

@@ -14,9 +14,8 @@ Begin VB.Form frmModifyService
    ScaleHeight     =   8820
    ScaleWidth      =   12375
    StartUpPosition =   2  'CenterScreen
-   Begin VB.CommandButton Command2 
+   Begin VB.CommandButton cmdAddExtraPerson 
       Caption         =   "Agregar persona extra"
-      Enabled         =   0   'False
       BeginProperty Font 
          Name            =   "Calibri"
          Size            =   11.25
@@ -32,9 +31,8 @@ Begin VB.Form frmModifyService
       Top             =   1920
       Width           =   2415
    End
-   Begin VB.CommandButton Command1 
+   Begin VB.CommandButton cmdAddExtraHour 
       Caption         =   "Agregar hora extra"
-      Enabled         =   0   'False
       BeginProperty Font 
          Name            =   "Calibri"
          Size            =   11.25
@@ -84,6 +82,15 @@ Begin VB.Form frmModifyService
       TabIndex        =   13
       Top             =   120
       Width           =   5895
+      Begin VB.Label tIdTypeRoom 
+         BackColor       =   &H000000FF&
+         Height          =   255
+         Left            =   4440
+         TabIndex        =   33
+         Top             =   240
+         Visible         =   0   'False
+         Width           =   390
+      End
       Begin VB.Label tIdService 
          BackColor       =   &H000000FF&
          Height          =   255
@@ -681,6 +688,25 @@ Dim netValueService As Double
 'Valor base para el filtro de productos
 Dim baseSQL As String
 
+Private Sub cmdAddExtraHour_Click()
+Dim packageExtraHour As CPackagexTypeRoom
+Dim package As CPackage
+
+Set packageExtraHour = Ap.cPackagexTypeRoomStatic.findByPackageAndRoom(Ap.CODE_PCK_EXTRA_HOUR, Me.tIdTypeRoom)
+Set package = packageExtraHour.getPackage()
+
+Set li = Me.listInvoice.ListItems.Add(, , 0)
+    li.SubItems(1) = Ap.CODE_PCK_EXTRA_HOUR
+    li.SubItems(2) = 0
+    li.SubItems(3) = package.description
+    li.SubItems(4) = 1
+    li.SubItems(5) = ModFormater.convertValueToCurrency(packageExtraHour.price, 0)
+    li.SubItems(6) = "0%"
+    li.SubItems(7) = "1"
+    
+Call calculateTotal
+End Sub
+
 Private Sub cmdAddProduct_Click()
 If Me.tQuantity = "" Or Val(Me.tQuantity) = 0 Then
     MsgBox "La cantidad del producto no puede ser cero o estar vacía", vbInformation
@@ -734,6 +760,7 @@ Next
 conBd.CommitTrans
 MsgBox "El servicio se actualizó correctamente", vbInformation
 Unload Me
+Exit Sub
 control:
 MsgBox "No se pudo actualizar el servicio", vbCritical
 Call ModConexion.rollBack(conBd)
@@ -741,6 +768,10 @@ End Sub
 
 Private Sub cmdQuitProduct_Click()
 Call removeItem
+End Sub
+
+Private Sub Command1_Click()
+
 End Sub
 
 Private Sub Form_Load()
@@ -836,6 +867,7 @@ Do Until rec.EOF
     Me.tIdRoom = rec("id")
     Me.tFloor = rec("floor")
     Me.tTypeRoom = rec("type")
+    Me.tIdTypeRoom = rec("id_type")
     rec.MoveNext
 Loop
 rec.Close
