@@ -1,2 +1,7 @@
 Version: 1.11
 Descripción: Se agregan totalizadores al reporte de productos, se ajusta reporte de caja para descripciones nulas
+
+-----------------------------------------------------------------------------------------------------------------------
+
+Version: 1.12
+Descripción: Ajuste para la modificación y finalización de servicios - Requiere actualización de paquetes, se crea nuevo paquete para la licorera
