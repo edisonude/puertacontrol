@@ -205,3 +205,17 @@ ALTER TABLE `puertacontrol`.`cash_operations`
 ADD COLUMN `description` VARCHAR(500) NULL AFTER `id_user`;
 
 
+
+
+
+-----------------------------------------------------------------------------------------------------------
+-- 03/04/2018
+ALTER TABLE `puertacontrol`.`package` 
+ADD COLUMN `selectable` TINYINT(1) NOT NULL DEFAULT 0 AFTER `description`;
+
+INSERT INTO `puertacontrol`.`package` (`id`, `description`, `selectable`) VALUES ('3', 'Persona adicional', '0');
+INSERT INTO `puertacontrol`.`package` (`id`, `description`, `selectable`) VALUES ('4', 'Hora adicional', '0');
+UPDATE `puertacontrol`.`package` SET `selectable`='1' WHERE `id`='1';
+UPDATE `puertacontrol`.`package` SET `selectable`='1' WHERE `id`='2';
+
+

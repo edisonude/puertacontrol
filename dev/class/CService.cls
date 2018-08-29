@@ -46,10 +46,10 @@ Public Sub loadServiceFromRecord(rec As Recordset)
     Call Me.loadService(rec(1), rec(2), rec(3), rec(4), rec(5), rec(6), rec(7), rec(8), rec(9), rec(10))
 End Sub
 
-Public Function loadLast10OperationsNoProcessed() As CService()
+Public Function loadLast10OperationsNoProcessed() As cService()
 Dim conBd As ADODB.Connection
 Dim rec As New ADODB.Recordset
-Dim operationsToProcess(10) As CService
+Dim operationsToProcess(10) As cService
 Dim pos As Integer
 pos = 1
 
@@ -61,7 +61,7 @@ rec.Open "select * from operation_room_log order by date_action ASC LIMIT 10", c
 
 If (rec.RecordCount >= 1) Then
     Do Until rec.EOF
-        Dim service As New CService
+        Dim service As New cService
         service.loadServiceFromRecord (rec)
         operationsToProcess(pos) = service
         rec.MoveNext
@@ -71,5 +71,33 @@ End If
 loadLast10OperationsNoProcessed = operationsToProcess
 
 rec.Close
+conBd.Close
+End Function
+
+'Elimina el detalle de un servicio
+Public Function removeServiceDetail(id_detail, id_package, id_product) As Boolean
+
+Dim conBd As ADODB.Connection
+conBd.BeginTrans
+
+'Elimina el detalle relacionado al servicio
+SQL = "DELETE from service_details where id_detail = " & id_detail & ""
+conBd.Execute (SQL)
+
+If id_product > 0 Then
+                
+Else
+
+
+End If
+
+
+
+Set conBd = ModConexion.getNewConection
+
+
+
+MsgBox "El producto se eliminó con éxito", vbInformation
+Unload Me
 End Function
 

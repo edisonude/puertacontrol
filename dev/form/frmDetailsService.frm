@@ -589,7 +589,7 @@ Do Until rec.EOF
         li.SubItems(1) = rec("quantity")
         li.SubItems(2) = ModFormater.convertValueToCurrency(rec("price"), 0)
         netValueService = netValueService + rec("price")
-        li.SubItems(3) = Val(ModFormater.getValue(rec("discount"), 0)) * 100 & "%"
+        li.SubItems(3) = Val(ModFormater.getValue(rec("discount"), 0)) & "%"
     rec.MoveNext
 Loop
 rec.Close
