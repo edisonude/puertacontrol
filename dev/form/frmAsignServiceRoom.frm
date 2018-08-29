@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{BD0C1912-66C3-49CC-8B12-7B347BF6C846}#13.2#0"; "CODEJO~1.OCX"
+Object = "{BD0C1912-66C3-49CC-8B12-7B347BF6C846}#13.2#0"; "Codejock.SkinFramework.v13.2.1.ocx"
 Begin VB.Form frmAsignServiceRoom 
    BorderStyle     =   1  'Fixed Single
    Caption         =   "Asignar servicio para habitación"
@@ -501,6 +501,8 @@ Do Until rec.EOF
     rec.MoveNext
 Loop
 rec.Close
+
+Me.cmbTypePackage.ListIndex = 0
 End Sub
 
 Private Function loadBd()

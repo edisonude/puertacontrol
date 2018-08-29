@@ -218,4 +218,13 @@ INSERT INTO `puertacontrol`.`package` (`id`, `description`, `selectable`) VALUES
 UPDATE `puertacontrol`.`package` SET `selectable`='1' WHERE `id`='1';
 UPDATE `puertacontrol`.`package` SET `selectable`='1' WHERE `id`='2';
 
+-----------------------------------------------------------------------------------------------------------
+-- 29/08/2018
+
+--Se crea nuevo paquete
+INSERT INTO `package` VALUES (5,'Licorera',1);
+
+INSERT INTO `package_x_type_room` 
+VALUES (15,5,1,1,1,0,0),(16,5,2,1,1,0,0),(17,5,3,1,1,0,0),(18,5,4,1,1,0,0),(19,5,5,1,1,0,0),(20,5,6,1,1,0,0),(21,5,7,1,1,0,0);
+
 

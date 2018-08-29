@@ -7108,10 +7108,11 @@ Call setPositionElements
 End Sub
 
 Private Sub initFreeRoom(idRoom As Integer)
-frmFreeRoom.tIdService = Me.tIdService(idRoom)
-frmFreeRoom.tNoRoom = Me.lNoRoom(idRoom)
-Set frmFreeRoom.manager = Me
-frmFreeRoom.Show vbModal
+frmModifyService.tIdService = Me.tIdService(idRoom)
+frmModifyService.tNoRoom = Me.lNoRoom(idRoom)
+frmModifyService.lEndService = "true"
+Set frmModifyService.manager = Me
+frmModifyService.Show vbModal
 End Sub
 
 Private Sub hideAll(idRoom As Integer)

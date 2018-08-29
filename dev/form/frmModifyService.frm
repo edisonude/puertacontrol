@@ -84,6 +84,13 @@ Begin VB.Form frmModifyService
       TabIndex        =   13
       Top             =   120
       Width           =   5895
+      Begin VB.Label lEndService 
+         Height          =   255
+         Left            =   5400
+         TabIndex        =   33
+         Top             =   1320
+         Width           =   375
+      End
       Begin VB.Label tIdService 
          BackColor       =   &H000000FF&
          Height          =   255
@@ -681,6 +688,8 @@ Dim netValueService As Double
 'Valor base para el filtro de productos
 Dim baseSQL As String
 
+Dim endService As Boolean
+
 Private Sub cmdAddProduct_Click()
 If Me.tQuantity = "" Or Val(Me.tQuantity) = 0 Then
     MsgBox "La cantidad del producto no puede ser cero o estar vacía", vbInformation
@@ -732,11 +741,37 @@ For item = 1 To Me.listInvoice.ListItems.Count
     End If
 Next
 conBd.CommitTrans
-MsgBox "El servicio se actualizó correctamente", vbInformation
-Unload Me
+
+If endService Then
+    Dim dateTimeEndRealService  As Date
+    Dim dateTimeEndRealServiceFormated As String
+    dateTimeEndRealService = Now()
+    dateTimeEndRealServiceFormated = Format(dateTimeEndRealService, "yyyy-MM-dd HH:mm:ss")
+    
+    SQL = "UPDATE service SET datetime_end_real_service= '" & dateTimeEndRealServiceFormated & "', net_value=" & netValueService & " WHERE id='" & Me.tIdService & "'"
+    conBd.Execute (SQL)
+    
+    SQL = "UPDATE room SET code_status = '" & Ap.cStatusRoomStatic.CLEAN.code & "' WHERE id=" & Me.tIdRoom & ""
+    conBd.Execute (SQL)
+    
+    'Operaciones para la caja
+    SQL = "INSERT INTO cash_operations " & _
+        "(type, date, value, id_user) VALUES " & _
+        "('SERVICIO','" & dateTimeEndRealServiceFormated & "'," & netValueService & "," & Ap.cUserLogued.id & ");"
+    conBd.Execute (SQL)
+    
+    SQL = "UPDATE cash SET cash = cash + " & netValueService & ",total_services=total_services+1"
+    conBd.Execute (SQL)
+    
+    MsgBox "El servicio finalizó correctamente", vbInformation
+    Unload Me
+    Call manager.loadInfoRooms
+Else
+    MsgBox "El servicio actualizó correctamente", vbInformation
+End If
 Exit Sub
 control:
-MsgBox "No se pudo actualizar el servicio", vbCritical
+MsgBox "No se pudo completar la operación con el servicio", vbCritical
 Call ModConexion.rollBack(conBd)
 End Sub
 
@@ -774,11 +809,20 @@ Me.listInvoice.ColumnHeaders(8).Width = ancho * 0
 
 baseSQL = "SELECT p.*,pt.description as type FROM product p inner join product_type pt on p.code_product_type = pt.code"
 baseSQL = "SELECT p.*,pt.description as type FROM product p inner join product_type pt on p.code_product_type = pt.code where p.description like '%P1%' and pt.description like '%P2%'"
+
+endService = False
 End Sub
 
 Private Sub iReload_Click()
 ModComponents.cleanFilters tFiltro, -1
 Call reloadProducts
+End Sub
+
+Private Sub lEndService_Change()
+If Me.lEndService.Caption = "true" Then
+    endService = True
+    Me.cmdEndService.Caption = "Finalizar servicio"
+End If
 End Sub
 
 Private Sub listInvoice_KeyDown(KeyCode As Integer, Shift As Integer)
@@ -856,6 +900,7 @@ Me.listInvoice.ListItems.Clear
 
 Dim valDiscount As Double
 Dim valItem As Double
+Dim quantity As Double
 
 Do Until rec.EOF
     Set li = Me.listInvoice.ListItems.Add(, , rec("id_detail"))
@@ -863,9 +908,10 @@ Do Until rec.EOF
         li.SubItems(2) = ModFormater.getValue(rec("id_product"), 0)
         li.SubItems(3) = rec("item")
         li.SubItems(4) = rec("quantity")
+        quantity = ModFormater.getValue(rec("quantity"), 1)
         valItem = ModFormater.getValue(rec("price"), 0)
         valDiscount = ModFormater.getValue(rec("discount"), 0)
-        valItem = valItem * ((100 - valDiscount) / 100)
+        valItem = (valItem * ((100 - valDiscount) / 100)) * quantity
         li.SubItems(5) = ModFormater.convertValueToCurrency(valItem, 0)
         li.SubItems(6) = valDiscount & "%"
         li.SubItems(7) = rec("removable")
