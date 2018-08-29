@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
-Object = "{BD0C1912-66C3-49CC-8B12-7B347BF6C846}#13.2#0"; "CODEJO~1.OCX"
+Object = "{BD0C1912-66C3-49CC-8B12-7B347BF6C846}#13.2#0"; "Codejock.SkinFramework.v13.2.1.ocx"
 Begin VB.Form frmModifyService 
    BorderStyle     =   1  'Fixed Single
    Caption         =   "Modificación de servicio"
@@ -734,6 +734,7 @@ Next
 conBd.CommitTrans
 MsgBox "El servicio se actualizó correctamente", vbInformation
 Unload Me
+Exit Sub
 control:
 MsgBox "No se pudo actualizar el servicio", vbCritical
 Call ModConexion.rollBack(conBd)
