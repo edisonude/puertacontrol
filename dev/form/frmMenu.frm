@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{BD0C1912-66C3-49CC-8B12-7B347BF6C846}#13.2#0"; "CODEJO~1.OCX"
+Object = "{BD0C1912-66C3-49CC-8B12-7B347BF6C846}#13.2#0"; "Codejock.SkinFramework.v13.2.1.ocx"
 Begin VB.Form frmMenu 
    Caption         =   "Puerta Control"
    ClientHeight    =   7605
@@ -224,7 +224,7 @@ Begin VB.Form frmMenu
    End
    Begin VB.Label lVersion 
       Alignment       =   1  'Right Justify
-      Caption         =   "1.10"
+      Caption         =   "1.11"
       BeginProperty Font 
          Name            =   "Calibri"
          Size            =   9.75

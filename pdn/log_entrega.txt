@@ -1,0 +1,2 @@
+Version: 1.11
+Descripción: Se agregan totalizadores al reporte de productos, se ajusta reporte de caja para descripciones nulas
