@@ -1,17 +1,17 @@
 VERSION 5.00
 Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
-Object = "{BD0C1912-66C3-49CC-8B12-7B347BF6C846}#13.2#0"; "CODEJO~1.OCX"
+Object = "{BD0C1912-66C3-49CC-8B12-7B347BF6C846}#13.2#0"; "Codejock.SkinFramework.v13.2.1.ocx"
 Begin VB.Form frmReportProducts 
    BorderStyle     =   0  'None
    Caption         =   "Form1"
-   ClientHeight    =   9825
+   ClientHeight    =   9930
    ClientLeft      =   0
    ClientTop       =   0
    ClientWidth     =   17535
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   9825
+   ScaleHeight     =   9930
    ScaleWidth      =   17535
    ShowInTaskbar   =   0   'False
    StartUpPosition =   3  'Windows Default
@@ -25,7 +25,7 @@ Begin VB.Form frmReportProducts
          Italic          =   -1  'True
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   8775
+      Height          =   9255
       Left            =   120
       TabIndex        =   1
       Top             =   600
@@ -279,11 +279,13 @@ Begin VB.Form frmReportProducts
             Object.Width           =   2540
          EndProperty
          BeginProperty ColumnHeader(4) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+            Alignment       =   1
             SubItemIndex    =   3
             Text            =   "Cantidad"
             Object.Width           =   2540
          EndProperty
          BeginProperty ColumnHeader(5) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+            Alignment       =   1
             SubItemIndex    =   4
             Text            =   "Cant. Min"
             Object.Width           =   2540
@@ -300,6 +302,140 @@ Begin VB.Form frmReportProducts
             Text            =   "Precio Venta"
             Object.Width           =   2540
          EndProperty
+      End
+      Begin VB.Label tUtilidadLabel 
+         Alignment       =   1  'Right Justify
+         BackColor       =   &H0080C0FF&
+         BackStyle       =   0  'Transparent
+         Caption         =   "Utilidad"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   12
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H0000C000&
+         Height          =   375
+         Left            =   3480
+         TabIndex        =   21
+         Top             =   8760
+         Width           =   855
+      End
+      Begin VB.Label tUtilidad 
+         Alignment       =   1  'Right Justify
+         Caption         =   "900"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   12
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H0000C000&
+         Height          =   375
+         Left            =   4560
+         TabIndex        =   20
+         Top             =   8760
+         Width           =   375
+      End
+      Begin VB.Label tTotalQuantity 
+         Alignment       =   1  'Right Justify
+         Caption         =   "900"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   12
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H009F4320&
+         Height          =   375
+         Left            =   4560
+         TabIndex        =   19
+         Top             =   8520
+         Width           =   375
+      End
+      Begin VB.Label tTotalSale 
+         Alignment       =   1  'Right Justify
+         Caption         =   "900"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   12
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H009F4320&
+         Height          =   375
+         Left            =   3960
+         TabIndex        =   18
+         Top             =   8520
+         Width           =   375
+      End
+      Begin VB.Label tTotalRows 
+         Alignment       =   1  'Right Justify
+         Caption         =   "900"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   12
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H009F4320&
+         Height          =   375
+         Left            =   240
+         TabIndex        =   17
+         Top             =   8520
+         Width           =   375
+      End
+      Begin VB.Label label 
+         Caption         =   "productos listados"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   12
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Index           =   3
+         Left            =   690
+         TabIndex        =   16
+         Top             =   8520
+         Width           =   1845
+      End
+      Begin VB.Label tTotalBuy 
+         Alignment       =   1  'Right Justify
+         Caption         =   "900"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   12
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H009F4320&
+         Height          =   375
+         Left            =   3360
+         TabIndex        =   15
+         Top             =   8520
+         Width           =   375
       End
    End
    Begin XtremeSkinFramework.SkinFramework skinObject 
@@ -388,6 +524,22 @@ Me.tFiltro(1).Visible = False
 Me.tFiltro(6).Visible = False
 Me.tFiltro(7).Visible = False
 
+'Configuracion de los totalizadores
+'Total valor servicios
+Me.tTotalBuy.left = Me.tFiltro(6).left
+Me.tTotalBuy.Width = Me.tFiltro(6).Width
+
+Me.tTotalSale.left = Me.tFiltro(7).left
+Me.tTotalSale.Width = Me.tFiltro(7).Width
+
+Me.tUtilidadLabel.left = Me.tFiltro(6).left
+Me.tUtilidadLabel.Width = Me.tFiltro(6).Width
+Me.tUtilidad.left = Me.tFiltro(7).left
+Me.tUtilidad.Width = Me.tFiltro(7).Width
+
+Me.tTotalQuantity.left = Me.tFiltro(4).left
+Me.tTotalQuantity.Width = Me.tFiltro(4).Width
+
 'Iniciar
 Me.reloadForm
 seleccion = 0
@@ -400,6 +552,10 @@ rec.CursorLocation = adUseClient
 End Function
 
 Private Sub loadList(SQL As String)
+Dim totalBuy As Double
+Dim totalSale As Double
+Dim totalQuantity As Double
+
 rec.Open SQL, conBd, adOpenStatic, adLockOptimistic
 Me.listProducts.ListItems.Clear
 Do Until rec.EOF
@@ -408,11 +564,20 @@ Do Until rec.EOF
         li.SubItems(2) = rec("type")
         li.SubItems(3) = rec("quantity")
         li.SubItems(4) = rec("quantity_min")
+        totalBuy = totalBuy + ModFormater.getValue(rec("last_price_buy"), 0)
+        totalSale = totalSale + ModFormater.getValue(rec("price_sale"), 0)
+        totalQuantity = totalQuantity + ModFormater.getValue(rec("quantity"), 0)
         li.SubItems(5) = ModFormater.convertValueToCurrency(rec("last_price_buy"), 0)
         li.SubItems(6) = ModFormater.convertValueToCurrency(rec("price_sale"), 0)
     rec.MoveNext
 Loop
 rec.Close
+
+Me.tTotalBuy = ModFormater.convertValueToCurrency(totalBuy, 0)
+Me.tTotalSale = ModFormater.convertValueToCurrency(totalSale, 0)
+Me.tUtilidad = ModFormater.convertValueToCurrency((totalSale - totalBuy), 0)
+Me.tTotalQuantity = totalQuantity
+Me.tTotalRows = Me.listProducts.ListItems.Count
 End Sub
 
 Public Sub reloadForm()

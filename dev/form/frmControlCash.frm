@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
-Object = "{BD0C1912-66C3-49CC-8B12-7B347BF6C846}#13.2#0"; "CODEJO~1.OCX"
+Object = "{BD0C1912-66C3-49CC-8B12-7B347BF6C846}#13.2#0"; "Codejock.SkinFramework.v13.2.1.ocx"
 Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
 Begin VB.Form frmControlCash 
    BorderStyle     =   0  'None
@@ -419,7 +419,7 @@ Begin VB.Form frmControlCash
             _ExtentX        =   2355
             _ExtentY        =   661
             _Version        =   393216
-            Format          =   167575553
+            Format          =   135856129
             CurrentDate     =   43142
          End
          Begin MSComCtl2.DTPicker tTimeStart 
@@ -441,7 +441,7 @@ Begin VB.Form frmControlCash
             _ExtentY        =   661
             _Version        =   393216
             CustomFormat    =   "HH:mm:ss"
-            Format          =   167575554
+            Format          =   135856130
             CurrentDate     =   43142
          End
          Begin MSComCtl2.DTPicker tDateEnd 
@@ -453,7 +453,7 @@ Begin VB.Form frmControlCash
             _ExtentX        =   2355
             _ExtentY        =   661
             _Version        =   393216
-            Format          =   167575553
+            Format          =   135856129
             CurrentDate     =   43142
          End
          Begin MSComCtl2.DTPicker tTimeEnd 
@@ -465,7 +465,7 @@ Begin VB.Form frmControlCash
             _ExtentX        =   2566
             _ExtentY        =   661
             _Version        =   393216
-            Format          =   167575554
+            Format          =   135856130
             CurrentDate     =   43142
          End
          Begin VB.Label label 
@@ -1159,7 +1159,7 @@ Do Until rec.EOF
         li.SubItems(2) = rec("date")
         li.SubItems(3) = ModFormater.convertValueToCurrency(rec("value"), 0)
         li.SubItems(4) = rec("username")
-        li.SubItems(5) = rec("description")
+        li.SubItems(5) = ModFormater.getValue(rec("description"), "")
         totalOperations = totalOperations + ModFormater.getValue(rec("value"), 0)
     rec.MoveNext
 Loop
