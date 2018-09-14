@@ -91,17 +91,20 @@ If rec.RecordCount >= 1 Then
     Else
         'Busca la operación para la última habitación
         rec.Open "SELECT date_action FROM operation_room_log where number_room=" & Me.idRoom & " and processed<>0 ORDER BY id DESC LIMIT 1", con, adOpenStatic, adLockOptimistic
-        dateLastOperation = rec("date_action")
+        If rec.RecordCount > 0 Then
+            dateLastOperation = rec("date_action")
+            secondsDiff = DateDiff("s", dateLastOperation, Me.dateAction)
+        Else
+            secondsDiff = 31
+        End If
         rec.Close
-        
-        secondsDiff = DateDiff("s", dateLastOperation, Me.dateAction)
-        
+
         If secondsDiff <= 30 Then
             processedStatus = cStatusRoomOperationStatic.ERROR_NOISE.code
         Else
             If (Ap.cStatusRoomStatic.AVAILABLE.code = status Or Ap.cStatusRoomStatic.CLEAN_PROGRESS.code = status) Then
                 If notify Then
-                    processedStatus = cStatusRoomOperationStatic.SUCCESS.code
+                    processedStatus = cStatusRoomOperationStatic.success.code
                 Else
                     processedStatus = cStatusRoomOperationStatic.ERROR_NO_SYSTEM_EMAIL.code
                 End If
