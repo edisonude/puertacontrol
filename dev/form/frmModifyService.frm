@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
-Object = "{BD0C1912-66C3-49CC-8B12-7B347BF6C846}#13.2#0"; "Codejock.SkinFramework.v13.2.1.ocx"
+Object = "{BD0C1912-66C3-49CC-8B12-7B347BF6C846}#13.2#0"; "CODEJO~1.OCX"
 Begin VB.Form frmModifyService 
    BorderStyle     =   1  'Fixed Single
    Caption         =   "Modificación de servicio"
@@ -68,7 +68,6 @@ Begin VB.Form frmModifyService
       Width           =   2895
    End
    Begin VB.Frame Frame1 
-      BackColor       =   &H00C0C0C0&
       Caption         =   "Información de la habitación"
       BeginProperty Font 
          Name            =   "Calibri"
@@ -89,6 +88,7 @@ Begin VB.Form frmModifyService
          Left            =   5400
          TabIndex        =   33
          Top             =   1320
+         Visible         =   0   'False
          Width           =   375
       End
       Begin VB.Label tIdService 
@@ -328,7 +328,6 @@ Begin VB.Form frmModifyService
       End
    End
    Begin VB.Frame Frame3 
-      BackColor       =   &H00C0C0C0&
       Caption         =   "Agregar producto a la cuenta"
       BeginProperty Font 
          Name            =   "Calibri"

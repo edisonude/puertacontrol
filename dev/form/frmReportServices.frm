@@ -5,12 +5,12 @@ Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
 Begin VB.Form frmReportServices 
    BorderStyle     =   0  'None
    Caption         =   "Form1"
-   ClientHeight    =   9825
+   ClientHeight    =   10500
    ClientLeft      =   0
    ClientTop       =   0
    ClientWidth     =   16800
    LinkTopic       =   "Form1"
-   ScaleHeight     =   9825
+   ScaleHeight     =   10500
    ScaleWidth      =   16800
    ShowInTaskbar   =   0   'False
    StartUpPosition =   3  'Windows Default
@@ -107,7 +107,7 @@ Begin VB.Form frmReportServices
             _ExtentX        =   2355
             _ExtentY        =   661
             _Version        =   393216
-            Format          =   159055873
+            Format          =   120717313
             CurrentDate     =   43142
          End
          Begin MSComCtl2.DTPicker tTimeStart 
@@ -129,7 +129,7 @@ Begin VB.Form frmReportServices
             _ExtentY        =   661
             _Version        =   393216
             CustomFormat    =   "HH:mm:ss"
-            Format          =   159055874
+            Format          =   120717314
             CurrentDate     =   43142
          End
          Begin MSComCtl2.DTPicker tDateEnd 
@@ -141,7 +141,7 @@ Begin VB.Form frmReportServices
             _ExtentX        =   2355
             _ExtentY        =   661
             _Version        =   393216
-            Format          =   159055873
+            Format          =   120717313
             CurrentDate     =   43142
          End
          Begin MSComCtl2.DTPicker tTimeEnd 
@@ -153,7 +153,7 @@ Begin VB.Form frmReportServices
             _ExtentX        =   2566
             _ExtentY        =   661
             _Version        =   393216
-            Format          =   159055874
+            Format          =   120717314
             CurrentDate     =   43142
          End
          Begin VB.Label label 

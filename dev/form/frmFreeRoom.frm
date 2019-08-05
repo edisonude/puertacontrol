@@ -43,7 +43,7 @@ Begin VB.Form frmFreeRoom
          Strikethrough   =   0   'False
       EndProperty
       Height          =   1695
-      Left            =   240
+      Left            =   255
       TabIndex        =   13
       Top             =   120
       Width           =   5895
@@ -756,7 +756,7 @@ If (Me.listInvoice.SelectedItem.SubItems(4) = "0") Then
         MsgBox "El item del servicio de la habitación no puede ser eliminado", vbInformation
         Exit Function
     End If
-    Me.listInvoice.ListItems.Remove (Me.listInvoice.SelectedItem.Index)
+    Me.listInvoice.ListItems.remove (Me.listInvoice.SelectedItem.Index)
     Call calculateTotal
 End Function
 

@@ -5,3 +5,8 @@ Descripción: Se agregan totalizadores al reporte de productos, se ajusta reporte
 
 Version: 1.12
 Descripción: Ajuste para la modificación y finalización de servicios - Requiere actualización de paquetes, se crea nuevo paquete para la licorera
+
+-----------------------------------------------------------------------------------------------------------------------
+
+Version: 1.14
+Descripción: Se agrega la habitación 101, se realizan ajustes para la carga de información de las habitaciones

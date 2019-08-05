@@ -1,17 +1,17 @@
 VERSION 5.00
 Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
-Object = "{BD0C1912-66C3-49CC-8B12-7B347BF6C846}#13.2#0"; "Codejock.SkinFramework.v13.2.1.ocx"
+Object = "{BD0C1912-66C3-49CC-8B12-7B347BF6C846}#13.2#0"; "CODEJO~1.OCX"
 Begin VB.Form frmReportProducts 
    BorderStyle     =   0  'None
    Caption         =   "Form1"
-   ClientHeight    =   9930
+   ClientHeight    =   10455
    ClientLeft      =   0
    ClientTop       =   0
    ClientWidth     =   17535
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   9930
+   ScaleHeight     =   10455
    ScaleWidth      =   17535
    ShowInTaskbar   =   0   'False
    StartUpPosition =   3  'Windows Default

@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{BD0C1912-66C3-49CC-8B12-7B347BF6C846}#13.2#0"; "Codejock.SkinFramework.v13.2.1.ocx"
+Object = "{BD0C1912-66C3-49CC-8B12-7B347BF6C846}#13.2#0"; "CODEJO~1.OCX"
 Begin VB.Form frmAsignServiceRoom 
    BorderStyle     =   1  'Fixed Single
    Caption         =   "Asignar servicio para habitación"
@@ -453,6 +453,7 @@ con.Execute (SQL)
 
 MsgBox "Se asignó el servicio correctamente"
 Call manager.compleReserveRoom(Me.tIdRoom, dateTimeStartService, dateTimeEndService)
+Call manager.assignServiceRoom(Me.tIdRoom, idService)
 Unload Me
 End Sub
 

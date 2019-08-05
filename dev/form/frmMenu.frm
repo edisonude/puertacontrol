@@ -2,12 +2,12 @@ VERSION 5.00
 Object = "{BD0C1912-66C3-49CC-8B12-7B347BF6C846}#13.2#0"; "CODEJO~1.OCX"
 Begin VB.Form frmMenu 
    Caption         =   "Puerta Control"
-   ClientHeight    =   7605
+   ClientHeight    =   8580
    ClientLeft      =   120
    ClientTop       =   465
    ClientWidth     =   10755
    LinkTopic       =   "Form1"
-   ScaleHeight     =   7605
+   ScaleHeight     =   8580
    ScaleWidth      =   10755
    StartUpPosition =   3  'Windows Default
    WindowState     =   2  'Maximized
@@ -224,7 +224,7 @@ Begin VB.Form frmMenu
    End
    Begin VB.Label lVersion 
       Alignment       =   1  'Right Justify
-      Caption         =   "1.13"
+      Caption         =   "1.14"
       BeginProperty Font 
          Name            =   "Calibri"
          Size            =   9.75
@@ -301,7 +301,7 @@ Begin VB.Form frmMenu
       Height          =   495
       Left            =   4440
       TabIndex        =   0
-      Top             =   1320
+      Top             =   960
       Visible         =   0   'False
       Width           =   615
    End
@@ -487,10 +487,10 @@ Private Sub loadNextAvailable()
 End Sub
 
 Private Sub loadNumbersAvailable()
-rec.Open "select count(id) as count from service where status='ACT';", conBd, adOpenStatic, adLockOptimistic
+rec.Open "select count(id) as count from room where code_status='DIS';", conBd, adOpenStatic, adLockOptimistic
 If (rec.RecordCount >= 1) Then
-    Me.tRoomsInService = rec("count")
-    Me.tRoomsFree = MAX_NO_ROOMS - Val(tRoomsInService)
+    Me.tRoomsInService = MAX_NO_ROOMS - rec("count")
+    Me.tRoomsFree = rec("count")
 End If
 rec.Close
 

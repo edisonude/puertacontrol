@@ -1,16 +1,16 @@
 VERSION 5.00
 Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
-Object = "{BD0C1912-66C3-49CC-8B12-7B347BF6C846}#13.2#0"; "Codejock.SkinFramework.v13.2.1.ocx"
+Object = "{BD0C1912-66C3-49CC-8B12-7B347BF6C846}#13.2#0"; "CODEJO~1.OCX"
 Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
 Begin VB.Form frmControlCash 
    BorderStyle     =   0  'None
    Caption         =   "Control de caja"
-   ClientHeight    =   9855
+   ClientHeight    =   10905
    ClientLeft      =   0
    ClientTop       =   0
    ClientWidth     =   16560
    LinkTopic       =   "Form1"
-   ScaleHeight     =   9855
+   ScaleHeight     =   10905
    ScaleWidth      =   16560
    ShowInTaskbar   =   0   'False
    StartUpPosition =   3  'Windows Default
@@ -353,7 +353,7 @@ Begin VB.Form frmControlCash
          Italic          =   -1  'True
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   6900
+      Height          =   8295
       Left            =   360
       TabIndex        =   8
       Top             =   2280
@@ -419,7 +419,7 @@ Begin VB.Form frmControlCash
             _ExtentX        =   2355
             _ExtentY        =   661
             _Version        =   393216
-            Format          =   135856129
+            Format          =   120782849
             CurrentDate     =   43142
          End
          Begin MSComCtl2.DTPicker tTimeStart 
@@ -441,7 +441,7 @@ Begin VB.Form frmControlCash
             _ExtentY        =   661
             _Version        =   393216
             CustomFormat    =   "HH:mm:ss"
-            Format          =   135856130
+            Format          =   120782850
             CurrentDate     =   43142
          End
          Begin MSComCtl2.DTPicker tDateEnd 
@@ -453,7 +453,7 @@ Begin VB.Form frmControlCash
             _ExtentX        =   2355
             _ExtentY        =   661
             _Version        =   393216
-            Format          =   135856129
+            Format          =   120782849
             CurrentDate     =   43142
          End
          Begin MSComCtl2.DTPicker tTimeEnd 
@@ -465,7 +465,7 @@ Begin VB.Form frmControlCash
             _ExtentX        =   2566
             _ExtentY        =   661
             _Version        =   393216
-            Format          =   135856130
+            Format          =   120782850
             CurrentDate     =   43142
          End
          Begin VB.Label label 
@@ -664,13 +664,13 @@ Begin VB.Form frmControlCash
          Width           =   2055
       End
       Begin MSComctlLib.ListView list 
-         Height          =   5295
+         Height          =   6615
          Left            =   240
          TabIndex        =   27
          Top             =   1080
          Width           =   14055
          _ExtentX        =   24791
-         _ExtentY        =   9340
+         _ExtentY        =   11668
          View            =   3
          LabelEdit       =   1
          LabelWrap       =   -1  'True
@@ -739,7 +739,7 @@ Begin VB.Form frmControlCash
          Height          =   375
          Left            =   240
          TabIndex        =   30
-         Top             =   6420
+         Top             =   7740
          Width           =   375
       End
       Begin VB.Label label 
@@ -757,7 +757,7 @@ Begin VB.Form frmControlCash
          Index           =   3
          Left            =   690
          TabIndex        =   29
-         Top             =   6420
+         Top             =   7740
          Width           =   2085
       End
       Begin VB.Label tTotal 
@@ -776,7 +776,7 @@ Begin VB.Form frmControlCash
          Height          =   375
          Left            =   3360
          TabIndex        =   28
-         Top             =   6420
+         Top             =   7740
          Width           =   375
       End
    End
