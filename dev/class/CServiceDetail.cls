@@ -100,13 +100,9 @@ On Error GoTo control
         Me.quantity = Me.quantity * -1
         Call updateProduct(conBd)
     Else
-        If Ap.CODE_PCK_EXTRA_HOUR = Me.id_package Then
-            Me.getService().addHour()
-            
-        
-            Dim product As CProduct
-Set product = cProductStatic.findById(Me.id_product)
-Call product.addOrSubstractQuantity(conBd, Me.quantity)
+        If Me.id_package = Ap.CODE_PCK_EXTRA_HOUR Then
+            SQL = "UPDATE service SET datetime_end_service= DATE_ADD(datetime_end_service, INTERVAL 1 HOUR),datetime_start_clean= DATE_ADD(datetime_start_clean, INTERVAL 1 HOUR),datetime_end_clean= DATE_ADD(datetime_end_clean, INTERVAL 1 HOUR) WHERE id=" & Me.id_service & ""
+            conBd.Execute (SQL)
         End If
     End If
     

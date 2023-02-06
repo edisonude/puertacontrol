@@ -26,6 +26,8 @@ Public conBdOwn As Boolean
 
 'Codigo del paquete para horas extras
 Public Const CODE_PCK_EXTRA_HOUR As Integer = 4
+Public Const DESC_PCK_EXTRA_HOUR As String = "Hora adicional"
 
 'Codigo del paquete para horas extras
 Public Const CODE_PCK_EXTRA_PERSON As Integer = 3
+Public Const DESC_PCK_EXTRA_PERSON As String = "Persona adicional"

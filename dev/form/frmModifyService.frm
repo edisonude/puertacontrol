@@ -1,9 +1,9 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "MSCOMCTL.OCX"
 Object = "{BD0C1912-66C3-49CC-8B12-7B347BF6C846}#13.2#0"; "CODEJO~1.OCX"
 Begin VB.Form frmModifyService 
    BorderStyle     =   1  'Fixed Single
-   Caption         =   "Modificación de servicio"
+   Caption         =   "Detalles del servicio"
    ClientHeight    =   8820
    ClientLeft      =   45
    ClientTop       =   390
@@ -15,7 +15,7 @@ Begin VB.Form frmModifyService
    ScaleWidth      =   12375
    StartUpPosition =   2  'CenterScreen
    Begin VB.CommandButton cmdAddExtraPerson 
-      Caption         =   "Agregar persona extra"
+      Caption         =   "Agregar persona adicional"
       BeginProperty Font 
          Name            =   "Calibri"
          Size            =   11.25
@@ -29,10 +29,10 @@ Begin VB.Form frmModifyService
       Left            =   9240
       TabIndex        =   31
       Top             =   1920
-      Width           =   2415
+      Width           =   2775
    End
    Begin VB.CommandButton cmdAddExtraHour 
-      Caption         =   "Agregar hora extra"
+      Caption         =   "Agregar hora adicional"
       BeginProperty Font 
          Name            =   "Calibri"
          Size            =   11.25
@@ -43,10 +43,10 @@ Begin VB.Form frmModifyService
          Strikethrough   =   0   'False
       EndProperty
       Height          =   375
-      Left            =   6960
+      Left            =   6600
       TabIndex        =   30
       Top             =   1920
-      Width           =   2175
+      Width           =   2415
    End
    Begin VB.CommandButton cmdEndService 
       Caption         =   "Actualizar el servicio"
@@ -66,7 +66,6 @@ Begin VB.Form frmModifyService
       Width           =   2895
    End
    Begin VB.Frame Frame1 
-      BackColor       =   &H00C0C0C0&
       Caption         =   "Información de la habitación"
       BeginProperty Font 
          Name            =   "Calibri"
@@ -82,6 +81,15 @@ Begin VB.Form frmModifyService
       TabIndex        =   13
       Top             =   120
       Width           =   5895
+      Begin VB.Label tIdPackage 
+         BackColor       =   &H000000FF&
+         Height          =   255
+         Left            =   3960
+         TabIndex        =   34
+         Top             =   240
+         Visible         =   0   'False
+         Width           =   375
+      End
       Begin VB.Label tIdTypeRoom 
          BackColor       =   &H000000FF&
          Height          =   255
@@ -328,7 +336,6 @@ Begin VB.Form frmModifyService
       End
    End
    Begin VB.Frame Frame3 
-      BackColor       =   &H00C0C0C0&
       Caption         =   "Agregar producto a la cuenta"
       BeginProperty Font 
          Name            =   "Calibri"
@@ -623,6 +630,15 @@ Begin VB.Form frmModifyService
          Width           =   330
       End
    End
+   Begin VB.Label tEnd 
+      BackColor       =   &H000000FF&
+      Height          =   255
+      Left            =   5040
+      TabIndex        =   35
+      Top             =   8280
+      Visible         =   0   'False
+      Width           =   375
+   End
    Begin VB.Label label 
       Alignment       =   1  'Right Justify
       Caption         =   "Total"
@@ -688,19 +704,51 @@ Dim netValueService As Double
 'Valor base para el filtro de productos
 Dim baseSQL As String
 
-Private Sub cmdAddExtraHour_Click()
-Dim packageExtraHour As CPackagexTypeRoom
-Dim package As CPackage
+Dim valueAddHour As Double
+Dim valueAddPerson As Double
 
-Set packageExtraHour = Ap.cPackagexTypeRoomStatic.findByPackageAndRoom(Ap.CODE_PCK_EXTRA_HOUR, Me.tIdTypeRoom)
-Set package = packageExtraHour.getPackage()
+Private Sub cmdAddExtraHour_Click()
+If (valueAddHour <= 0) Then
+    Dim currentPackage As CPackagexTypeRoom
+    Set currentPackage = Ap.cPackagexTypeRoomStatic.findByPackageAndRoom(Me.tIdPackage, Me.tIdTypeRoom)
+    valueAddHour = currentPackage.priceAddHour
+End If
+
+If (valueAddHour <= 0) Then
+    MsgBox "No se ha definido un precio para la hora adicional en esta habitación y por lo tanto no puede ser agregada al servicio", vbCritical
+    Exit Sub
+End If
 
 Set li = Me.listInvoice.ListItems.Add(, , 0)
     li.SubItems(1) = Ap.CODE_PCK_EXTRA_HOUR
     li.SubItems(2) = 0
-    li.SubItems(3) = package.description
+    li.SubItems(3) = Ap.DESC_PCK_EXTRA_HOUR
     li.SubItems(4) = 1
-    li.SubItems(5) = ModFormater.convertValueToCurrency(packageExtraHour.price, 0)
+    li.SubItems(5) = ModFormater.convertValueToCurrency(valueAddHour, 0)
+    li.SubItems(6) = "0%"
+    li.SubItems(7) = "1"
+    
+Call calculateTotal
+End Sub
+
+Private Sub cmdAddExtraPerson_Click()
+If (valueAddPerson <= 0) Then
+    Dim currentPackage As CPackagexTypeRoom
+    Set currentPackage = Ap.cPackagexTypeRoomStatic.findByPackageAndRoom(Me.tIdPackage, Me.tIdTypeRoom)
+    valueAddPerson = currentPackage.priceAddPerson
+End If
+
+If (valueAddPerson <= 0) Then
+    MsgBox "No se ha definido un precio para la persona adicional en esta habitación y por lo tanto no puede ser agregada al servicio", vbCritical
+    Exit Sub
+End If
+
+Set li = Me.listInvoice.ListItems.Add(, , 0)
+    li.SubItems(1) = Ap.CODE_PCK_EXTRA_PERSON
+    li.SubItems(2) = 0
+    li.SubItems(3) = Ap.DESC_PCK_EXTRA_PERSON
+    li.SubItems(4) = 1
+    li.SubItems(5) = ModFormater.convertValueToCurrency(valueAddPerson, 0)
     li.SubItems(6) = "0%"
     li.SubItems(7) = "1"
     
@@ -740,12 +788,18 @@ Me.cmdAddProduct.Enabled = False
 End Function
 
 Private Sub cmdEndService_Click()
+If Me.tEnd.Caption = "1" Then
+    If MsgBox("¿Está seguro de finalizar el servicio para esta habitación?", vbQuestion + vbYesNo) = vbNo Then
+        Exit Sub
+    End If
+End If
+
 On Error GoTo control:
 
 conBd.BeginTrans
 
 Dim item As Integer
-For item = 1 To Me.listInvoice.ListItems.Count
+For item = 1 To Me.listInvoice.ListItems.count
 
     Dim detail As cServiceDetail
     Set detail = New cServiceDetail
@@ -757,13 +811,43 @@ For item = 1 To Me.listInvoice.ListItems.Count
         GoTo control
     End If
 Next
+
+If Me.tEnd.Caption = "1" Then
+    Call endService
+    MsgBox "El servicio finalizó correctamente", vbInformation
+Else
+    MsgBox "El servicio se actualizó correctamente", vbInformation
+End If
 conBd.CommitTrans
-MsgBox "El servicio se actualizó correctamente", vbInformation
 Unload Me
+
 Exit Sub
 control:
+'Pendiente
 MsgBox "No se pudo actualizar el servicio", vbCritical
 Call ModConexion.rollBack(conBd)
+End Sub
+
+Private Sub endService()
+Dim dateTimeEndRealService  As Date
+Dim dateTimeEndRealServiceFormated As String
+dateTimeEndRealService = Now()
+dateTimeEndRealServiceFormated = Format(dateTimeEndRealService, "yyyy-MM-dd HH:mm:ss")
+
+SQL = "UPDATE service SET datetime_end_real_service= '" & dateTimeEndRealServiceFormated & "', net_value=" & netValueService & " WHERE id='" & Me.tIdService & "'"
+conBd.Execute (SQL)
+
+SQL = "UPDATE room SET code_status = '" & Ap.cStatusRoomStatic.CLEAN.code & "' WHERE id=" & Me.tIdRoom & ""
+conBd.Execute (SQL)
+
+'Operaciones para la caja
+SQL = "INSERT INTO cash_operations " & _
+    "(type, date, value, id_user) VALUES " & _
+    "('SERVICIO','" & dateTimeEndRealServiceFormated & "'," & netValueService & "," & Ap.cUserLogued.id & ");"
+conBd.Execute (SQL)
+
+SQL = "UPDATE cash SET cash = cash + " & netValueService & ",total_services=total_services+1"
+conBd.Execute (SQL)
 End Sub
 
 Private Sub cmdQuitProduct_Click()
@@ -795,14 +879,13 @@ ancho = Me.listInvoice.Width
 Me.listInvoice.ColumnHeaders(1).Width = ancho * 0
 Me.listInvoice.ColumnHeaders(2).Width = ancho * 0
 Me.listInvoice.ColumnHeaders(3).Width = ancho * 0
-Me.listInvoice.ColumnHeaders(4).Width = ancho * 0.4
-Me.listInvoice.ColumnHeaders(5).Width = ancho * 0.15
-Me.listInvoice.ColumnHeaders(6).Width = ancho * 0.25
-Me.listInvoice.ColumnHeaders(7).Width = ancho * 0.17
+Me.listInvoice.ColumnHeaders(4).Width = ancho * 0.53
+Me.listInvoice.ColumnHeaders(5).Width = ancho * 0.2
+Me.listInvoice.ColumnHeaders(6).Width = ancho * 0.26
+Me.listInvoice.ColumnHeaders(7).Width = ancho * 0
 Me.listInvoice.ColumnHeaders(8).Width = ancho * 0
 
-
-baseSQL = "SELECT p.*,pt.description as type FROM product p inner join product_type pt on p.code_product_type = pt.code"
+'baseSQL = "SELECT p.*,pt.description as type FROM product p inner join product_type pt on p.code_product_type = pt.code"
 baseSQL = "SELECT p.*,pt.description as type FROM product p inner join product_type pt on p.code_product_type = pt.code where p.description like '%P1%' and pt.description like '%P2%'"
 End Sub
 
@@ -856,6 +939,12 @@ Private Sub tDiscount_KeyPress(KeyAscii As Integer)
 KeyAscii = ModComponents.SoloNumeros(KeyAscii)
 End Sub
 
+Private Sub tEnd_Change()
+If Me.tEnd.Caption = "1" Then
+    Me.cmdEndService.Caption = "Finalizar Servicio"
+End If
+End Sub
+
 Private Sub tNoRoom_Change()
 Call loadInfoRoom(tNoRoom)
 End Sub
@@ -880,7 +969,7 @@ End Sub
 'Carga la información dele servicio activo
 Private Sub loadInfoService(idRoom As String)
 rec.Open "SELECT s.id as id_detail,p.id as id_package,pr.id as id_product, case when id_product is null then p.description else pr.description end as item," & _
-         "s.quantity,s.price,s.discount, (SELECT case when (p.selectable is null or p.selectable =0) then 1 else 0 end)" & _
+         "s.quantity,s.price,s.discount, 0 " & _
          "as removable from service_details s left join package p on p.id=s.id_package left join product pr " & _
          "on s.id_product = pr.id where s.id_service='" & Me.tIdService & "'", conBd, adOpenStatic, adLockOptimistic
 Me.listInvoice.ListItems.Clear
@@ -890,6 +979,9 @@ Dim valItem As Double
 
 Do Until rec.EOF
     Set li = Me.listInvoice.ListItems.Add(, , rec("id_detail"))
+        If (Not IsNull(rec("id_package")) And rec("id_package") < 3) Then
+            Me.tIdPackage = rec("id_package")
+        End If
         li.SubItems(1) = ModFormater.getValue(rec("id_package"), 0)
         li.SubItems(2) = ModFormater.getValue(rec("id_product"), 0)
         li.SubItems(3) = rec("item")
@@ -914,7 +1006,7 @@ End Function
 Private Function calculateTotal()
 Dim item As Integer
 netValueService = 0
-For item = 1 To Me.listInvoice.ListItems.Count
+For item = 1 To Me.listInvoice.ListItems.count
     netValueService = netValueService + ModFormater.convertCurrencyToValue(listInvoice.ListItems(item).SubItems(5))
 Next
 Me.tTotal = ModFormater.convertValueToCurrency(netValueService, 0)

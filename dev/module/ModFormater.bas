@@ -12,8 +12,8 @@ result = hourExtracted & ":" & minuteExtracted
 getHourAndMinuteFromDate = result
 End Function
 
-Public Function getValue(value, default)
-getValue = IIf(IsNull(value), default, value)
+Public Function getValue(value, Default)
+getValue = IIf(IsNull(value), Default, value)
 End Function
 
 
@@ -39,3 +39,8 @@ End Function
 Public Function convertDateTime(value) As String
 convertDateTime = IIf(IsNull(value), "", Format(value, "dd-MM-yyyy hh:MM:ss"))
 End Function
+
+Public Function convertTime(value) As String
+convertTime = IIf(IsNull(value), "", Format(value, "hh:MM:ss"))
+End Function
+

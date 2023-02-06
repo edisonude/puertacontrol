@@ -1,7 +1,7 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "MSCOMCTL.OCX"
 Object = "{BD0C1912-66C3-49CC-8B12-7B347BF6C846}#13.2#0"; "CODEJO~1.OCX"
-Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.ocx"
 Begin VB.Form frmReportServices 
    BorderStyle     =   0  'None
    Caption         =   "Form1"
@@ -107,7 +107,7 @@ Begin VB.Form frmReportServices
             _ExtentX        =   2355
             _ExtentY        =   661
             _Version        =   393216
-            Format          =   159055873
+            Format          =   133890049
             CurrentDate     =   43142
          End
          Begin MSComCtl2.DTPicker tTimeStart 
@@ -129,7 +129,7 @@ Begin VB.Form frmReportServices
             _ExtentY        =   661
             _Version        =   393216
             CustomFormat    =   "HH:mm:ss"
-            Format          =   159055874
+            Format          =   133890050
             CurrentDate     =   43142
          End
          Begin MSComCtl2.DTPicker tDateEnd 
@@ -141,7 +141,7 @@ Begin VB.Form frmReportServices
             _ExtentX        =   2355
             _ExtentY        =   661
             _Version        =   393216
-            Format          =   159055873
+            Format          =   133890049
             CurrentDate     =   43142
          End
          Begin MSComCtl2.DTPicker tTimeEnd 
@@ -153,7 +153,7 @@ Begin VB.Form frmReportServices
             _ExtentX        =   2566
             _ExtentY        =   661
             _Version        =   393216
-            Format          =   159055874
+            Format          =   133890050
             CurrentDate     =   43142
          End
          Begin VB.Label label 
@@ -430,7 +430,7 @@ Begin VB.Form frmReportServices
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         NumItems        =   10
+         NumItems        =   11
          BeginProperty ColumnHeader(1) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
             Text            =   "Id"
             Object.Width           =   0
@@ -442,7 +442,7 @@ Begin VB.Form frmReportServices
          EndProperty
          BeginProperty ColumnHeader(3) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
             SubItemIndex    =   2
-            Text            =   "Habitación"
+            Text            =   "Hab."
             Object.Width           =   2540
          EndProperty
          BeginProperty ColumnHeader(4) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
@@ -483,6 +483,11 @@ Begin VB.Form frmReportServices
             Alignment       =   1
             SubItemIndex    =   9
             Text            =   "Fin Real Servicio"
+            Object.Width           =   2540
+         EndProperty
+         BeginProperty ColumnHeader(11) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+            SubItemIndex    =   10
+            Text            =   "Diferencia"
             Object.Width           =   2540
          EndProperty
       End
@@ -636,19 +641,20 @@ Call loadBd
 
 'width for the columns
 Dim widthTotal As Double
-Dim widthCols(10) As Double
+Dim widthCols(11) As Double
 
 widthTotal = Me.listProducts.Width
 widthCols(1) = widthTotal * 0 'id
 widthCols(2) = widthTotal * 0.08 'user
-widthCols(3) = widthTotal * 0.08 'number room
+widthCols(3) = widthTotal * 0.04 'number room
 widthCols(4) = widthTotal * 0.12 'type room
 widthCols(5) = widthTotal * 0.1 'paquete
 widthCols(6) = widthTotal * 0.1 'valor total
-widthCols(7) = widthTotal * 0.09 'estado
-widthCols(8) = widthTotal * 0.14 'fecha inicio servicio
-widthCols(9) = widthTotal * 0.14 'fecha fin servicio
-widthCols(10) = widthTotal * 0.14 'fecha fin servicio real
+widthCols(7) = widthTotal * 0.07 'estado
+widthCols(8) = widthTotal * 0.13 'fecha inicio servicio
+widthCols(9) = widthTotal * 0.13 'fecha fin servicio
+widthCols(10) = widthTotal * 0.13 'fecha fin servicio real
+widthCols(11) = widthTotal * 0.095  'diferencia en tiempos
 
 
 ModComponents.setWidthForColumnsAndFilters tFiltro, listProducts, widthCols
@@ -694,12 +700,13 @@ Do Until rec.EOF
         li.SubItems(7) = ModFormater.convertDateTime(rec("datetime_start_service"))
         li.SubItems(8) = ModFormater.convertDateTime(rec("datetime_end_service"))
         li.SubItems(9) = ModFormater.convertDateTime(rec("datetime_end_real_service"))
+        li.SubItems(10) = ModFormater.convertTime(rec("difference"))
     rec.MoveNext
 Loop
 rec.Close
 
 Me.tTotalValueServices = ModFormater.convertValueToCurrency(totalValueServices, 0)
-Me.tTotalRows = Me.listProducts.ListItems.Count
+Me.tTotalRows = Me.listProducts.ListItems.count
 End Sub
 
 'Agrega los parametros al SQL para su cosulta según los criterios de filtro
@@ -720,7 +727,7 @@ End If
 'Verifica y agrega los criterios de los filtros
 On Error GoTo control
 Dim countFilters As Integer
-For countFilters = 0 To Me.tFiltro.Count - 1
+For countFilters = 0 To Me.tFiltro.count - 1
     If Me.tFiltro(countFilters).Text <> "" Then
         Select Case countFilters
             Case 2

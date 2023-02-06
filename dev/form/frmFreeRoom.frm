@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "MSCOMCTL.OCX"
 Object = "{BD0C1912-66C3-49CC-8B12-7B347BF6C846}#13.2#0"; "CODEJO~1.OCX"
 Begin VB.Form frmFreeRoom 
    BorderStyle     =   1  'Fixed Single
@@ -656,7 +656,7 @@ End Function
 
 Private Sub cmdEndService_Click()
 Dim item As Integer
-For item = 1 To Me.listInvoice.ListItems.Count
+For item = 1 To Me.listInvoice.ListItems.count
 
 If Me.listInvoice.ListItems(item).SubItems(5) <> "" Then
     GoTo continue
@@ -732,7 +732,6 @@ Me.listInvoice.ColumnHeaders(3).Width = ancho * 0.21
 Me.listInvoice.ColumnHeaders(4).Width = ancho * 0.28
 Me.listInvoice.ColumnHeaders(5).Width = ancho * 0
 
-baseSQL = "SELECT p.*,pt.description as type FROM product p inner join product_type pt on p.code_product_type = pt.code"
 baseSQL = "SELECT p.*,pt.description as type FROM product p inner join product_type pt on p.code_product_type = pt.code where p.description like '%P1%' and pt.description like '%P2%'"
 End Sub
 
@@ -756,7 +755,7 @@ If (Me.listInvoice.SelectedItem.SubItems(4) = "0") Then
         MsgBox "El item del servicio de la habitación no puede ser eliminado", vbInformation
         Exit Function
     End If
-    Me.listInvoice.ListItems.Remove (Me.listInvoice.SelectedItem.Index)
+    Me.listInvoice.ListItems.remove (Me.listInvoice.SelectedItem.Index)
     Call calculateTotal
 End Function
 
@@ -798,18 +797,46 @@ End Sub
 
 'Carga la información dele servicio activo
 Private Sub loadInfoService(idRoom As String)
-rec.Open "SELECT s.*,p.description from service_details s inner join package p on p.id=s.id_package where s.id_service=" & Me.tIdService & ";", conBd, adOpenStatic, adLockOptimistic
+rec.Open "SELECT s.id as id_detail,p.id as id_package,pr.id as id_product, case when id_product is null then p.description else pr.description end as item," & _
+         "s.quantity,s.price,s.discount, 0 " & _
+         "as removable from service_details s left join package p on p.id=s.id_package left join product pr " & _
+         "on s.id_product = pr.id where s.id_service='" & Me.tIdService & "'", conBd, adOpenStatic, adLockOptimistic
 Me.listInvoice.ListItems.Clear
+
+Dim valDiscount As Double
+Dim valItem As Double
+
 Do Until rec.EOF
-    Set li = Me.listInvoice.ListItems.Add(, , rec("id_package"))
-        li.SubItems(1) = rec("description")
-        li.SubItems(2) = rec("quantity")
-        li.SubItems(3) = ModFormater.convertValueToCurrency(rec("total"), 0)
-        li.SubItems(4) = "0"
-        li.SubItems(5) = rec("id")
+    Set li = Me.listInvoice.ListItems.Add(, , rec("id_detail"))
+        If (Not IsNull(rec("id_package")) And rec("id_package") < 3) Then
+            Me.tIdPackage = rec("id_package")
+        End If
+        li.SubItems(1) = ModFormater.getValue(rec("id_package"), 0)
+        li.SubItems(2) = ModFormater.getValue(rec("id_product"), 0)
+        li.SubItems(3) = rec("item")
+        li.SubItems(4) = rec("quantity")
+        valItem = ModFormater.getValue(rec("price"), 0)
+        valDiscount = ModFormater.getValue(rec("discount"), 0)
+        valItem = valItem * ((100 - valDiscount) / 100)
+        li.SubItems(5) = ModFormater.convertValueToCurrency(valItem, 0)
+        li.SubItems(6) = valDiscount & "%"
+        li.SubItems(7) = rec("removable")
     rec.MoveNext
 Loop
 rec.Close
+
+'rec.Open "SELECT s.*,p.description from service_details s inner join package p on p.id=s.id_package where s.id_service=" & Me.tIdService & ";", conBd, adOpenStatic, adLockOptimistic
+'Me.listInvoice.ListItems.Clear
+'Do Until rec.EOF
+'    Set li = Me.listInvoice.ListItems.Add(, , rec("id_package"))
+'        li.SubItems(1) = rec("description")
+'        li.SubItems(2) = rec("quantity")
+'        li.SubItems(3) = ModFormater.convertValueToCurrency(rec("total"), 0)
+'        li.SubItems(4) = "0"
+'        li.SubItems(5) = rec("id")
+'    rec.MoveNext
+'Loop
+'rec.Close
 End Sub
 
 Private Function loadBd()
@@ -821,7 +848,7 @@ End Function
 Private Function calculateTotal()
 Dim item As Integer
 netValueService = 0
-For item = 1 To Me.listInvoice.ListItems.Count
+For item = 1 To Me.listInvoice.ListItems.count
     netValueService = netValueService + ModFormater.convertCurrencyToValue(listInvoice.ListItems(item).SubItems(3))
 Next
 Me.tTotal = ModFormater.convertValueToCurrency(netValueService, 0)
