@@ -22,7 +22,6 @@ Module=ModFormater; module\ModFormater.bas
 Form=form\frmLogin.frm
 Class=CService; class\CService.cls
 Class=COperationRoomLog; class\COperationRoomLog.cls
-Form=form\frmFreeRoom.frm
 Form=form\frmReportProducts.frm
 Module=ModComponents; module\ModComponents.bas
 Form=form\frmReportServices.frm

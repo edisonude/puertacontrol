@@ -76,26 +76,3 @@ Set findById = service
 rec.Close
 conBd.Close
 End Function
-
-Public Function addHour() As cService
-Dim conBd As ADODB.Connection
-Dim rec As New ADODB.Recordset
-Dim service As cService
-
-'Se solicita una conexion a la bd
-Set conBd = ModConexion.getNewConection
-rec.CursorLocation = adUseClient
-
-Me.datetime_end_service = DateAdd("n", 60, Me.datetime_end_service)
-
-rec.Open "select * from service where id=" & id_service & "", conBd, adOpenStatic, adLockOptimistic
-
-If (rec.RecordCount = 1) Then
-    Set service = New cService
-    Call service.loadServiceFromRecord(rec)
-End If
-Set findById = service
-
-rec.Close
-conBd.Close
-End Function

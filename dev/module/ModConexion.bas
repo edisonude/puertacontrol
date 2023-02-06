@@ -19,7 +19,7 @@ Sub Main()
 
 On Local Error GoTo control
 
-Ap.test = True
+Ap.test = False
 
 'Carga las instancias base para los estados de la habitación
 cStatusRoomStatic.loadBaseInstances
