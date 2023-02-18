@@ -451,7 +451,7 @@ SQL = "UPDATE room SET code_status = '" & Ap.cStatusRoomStatic.BUSY.code & "' WH
 con.Execute (SQL)
 
 
-MsgBox "Se asignó el servicio correctamente"
+MsgBox "Se asignó el servicio correctamente", vbInformation
 Call manager.compleReserveRoom(Me.tIdRoom, dateTimeStartService, dateTimeEndService)
 Call manager.assignServiceRoom(Me.tIdRoom, idService)
 Unload Me

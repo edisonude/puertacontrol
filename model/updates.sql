@@ -209,7 +209,8 @@ ADD COLUMN `description` VARCHAR(500) NULL AFTER `id_user`;
 
 
 -----------------------------------------------------------------------------------------------------------
--- 03/04/2018
+-- 05/02/2023
+
 ALTER TABLE `puertacontrol`.`package` 
 ADD COLUMN `selectable` TINYINT(1) NOT NULL DEFAULT 0 AFTER `description`;
 
@@ -218,13 +219,74 @@ INSERT INTO `puertacontrol`.`package` (`id`, `description`, `selectable`) VALUES
 UPDATE `puertacontrol`.`package` SET `selectable`='1' WHERE `id`='1';
 UPDATE `puertacontrol`.`package` SET `selectable`='1' WHERE `id`='2';
 
+-- Se crean nuevas columnas para manejar los precios de hora adicional y persona adicional
+ALTER TABLE `puertacontrol`.`package_x_type_room` 
+ADD COLUMN `price_add_hour` DOUBLE NOT NULL DEFAULT 0 AFTER `price`,
+ADD COLUMN `price_add_person` DOUBLE NOT NULL DEFAULT 0 AFTER `price_add_hour`;
+
+-- Se actualiza la vista para que tenga la diferencia de tiempos
+CREATE 
+    ALGORITHM = UNDEFINED 
+    DEFINER = `root`@`localhost` 
+    SQL SECURITY DEFINER
+VIEW `vw_services` AS
+    SELECT 
+        `s`.`id` AS `id`,
+        `u`.`username` AS `user`,
+        `r`.`number` AS `number`,
+        `rt`.`description` AS `type_room`,
+        `pk`.`description` AS `package`,
+        `s`.`net_value` AS `net_value`,
+        `s`.`time_service` AS `time_service`,
+        `s`.`time_clean` AS `time_clean`,
+        `s`.`status` AS `status`,
+        `s`.`datetime_start_service` AS `datetime_start_service`,
+        `s`.`datetime_end_service` AS `datetime_end_service`,
+        `s`.`datetime_end_real_service` AS `datetime_end_real_service`,
+        `s`.`datetime_start_clean` AS `datetime_start_clean`,
+        `s`.`datetime_end_clean` AS `datetime_end_clean`,
+        `s`.`datetime_end_real_clean` AS `datetime_end_real_clean`,
+        TIMEDIFF(`s`.`datetime_end_service`,
+                `s`.`datetime_end_real_service`) AS `difference`
+    FROM
+        (((((`service` `s`
+        JOIN `user` `u` ON ((`s`.`id_user` = `u`.`id`)))
+        JOIN `room` `r` ON ((`r`.`id` = `s`.`id_room`)))
+        JOIN `room_type` `rt` ON ((`rt`.`id` = `r`.`id_type`)))
+        JOIN `package_x_type_room` `ptr` ON ((`ptr`.`id` = `s`.`id_package`)))
+        JOIN `package` `pk` ON ((`pk`.`id` = `ptr`.`id_package`)))
+
 -----------------------------------------------------------------------------------------------------------
--- 29/08/2018
-
---Se crea nuevo paquete
-INSERT INTO `package` VALUES (5,'Licorera',1);
-
-INSERT INTO `package_x_type_room` 
-VALUES (15,5,1,1,1,0,0),(16,5,2,1,1,0,0),(17,5,3,1,1,0,0),(18,5,4,1,1,0,0),(19,5,5,1,1,0,0),(20,5,6,1,1,0,0),(21,5,7,1,1,0,0);
-
-
+-- 17/02/2023
+-- Se configura el tiempo de diferencia del servicio en segundos
+CREATE 
+    ALGORITHM = UNDEFINED 
+    DEFINER = `root`@`localhost` 
+    SQL SECURITY DEFINER
+VIEW `vw_services` AS
+    SELECT 
+        `s`.`id` AS `id`,
+        `u`.`username` AS `user`,
+        `r`.`number` AS `number`,
+        `rt`.`description` AS `type_room`,
+        `pk`.`description` AS `package`,
+        `s`.`net_value` AS `net_value`,
+        `s`.`time_service` AS `time_service`,
+        `s`.`time_clean` AS `time_clean`,
+        `s`.`status` AS `status`,
+        `s`.`datetime_start_service` AS `datetime_start_service`,
+        `s`.`datetime_end_service` AS `datetime_end_service`,
+        `s`.`datetime_end_real_service` AS `datetime_end_real_service`,
+        `s`.`datetime_start_clean` AS `datetime_start_clean`,
+        `s`.`datetime_end_clean` AS `datetime_end_clean`,
+        `s`.`datetime_end_real_clean` AS `datetime_end_real_clean`,
+        TIME_TO_SEC(TIMEDIFF(`s`.`datetime_end_service`,
+                        `s`.`datetime_end_real_service`)) AS `difference`
+    FROM
+        (((((`service` `s`
+        JOIN `user` `u` ON ((`s`.`id_user` = `u`.`id`)))
+        JOIN `room` `r` ON ((`r`.`id` = `s`.`id_room`)))
+        JOIN `room_type` `rt` ON ((`rt`.`id` = `r`.`id_type`)))
+        JOIN `package_x_type_room` `ptr` ON ((`ptr`.`id` = `s`.`id_package`)))
+        JOIN `package` `pk` ON ((`pk`.`id` = `ptr`.`id_package`)))
+    ORDER BY `s`.`datetime_start_service` DESC

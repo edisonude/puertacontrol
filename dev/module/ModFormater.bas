@@ -12,8 +12,8 @@ result = hourExtracted & ":" & minuteExtracted
 getHourAndMinuteFromDate = result
 End Function
 
-Public Function getValue(value, default)
-getValue = IIf(IsNull(value), default, value)
+Public Function getValue(value, Default)
+getValue = IIf(IsNull(value), Default, value)
 End Function
 
 
@@ -38,4 +38,27 @@ End Function
 'Convierte una fecha
 Public Function convertDateTime(value) As String
 convertDateTime = IIf(IsNull(value), "", Format(value, "dd-MM-yyyy hh:MM:ss"))
+End Function
+
+Public Function convertTime(value) As String
+On Error GoTo control
+    convertTime = IIf(IsNull(value), "", Format(value, "hh:MM:ss"))
+    Exit Function
+control:
+    convertTime = ""
+End Function
+
+Public Function convertSecondsToTime(value) As String
+Dim time As String
+If (value < 0) Then
+    time = "-"
+    value = value * -1
+End If
+
+Dim h, m, s, r As Double
+s = value Mod 60
+r = value \ 60
+m = r Mod 60
+h = r \ 60
+convertSecondsToTime = time & Format(h, "00") & ":" & Format(m, "00") & ":" & Format(s, "00")
 End Function

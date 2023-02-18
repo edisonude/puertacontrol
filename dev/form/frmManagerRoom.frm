@@ -1069,7 +1069,7 @@ Begin VB.Form frmManagerRoom
       Top             =   105
       Width           =   6045
       Begin VB.Timer timeReload 
-         Interval        =   30000
+         Interval        =   2000
          Left            =   2400
          Top             =   120
       End
@@ -7354,7 +7354,7 @@ End Sub
 Private Sub initFreeRoom(idRoom As Integer)
 frmModifyService.tIdService = Me.tIdService(idRoom)
 frmModifyService.tNoRoom = Me.lNoRoom(idRoom)
-frmModifyService.lEndService = "true"
+frmModifyService.tEnd = 1
 Set frmModifyService.manager = Me
 frmModifyService.Show vbModal
 End Sub

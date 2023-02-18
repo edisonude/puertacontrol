@@ -13,7 +13,7 @@ Begin VB.Form frmMenu
    WindowState     =   2  'Maximized
    Begin VB.Timer timeReload 
       Interval        =   5000
-      Left            =   2760
+      Left            =   2640
       Top             =   2160
    End
    Begin VB.Frame frmOptionsAdmin 
@@ -27,17 +27,43 @@ Begin VB.Form frmMenu
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   1695
+      Height          =   2055
       Left            =   120
       TabIndex        =   6
       Top             =   5445
       Visible         =   0   'False
       Width           =   3135
+      Begin VB.Label lRoomPrices 
+         Caption         =   "Precio Habitaciones"
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   14.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   -1  'True
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H009F4320&
+         Height          =   375
+         Left            =   360
+         TabIndex        =   14
+         Top             =   1440
+         Width           =   2610
+      End
+      Begin VB.Image Image5 
+         Height          =   210
+         Index           =   3
+         Left            =   120
+         Picture         =   "frmMenu.frx":0000
+         Top             =   1560
+         Width           =   150
+      End
       Begin VB.Image Image5 
          Height          =   210
          Index           =   1
          Left            =   120
-         Picture         =   "frmMenu.frx":0000
+         Picture         =   "frmMenu.frx":0202
          Top             =   1080
          Width           =   150
       End
@@ -63,7 +89,7 @@ Begin VB.Form frmMenu
          Height          =   210
          Index           =   0
          Left            =   120
-         Picture         =   "frmMenu.frx":0202
+         Picture         =   "frmMenu.frx":0404
          Top             =   525
          Width           =   150
       End
@@ -87,8 +113,9 @@ Begin VB.Form frmMenu
       End
    End
    Begin VB.Timer timeProcessor 
+      Enabled         =   0   'False
       Interval        =   1000
-      Left            =   2280
+      Left            =   2160
       Top             =   2160
    End
    Begin VB.Frame Frame1 
@@ -129,7 +156,7 @@ Begin VB.Form frmMenu
          Height          =   210
          Index           =   2
          Left            =   120
-         Picture         =   "frmMenu.frx":0404
+         Picture         =   "frmMenu.frx":0606
          Top             =   2355
          Width           =   150
       End
@@ -224,7 +251,7 @@ Begin VB.Form frmMenu
    End
    Begin VB.Label lVersion 
       Alignment       =   1  'Right Justify
-      Caption         =   "1.14"
+      Caption         =   "2.1"
       BeginProperty Font 
          Name            =   "Calibri"
          Size            =   9.75
@@ -315,21 +342,21 @@ Begin VB.Form frmMenu
    Begin VB.Image Image4 
       Height          =   630
       Left            =   240
-      Picture         =   "frmMenu.frx":0606
+      Picture         =   "frmMenu.frx":0808
       Top             =   4080
       Width           =   2520
    End
    Begin VB.Image Image3 
       Height          =   630
       Left            =   240
-      Picture         =   "frmMenu.frx":58F8
+      Picture         =   "frmMenu.frx":5AFA
       Top             =   3120
       Width           =   2535
    End
    Begin VB.Image Image2 
       Height          =   615
       Left            =   240
-      Picture         =   "frmMenu.frx":AC92
+      Picture         =   "frmMenu.frx":AE94
       Top             =   2400
       Width           =   2535
    End
@@ -338,7 +365,7 @@ Begin VB.Form frmMenu
       BorderStyle     =   1  'Fixed Single
       Height          =   1020
       Left            =   240
-      Picture         =   "frmMenu.frx":FE30
+      Picture         =   "frmMenu.frx":10032
       Top             =   120
       Width           =   2850
    End
@@ -444,7 +471,16 @@ Set frmReportServices.parent = Me
 frmReportServices.Show , Me
 End Sub
 
+Private Sub lRoomPrices_Click()
+frmRoomPrices.left = Me.lReferencia.left - 1000
+frmRoomPrices.Top = Me.lReferencia.Top - 500
+Set frmRoomPrices.parent = Me
+
+frmRoomPrices.Show , Me
+End Sub
+
 Private Sub timeProcessor_Timer()
+'Se desactiva temporalmente esta funcion porque no estan llegando los logs
 Dim operationsToProcess(10) As COperationRoomLog
  operationUtil.loadLast10OperationsNoProcessed
 End Sub
@@ -469,7 +505,12 @@ rec.CursorLocation = adUseClient
 End Function
 
 Private Sub loadResumen()
-Call loadNumbersAvailable
+rec.Open "select count(id) as count from room where code_status='DIS';", conBd, adOpenStatic, adLockOptimistic
+If (rec.RecordCount >= 1) Then
+    Me.tRoomsInService = MAX_NO_ROOMS - rec("count")
+    Me.tRoomsFree = rec("count")
+End If
+rec.Close
 End Sub
 
 Private Sub loadNextAvailable()
@@ -485,17 +526,6 @@ Private Sub loadNextAvailable()
 'End If
 'rec.Close
 End Sub
-
-Private Sub loadNumbersAvailable()
-rec.Open "select count(id) as count from room where code_status='DIS';", conBd, adOpenStatic, adLockOptimistic
-If (rec.RecordCount >= 1) Then
-    Me.tRoomsInService = MAX_NO_ROOMS - rec("count")
-    Me.tRoomsFree = rec("count")
-End If
-rec.Close
-
-End Sub
-
 
 Private Sub timeReload_Timer()
 Call loadResumen

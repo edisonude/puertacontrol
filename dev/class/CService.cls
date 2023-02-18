@@ -16,88 +16,63 @@ Option Explicit
 'Clase CService, mapea directamente con la tabla service para la gestión de servicios
 
 'Attributes
-Public id As Integer
-Public idUser As Integer
-Public idRoom As Integer
-Public idPackage As Integer
-Public timeService As Integer
-Public timeClean As Integer
-Public dateTimeStartService As Date
-Public dateTimeEndService As Date
-Public dateTimeStartClean As Date
-Public dateTimeEndClean As Date
+Public id As Double
+Public id_user As Integer
+Public id_room As Integer
+Public id_package As Integer
+Public time_service As Integer
+Public time_clean As Integer
+Public datetime_start_service As Date
+Public datetime_end_service As Date
+Public datetime_start_clean As Date
+Public datetime_end_clean As Date
+Public status As String
+Public datetime_end_real_service As Date
+Public datetime_end_real_clean As Date
+Public net_value As Double
 
-Public Sub loadService(id As Integer, idUser As Integer, idRoom As Integer, idPackage As Integer, _
-    timeService As Integer, timeClean As Integer, dateTimeStartService As Date, dateTimeEndService As Date, _
-     dateTimeStartClean As Date, dateTimeEndClean As Date)
+Public Sub loadService(id As Double, id_user As Integer, id_room As Integer, id_package As Integer, _
+    time_service As Integer, time_clean As Integer, datetime_start_service As Date, datetime_end_service As Date, _
+    datetime_start_clean As Date, datetime_end_clean As Date, status As String, datetime_end_real_service As Date, _
+    datetime_end_real_clean As Date, net_value As Double)
+    
     Me.id = id
-    Me.idUser = idUser
-    Me.idRoom = idRoom
-    Me.idPackage = idPackage
-    Me.timeService = timeService
-    Me.timeClean = timeClean
-    Me.dateTimeStartService = dateTimeStartService
-    Me.dateTimeEndService = dateTimeEndService
-    Me.dateTimeStartClean = dateTimeStartClean
-    Me.dateTimeEndClean = dateTimeEndClean
+    Me.id_user = id_user
+    Me.id_room = id_room
+    Me.id_package = id_package
+    Me.time_service = time_service
+    Me.time_clean = time_clean
+    Me.datetime_start_service = datetime_start_service
+    Me.datetime_end_service = datetime_end_service
+    Me.datetime_start_clean = datetime_start_clean
+    Me.datetime_end_clean = datetime_end_clean
+    Me.status = status
+    Me.datetime_end_real_service = datetime_end_real_service
+    Me.datetime_end_real_clean = datetime_end_real_clean
+    Me.net_value = net_value
 End Sub
 
 Public Sub loadServiceFromRecord(rec As Recordset)
-    Call Me.loadService(rec(1), rec(2), rec(3), rec(4), rec(5), rec(6), rec(7), rec(8), rec(9), rec(10))
+    Call Me.loadService(rec(0), rec(1), rec(2), rec(3), rec(4), rec(5), rec(6), rec(7), rec(8), rec(9), rec(10), rec(11), rec(12), rec(13))
 End Sub
 
-Public Function loadLast10OperationsNoProcessed() As cService()
+Public Function findById(id_service As Double) As cService
 Dim conBd As ADODB.Connection
 Dim rec As New ADODB.Recordset
-Dim operationsToProcess(10) As cService
-Dim pos As Integer
-pos = 1
+Dim service As cService
 
 'Se solicita una conexion a la bd
 Set conBd = ModConexion.getNewConection
 rec.CursorLocation = adUseClient
 
-rec.Open "select * from operation_room_log order by date_action ASC LIMIT 10", conBd, adOpenStatic, adLockOptimistic
+rec.Open "select * from service where id=" & id_service & "", conBd, adOpenStatic, adLockOptimistic
 
-If (rec.RecordCount >= 1) Then
-    Do Until rec.EOF
-        Dim service As New cService
-        service.loadServiceFromRecord (rec)
-        operationsToProcess(pos) = service
-        rec.MoveNext
-    Loop
+If (rec.RecordCount = 1) Then
+    Set service = New cService
+    Call service.loadServiceFromRecord(rec)
 End If
-
-loadLast10OperationsNoProcessed = operationsToProcess
+Set findById = service
 
 rec.Close
 conBd.Close
 End Function
-
-'Elimina el detalle de un servicio
-Public Function removeServiceDetail(id_detail, id_package, id_product) As Boolean
-
-Dim conBd As ADODB.Connection
-conBd.BeginTrans
-
-'Elimina el detalle relacionado al servicio
-SQL = "DELETE from service_details where id_detail = " & id_detail & ""
-conBd.Execute (SQL)
-
-If id_product > 0 Then
-                
-Else
-
-
-End If
-
-
-
-Set conBd = ModConexion.getNewConection
-
-
-
-MsgBox "El producto se eliminó con éxito", vbInformation
-Unload Me
-End Function
-

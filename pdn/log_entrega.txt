@@ -10,3 +10,13 @@ Descripción: Ajuste para la modificación y finalización de servicios - Requiere 
 
 Version: 1.14
 Descripción: Se agrega la habitación 101, se realizan ajustes para la carga de información de las habitaciones
+
+-----------------------------------------------------------------------------------------------------------------------
+
+Version: 2.0
+Descripción: Se agrega persona extra, horas extra, agregar items al servicio en marcha, ajuste al rendimieno del servicio y diferencia por tiempo de no uso o extra
+
+-----------------------------------------------------------------------------------------------------------------------
+
+Version: 2.1
+Descripción: Se corrigen detalles con múltiple cantidad y tiempos de diferencia negativos en el servicio
