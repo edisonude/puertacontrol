@@ -486,6 +486,7 @@ Begin VB.Form frmReportServices
             Object.Width           =   2540
          EndProperty
          BeginProperty ColumnHeader(11) {BDD1F052-858B-11D1-B16A-00C0F0283628} 
+            Alignment       =   1
             SubItemIndex    =   10
             Text            =   "Diferencia"
             Object.Width           =   2540
@@ -667,13 +668,13 @@ widthCols(1) = widthTotal * 0 'id
 widthCols(2) = widthTotal * 0.08 'user
 widthCols(3) = widthTotal * 0.04 'number room
 widthCols(4) = widthTotal * 0.12 'type room
-widthCols(5) = widthTotal * 0.1 'paquete
+widthCols(5) = widthTotal * 0.09 'paquete
 widthCols(6) = widthTotal * 0.1 'valor total
 widthCols(7) = widthTotal * 0.07 'estado
 widthCols(8) = widthTotal * 0.13 'fecha inicio servicio
 widthCols(9) = widthTotal * 0.13 'fecha fin servicio
 widthCols(10) = widthTotal * 0.13 'fecha fin servicio real
-widthCols(11) = widthTotal * 0.095  'diferencia en tiempos
+widthCols(11) = widthTotal * 0.088  'diferencia en tiempos
 
 
 ModComponents.setWidthForColumnsAndFilters tFiltro, listProducts, widthCols
@@ -690,8 +691,8 @@ filtersApplied = 0
 Me.tTotalValueServices.left = Me.tFiltro(6).left
 Me.tTotalValueServices.Width = Me.tFiltro(6).Width
 
-Me.tTotalDifference.Width = widthTotal * 0.095
-Me.tTotalDifference.left = Me.listProducts.Width - Me.tTotalDifference.Width
+Me.tTotalDifference.Width = widthCols(11)
+Me.tTotalDifference.left = Me.listProducts.Width - Me.tTotalDifference.Width - 100
 
 'Iniciar
 Me.reloadForm
