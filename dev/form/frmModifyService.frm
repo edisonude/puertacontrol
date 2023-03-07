@@ -887,6 +887,9 @@ Me.listInvoice.ColumnHeaders(8).Width = ancho * 0
 
 'baseSQL = "SELECT p.*,pt.description as type FROM product p inner join product_type pt on p.code_product_type = pt.code"
 baseSQL = "SELECT p.*,pt.description as type FROM product p inner join product_type pt on p.code_product_type = pt.code where p.description like '%P1%' and pt.description like '%P2%'"
+
+valueAddHour = 0
+valueAddPerson = 0
 End Sub
 
 Private Sub iReload_Click()

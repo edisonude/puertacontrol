@@ -251,7 +251,7 @@ Begin VB.Form frmMenu
    End
    Begin VB.Label lVersion 
       Alignment       =   1  'Right Justify
-      Caption         =   "2.1"
+      Caption         =   "2.2"
       BeginProperty Font 
          Name            =   "Calibri"
          Size            =   9.75

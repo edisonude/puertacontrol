@@ -107,7 +107,7 @@ Begin VB.Form frmReportServices
             _ExtentX        =   2355
             _ExtentY        =   661
             _Version        =   393216
-            Format          =   126287873
+            Format          =   124125185
             CurrentDate     =   43142
          End
          Begin MSComCtl2.DTPicker tTimeStart 
@@ -129,7 +129,7 @@ Begin VB.Form frmReportServices
             _ExtentY        =   661
             _Version        =   393216
             CustomFormat    =   "HH:mm:ss"
-            Format          =   126287874
+            Format          =   124125186
             CurrentDate     =   43142
          End
          Begin MSComCtl2.DTPicker tDateEnd 
@@ -141,7 +141,7 @@ Begin VB.Form frmReportServices
             _ExtentX        =   2355
             _ExtentY        =   661
             _Version        =   393216
-            Format          =   126287873
+            Format          =   124125185
             CurrentDate     =   43142
          End
          Begin MSComCtl2.DTPicker tTimeEnd 
@@ -153,7 +153,7 @@ Begin VB.Form frmReportServices
             _ExtentX        =   2566
             _ExtentY        =   661
             _Version        =   393216
-            Format          =   126287874
+            Format          =   124125186
             CurrentDate     =   43142
          End
          Begin VB.Label label 
@@ -725,7 +725,7 @@ Do Until rec.EOF
         li.SubItems(8) = ModFormater.convertDateTime(rec("datetime_end_service"))
         li.SubItems(9) = ModFormater.convertDateTime(rec("datetime_end_real_service"))
         totalTime = totalTime + ModFormater.getValue(rec("difference"), 0)
-        li.SubItems(10) = ModFormater.convertSecondsToTime(rec("difference"))
+        li.SubItems(10) = ModFormater.convertSecondsToTime(ModFormater.getValue(rec("difference"), 0))
     rec.MoveNext
 Loop
 rec.Close
